@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
     <title>Self-Audit ZfP - Schaeffler Technologies</title>
     <style>
         /* === DARK MODE VARIABLEN === */
@@ -149,8 +149,8 @@
             height: 40px;
             border-radius: 10px;
             border: 1px solid #ccc;
-            background: var(--toggle-bg, #ffffff);
-            color: var(--toggle-text, #333333);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -160,6 +160,14 @@
         }
         
         /* === AUDIT AUSWAHL (STARTSEITE) === */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
         .audit-selection {
             text-align: center;
             margin: 15px 0;
@@ -219,20 +227,12 @@
             min-width: 35px;
         }
         
-        /* === SUBMENU (AUDIT ÜBERSICHT) === */
-        .audit-submenu {
-            display: none;
-            padding: 20px;
-            background: var(--bg-tertiary);
-            border-radius: 8px;
-            margin: 20px 0;
+        /* === AUDIT ÜBERSICHT (NEUE SEITE) === */
+        .audit-overview {
+            padding: 0;
         }
         
-        .audit-submenu.active {
-            display: block;
-        }
-        
-        .submenu-header {
+        .overview-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -241,33 +241,33 @@
             border-bottom: 1px solid var(--border-color);
         }
         
-        .submenu-title {
+        .overview-title {
             font-size: 1.2em;
             font-weight: bold;
             color: var(--text-tertiary);
         }
         
-        .submenu-info {
+        .overview-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             margin-bottom: 25px;
         }
         
-        .info-card {
-            background: var(--bg-secondary);
+        .stat-card {
+            background: var(--bg-tertiary);
             padding: 15px;
             border-radius: 6px;
             box-shadow: 0 2px 4px var(--shadow-color);
         }
         
-        .info-card h3 {
+        .stat-card h3 {
             font-size: 0.9em;
             color: var(--text-secondary);
             margin-bottom: 5px;
         }
         
-        .info-card p {
+        .stat-card p {
             font-size: 1.1em;
             font-weight: bold;
             color: var(--text-tertiary);
@@ -336,20 +336,47 @@
             color: white;
         }
         
-        .submenu-actions {
+        .overview-actions {
             display: flex;
             gap: 10px;
             margin-top: 25px;
             justify-content: flex-end;
         }
         
-        /* === AUDIT CONTENT (FRAGEN) === */
-        .audit-content {
-            display: none;
+        /* === AUDIT FRAGEN (NEUE SEITE) === */
+        .audit-questions-page {
+            padding: 0;
         }
         
-        .audit-content.active {
-            display: block;
+        .questions-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .questions-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--text-tertiary);
+        }
+        
+        .back-btn {
+            padding: 6px 12px;
+            background: var(--btn-info);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: all 0.2s ease;
+        }
+        
+        .back-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
         }
         
         /* === CONTROLS === */
@@ -381,10 +408,9 @@
         }
         
         .btn-back { background: var(--btn-back); color: white; }
-        .btn-submenu { background: var(--btn-info); color: white; }
         .btn-report { background: var(--btn-report); color: white; }
         .btn-danger { background: var(--btn-danger); color: white; }
-        .btn-info { background: var(--btn-info); color: white; }
+        .btn-success { background: var(--btn-success); color: white; }
         .btn-export { background: var(--btn-export); color: white; }
         
         button:hover { 
@@ -433,35 +459,11 @@
             font-weight: bold;
         }
         
-        /* === KATEGORIEN === */
-        .section {
-            margin-bottom: 15px;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .section-header {
-            background: var(--header-bg);
-            color: white;
-            padding: 10px 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            font-size: 0.95em;
-        }
-        
-        .section-header h2 { 
-            margin: 0; 
-            font-size: 1em;
-        }
-        
-        .section-content {
-            padding: 12px;
-        }
-        
         /* === FRAGEN STYLES === */
+        .questions-container {
+            margin-top: 15px;
+        }
+        
         .question {
             margin-bottom: 12px;
             padding: 12px;
@@ -617,59 +619,24 @@
             .audit-btn { padding: 10px 6px; min-height: 70px; font-size: 0.85em; flex-direction: row; justify-content: flex-start; text-align: left; padding-left: 12px; }
             .audit-btn .btn-icon { font-size: 1.4em; margin-right: 8px; margin-bottom: 0; }
             .audit-btn .btn-progress { margin-left: auto; margin-top: 0; }
-            .section-header { padding: 8px 10px; font-size: 0.9em; }
-            .section-content { padding: 8px; }
             .question { padding: 10px; }
             .question-text { font-size: 0.9em; }
             .question-id { font-size: 0.7em; margin-left: 5px; }
             .answer-options { gap: 4px; }
             .answer-option { min-width: 60px; padding: 6px 3px; font-size: 0.85em; }
             .controls-scroll button { min-width: 70px; font-size: 0.75em; padding: 6px 8px; }
-            .submenu-info { grid-template-columns: 1fr; }
+            .overview-stats { grid-template-columns: 1fr; }
         }
         
         @media (min-width: 769px) {
             body { font-size: 15px; }
             .container { padding: 20px; }
-            .section-header { padding: 12px 15px; font-size: 1em; }
-            .section-content { padding: 15px; }
             .question { padding: 15px; }
             .question-text { font-size: 1em; }
             .question-id { font-size: 0.85em; padding: 4px 10px; }
             .answer-option { min-width: 80px; padding: 10px 5px; font-size: 1em; }
             .evidence { padding: 10px 12px; font-size: 0.9em; min-height: 50px; }
         }
-        
-        /* === MODAL === */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--modal-bg);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background: var(--modal-content-bg);
-            padding: 25px;
-            border-radius: 10px;
-            max-width: 95%;
-            width: 95%;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .audit-selection { display: block; }
-        .audit-selection.active { display: block; }
-        .audit-submenu { display: none; }
-        .audit-submenu.active { display: block; }
-        .audit-content { display: none; }
-        .audit-content.active { display: block; }
         
         footer {
             text-align: center;
@@ -678,37 +645,6 @@
             border-top: 1px solid var(--border-light);
             color: var(--text-secondary);
             font-size: 0.85em;
-        }
-        
-        .language-badge {
-            display: inline-block;
-            padding: 3px 8px;
-            background: var(--header-bg);
-            color: white;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-left: 10px;
-        }
-        
-        .lang-btn {
-            padding: 8px 20px;
-            background: var(--header-bg);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s ease;
-        }
-        
-        .lang-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-        
-        .lang-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
         }
     </style>
 </head>
@@ -719,98 +655,88 @@
             <div class="subtitle" id="mainSubtitle">Schaeffler Technologies AG & Co. KG</div>
         </header>
 
-        <!-- AUDIT AUSWAHL (STARTSEITE) -->
-        <div id="auditSelection" class="audit-selection active">
-            <h2 id="selectionTitle">Audit-Verfahren auswählen:</h2>
-            <div class="audit-buttons">
-                <button class="audit-btn wirbelstrom" data-audit="ET">
-                    <div class="btn-icon">⚡</div>
-                    <span class="audit-title-de">Wirbelstromprüfung</span>
-                    <span class="audit-title-en" style="display:none;">Eddy Current Testing</span>
-                    <div class="btn-progress" id="etProgress">0%</div>
-                </button>
-                <button class="audit-btn magnetpulver" data-audit="MT">
-                    <div class="btn-icon">🧲</div>
-                    <span class="audit-title-de">Magnetpulverprüfung</span>
-                    <span class="audit-title-en" style="display:none;">Magnetic Particle Testing</span>
-                    <div class="btn-progress" id="mtProgress">0%</div>
-                </button>
-                <button class="audit-btn nital" data-audit="NE">
-                    <div class="btn-icon">🧪</div>
-                    <span class="audit-title-de">Nital-Ätzen</span>
-                    <span class="audit-title-en" style="display:none;">Nital Etching</span>
-                    <div class="btn-progress" id="neProgress">0%</div>
-                </button>
-                <button class="audit-btn ultraschall" data-audit="UT">
-                    <div class="btn-icon">📡</div>
-                    <span class="audit-title-de">Ultraschallprüfung</span>
-                    <span class="audit-title-en" style="display:none;">Ultrasonic Testing</span>
-                    <div class="btn-progress" id="utProgress">0%</div>
-                </button>
-            </div>
-            <div style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
-                <button id="langDeBtn" class="lang-btn" style="background: var(--header-bg);">DEUTSCH</button>
-                <button id="langEnBtn" class="lang-btn" style="background: var(--btn-back);">ENGLISH</button>
+        <!-- === SEITE 1: AUDIT-AUSWAHL === -->
+        <div id="pageSelection" class="page active">
+            <div class="audit-selection">
+                <h2>Audit-Verfahren auswählen:</h2>
+                <div class="audit-buttons">
+                    <button class="audit-btn wirbelstrom" data-audit="ET">
+                        <div class="btn-icon">⚡</div>
+                        <span>Wirbelstromprüfung</span>
+                        <div class="btn-progress" id="etProgress">0%</div>
+                    </button>
+                    <button class="audit-btn magnetpulver" data-audit="MT">
+                        <div class="btn-icon">🧲</div>
+                        <span>Magnetpulverprüfung</span>
+                        <div class="btn-progress" id="mtProgress">0%</div>
+                    </button>
+                    <button class="audit-btn nital" data-audit="NE">
+                        <div class="btn-icon">🧪</div>
+                        <span>Nital-Ätzen</span>
+                        <div class="btn-progress" id="neProgress">0%</div>
+                    </button>
+                    <button class="audit-btn ultraschall" data-audit="UT">
+                        <div class="btn-icon">📡</div>
+                        <span>Ultraschallprüfung</span>
+                        <div class="btn-progress" id="utProgress">0%</div>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- AUDIT SUBMENU (ÜBERSICHT) -->
-        <div id="auditSubmenu" class="audit-submenu">
-            <div class="submenu-header">
-                <div class="submenu-title" id="submenuTitle">Audit Übersicht</div>
-                <span class="language-badge" id="languageBadge">DE</span>
+        <!-- === SEITE 2: AUDIT-ÜBERSICHT (BEREICHE) === -->
+        <div id="pageOverview" class="page audit-overview">
+            <div class="overview-header">
+                <div class="overview-title" id="overviewTitle">Audit Übersicht</div>
             </div>
             
-            <div class="submenu-info" id="submenuInfo">
+            <div class="overview-stats" id="overviewStats">
                 <!-- Wird dynamisch befüllt -->
             </div>
             
-            <h3 id="sectionsTitle" style="margin-bottom: 15px; color: var(--text-tertiary);">Verfügbare Prüfbereiche:</h3>
+            <h3 style="margin-bottom: 15px; color: var(--text-tertiary);">Verfügbare Prüfbereiche:</h3>
             
             <div class="section-list" id="sectionList">
                 <!-- Wird dynamisch mit Sektionen befüllt -->
             </div>
             
-            <div class="submenu-actions">
-                <button class="btn-back" id="backFromSubmenuBtn">← Zurück zur Auswahl</button>
-                <button class="btn-report" id="reportFromSubmenuBtn">📋 Bericht</button>
+            <div class="overview-actions">
+                <button class="btn-back" id="backToSelectionBtn">← Zurück zur Auswahl</button>
+                <button class="btn-report" id="reportFromOverviewBtn">📋 Englischer Bericht</button>
             </div>
         </div>
 
-        <!-- AUDIT CONTENT (FRAGEN) -->
-        <div id="auditContent" class="audit-content">
+        <!-- === SEITE 3: AUDIT-FRAGEN (EINZELNER BEREICH) === -->
+        <div id="pageQuestions" class="page audit-questions-page">
+            <div class="questions-header">
+                <div class="questions-title" id="currentSectionTitle"></div>
+                <button class="back-btn" id="backToOverviewBtn">← Alle Bereiche</button>
+            </div>
+
             <!-- CONTROLS -->
             <div class="controls-container">
                 <div class="controls-scroll">
-                    <button class="btn-submenu" id="backToSubmenuBtn">← Übersicht</button>
-                    <button class="btn-back" id="backToSelectionBtn">← Auswahl</button>
-                    <button class="btn-report" id="reportBtn">📋 Bericht</button>
+                    <button class="btn-back" id="backToSelectionFromQuestionsBtn">← Auswahl</button>
+                    <button class="btn-report" id="reportFromQuestionsBtn">📋 Englischer Bericht</button>
                     <button class="btn-danger" id="resetBtn">🗑️ Reset</button>
-                    <button class="btn-info" id="summaryBtn">📊 Zusammenfassung</button>
                     <button class="btn-export" id="exportBtn">📤 Export</button>
                 </div>
             </div>
 
             <!-- STATUS -->
             <div class="audit-status">
-                <span class="status-part">Fortschritt: <strong id="progressText">0%</strong></span>
-                <span class="separator">|</span>
-                <span class="status-part">Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong></span>
-                <span class="separator">|</span>
-                <span class="status-part">Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></span>
+                <span>Fortschritt: <strong id="progressText">0%</strong></span>
+                <span>|</span>
+                <span>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong></span>
+                <span>|</span>
+                <span>Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></span>
             </div>
             <div class="audit-progress-container">
                 <div class="audit-progress-bar" id="auditProgressBar" style="width: 0%">0%</div>
             </div>
 
-            <!-- AKTUELLE SEKTION -->
-            <div id="currentSectionHeader" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                <h2 id="currentSectionTitle" style="color: var(--text-tertiary); margin: 0;"></h2>
-                <button id="backToSectionListBtn" class="btn-info" style="padding: 6px 12px;">← Alle Bereiche</button>
-            </div>
-
-            <!-- FRAGEN DER AKTUELLEN SEKTION -->
-            <div id="questionsContainer"></div>
+            <!-- FRAGEN -->
+            <div class="questions-container" id="questionsContainer"></div>
         </div>
 
         <footer>
@@ -822,309 +748,190 @@
     <button id="themeToggleBtn" class="theme-toggle" title="Hell/Dunkel umschalten">🌓</button>
 
     <script>
-        // === GLOBALE VARIABLEN ===
+        // === GLOBALE VARIABLEN ======================
         let currentAuditType = null;
         let currentAuditData = null;
         let allQuestions = [];
         let auditSections = [];
-        let currentLanguage = 'de'; // Standard: Deutsch
         let currentSectionIndex = -1;
-        let jsonCache = {}; // Cache für geladene JSON-Dateien
-        
+        let jsonCache = {};
+
         // === AUDIT-TYPEN ===
         const AUDIT_TYPES = {
             ET: { 
                 id: 'ET', 
-                title: { de: 'Wirbelstromprüfung', en: 'Eddy Current Testing' },
-                short: 'ET', 
-                color: 'var(--audit-et)', 
+                title: 'Wirbelstromprüfung',
+                standard: 'TPG-AC7114/5',
                 icon: '⚡',
-                standards: { de: 'TPG-AC7114/5', en: 'TPG-AC7114/5' }
+                file: 'ET.json'
             },
             MT: { 
                 id: 'MT', 
-                title: { de: 'Magnetpulverprüfung', en: 'Magnetic Particle Testing' }, 
-                short: 'MT', 
-                color: 'var(--audit-mt)', 
+                title: 'Magnetpulverprüfung',
+                standard: 'TPG-AC7114/2',
                 icon: '🧲',
-                standards: { de: 'TPG-AC7114/2', en: 'TPG-AC7114/2' }
+                file: 'MT.json'
             },
             NE: { 
                 id: 'NE', 
-                title: { de: 'Nital-Ätzen', en: 'Nital Etching' }, 
-                short: 'NE', 
-                color: 'var(--audit-ne)', 
+                title: 'Nital-Ätzen',
+                standard: 'TPG-AC7114/12',
                 icon: '🧪',
-                standards: { de: 'TPG-AC7114/12', en: 'TPG-AC7114/12' }
+                file: 'NE.json'
             },
             UT: { 
                 id: 'UT', 
-                title: { de: 'Ultraschallprüfung', en: 'Ultrasonic Testing' }, 
-                short: 'UT', 
-                color: 'var(--audit-ut)', 
+                title: 'Ultraschallprüfung',
+                standard: 'TPG-AC7114/3',
                 icon: '📡',
-                standards: { de: 'TPG-AC7114/3', en: 'TPG-AC7114/3' }
+                file: 'UT.json'
             }
         };
 
-        // === INITIALISIERUNG ===
+        // === SEITEN-NAVIGATION ===
+        const PAGES = {
+            SELECTION: 'pageSelection',
+            OVERVIEW: 'pageOverview',
+            QUESTIONS: 'pageQuestions'
+        };
+
+        function showPage(pageId) {
+            Object.values(PAGES).forEach(id => {
+                document.getElementById(id).classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // === INITIALISIERUNG ========================
         document.addEventListener('DOMContentLoaded', function() {
             initThemeToggle();
-            initLanguage();
             setupEventListeners();
             loadAllAuditProgress();
         });
 
         // === THEME FUNKTIONEN ===
-        function getSavedTheme() {
-            return localStorage.getItem('zfp_selfaudit_theme');
-        }
-
-        function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-        }
-
         function initThemeToggle() {
-            const saved = getSavedTheme();
+            const saved = localStorage.getItem('zfp_selfaudit_theme');
             const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             const initial = saved || (systemDark ? 'dark' : 'light');
-            applyTheme(initial);
+            document.documentElement.setAttribute('data-theme', initial);
             
-            const btn = document.getElementById('themeToggleBtn');
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    const current = document.documentElement.getAttribute('data-theme') || 'light';
-                    const next = current === 'dark' ? 'light' : 'dark';
-                    localStorage.setItem('zfp_selfaudit_theme', next);
-                    applyTheme(next);
-                });
-            }
+            document.getElementById('themeToggleBtn').addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme') || 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                localStorage.setItem('zfp_selfaudit_theme', next);
+                document.documentElement.setAttribute('data-theme', next);
+            });
         }
 
-        // === SPRACH-FUNKTIONEN (KOMPLETT ÜBERARBEITET) ===
-        function initLanguage() {
-            const savedLang = localStorage.getItem('zfp_selfaudit_language') || 'de';
-            
-            // Sprach-Buttons
-            document.getElementById('langDeBtn').addEventListener('click', () => setLanguage('de'));
-            document.getElementById('langEnBtn').addEventListener('click', () => setLanguage('en'));
-            
-            // Initiale Sprache setzen
-            setLanguage(savedLang, false);
-        }
-
-        function setLanguage(lang, save = true) {
-            if (currentLanguage === lang) return;
-            
-            const oldLanguage = currentLanguage;
-            currentLanguage = lang;
-            
-            if (save) {
-                localStorage.setItem('zfp_selfaudit_language', lang);
-            }
-            
-            // UI aktualisieren
-            document.getElementById('languageBadge').textContent = lang.toUpperCase();
-            
-            // Button-Styling
-            document.getElementById('langDeBtn').style.background = lang === 'de' ? 'var(--header-bg)' : 'var(--btn-back)';
-            document.getElementById('langEnBtn').style.background = lang === 'en' ? 'var(--header-bg)' : 'var(--btn-back)';
-            
-            // Audit-Titel umschalten
-            document.querySelectorAll('.audit-title-de').forEach(el => el.style.display = lang === 'de' ? 'inline' : 'none');
-            document.querySelectorAll('.audit-title-en').forEach(el => el.style.display = lang === 'en' ? 'inline' : 'none');
-            
-            // UI-Texte aktualisieren
-            updateUITexts();
-            
-            // +++ WICHTIG: Wenn ein Audit geladen ist, KOMPLETT NEU LADEN +++
-            if (currentAuditType) {
-                // Aktuellen Audit-Typ merken
-                const auditType = currentAuditType;
-                
-                // Antworten für alte Sprache speichern (getrennte Sprachstände)
-                if (allQuestions.length > 0) {
-                    saveCurrentAuditData(oldLanguage);
-                }
-                
-                // Audit in NEUER Sprache laden
-                currentAuditType = null;
-                currentAuditData = null;
-                allQuestions = [];
-                auditSections = [];
-                
-                startAudit(auditType);
-            }
-        }
-
-        function updateUITexts() {
-            // Auswahlseite
-            document.getElementById('selectionTitle').textContent = 
-                currentLanguage === 'de' ? 'Audit-Verfahren auswählen:' : 'Select audit procedure:';
-            
-            // Submenu
-            document.getElementById('submenuTitle').textContent = 
-                currentLanguage === 'de' ? 'Audit Übersicht' : 'Audit Overview';
-            document.getElementById('sectionsTitle').textContent = 
-                currentLanguage === 'de' ? 'Verfügbare Prüfbereiche:' : 'Available inspection areas:';
-            document.getElementById('backFromSubmenuBtn').innerHTML = 
-                `← ${currentLanguage === 'de' ? 'Zurück zur Auswahl' : 'Back to selection'}`;
-            document.getElementById('reportFromSubmenuBtn').innerHTML = 
-                `📋 ${currentLanguage === 'de' ? 'Bericht' : 'Report'}`;
-            
-            // Content Buttons
-            document.getElementById('backToSubmenuBtn').innerHTML = 
-                `← ${currentLanguage === 'de' ? 'Übersicht' : 'Overview'}`;
-            document.getElementById('backToSelectionBtn').innerHTML = 
-                `← ${currentLanguage === 'de' ? 'Auswahl' : 'Selection'}`;
-            document.getElementById('backToSectionListBtn').innerHTML = 
-                `← ${currentLanguage === 'de' ? 'Alle Bereiche' : 'All areas'}`;
-            document.getElementById('reportBtn').innerHTML = `📋 ${currentLanguage === 'de' ? 'Bericht' : 'Report'}`;
-            document.getElementById('resetBtn').innerHTML = `🗑️ ${currentLanguage === 'de' ? 'Reset' : 'Reset'}`;
-            document.getElementById('summaryBtn').innerHTML = `📊 ${currentLanguage === 'de' ? 'Zusammenfassung' : 'Summary'}`;
-            document.getElementById('exportBtn').innerHTML = `📤 ${currentLanguage === 'de' ? 'Export' : 'Export'}`;
-            
-            // Status
-            const statusParts = document.querySelectorAll('.status-part');
-            if (statusParts.length >= 3) {
-                statusParts[0].innerHTML = `${currentLanguage === 'de' ? 'Fortschritt' : 'Progress'}: <strong id="progressText">0%</strong>`;
-                statusParts[1].innerHTML = `${currentLanguage === 'de' ? 'Fragen' : 'Questions'}: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong>`;
-                statusParts[2].innerHTML = `${currentLanguage === 'de' ? 'Ja' : 'Yes'}: <strong id="yesCount">0</strong> | ${currentLanguage === 'de' ? 'Nein' : 'No'}: <strong id="noCount">0</strong>`;
-            }
-            
-            // Header aktualisieren, wenn Audit geladen
-            if (currentAuditType) {
-                const auditInfo = AUDIT_TYPES[currentAuditType];
-                document.getElementById('mainTitle').textContent = `Self-Audit: ${auditInfo.title[currentLanguage]}`;
-                document.getElementById('mainSubtitle').textContent = auditInfo.standards[currentLanguage];
-            }
-        }
-
-        // === JSON-LADE-FUNKTIONEN ===
+        // === JSON LADEN ============================
         async function loadAuditFromJSON(auditType) {
-            const fileName = `${auditType}_${currentLanguage.toUpperCase()}.json`;
+            const auditInfo = AUDIT_TYPES[auditType];
+            const fileName = auditInfo.file;
             
             try {
-                // Cache prüfen
                 if (jsonCache[fileName]) {
-                    console.log(`✅ Cache: ${fileName}`);
                     return jsonCache[fileName];
                 }
                 
-                console.log(`📁 Lade: ${fileName}`);
-                const response = await fetch(fileName);
+                console.log(`Lade: ${fileName}`);
+                
+                let url = fileName;
+                if (window.location.hostname.includes('github.io')) {
+                    const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+                    url = basePath + fileName;
+                }
+                
+                const response = await fetch(url + '?t=' + Date.now());
                 
                 if (!response.ok) {
                     throw new Error(`Datei ${fileName} nicht gefunden`);
                 }
                 
                 const jsonData = await response.json();
-                
-                // +++ WICHTIG: Antwort-Optionen normalisieren +++
-                if (jsonData.questions) {
-                    jsonData.questions.forEach(q => {
-                        if (q.answer_options) {
-                            q.answer_options = q.answer_options.map(opt => {
-                                if (opt === 'Ja' || opt === 'YES' || opt === 'JA') return 'YES';
-                                if (opt === 'Nein' || opt === 'NO') return 'NO';
-                                if (opt === 'N/A' || opt === 'NA') return 'NA';
-                                return opt;
-                            });
-                        }
-                        if (q.answer_options && !q.has_na_option) {
-                            q.has_na_option = q.answer_options.includes('NA');
-                        }
-                    });
-                }
-                
                 jsonCache[fileName] = jsonData;
                 return jsonData;
                 
             } catch (error) {
-                console.error(`❌ Fehler: ${fileName} - ${error.message}`);
+                console.error(`Fehler: ${error.message}`);
+                alert(`Fehler: ${fileName} konnte nicht geladen werden!`);
                 return null;
             }
         }
 
-        // === AUDIT STARTEN (KOMPLETT ÜBERARBEITET) ===
+        // === AUDIT STARTEN =========================
         async function startAudit(auditType) {
-            // Alte Daten speichern (getrennte Sprachstände)
-            if (currentAuditType && currentAuditData) {
-                saveCurrentAuditData(currentLanguage === 'de' ? 'en' : 'de');
+            if (currentAuditType) {
+                saveCurrentAuditData();
             }
             
             currentAuditType = auditType;
             currentSectionIndex = -1;
             
-            // UI umschalten
-            document.getElementById('auditSelection').classList.remove('active');
-            document.getElementById('auditSubmenu').classList.add('active');
-            document.getElementById('auditContent').classList.remove('active');
+            // Gespeicherte Daten laden
+            const savedKey = `zfpSelfAudit_${currentAuditType}`;
+            const saved = localStorage.getItem(savedKey);
             
-            try {
-                // 1. Gespeicherte Daten für DIESE Sprache laden
-                const savedKey = `zfpSelfAudit_${currentAuditType}_${currentLanguage}`;
-                const saved = localStorage.getItem(savedKey);
-                
-                if (saved) {
-                    console.log(`📦 Gespeicherte Daten: ${savedKey}`);
-                    const parsed = JSON.parse(saved);
-                    currentAuditData = parsed;
-                    allQuestions = parsed.questions || [];
-                    auditSections = parsed.sections || [];
-                } else {
-                    // 2. JSON laden
-                    console.log(`🔄 Lade JSON für ${auditType} (${currentLanguage})`);
-                    let jsonData = await loadAuditFromJSON(auditType);
-                    
-                    if (!jsonData) {
-                        alert(`❌ Datei ${auditType}_${currentLanguage.toUpperCase()}.json nicht gefunden!`);
-                        goBackToSelection();
-                        return;
-                    }
-                    
-                    // 3. Audit-Daten initialisieren
-                    initializeAuditData(jsonData);
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                currentAuditData = parsed;
+                allQuestions = parsed.questions || [];
+                auditSections = parsed.sections || [];
+            } else {
+                // JSON laden
+                const jsonData = await loadAuditFromJSON(auditType);
+                if (!jsonData) {
+                    return;
                 }
-                
-                // 4. UI aktualisieren
-                const auditInfo = AUDIT_TYPES[auditType];
-                document.getElementById('mainTitle').textContent = `Self-Audit: ${auditInfo.title[currentLanguage]}`;
-                document.getElementById('mainSubtitle').textContent = auditInfo.standards[currentLanguage];
-                
-                // 5. Submenu rendern
-                renderSubmenu();
-                updateCurrentAuditProgress();
-                updateProgressDisplays();
-                
-            } catch (error) {
-                console.error('Fehler:', error);
-                alert(`Fehler beim Laden des Audits: ${error.message}`);
-                goBackToSelection();
+                initializeAuditData(jsonData);
             }
+            
+            // UI aktualisieren
+            document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditType].title}`;
+            document.getElementById('mainSubtitle').textContent = AUDIT_TYPES[auditType].standard;
+            
+            // Übersichtsseite anzeigen
+            renderOverview();
+            showPage(PAGES.OVERVIEW);
+            updateProgressDisplays();
         }
 
+        // === AUDIT-DATEN INITIALISIEREN ============
         function initializeAuditData(jsonData) {
             allQuestions = [];
             
-            if (!jsonData.questions || !Array.isArray(jsonData.questions)) {
-                console.error('Ungültiges JSON-Format');
-                return;
-            }
-            
-            // Fragen normalisieren
             jsonData.questions.forEach(q => {
-                const question = {
+                // Deutschen Text verwenden
+                let questionText = q.question;
+                let guidanceText = q.guidance;
+                
+                if (q.question && typeof q.question === 'object') {
+                    questionText = q.question.de || '';
+                }
+                
+                if (q.guidance && typeof q.guidance === 'object') {
+                    guidanceText = q.guidance.de || '';
+                }
+                
+                // Antwort-Optionen normalisieren
+                let options = q.answer_options || ["YES", "NO"];
+                options = options.map(opt => {
+                    if (opt === 'Ja' || opt === 'YES' || opt === 'JA') return 'YES';
+                    if (opt === 'Nein' || opt === 'NO') return 'NO';
+                    if (opt === 'N/A' || opt === 'NA') return 'NA';
+                    return opt;
+                });
+                
+                allQuestions.push({
                     id: q.id,
-                    text: q.question,
-                    guidance: q.guidance || "",
-                    options: q.answer_options || ["YES", "NO"],
-                    hasNA: q.has_na_option || (q.answer_options && q.answer_options.includes('NA')),
+                    text: questionText,
+                    guidance: guidanceText,
+                    options: options,
+                    hasNA: q.has_na_option || options.includes('NA'),
                     sectionId: q.id.split('.')[0],
                     answer: "",
                     evidence: ""
-                };
-                allQuestions.push(question);
+                });
             });
             
             // Sektionen extrahieren
@@ -1133,21 +940,16 @@
             // Sektionstitel zuweisen
             allQuestions.forEach(q => {
                 const section = auditSections.find(s => s.id === q.sectionId);
-                if (section) {
-                    q.sectionTitle = section.title;
-                }
+                if (section) q.sectionTitle = section.title;
             });
             
-            // Audit-Daten speichern
             currentAuditData = {
                 meta: {
-                    title: jsonData.audit_tool || `${AUDIT_TYPES[currentAuditType].title[currentLanguage]}`,
+                    title: jsonData.audit_tool?.de || AUDIT_TYPES[currentAuditType].title,
                     revision: jsonData.revision || "1.0",
-                    audit_tool: jsonData.audit_tool || "",
                     created: new Date().toISOString(),
                     lastModified: new Date().toISOString(),
-                    auditType: currentAuditType,
-                    language: currentLanguage
+                    auditType: currentAuditType
                 },
                 sections: auditSections,
                 questions: allQuestions
@@ -1156,56 +958,30 @@
             saveCurrentAuditData();
         }
 
-        // === SEKTIONEN EXTRAHIEREN (ANGEPASST AN IHRE JSONs) ===
+        // === SEKTIONEN EXTRAHIEREN =================
         function extractSectionsFromQuestions(questions) {
             const sectionMap = new Map();
+            const sectionIds = [...new Set(questions.map(q => q.id.split('.')[0]))];
             
-            // IDs extrahieren
-            const uniqueSectionIds = [...new Set(questions.map(q => q.id.split('.')[0]))];
+            sectionIds.sort((a, b) => parseFloat(a) - parseFloat(b));
             
-            uniqueSectionIds.sort((a, b) => {
-                const aNum = parseFloat(a);
-                const bNum = parseFloat(b);
-                return aNum - bNum;
-            });
-            
-            uniqueSectionIds.forEach(id => {
+            sectionIds.forEach(id => {
                 let title = '';
-                
-                if (currentLanguage === 'de') {
-                    switch(id) {
-                        case '3': title = '3. AUSRÜSTUNG UND MATERIALIEN'; break;
-                        case '4': title = '4. VERFAHRENSANWEISUNGEN UND TECHNIKEN'; break;
-                        case '5': title = '5. SYSTEMLEISTUNG UND PRÜFUNGEN'; break;
-                        case '6': title = '6. KALIBRIERUNG UND NORMALE'; break;
-                        case '7': title = '7. DURCHFÜHRUNG DER PRÜFUNG'; break;
-                        case '8': title = '8. DOKUMENTATION'; break;
-                        default: 
-                            if (id.startsWith('3')) title = '3. AUSRÜSTUNG';
-                            else if (id.startsWith('4')) title = '4. VERFAHREN';
-                            else if (id.startsWith('5')) title = '5. PRÜFUNGEN';
-                            else if (id.startsWith('6')) title = '6. KALIBRIERUNG';
-                            else if (id.startsWith('7')) title = '7. DURCHFÜHRUNG';
-                            else if (id.startsWith('8')) title = '8. DOKUMENTATION';
-                            else title = `${id}. BEREICH`;
-                    }
-                } else {
-                    switch(id) {
-                        case '3': title = '3. EQUIPMENT AND MATERIALS'; break;
-                        case '4': title = '4. PROCEDURES AND TECHNIQUES'; break;
-                        case '5': title = '5. SYSTEM PERFORMANCE AND CHECKS'; break;
-                        case '6': title = '6. CALIBRATION AND STANDARDS'; break;
-                        case '7': title = '7. INSPECTION PERFORMANCE'; break;
-                        case '8': title = '8. DOCUMENTATION'; break;
-                        default: 
-                            if (id.startsWith('3')) title = '3. EQUIPMENT';
-                            else if (id.startsWith('4')) title = '4. PROCEDURES';
-                            else if (id.startsWith('5')) title = '5. CHECKS';
-                            else if (id.startsWith('6')) title = '6. CALIBRATION';
-                            else if (id.startsWith('7')) title = '7. PERFORMANCE';
-                            else if (id.startsWith('8')) title = '8. DOCUMENTATION';
-                            else title = `${id}. SECTION`;
-                    }
+                switch(id) {
+                    case '3': title = '3. AUSRÜSTUNG UND MATERIALIEN'; break;
+                    case '4': title = '4. VERFAHRENSANWEISUNGEN UND TECHNIKEN'; break;
+                    case '5': title = '5. SYSTEMLEISTUNG UND PRÜFUNGEN'; break;
+                    case '6': title = '6. KALIBRIERUNG UND NORMALE'; break;
+                    case '7': title = '7. DURCHFÜHRUNG DER PRÜFUNG'; break;
+                    case '8': title = '8. DOKUMENTATION'; break;
+                    default: 
+                        if (id.startsWith('3')) title = '3. AUSRÜSTUNG';
+                        else if (id.startsWith('4')) title = '4. VERFAHREN';
+                        else if (id.startsWith('5')) title = '5. PRÜFUNGEN';
+                        else if (id.startsWith('6')) title = '6. KALIBRIERUNG';
+                        else if (id.startsWith('7')) title = '7. DURCHFÜHRUNG';
+                        else if (id.startsWith('8')) title = '8. DOKUMENTATION';
+                        else title = `${id}. BEREICH`;
                 }
                 
                 sectionMap.set(id, {
@@ -1218,34 +994,34 @@
             return Array.from(sectionMap.values());
         }
 
-        // === RENDER-FUNKTIONEN ===
-        function renderSubmenu() {
+        // === ÜBERSICHT RENDERN =====================
+        function renderOverview() {
             const auditInfo = AUDIT_TYPES[currentAuditType];
             const totalQuestions = allQuestions.length;
             const answered = allQuestions.filter(q => q.answer && q.answer !== "").length;
             const percent = totalQuestions > 0 ? Math.round((answered / totalQuestions) * 100) : 0;
             
-            // Info-Cards
-            document.getElementById('submenuInfo').innerHTML = `
-                <div class="info-card">
-                    <h3>${currentLanguage === 'de' ? 'Audit-Typ' : 'Audit Type'}</h3>
-                    <p>${auditInfo.title[currentLanguage]}</p>
+            document.getElementById('overviewTitle').textContent = `${auditInfo.title} - Übersicht`;
+            
+            document.getElementById('overviewStats').innerHTML = `
+                <div class="stat-card">
+                    <h3>Audit-Typ</h3>
+                    <p>${auditInfo.title}</p>
                 </div>
-                <div class="info-card">
-                    <h3>${currentLanguage === 'de' ? 'Standard' : 'Standard'}</h3>
-                    <p>${auditInfo.standards[currentLanguage]}</p>
+                <div class="stat-card">
+                    <h3>Standard</h3>
+                    <p>${auditInfo.standard}</p>
                 </div>
-                <div class="info-card">
-                    <h3>${currentLanguage === 'de' ? 'Fragen' : 'Questions'}</h3>
+                <div class="stat-card">
+                    <h3>Fragen</h3>
                     <p>${totalQuestions}</p>
                 </div>
-                <div class="info-card">
-                    <h3>${currentLanguage === 'de' ? 'Fortschritt' : 'Progress'}</h3>
+                <div class="stat-card">
+                    <h3>Gesamtfortschritt</h3>
                     <p>${percent}% (${answered}/${totalQuestions})</p>
                 </div>
             `;
             
-            // Sektionsliste
             const sectionList = document.getElementById('sectionList');
             sectionList.innerHTML = '';
             
@@ -1256,14 +1032,14 @@
                 const sectionPercent = sectionTotal > 0 ? Math.round((sectionAnswered / sectionTotal) * 100) : 0;
                 
                 let statusClass = '';
-                let statusText = currentLanguage === 'de' ? 'Ausstehend' : 'Pending';
+                let statusText = 'Ausstehend';
                 
                 if (sectionPercent === 100) {
                     statusClass = 'completed';
-                    statusText = currentLanguage === 'de' ? 'Abgeschlossen' : 'Completed';
+                    statusText = 'Abgeschlossen';
                 } else if (sectionPercent > 0) {
                     statusClass = 'in-progress';
-                    statusText = currentLanguage === 'de' ? 'In Bearbeitung' : 'In Progress';
+                    statusText = 'In Bearbeitung';
                 }
                 
                 const sectionItem = document.createElement('div');
@@ -1275,7 +1051,7 @@
                     <div class="section-icon">📌</div>
                     <div class="section-details">
                         <div class="section-name">${section.title}</div>
-                        <div class="section-progress">${sectionAnswered}/${sectionTotal} ${currentLanguage === 'de' ? 'Fragen' : 'questions'} • ${sectionPercent}%</div>
+                        <div class="section-progress">${sectionAnswered}/${sectionTotal} Fragen • ${sectionPercent}%</div>
                     </div>
                     <div class="section-status ${statusClass}">${statusText}</div>
                 `;
@@ -1284,21 +1060,21 @@
             });
         }
 
+        // === SEKTION ÖFFNEN (FRAGENSEITE) ==========
         function openSection(sectionIndex) {
             currentSectionIndex = sectionIndex;
-            
-            document.getElementById('auditSubmenu').classList.remove('active');
-            document.getElementById('auditContent').classList.add('active');
-            
             const section = auditSections[sectionIndex];
+            
             document.getElementById('currentSectionTitle').textContent = section.title;
             
             renderCurrentSection();
             updateCurrentAuditProgress();
+            showPage(PAGES.QUESTIONS);
         }
 
+        // === FRAGEN RENDERN ========================
         function renderCurrentSection() {
-            if (currentSectionIndex < 0 || !auditSections[currentSectionIndex]) return;
+            if (currentSectionIndex < 0) return;
             
             const container = document.getElementById('questionsContainer');
             container.innerHTML = '';
@@ -1307,36 +1083,31 @@
             const sectionQuestions = allQuestions.filter(q => q.sectionId === section.id);
             
             if (sectionQuestions.length === 0) {
-                container.innerHTML = `<div style="text-align: center; padding: 40px;">📭 ${currentLanguage === 'de' ? 'Keine Fragen' : 'No questions'}</div>`;
+                container.innerHTML = `<div style="text-align: center; padding: 40px;">📭 Keine Fragen in diesem Bereich</div>`;
                 return;
             }
             
-            // Sortieren nach ID
-            sectionQuestions.sort((a, b) => {
-                const aNum = parseFloat(a.id);
-                const bNum = parseFloat(b.id);
-                return aNum - bNum;
-            });
+            sectionQuestions.sort((a, b) => parseFloat(a.id) - parseFloat(b.id));
             
             sectionQuestions.forEach(question => {
                 container.appendChild(createQuestionElement(question));
             });
         }
 
+        // === FRAGE-ELEMENT ERSTELLEN ===============
         function createQuestionElement(question) {
-            const questionElement = document.createElement('div');
-            questionElement.className = 'question';
-            questionElement.dataset.questionId = question.id;
+            const qEl = document.createElement('div');
+            qEl.className = 'question';
+            qEl.dataset.questionId = question.id;
             
-            // Antwort-Klassen
             if (!question.answer || question.answer === "") {
-                questionElement.classList.add('unanswered');
+                qEl.classList.add('unanswered');
             } else if (question.answer === "YES") {
-                questionElement.classList.add('yes-answer');
+                qEl.classList.add('yes-answer');
             } else if (question.answer === "NO") {
-                questionElement.classList.add('no-answer');
+                qEl.classList.add('no-answer');
             } else if (question.answer === "NA") {
-                questionElement.classList.add('na-answer');
+                qEl.classList.add('na-answer');
             }
             
             // Header
@@ -1353,14 +1124,14 @@
             
             header.appendChild(text);
             header.appendChild(id);
-            questionElement.appendChild(header);
+            qEl.appendChild(header);
             
             // Guidance
             if (question.guidance) {
                 const guidance = document.createElement('div');
                 guidance.className = 'guidance';
                 guidance.textContent = question.guidance;
-                questionElement.appendChild(guidance);
+                qEl.appendChild(guidance);
             }
             
             // Antwort-Optionen
@@ -1370,14 +1141,14 @@
             const yesBtn = document.createElement('button');
             yesBtn.className = `answer-option ${question.answer === 'YES' ? 'selected' : ''}`;
             yesBtn.dataset.answer = 'YES';
-            yesBtn.textContent = currentLanguage === 'de' ? 'JA' : 'YES';
+            yesBtn.textContent = 'JA';
             yesBtn.onclick = () => selectAnswer(question.id, 'YES');
             options.appendChild(yesBtn);
             
             const noBtn = document.createElement('button');
             noBtn.className = `answer-option ${question.answer === 'NO' ? 'selected' : ''}`;
             noBtn.dataset.answer = 'NO';
-            noBtn.textContent = currentLanguage === 'de' ? 'NEIN' : 'NO';
+            noBtn.textContent = 'NEIN';
             noBtn.onclick = () => selectAnswer(question.id, 'NO');
             options.appendChild(noBtn);
             
@@ -1390,21 +1161,21 @@
                 options.appendChild(naBtn);
             }
             
-            questionElement.appendChild(options);
+            qEl.appendChild(options);
             
             // Nachweis
             const evidence = document.createElement('textarea');
             evidence.className = 'evidence';
-            evidence.placeholder = currentLanguage === 'de' ? 'Nachweise / Kommentare' : 'Evidence / Comments';
+            evidence.placeholder = 'Nachweise / Kommentare';
             evidence.value = question.evidence || '';
             evidence.oninput = () => updateEvidence(question.id, evidence.value);
             
-            questionElement.appendChild(evidence);
+            qEl.appendChild(evidence);
             
-            return questionElement;
+            return qEl;
         }
 
-        // === ANTWORT-FUNKTIONEN ===
+        // === ANTWORT-FUNKTIONEN ====================
         function selectAnswer(questionId, answer) {
             const question = allQuestions.find(q => q.id === questionId);
             if (!question) return;
@@ -1412,25 +1183,21 @@
             question.answer = answer;
             saveCurrentAuditData();
             
-            // UI aktualisieren
-            const questionElement = document.querySelector(`[data-question-id="${questionId}"]`);
-            if (questionElement) {
-                questionElement.classList.remove('unanswered', 'yes-answer', 'no-answer', 'na-answer');
+            const qEl = document.querySelector(`[data-question-id="${questionId}"]`);
+            if (qEl) {
+                qEl.classList.remove('unanswered', 'yes-answer', 'no-answer', 'na-answer');
+                if (answer === "YES") qEl.classList.add('yes-answer');
+                else if (answer === "NO") qEl.classList.add('no-answer');
+                else if (answer === "NA") qEl.classList.add('na-answer');
                 
-                if (answer === "YES") questionElement.classList.add('yes-answer');
-                else if (answer === "NO") questionElement.classList.add('no-answer');
-                else if (answer === "NA") questionElement.classList.add('na-answer');
-                
-                questionElement.querySelectorAll('.answer-option').forEach(btn => {
+                qEl.querySelectorAll('.answer-option').forEach(btn => {
                     btn.classList.remove('selected');
-                    if (btn.dataset.answer === answer) {
-                        btn.classList.add('selected');
-                    }
+                    if (btn.dataset.answer === answer) btn.classList.add('selected');
                 });
             }
             
             updateCurrentAuditProgress();
-            renderSubmenu();
+            renderOverview();
         }
 
         function updateEvidence(questionId, evidence) {
@@ -1441,22 +1208,21 @@
             }
         }
 
-        // === SPEICHER-FUNKTIONEN (GETRENNTE SPRACHSTÄNDE) ===
-        function saveCurrentAuditData(lang = currentLanguage) {
+        // === SPEICHERN =============================
+        function saveCurrentAuditData() {
             if (!currentAuditType || !currentAuditData) return;
             
             currentAuditData.questions = allQuestions;
             currentAuditData.sections = auditSections;
             currentAuditData.meta.lastModified = new Date().toISOString();
-            currentAuditData.meta.language = lang;
             
-            const key = `zfpSelfAudit_${currentAuditType}_${lang}`;
+            const key = `zfpSelfAudit_${currentAuditType}`;
             localStorage.setItem(key, JSON.stringify(currentAuditData));
             
             updateProgressDisplays();
         }
 
-        // === PROGRESS-FUNKTIONEN ===
+        // === PROGRESS ==============================
         function updateCurrentAuditProgress() {
             if (!allQuestions.length) {
                 document.getElementById('answeredCount').textContent = '0';
@@ -1471,7 +1237,7 @@
             const answered = allQuestions.filter(q => q.answer && q.answer !== "").length;
             const yesCount = allQuestions.filter(q => q.answer === "YES").length;
             const noCount = allQuestions.filter(q => q.answer === "NO").length;
-            const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
+            const percent = Math.round((answered / total) * 100);
             
             document.getElementById('answeredCount').textContent = answered;
             document.getElementById('totalCount').textContent = total;
@@ -1486,7 +1252,7 @@
 
         function loadAllAuditProgress() {
             Object.keys(AUDIT_TYPES).forEach(auditType => {
-                const saved = localStorage.getItem(`zfpSelfAudit_${auditType}_${currentLanguage}`);
+                const saved = localStorage.getItem(`zfpSelfAudit_${auditType}`);
                 if (saved) {
                     const data = JSON.parse(saved);
                     const questions = data.questions || [];
@@ -1496,9 +1262,6 @@
                     
                     const progressElement = document.getElementById(`${auditType.toLowerCase()}Progress`);
                     if (progressElement) progressElement.textContent = `${percent}%`;
-                } else {
-                    const progressElement = document.getElementById(`${auditType.toLowerCase()}Progress`);
-                    if (progressElement) progressElement.textContent = '0%';
                 }
             });
         }
@@ -1507,65 +1270,23 @@
             loadAllAuditProgress();
         }
 
-        // === NAVIGATION ===
-        function goBackToSelection() {
-            saveCurrentAuditData();
-            currentAuditType = null;
-            currentAuditData = null;
-            allQuestions = [];
-            auditSections = [];
-            currentSectionIndex = -1;
-            
-            document.getElementById('auditSelection').classList.add('active');
-            document.getElementById('auditSubmenu').classList.remove('active');
-            document.getElementById('auditContent').classList.remove('active');
-            document.getElementById('mainTitle').textContent = 'Self-Audit ZfP Verfahren';
-            document.getElementById('mainSubtitle').textContent = 'Schaeffler Technologies AG & Co. KG';
-            
-            updateProgressDisplays();
-        }
-
-        function goBackToSubmenu() {
-            saveCurrentAuditData();
-            currentSectionIndex = -1;
-            
-            document.getElementById('auditSubmenu').classList.add('active');
-            document.getElementById('auditContent').classList.remove('active');
-            renderSubmenu();
-        }
-
-        // === RESET ===
-        function resetAudit() {
-            if (!currentAuditType) return;
-            
-            if (!confirm(currentLanguage === 'de' 
-                ? 'Möchten Sie wirklich alle Antworten zurücksetzen?' 
-                : 'Do you really want to reset all answers?')) {
-                return;
-            }
-            
-            allQuestions.forEach(q => {
-                q.answer = "";
-                q.evidence = "";
-            });
-            
-            saveCurrentAuditData();
-            
-            if (currentSectionIndex >= 0) {
-                renderCurrentSection();
-            }
-            updateCurrentAuditProgress();
-            renderSubmenu();
-        }
-
-        // === REPORT ===
-        function showReport() {
+        // === ENGLISCHER BERICHT ====================
+        function generateEnglishReport() {
             if (!currentAuditType || !allQuestions.length) {
-                alert(currentLanguage === 'de' ? 'Kein Audit geladen!' : 'No audit loaded!');
+                alert('Kein Audit geladen!');
                 return;
             }
             
             const auditInfo = AUDIT_TYPES[currentAuditType];
+            
+            // Englische Titel aus den JSON-Daten holen
+            let auditTitleEn = auditInfo.title;
+            let revision = '1.0';
+            
+            if (currentAuditData?.meta?.audit_tool && typeof currentAuditData.meta.audit_tool === 'object') {
+                auditTitleEn = currentAuditData.meta.audit_tool.en || auditInfo.title;
+            }
+            
             const total = allQuestions.length;
             const answered = allQuestions.filter(q => q.answer && q.answer !== "").length;
             const yesCount = allQuestions.filter(q => q.answer === "YES").length;
@@ -1573,38 +1294,50 @@
             const naCount = allQuestions.filter(q => q.answer === "NA").length;
             const percent = Math.round((answered / total) * 100);
             
-            let reportHTML = `
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Report - ${auditInfo.title[currentLanguage]}</title>
-                    <style>
-                        body { font-family: Arial; margin: 20px; }
-                        .header { text-align: center; margin-bottom: 30px; }
-                        .summary { background: #f5f5f5; padding: 20px; border-radius: 5px; }
-                        .section { margin: 30px 0; border: 1px solid #ddd; border-radius: 5px; }
-                        .section-header { background: #2c3e50; color: white; padding: 10px; }
-                        .question { padding: 15px; border-bottom: 1px solid #eee; }
-                        .yes { background: #27ae60; color: white; padding: 3px 8px; border-radius: 3px; }
-                        .no { background: #e74c3c; color: white; padding: 3px 8px; border-radius: 3px; }
-                        .na { background: #95a5a6; color: white; padding: 3px 8px; border-radius: 3px; }
-                    </style>
-                </head>
-                <body>
-                    <div class="header">
-                        <h1>${auditInfo.title[currentLanguage]}</h1>
-                        <p>${auditInfo.standards[currentLanguage]} | Revision: ${currentAuditData.meta?.revision || '1.0'}</p>
-                        <p>${new Date().toLocaleDateString()}</p>
-                    </div>
-                    <div class="summary">
-                        <h2>${currentLanguage === 'de' ? 'Zusammenfassung' : 'Summary'}</h2>
-                        <p>${currentLanguage === 'de' ? 'Fragen' : 'Questions'}: ${total}</p>
-                        <p>${currentLanguage === 'de' ? 'Beantwortet' : 'Answered'}: ${answered} (${percent}%)</p>
-                        <p>${currentLanguage === 'de' ? 'Ja' : 'Yes'}: ${yesCount} | ${currentLanguage === 'de' ? 'Nein' : 'No'}: ${noCount} | N/A: ${naCount}</p>
-                    </div>
-            `;
+            let reportHTML = `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Self-Audit Report - ${auditInfo.standard}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; line-height: 1.6; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .summary { background: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 30px; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0; }
+        .stat-box { background: white; padding: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
+        .section { margin: 30px 0; border: 1px solid #dee2e6; border-radius: 5px; }
+        .section-header { background: #2c3e50; color: white; padding: 12px 15px; border-radius: 5px 5px 0 0; }
+        .question { padding: 15px; border-bottom: 1px solid #dee2e6; }
+        .question:last-child { border-bottom: none; }
+        .question-id { background: #3498db; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.85em; }
+        .answer-yes { background: #27ae60; color: white; padding: 3px 10px; border-radius: 15px; display: inline-block; }
+        .answer-no { background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; display: inline-block; }
+        .answer-na { background: #95a5a6; color: white; padding: 3px 10px; border-radius: 15px; display: inline-block; }
+        .evidence { margin-top: 8px; padding: 8px; background: #f8f9fa; border-left: 3px solid #6c757d; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #dee2e6; font-size: 0.9em; color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Self-Audit Report</h1>
+        <h2>${auditTitleEn}</h2>
+        <p><strong>Standard:</strong> ${auditInfo.standard} | <strong>Revision:</strong> ${currentAuditData?.meta?.revision || revision}</p>
+        <p><strong>Date:</strong> ${new Date().toLocaleDateString('en-US')} | <strong>Time:</strong> ${new Date().toLocaleTimeString('en-US')}</p>
+    </div>
+    
+    <div class="summary">
+        <h3>📊 Summary</h3>
+        <div class="stats">
+            <div class="stat-box"><h4>${total}</h4><p>Total Questions</p></div>
+            <div class="stat-box"><h4>${answered}</h4><p>Answered</p></div>
+            <div class="stat-box"><h4>${yesCount}</h4><p>Yes</p></div>
+            <div class="stat-box"><h4>${noCount}</h4><p>No</p></div>
+        </div>
+        <p><strong>Progress:</strong> ${percent}% (${answered}/${total}) | <strong>N/A:</strong> ${naCount}</p>
+    </div>`;
             
+            // Sektionen
             auditSections.forEach(section => {
                 const sectionQuestions = allQuestions.filter(q => q.sectionId === section.id);
                 if (sectionQuestions.length === 0) return;
@@ -1612,19 +1345,21 @@
                 reportHTML += `<div class="section"><div class="section-header">${section.title}</div>`;
                 
                 sectionQuestions.sort((a,b) => parseFloat(a.id) - parseFloat(b.id)).forEach(q => {
-                    let answerClass = '';
-                    let answerText = '';
-                    
-                    if (q.answer === 'YES') { answerClass = 'yes'; answerText = currentLanguage === 'de' ? 'JA' : 'YES'; }
-                    else if (q.answer === 'NO') { answerClass = 'no'; answerText = currentLanguage === 'de' ? 'NEIN' : 'NO'; }
-                    else if (q.answer === 'NA') { answerClass = 'na'; answerText = 'N/A'; }
-                    else { answerText = currentLanguage === 'de' ? '❌ Nicht beantwortet' : '❌ Not answered'; }
+                    let answerClass = '', answerText = '';
+                    if (q.answer === 'YES') { answerClass = 'answer-yes'; answerText = 'YES'; }
+                    else if (q.answer === 'NO') { answerClass = 'answer-no'; answerText = 'NO'; }
+                    else if (q.answer === 'NA') { answerClass = 'answer-na'; answerText = 'N/A'; }
+                    else { answerText = '❌ Not answered'; }
                     
                     reportHTML += `
                         <div class="question">
-                            <strong>${q.id}</strong> - ${q.text}<br>
-                            <span class="${answerClass}">${answerText}</span>
-                            ${q.evidence ? `<br><small><em>${q.evidence}</em></small>` : ''}
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <strong>${q.id}</strong>
+                                <span class="question-id">${q.id}</span>
+                            </div>
+                            <p>${q.text}</p>
+                            ${answerText ? `<span class="${answerClass}">${answerText}</span>` : ''}
+                            ${q.evidence ? `<div class="evidence"><strong>Evidence/Comments:</strong> ${q.evidence}</div>` : ''}
                         </div>
                     `;
                 });
@@ -1632,17 +1367,25 @@
                 reportHTML += `</div>`;
             });
             
-            reportHTML += `</body></html>`;
+            reportHTML += `
+    <div class="footer">
+        <p><strong>Report generated:</strong> ${new Date().toLocaleString('en-US')}</p>
+        <p><strong>Document ID:</strong> SA-${currentAuditType}-${new Date().getTime()}</p>
+        <p><strong>Auditor:</strong> Daniel Häusner, WI/SW2-PQT</p>
+        <p><strong>Company:</strong> Schaeffler Technologies AG & Co. KG</p>
+    </div>
+</body>
+</html>`;
             
-            const win = window.open('', '_blank');
-            win.document.write(reportHTML);
-            win.document.close();
+            const reportWindow = window.open('', '_blank');
+            reportWindow.document.write(reportHTML);
+            reportWindow.document.close();
         }
 
-        // === EXPORT ===
+        // === EXPORT ================================
         function exportData() {
             if (!currentAuditType || !allQuestions.length) {
-                alert(currentLanguage === 'de' ? 'Keine Daten!' : 'No data!');
+                alert('Keine Daten zum Exportieren!');
                 return;
             }
             
@@ -1663,49 +1406,75 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `${currentAuditType}_${currentLanguage}_${new Date().toISOString().slice(0,10)}.json`;
+            a.download = `${currentAuditType}_${new Date().toISOString().slice(0,10)}.json`;
             a.click();
             URL.revokeObjectURL(url);
         }
 
-        // === SUMMARY ===
-        function showSummary() {
-            if (!currentAuditType || !allQuestions.length) return;
+        // === RESET =================================
+        function resetAudit() {
+            if (!currentAuditType) return;
             
-            const unanswered = allQuestions.filter(q => !q.answer || q.answer === "").length;
-            const noAnswers = allQuestions.filter(q => q.answer === "NO").length;
+            if (!confirm('Möchten Sie wirklich ALLE Antworten zurücksetzen?')) return;
             
-            let summary = `${currentLanguage === 'de' ? 'Zusammenfassung' : 'Summary'}:\n\n`;
-            summary += `📊 ${currentLanguage === 'de' ? 'Fortschritt' : 'Progress'}: ${allQuestions.filter(q => q.answer && q.answer !== "").length}/${allQuestions.length}\n`;
-            summary += `✅ ${currentLanguage === 'de' ? 'Ja' : 'Yes'}: ${allQuestions.filter(q => q.answer === "YES").length}\n`;
-            summary += `❌ ${currentLanguage === 'de' ? 'Nein' : 'No'}: ${noAnswers}\n`;
-            summary += `⚪ N/A: ${allQuestions.filter(q => q.answer === "NA").length}\n`;
-            summary += `⚠️ ${currentLanguage === 'de' ? 'Unbeantwortet' : 'Unanswered'}: ${unanswered}`;
+            allQuestions.forEach(q => {
+                q.answer = "";
+                q.evidence = "";
+            });
             
-            alert(summary);
+            saveCurrentAuditData();
+            
+            if (currentSectionIndex >= 0) {
+                renderCurrentSection();
+            }
+            updateCurrentAuditProgress();
+            renderOverview();
         }
 
-        // === EVENT LISTENERS ===
+        // === NAVIGATION ============================
+        function goBackToSelection() {
+            saveCurrentAuditData();
+            currentAuditType = null;
+            currentAuditData = null;
+            allQuestions = [];
+            auditSections = [];
+            currentSectionIndex = -1;
+            
+            document.getElementById('mainTitle').textContent = 'Self-Audit ZfP Verfahren';
+            document.getElementById('mainSubtitle').textContent = 'Schaeffler Technologies AG & Co. KG';
+            
+            showPage(PAGES.SELECTION);
+            updateProgressDisplays();
+        }
+
+        function goBackToOverview() {
+            saveCurrentAuditData();
+            currentSectionIndex = -1;
+            renderOverview();
+            showPage(PAGES.OVERVIEW);
+        }
+
+        // === EVENT LISTENERS =======================
         function setupEventListeners() {
             // Audit-Buttons
             document.querySelectorAll('.audit-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
+                btn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    startAudit(this.dataset.audit);
+                    startAudit(e.currentTarget.dataset.audit);
                 });
             });
 
             // Navigation
-            document.getElementById('backFromSubmenuBtn').addEventListener('click', goBackToSelection);
-            document.getElementById('reportFromSubmenuBtn').addEventListener('click', showReport);
-            document.getElementById('backToSubmenuBtn').addEventListener('click', goBackToSubmenu);
             document.getElementById('backToSelectionBtn').addEventListener('click', goBackToSelection);
-            document.getElementById('backToSectionListBtn').addEventListener('click', goBackToSubmenu);
+            document.getElementById('backToSelectionFromQuestionsBtn').addEventListener('click', goBackToSelection);
+            document.getElementById('backToOverviewBtn').addEventListener('click', goBackToOverview);
             
-            // Actions
-            document.getElementById('reportBtn').addEventListener('click', showReport);
+            // Bericht-Buttons
+            document.getElementById('reportFromOverviewBtn').addEventListener('click', generateEnglishReport);
+            document.getElementById('reportFromQuestionsBtn').addEventListener('click', generateEnglishReport);
+            
+            // Aktionen
             document.getElementById('resetBtn').addEventListener('click', resetAudit);
-            document.getElementById('summaryBtn').addEventListener('click', showSummary);
             document.getElementById('exportBtn').addEventListener('click', exportData);
         }
     </script>
