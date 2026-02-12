@@ -1,0 +1,812 @@
+{
+  "audit_tool": "Nital/Temper Etching (TPG-AC7114/12)",
+  "revision": "A",
+  "questions": [
+    {
+      "id": "3.1.1.1",
+      "question": "Does the traveler (KBK) accompanying each batch include evidence of approval for frozen processes, if required by the customer?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: The traveler (KBK) does not need to reference the order or contract number but must ensure traceability to it or to the technical requirements."
+    },
+    {
+      "id": "3.1.1.2",
+      "question": "Does the traveler (KBK) include relevant order number or traceability to technical requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: The traveler (KBK) does not need to reference the PO or contract number but must ensure traceability to it or to the technical requirements."
+    },
+    {
+      "id": "3.1.1.3",
+      "question": "Does the traveler (KBK) include part identification, quantity, material and material grade?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.1.1.4",
+      "question": "Does the traveler (KBK) include receiving inspection?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies to transfer of work between facilities or departments."
+    },
+    {
+      "id": "3.1.1.5",
+      "question": "Does the traveler (KBK) include pre-process cleaning method(s)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if this step is not required for the process."
+    },
+    {
+      "id": "3.1.1.6",
+      "question": "Does the traveler (KBK) include covers/masking?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if this step is not required for the process."
+    },
+    {
+      "id": "3.1.1.7",
+      "question": "Does the traveler (KBK) include fixtures, racks?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if fixtures and racks are not required, e.g., for local etching."
+    },
+    {
+      "id": "3.1.1.8",
+      "question": "Does the traveler (KBK) include in-process cleaning, water break test?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.1.1.9",
+      "question": "Does the traveler (KBK) include etching steps?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.1.1.10",
+      "question": "Does the traveler (KBK) include post-process steps including cleaning, drying, demasking and removal of fixtures and racks?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.1.1.11",
+      "question": "Does the traveler (KBK) include etching inspection step?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.1.1.12",
+      "question": "Does the traveler (KBK) include final inspection?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies to transfer of work between facilities or departments."
+    },
+    {
+      "id": "3.1.1.13",
+      "question": "Does the traveler (KBK) include packaging?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if parts are moved within the same facility."
+    },
+    {
+      "id": "3.1.1.14",
+      "question": "Does the traveler (KBK) include shipping?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if parts are moved within the same facility."
+    },
+    {
+      "id": "3.1.1.15",
+      "question": "Does the traveler (KBK) include documentation of rework that is traceable to the traveler (KBK) and all processing steps performed on the parts?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if no rework was observed during the audit."
+    },
+    {
+      "id": "3.1.2",
+      "question": "Are there separate acceptance steps for receiving inspection, processing, inspection, final inspection and shipping, as applicable?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Receiving inspection, final inspection and shipping do not apply if parts are moved within the same facility."
+    },
+    {
+      "id": "3.1.3",
+      "question": "Are in-process cleaning time, etching time and etching solution temperature recorded and traceable to the traveler (KBK)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.2.1",
+      "question": "Do records show that maintenance was performed according to a procedure and with defined frequency?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: This includes electrical contacts, periodic cleaning of rinse tanks, filter changes based on pressure drop, fin cooler filters, ripple calibration checks, etc."
+    },
+    {
+      "id": "3.2.2",
+      "question": "Does the compressed air supply for blast treatment and part blow-off include particle, moisture and oil filters with planned maintenance and air purity testing at the point of use?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: N/A applies if no blast treatment is used and compressed air is not used for drying parts."
+    },
+    {
+      "id": "3.2.3",
+      "question": "Are timers available, suitable for the purpose, calibrated and visible or audible from the tanks?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Timers used for process control must be calibrated."
+    },
+    {
+      "id": "3.3.1",
+      "question": "Are tanks marked with identification number, content and temperature ranges?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.3.2",
+      "question": "Are tank markings consistent with procedures, traveler (KBK) and records?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.3.3",
+      "question": "Are tanks and work surfaces free of corrosion and chemical spills that are detrimental to the process?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.3.4",
+      "question": "Are spray and immersion rinse tanks clean, clear, free-flowing or monitored for contamination level?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Does not apply to drain tanks if sufficient rinsing follows."
+    },
+    {
+      "id": "3.3.5",
+      "question": "Are spray and immersion rinse tanks arranged in a sequence that prevents cross-contamination of process tanks?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.3.6",
+      "question": "Do spray and immersion rinse tanks ensure sufficient neutralization and/or removal of process chemicals?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Special attention must be paid to parts such as small diameter tubes."
+    },
+    {
+      "id": "3.3.7",
+      "question": "Are tanks or parts moved?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Movement can be continuous or before use."
+    },
+    {
+      "id": "3.3.8",
+      "question": "Are tanks with defined temperature ranges operating within the specified range?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.1",
+      "question": "Is there a procedurally defined control system to ensure that the solution composition is maintained within control limits according to applicable specifications and a system to adjust analysis frequency based on the rate of change?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: Impurities identified in the specification are considered composition requirements."
+    },
+    {
+      "id": "3.4.2",
+      "question": "Do the solution control records contain the following information for each monitored tank?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.1",
+      "question": "Tank identification?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.2",
+      "question": "Tank content?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.3",
+      "question": "Tank size (working volume) and fill level?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: The working volume must be defined in the record, the fill level can be marked on the tank or automatically controlled."
+    },
+    {
+      "id": "3.4.2.4",
+      "question": "Analysis frequency?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.5",
+      "question": "Components to be analyzed?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.6",
+      "question": "Are operating tolerances based on specification requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.7",
+      "question": "Are additions and adjustments recorded?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.8",
+      "question": "Are solution changes recorded?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.9",
+      "question": "Are the results of the analysis recorded?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.10",
+      "question": "Are the date and signature of the person performing the analysis recorded?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.3",
+      "question": "Are solution control records available for the past 12 months?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.4",
+      "question": "Are solution control records traceable to the traveler (KBK) and parts?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.5",
+      "question": "Are solution control records reviewed and approved by a responsible person?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.5.1",
+      "question": "Is the pH meter standardized daily, before first use, with at least two buffer solutions representing both the acidic and alkaline range, if applicable?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: The pH buffers used to standardize the measuring device must represent the acidic and/or alkaline ranges, but do not need to cover the entire pH range of the tested samples."
+    },
+    {
+      "id": "3.4.5.2",
+      "question": "Are certified, commercial or better buffer solutions within shelf life?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.5.3",
+      "question": "Is the pH electrode stored in the appropriate storage solution when not in use?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.6",
+      "question": "Are solution control records reviewed for trends?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.4.7",
+      "question": "Are solution control records reviewed for out-of-tolerance conditions?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.4.8",
+      "question": "Are solution control records reviewed for corrective actions?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.4.9",
+      "question": "Are solution control records reviewed for revalidation of the process after corrective actions?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.4.10",
+      "question": "Are solution control records reviewed for revalidation of the process after solution changes?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.4.10.1",
+      "question": "Is the pH meter calibrated at least annually?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.10.2",
+      "question": "Is the temperature compensation function of the pH meter verified?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.6.1",
+      "question": "Are parts moved between tanks without undue delay so that process quality is not impaired?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.6.2",
+      "question": "If the auditee has cathodic cleaning capacity, is its use for cleaning parts for Nital etching prohibited?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.6.3",
+      "question": "Are parts tested for water break after cleaning and before etching for at least 15 seconds?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.6.6.1",
+      "question": "Are all surfaces to be etched free of oxide and scale?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.6.6.2",
+      "question": "Does the solution composition meet specification requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.1.1",
+      "question": "Is the white light meter calibrated at least annually?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.1.2",
+      "question": "Does the calibration cover the usage range?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.1.3",
+      "question": "Is the light meter accurate to ±5% of the standard instrument reading?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.2.1",
+      "question": "Are 200 foot-candles/2200 lux white light or more available at the part surface for visual verification of indications?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.2.2",
+      "question": "Is the white light intensity testing performed at least weekly or before use and after equipment maintenance?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.2.3",
+      "question": "Has the facility properly demonstrated and recorded this testing?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3",
+      "question": "Are procedures for evaluation techniques available?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Ensure that all procedures or work instructions for evaluation techniques meet all customer requirements and are available."
+    },
+    {
+      "id": "4.4",
+      "question": "Are photos or other visual standards for acceptance/rejection criteria available, if required by the customer or internal procedures?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Ensure that the images or other visual aids are suitable for the customer and meet all customer requirements."
+    },
+    {
+      "id": "5.1",
+      "question": "Must etching personnel for visual testing (VT) be qualified according to ISO 9712 or ASNT-TC-1A?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.2",
+      "question": "Annual vision test that meets one of the following: - Tumbling E according to ISO 18490 - 20/25 (Snellen) at 16 inches (40.64 cm), +/- 1 inch (2.54 cm)* - Jaeger No. 1 at not less than 12 inches (30.48 cm)* *With at least one eye, natural or corrected?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: ISO 18490 tests (Tumbling E) must be performed according to the requirements contained therein."
+    },
+    {
+      "id": "5.2.1",
+      "question": "Annual vision examination showing the inspector can distinguish and differentiate between levels of contrast of the etch parts?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.2.2",
+      "question": "Were the vision and contrast exams administered by trained personnel designated by the Responsible Level 3, or a medically qualified individual?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.2.3",
+      "question": "Does a procedure define the re-examination requirements, including a wait of 30 days from failure date, for personnel not meeting / failing qualification criteria?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Re-examination is required after additional documented training in the area/s found to be deficient, 25% new questions on the new exam."
+    },
+    {
+      "id": "5.3.1.1",
+      "question": "Do the auditee's training/certification records contain the qualification date?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1.2",
+      "question": "Do the auditee's training/certification records contain evidence of initial training?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1.3",
+      "question": "Do the auditee's training/certification records contain evidence of on-the-job training?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1.4",
+      "question": "Do the auditee's training/certification records for Level 1 and Level 2 personnel contain evidence of annual vision and contrast tests?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1.5",
+      "question": "Do the auditee's training/certification records for Level 1 and Level 2 personnel contain evidence of initial written examination and initial and five-year practical examinations, including results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1.6",
+      "question": "Correct release/removal of certification based on results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.1",
+      "question": "Part description",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.2",
+      "question": "Identify whether it is an in-process job inspection or a historical job inspection:",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.3",
+      "question": "Part number",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.4",
+      "question": "Customer",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.5",
+      "question": "Prime contractor",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.6",
+      "question": "Order number/revision level",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.7",
+      "question": "Part quantity",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.8",
+      "question": "Serial/lot number",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.9",
+      "question": "Date of order/order number",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.10",
+      "question": "Processing specification and revision level",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.1",
+      "question": "Is receiving inspection correctly performed according to traveler (KBK)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if parts are transferred between departments and receiving inspection is not required."
+    },
+    {
+      "id": "6.2.2",
+      "question": "Is a defect standard performed with a frequency according to applicable specification?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if a daily defect standard is not required."
+    },
+    {
+      "id": "6.2.3",
+      "question": "Is pre-process cleaning performed according to traveler (KBK)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if this step is not required."
+    },
+    {
+      "id": "6.2.4",
+      "question": "Is masking performed according to traveler (KBK)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if this step is not required."
+    },
+    {
+      "id": "6.2.5",
+      "question": "Is the part positioned and fixed according to traveler (KBK)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.6",
+      "question": "Is in-process cleaning, e.g., alkaline cleaning, performed according to traveler (KBK)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.7",
+      "question": "Is a 15-second water break-free surface observed after the cleaning cycle?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.8",
+      "question": "Are the etching steps performed according to traveler (KBK)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.9",
+      "question": "Are parts positioned during etching to minimize/prevent air entrapment or evolving gases in pockets or other recessed areas?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.10",
+      "question": "Are parts promptly and thoroughly rinsed after etching to prevent local over-etching?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Local over-etching may be visible as streaks running across the part surfaces."
+    },
+    {
+      "id": "6.2.11",
+      "question": "Are post-main-process steps (e.g., removal of dirt) performed according to traveler (KBK)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if this step is not required."
+    },
+    {
+      "id": "6.2.12",
+      "question": "Are post-process demasking and cleaning performed according to traveler (KBK)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if this step is not required."
+    },
+    {
+      "id": "6.2.13",
+      "question": "Is post-processing forced drying performed and is the temperature at least 50°F (28°C)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if this step is not required."
+    },
+    {
+      "id": "6.2.14",
+      "question": "Are in-process cleaning time, Nital etching time and Nital etching solution temperature recorded on the traveler (KBK) or in a record with traceability to the traveler (KBK)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.15",
+      "question": "Are process parameters compliant with internal instructions and specification?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: For Nital/Temper etching, the etching time may be based on the time to correctly etch a known defect standard or to achieve a specific gray scale."
+    },
+    {
+      "id": "6.2.16",
+      "question": "Are all required surfaces etched?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.17",
+      "question": "Are all required surfaces inspected?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.18",
+      "question": "Is inspection performed under the correct light intensity?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.19",
+      "question": "Are all indications identified?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if there are no indications."
+    },
+    {
+      "id": "6.2.20",
+      "question": "Are all indications correctly evaluated?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if there are no indications."
+    },
+    {
+      "id": "6.2.21",
+      "question": "Are all inspection results properly recorded and traceable to the parts?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.22",
+      "question": "Were the parts processed by a certified Level 1, Level 2 or Level 3 person?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.23",
+      "question": "Were indications identified by a certified Level 1, Level 2 or Level 3 person?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.24",
+      "question": "Was acceptance/rejection of the part performed by a certified Level 2 or Level 3 person or a Level 1 person with specific written criteria from a Level 2 or Level 3 person?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.25",
+      "question": "Are all operations signed and dated by the operator/inspector?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.26",
+      "question": "Was the solution composition controlled according to requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: See specification for solution control requirements, some solutions may be controlled by composition, some by time required for a test piece to reach a specific gray scale level."
+    },
+    {
+      "id": "6.2.27",
+      "question": "Are all process control and process monitoring/recording devices calibrated?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.28",
+      "question": "Are all rework operations documented?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: N/A applies if no rework is required for this job."
+    }
+  ],
+  "total_questions": 119
+}

@@ -1,0 +1,1120 @@
+{
+  "audit_tool": "Magnetic Particle Testing (TPG-AC7114/2)",
+  "revision": "C",
+  "questions": [
+    {
+      "id": "3.1",
+      "question": "The Auditee shall complete, and the auditor shall review, the Auditee's provided Materials and Equipment Listing, for adequacy, content and correctness.",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Attachments are for information only but shall be completed fully. NCR's shall not be written against attachments. (Attachment TPG-AC7114/2-A)."
+    },
+    {
+      "id": "3.2.1",
+      "question": "Is the manufacturer's certification available for the magnetic particles used and is there evidence that they conform to the applicable AMS?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The Auditee shall have traceability to the manufacturer's certification."
+    },
+    {
+      "id": "3.2.2",
+      "question": "Is the manufacturer's certification available for the suspension carrier, and/or conditioning agents used, as applicable, and is there evidence that it conforms to the applicable standard?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The Auditee shall have traceability to the manufacturer's certification. Suspension carriers not listed above shall require documented customer approval."
+    },
+    {
+      "id": "3.3.1",
+      "question": "Is there evidence from the manufacturer that validates the correct peak wavelength of the output?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The peak output wavelength shall be 365±5nm. NA is only to be used where LED sources are not available for use."
+    },
+    {
+      "id": "4.1.1",
+      "question": "Is there a procedure, general or specific, for processing and inspection using the magnetic particle method?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.2.1",
+      "question": "Does the procedure(s) indicate approval by the applicable Level 3?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The applicable Level 3 may be the User, qualified or approved Level 3, internal Level 3 and/or external Level 3."
+    },
+    {
+      "id": "4.3.1",
+      "question": "Procedure identification number and the date the procedure was approved?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.2",
+      "question": "A requirement that all personnel are qualified and certified to the required level for the activity undertaken and the applicable contract requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.3",
+      "question": "Identification of the part(s) to which the procedure applies, including the material, alloy and dimensions of the part when used for technique development?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.4",
+      "question": "Equipment to be used for magnetization?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.5",
+      "question": "Type of magnetizing current (e.g., half wave rectified, three phase, single phase, AC, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.6",
+      "question": "Directions of magnetization to be used, the order in which they are applied and any demagnetization procedures to be used between shots?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.7",
+      "question": "Magnetic particle application method used, (continuous / residual)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.8",
+      "question": "Pulse duration, type (AC, DC), and quantity (pulses/shot)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The minimum considered acceptable is 2 shots each at a minimum of ½ second."
+    },
+    {
+      "id": "4.3.9",
+      "question": "Magnitude of current, direction of all magnetic fields, the magnetic field strengths, the types of magnetic field strength indicators, ampere turns, etc?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.9a",
+      "question": "Is the magnetic field strength determined by an appropriate method?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: Magnetic field strength shall be determined by a, b or c. If c applies then this shall be in conjunction with either a or b."
+    },
+    {
+      "id": "4.3.10",
+      "question": "Directions for positioning the item with respect to the magnetizing equipment?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.11",
+      "question": "Complete pre-examination and post-examination demagnetization, cleaning and preservation requirements or reference to procedures containing such instructions?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.12",
+      "question": "Areas of the part(s) to be examined including an illustration; either a drawing or a photo?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.13",
+      "question": "Method of establishing the magnetization (e.g., head, coil, cable wrap, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.14",
+      "question": "Type of records and/or method of marking parts after examination?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.15",
+      "question": "Identification of test parts used for system performance verification?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.16",
+      "question": "Sequence of the magnetic particle examination relative to manufacturer's operations, if applicable?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.17",
+      "question": "Type of magnetic particle material (dry or wet, or fluorescent, etc.) to be used and the method and equipment to be used for its application?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.18",
+      "question": "Special equipment required including type and intensity of light if different from standard processing?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.19",
+      "question": "Acceptance requirements to be used for evaluating indications and disposition of part(s) after examination?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.19.1",
+      "question": "Does the procedure address the actions to be taken to prevent arcing or overheating of the parts?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: NA applies only when direct contact methods are not used."
+    },
+    {
+      "id": "4.3.19.2",
+      "question": "Does the procedure address the actions to be taken if arcing or overheating takes place?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.19.3",
+      "question": "Does the procedure address the process to find the root cause of the arcing or overheating?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.20",
+      "question": "Address inspection of hardware which has a coating or plating applied in accordance with the standard? (if applicable)",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.21",
+      "question": "Address what is to be carried out when a malfunction is suspected of the magnetic particle equipment?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.22.1",
+      "question": "For ASME Section V, Article 6, when procedure qualification is specified by the referencing Code Section, did the procedure require that the change of a requirement identified with an 'e', an essential variable, shall require requalification of the written procedure by demonstration?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: A change of a requirement identified as a nonessential variable does not require requalification of the written procedure."
+    },
+    {
+      "id": "4.3.22.2",
+      "question": "Do all changes of essential or nonessential variables from those specified within the written procedure require revision of, or an addendum to, the written procedure?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.1",
+      "question": "Is the suspension's wet particle concentration tested every 8 hours or at the start of every shift?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The suspension concentration check is not applicable to aerosol spray cans or dry powder."
+    },
+    {
+      "id": "5.1.2",
+      "question": "Is the suspension agitated at least 30 minutes prior to performing the concentration check?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.3",
+      "question": "Is the suspension sample demagnetized and allowed to settle for at least 60 minutes for petroleum based suspension or 30 minutes for conditioned water suspension, prior to performing the concentration check?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.4",
+      "question": "Is the suspension checked using a pear-shaped centrifuge tube with a graduated stem in 0.05-mL increments for fluorescent baths or 0.1 mL for non-fluorescent baths, which meets the Guide E709?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.5",
+      "question": "Is the magnetic particle concentration within the following limits? Fluorescent 0.1 - 0.4 mL per 100 mL sample",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.6",
+      "question": "Are records of the concentration check on file and do they indicate acceptable results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The actual concentration value shall be recorded; 'OK' or some other mark is not acceptable."
+    },
+    {
+      "id": "5.1.7",
+      "question": "Did the facility properly demonstrate the required suspension concentration check?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.2.1",
+      "question": "Is the carrier evaluated for contamination at least weekly?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The suspension contamination check is not applicable to aerosol spray cans, dry powder or when new carrier/suspension is used each time."
+    },
+    {
+      "id": "5.2.2",
+      "question": "Was the graduated portion of the tube examined, under UV light looking at the liquid directly above the precipitate?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: Acceptable liquid will have a little fluorescence."
+    },
+    {
+      "id": "5.2.3",
+      "question": "If the 'used' sample is noticeably more fluorescent than the comparison standard, is the suspension drained, machine cleaned and refilled with new suspension?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.2.4",
+      "question": "Are records of carrier contamination checks on file and do they indicate acceptable results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The test results shall indicate a percentage or simply state 'acceptable' or some other term that denotes acceptance."
+    },
+    {
+      "id": "5.2.5",
+      "question": "Did the facility properly demonstrate the required carrier contamination checks?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1",
+      "question": "Are the particles evaluated for contamination at least weekly?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The particle contamination check is not applicable to aerosol spray cans, dry powder or when new carrier/suspension is used each time."
+    },
+    {
+      "id": "5.3.2",
+      "question": "Was the graduated portion of the tube examined, under both UV light (for fluorescent baths only) and visible light (for both fluorescent and non-fluorescent baths), for striations or bands, different in color or appearance?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.3",
+      "question": "Is the maximum acceptable volume of contaminate 30% or less of the volume of magnetic particles?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.4",
+      "question": "If the particles show bands or striations of contamination exceeding 30% of the volume of magnetic particles, is the suspension drained, machine cleaned and refilled with new suspension?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: Bands or striations may indicate contamination. If this condition has occurred, then there must be documented evidence of corrective actions taken."
+    },
+    {
+      "id": "5.3.5",
+      "question": "Are records of contamination checks on file and do they indicate acceptable results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The test results shall indicate a percentage or simply state 'acceptable' or some other term that denotes acceptance."
+    },
+    {
+      "id": "5.3.6",
+      "question": "Did the facility properly demonstrate the required particle contamination checks?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1",
+      "question": "Is the water break test of water based vehicles being performed at least daily?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: N/A, Schaeffler uses Oil-based vehicles"
+    },
+    {
+      "id": "5.4.2",
+      "question": "Are records of this test on file and do they provide acceptable results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.3",
+      "question": "Did the facility properly demonstrate this check?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.1",
+      "question": "Is a meter utilized to verify Ultra-Violet light intensity?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.2",
+      "question": "Is the Ultra-Violet light intensity of the inspection light(s) checked at least daily, prior to use or after equipment maintenance?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.3",
+      "question": "If a battery powered UV-A LED lamp is being used, is there a procedure to ensure the correct UV intensity is maintained throughout period of use?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.4",
+      "question": "Are UV-A LED flashlights (small battery powered UV-A sources) only utilized for localized inspections (eg weld repairs, bore inspections, hard to reach areas)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.5",
+      "question": "Is the minimum acceptable limit 1000 µW/cm² and the maximum 10,000 µW/cm² at a fixed distance of 15 inches (38 cm)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: Borescope intensity shall be a minimum of 1000 µW/cm² at the inspection surface as measured from the inspection distance."
+    },
+    {
+      "id": "5.5.6",
+      "question": "Is the white light leakage from the Ultra-Violet unit a maximum of 2 foot candles (21.5 lux) when set at the 15 inch (38 cm) distance used for Ultra-Violet light measurement?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: This measurement is taken in the darkened inspection area directly underneath the Ultra-Violet unit moving the light meter to maximize the white light reading."
+    },
+    {
+      "id": "5.5.7",
+      "question": "When using a mercury vapor bulb, was a minimum of five minutes prior to its use or measurement of the intensity of the Ultra-Violet light emitted allowed for the Ultra-Violet light to warm up?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The question can only be answered NA when mercury vapor bulbs are not used."
+    },
+    {
+      "id": "5.5.8",
+      "question": "Are the Ultra-Violet light(s) good and in clean condition?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.9",
+      "question": "Did the facility properly demonstrate this check?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.10",
+      "question": "Are records of this check on file and do they indicate acceptable results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The actual light intensity shall be recorded for this check; 'OK' or some other mark is not acceptable."
+    },
+    {
+      "id": "5.6.1",
+      "question": "For Type 1 systems, is ambient white light in the inspection area controlled for fluorescent magnetic particle inspection, not to exceed 2 ft candles/21.5 lux, as measured at the examination surface?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: This measurement is taken in the darkened inspection area to include the examination surface with the Ultra-Violet lights operating in the fixed position of 15 inches (38 cm). This question is only NA for inspections utilizing non-fluorescent magnetic particles."
+    },
+    {
+      "id": "5.6.2",
+      "question": "Is this check being performed at least weekly or prior to use or after equipment maintenance?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.6.3",
+      "question": "Are records of this check on file and do they indicate acceptable results?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The actual light intensity shall be recorded for this check, 'OK' or some other mark is not acceptable."
+    },
+    {
+      "id": "5.6.4",
+      "question": "Is 100 ft-candles/1076 lux, or more, available at the part surface for visual verification of fluorescent magnetic particle indications?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: This may not be applicable to some fastener manufacturers who reject all MT indications straight into MRB. This is however required if any visual verification is required or performed."
+    },
+    {
+      "id": "5.6.5",
+      "question": "Is the visible light used, when examining with non-fluorescent magnetic particles, a minimum light intensity of 100 ft-candles/1076 lux as measured at the surface of the part undergoing examination or evaluation?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: This question is only NA for inspections utilizing fluorescent magnetic particles."
+    },
+    {
+      "id": "5.6.6",
+      "question": "Is the white light checked and documented at least weekly or prior to use?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The actual light intensity shall be recorded for this check; 'OK' or some other mark is not acceptable."
+    },
+    {
+      "id": "5.6.7",
+      "question": "Did the facility properly demonstrate this check?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.7.1",
+      "question": "Is a device used to monitor the system performance? (Identify applicable method used)",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: One or more of the above devices shall be used to monitor the system performance. Any other standard approved by the customer shall have documented evidence of approval."
+    },
+    {
+      "id": "5.7.2",
+      "question": "If notched shims or flexible laminated strips are used are they available and in good condition?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: There shall be no damage that may affect their use e.g. cracks, wrinkles or corrosion. If using AS 5371 notched shims are used the protective coating shall have been removed prior to use and they shall be correctly fastened on the component. This does not need to be documented."
+    },
+    {
+      "id": "5.7.3.1",
+      "question": "Is a Ketos tool steel ring used for the system performance test and is there documentation available which provides evidence that it is certified to Ketos tool steel ring requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.3.2",
+      "question": "Is the Ketos tool steel ring free of damage or corrosion which would affect its use?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.3.3",
+      "question": "Is the magnetic particle system performance checked at least daily or prior to use by testing the Ketos tool steel ring showing the required holes per maximum allowable amperage setting?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.4.1",
+      "question": "Is an AS5282 steel ring used for the system performance test, and is there documentation available that provides evidence that it is properly certified to AS5282 requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.4.2",
+      "question": "Is the AS 5282 steel ring free of damage or corrosion which would affect its use?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.4.3",
+      "question": "Is the magnetic particle system performance checked at least daily or prior to use by testing the AS 5282 steel ring showing the required holes per maximum allowable amperage setting?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The maximum amperage values specified in the table shall not be exceeded."
+    },
+    {
+      "id": "5.7.4.4",
+      "question": "Are records of this test on file and do they indicate acceptable results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.5.1",
+      "question": "Is an alternate test device (TP 1-4, known defective part or other standard listed in 5.7.1) used to monitor the system performance?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: If a Ketos tool steel ring or AS 5282 steel ring is not used to monitor the system performance, then an alternative test device, such as TP 1-4, known defective part or other standard listed in 5.7.1 shall be used."
+    },
+    {
+      "id": "5.7.5.2",
+      "question": "Is the magnetic particle system performance checked at least daily or prior to use?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.5.3",
+      "question": "Does the performance of the test device used meet or exceed the original defined baseline?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: Test devices shall have pre-determined current values for the indications/defects, acceptance criteria defined and approval by customer."
+    },
+    {
+      "id": "5.7.5.4",
+      "question": "Is the device used free of damage or corrosion that would affect its use?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.5.5",
+      "question": "Are records of this test on file and do they indicate acceptable results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The actual number of indications or size measurement of indications shall be recorded."
+    },
+    {
+      "id": "5.8.1",
+      "question": "If Hall Effect Gauss meters are used, are they calibrated at least semi-annually?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: As a minimum the meter shall be calibrated and readings taken at a minimum of three points in each dynamic range and each polarity, in addition to zero."
+    },
+    {
+      "id": "5.9.1",
+      "question": "Are residual field indicators, used to verify demagnetization, calibrated at least semi-annually?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: NA only if a Hall Effect Gauss meters or other acceptable device use in replace of another field indicator. As a minimum the meter shall be calibrated and readings taken at a minimum of three points in each dynamic range and each polarity, in addition to zero."
+    },
+    {
+      "id": "5.10.1",
+      "question": "Is the magnetic particle machine ammeter checked at least semi-annually at a minimum of three points encompassing the range of use?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The ammeter/shunt combination and magnetic particle machine ammeter shall not differ by more than 10%, or 50 amperes, whichever is greater, of the unit's output. The calibration points for a meter used at 100 amps to 3000 amps could be calibrated at 100 / 1000 / 3000 to meet the requirement"
+    },
+    {
+      "id": "5.10.2",
+      "question": "Is there evidence that a repeatability check has been carried out, at least semi-annually, to determine a minimum usable output?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The lowest useable current is determined by setting the equipment and carrying out a number of successive shots to ensure the output does not vary more than 10% or 50 Amps whichever is greater."
+    },
+    {
+      "id": "5.10.3",
+      "question": "Is the equipment marked with the lowest useable output values determined by the output repeatability check?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.10.4",
+      "question": "Are records of this check on file and do they indicate acceptable results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The actual values shall be recorded for this check; 'OK' or some other mark is not acceptable."
+    },
+    {
+      "id": "5.11.1",
+      "question": "For equipment using a timer to control pulse duration, is the pulse duration of the magnetizing current flow controlled so that at least 0.5 seconds can be achieved?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.11.2",
+      "question": "For equipment using a timer, is the pulse timer calibrated at least semi-annually to be within ± 0.1seconds?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.11.3",
+      "question": "Are records of this check on file and do they indicate acceptable results?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The actual values shall be recorded for this check; 'OK' or some other mark is not acceptable."
+    },
+    {
+      "id": "6.5.1",
+      "question": "If the magnetic particle machine is equipped with the quick break feature, is the quick-break feature being checked at least semiannually?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: This check is to be conducted in the coil. The check may be performed using a suitable oscilloscope or other applicable method as specified by the equipment manufacturer."
+    },
+    {
+      "id": "6.5.2",
+      "question": "Are records of this test on file and do they indicate acceptable results in accordance with manufacturer's guidelines?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: Records indicating 'OK' or some other check mark are acceptable for this test. Manufacturers guidelines shall indicate acceptance criteria."
+    },
+    {
+      "id": "6.6.1",
+      "question": "Is the magnetic particle equipment checked periodically for internal short circuiting?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: With the headstocks set for maximum amperage output, any deflection of the ammeter when the current is activated with no conductor between the contacts is an indication of an internal short circuit and must be repaired prior to use."
+    },
+    {
+      "id": "6.6.2",
+      "question": "Are records of this check on file and do they indicate acceptable results?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: Records indicating 'OK' or some other check mark are acceptable for this test."
+    },
+    {
+      "id": "6.7.1",
+      "question": "Are yokes and permanent magnets dead weight checked at least semi-annually?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.7.2",
+      "question": "For AC and permanent yokes if the lifting force at least 10lbs (4.5kg) with a 2 to 6 inch (50 to 150 mm) spacing between the legs?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.7.3",
+      "question": "For DC yokes, is the lifting force at least 30lbs (13.5kg) with a 2 to 4 inch (50 to 100mm) spacing between the legs, or 50lbs (22.5 kg) with a 4 to 6 inch (100 to 150 mm) spacing between the legs?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: NA when DC Yokes are not being used."
+    },
+    {
+      "id": "6.8.1",
+      "question": "Is calibration of the meter being performed at least semi-annually or, with adequate documentation, extended as allowed by the governing standard?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The light meter includes all elements of the measuring system e.g., sensor and readout unit."
+    },
+    {
+      "id": "6.8.2",
+      "question": "Is the calibration performed at a minimum of three points to establish linearity?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: No specific values need to be used."
+    },
+    {
+      "id": "6.8.3",
+      "question": "Is the light meter accurate to within an established standard?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The value of ±5% is in reference to a comparison of the light meter being calibrated to another calibrated (traceable to NIST or other National Standard) light meter. It is not meant to represent a 'true' ±5% calibration tolerance. The light meter includes all elements of the measuring system e.g., sensor and readout unit."
+    },
+    {
+      "id": "6.8.4",
+      "question": "Is the light meter traceable to the calibration data?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The meter shall be serialized, stickered or otherwise identifiable to the calibration data."
+    },
+    {
+      "id": "6.8.5",
+      "question": "Is the calibration current?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.9.1",
+      "question": "Is calibration of the meter being performed at least semi-annually or, with adequate documentation, extended as allowed by the governing standard?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The light meter includes all elements of the measuring system e.g., sensor and readout unit."
+    },
+    {
+      "id": "6.9.2",
+      "question": "Is the calibration performed at a minimum of three points to establish linearity?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: No specific values need to be used."
+    },
+    {
+      "id": "6.9.3",
+      "question": "Is the light meter accurate to within an established standard?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The value of ±5% is in reference to a comparison of the light meter being calibrated to another calibrated (traceable to NIST or other National Standard) light meter. It is not meant to represent a 'true' ±5% calibration tolerance. The light meter includes all elements of the measuring system e.g. sensor and readout unit."
+    },
+    {
+      "id": "6.9.4",
+      "question": "Is the calibration current?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.9.5",
+      "question": "Is the white light meter traceable to the calibration data?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The meter shall be serialized, stickered or otherwise identifiable to the calibration data."
+    },
+    {
+      "id": "6.9.6.1",
+      "question": "For parts processed to the requirements of ASME Section V Article 7, were the calibration requirements of T-760 compiled with?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.1",
+      "question": "Provide the following documentation for auditor review for each of the tested during the compliance portion of the audit:",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: ECLR materials shall not leave the Auditee's facility."
+    },
+    {
+      "id": "7.1A",
+      "question": "Documentation Details",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.2.1",
+      "question": "Is the facility using the appropriate specification(s) and revision(s) as required by the contract document?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: This shall be confirmed by the auditor by reviewing the customer P.O. and End User drawing if available."
+    },
+    {
+      "id": "7.2.2",
+      "question": "If the facility is working to any deviations, have they been approved by the customer?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The auditor shall confirm documented customer approval; this may be in the form of a written communication, technique approval or by a formal deviation from the End User."
+    },
+    {
+      "id": "7.2.3",
+      "question": "Were the applicable work instructions/routings/shop travelers/techniques/procedures, acceptance criteria and unique customer requirements, made available to the magnetic particle inspectors?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The term 'available' means that these documents are within easy access by the technicians. These documents are available and are used to perform the inspections, not used from memory."
+    },
+    {
+      "id": "7.2.4",
+      "question": "If written procedures and/or techniques require review and/or approval by the Cognizant Engineering Organization, is that approval evident?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: This shall be investigated and confirmed by the auditor by reviewing the last ten part numbers shipped."
+    },
+    {
+      "id": "7.2.5",
+      "question": "If applicable, are part specific drawing inspection and/or acceptance notes being flowed down and followed by the inspectors?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: This shall be investigated and confirmed by the auditor."
+    },
+    {
+      "id": "7.2.6",
+      "question": "Was there evidence of compliance to the document control procedure?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.2.7",
+      "question": "If applicable, were any and all specification, drawing, procedure or technique changes authorized?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: Auditor to confirm approval."
+    },
+    {
+      "id": "7.3.1.1",
+      "question": "Do applicable Work Orders/Shop Travelers and Technique Cards contain or provide traceability to part number / material identification?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.2",
+      "question": "Do applicable Work Orders/Shop Travelers and Technique Cards contain or provide traceability to specification reference?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.3",
+      "question": "Do applicable Work Orders/Shop Travelers and Technique Cards contain or provide traceability to inspection acceptance requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.4",
+      "question": "Do applicable Work Orders/Shop Travelers and Technique Cards contain or provide traceability to correct sequence of operations?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.1",
+      "question": "Is the inspection performed following all processes that could adversely affect the part (Heat Treat, Forming, Machining, Welding, etc)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: NA for independent test facilities."
+    },
+    {
+      "id": "7.4.2",
+      "question": "Are parts plugged or masked if required?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.3",
+      "question": "Did the inspector(s) review, as applicable, the specification(s), technique sheet, and procedure(s) prior to inspecting the part?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.4",
+      "question": "Are parts being cleaned prior to inspection as applicable to remove paint, scale, oil, dirt and other foreign materials that may interfere with the inspection process in accordance with applicable work instructions/procedure?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.5",
+      "question": "Were all parts clean?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The auditor shall confirm the cleanliness of the parts prior to inspection by whatever means are available and reasonable."
+    },
+    {
+      "id": "7.4.6",
+      "question": "Was the magnetic particle suspension properly agitated?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The magnetic particle suspension shall be agitated throughout to provide a uniform concentration of particles in suspension as demonstrated via the concentration result."
+    },
+    {
+      "id": "7.4.7",
+      "question": "Were parts properly magnetized in accordance with the procedure or technique sheet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.8",
+      "question": "Was suspension properly applied to the parts?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The suspension shall be applied to the surface of the part(s) in a manner providing total coverage. The suspension shall not be applied using pressure of such magnitude that would cause excessive splashing."
+    },
+    {
+      "id": "7.4.9",
+      "question": "Was the dry powder properly applied to the parts?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The dry powder shall be applied to the surface of the part(s) in a manner providing total coverage. Ensure that after particle application, but prior to removal of magnetizing force their excess powder is removed."
+    },
+    {
+      "id": "7.4.10",
+      "question": "Did the inspector(s) adhere to the requirement of not wearing photo chromatic eye glasses or permanently darkened lenses?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: This is not intended to prohibit the use of eyeglasses with lenses treated to absorb ultraviolet light."
+    },
+    {
+      "id": "7.4.11",
+      "question": "Did the inspector(s) accustom their eyes to darkness for at least one minute before performing any inspection requiring the use of ultraviolet light?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: Inspectors shall allow at least 1 minute to condition their eyes to the darkness when coming in from ambient lighting. Adaptation time during inspection and evaluation is not required unless otherwise specified by the customer. A timing device is required for eye adaptation monitoring, but evidence of calibration is not required."
+    },
+    {
+      "id": "7.4.12",
+      "question": "If required, were parts demagnetized between each operation?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: Parts shall be demagnetized between each operation where the strength of the magnetizing field is not sufficient to overcome the residual field of the previous magnetization."
+    },
+    {
+      "id": "7.4.13",
+      "question": "If applicable, when current is passed directly through the part (direct head shot) was care exercised to prevent burning/arcing of the part at the contact areas?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: When current is passed directly through the part (direct head shot), burning/arcing between the contact areas of the machine and the part shall not occur."
+    },
+    {
+      "id": "7.3.13.1",
+      "question": "If arcing or overheating occurred did the operator follow the requirements defined in the procedure?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.4.14.1",
+      "question": "For parts processed to the requirements of ASME Section V Article 7, were the technique requirements of T-750 compiled with?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.5.1",
+      "question": "Was the ultraviolet light intensity measured at the time of this survey, at least 1000 µW/cm² at the inspection surface?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.2",
+      "question": "For inspections utilizing visible particles was the white light intensity measured at the time of this survey at least 100 ft-candles/1076 lux?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.5.3",
+      "question": "Were all areas of the part inspected per the technique sheet or procedure?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.4",
+      "question": "If applicable, did the inspector(s) properly evaluate every relevant indication in accordance with the customer standard?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.5.5",
+      "question": "Was the specific acceptance criteria properly understood by the inspector(s)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: The auditor is expected to confirm understanding by whatever means are required. This may be possible by observation or in some cases may require the auditor to ask the inspector(s) questions regarding the criteria and how it is to be used."
+    },
+    {
+      "id": "7.5.6",
+      "question": "Were precautions taken when parts were handled during inspection not to smear or obliterate indications?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.7",
+      "question": "If applicable, were indications not meeting the acceptance criteria marked on the part and/or appropriately documented?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The auditor is expected to validate that the appropriate marking materials are utilized in accordance with customer requirements."
+    },
+    {
+      "id": "7.5.8",
+      "question": "After evaluation, were all parts demagnetized and exhibit no more than an absolute value of 3 gauss or 240 A/m as determined by the use of a field indicator on the surface of the part?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.9",
+      "question": "Was the examination area kept free of interfering debris?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.10",
+      "question": "Where fluorescent materials are involved, was the area kept free of fluorescent objects not related to the part/piece being examined?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.11.1",
+      "question": "For parts processed to the requirements of ASME Section V Article 7, were the Examination requirements of T-770 compiled with?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.5.11.2",
+      "question": "For parts processed to the requirements of ASME Section V Article 7, were the evaluation requirements of T-780 compiled with?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.6.1",
+      "question": "Were parts properly cleaned after magnetic particle inspection to remove magnetic particle residues from holes, crevices, passage ways, etc?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: Cleaning shall be done with a suitable solvent or by other means with all plugs, masking, or other processing aids removed with care as they may affect the intended use of the part."
+    },
+    {
+      "id": "7.6.2",
+      "question": "After inspection and appropriate cleaning, were parts properly protected from corrosion or damage?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.7.1",
+      "question": "Were the inspection personnel certified to the correct levels for the work they were performing?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: This shall be verified by review of the certification records."
+    },
+    {
+      "id": "7.7.2",
+      "question": "Were all non-certified or in-training personnel observed performing magnetic particle process operations properly supervised?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: This shall be determined by direct observation."
+    },
+    {
+      "id": "7.7.3",
+      "question": "Were all personnel who require near vision correction to pass the visual acuity exam wearing vision correction for detection and evaluation purposes during testing/inspections?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The auditor shall verify that corrective lenses were used if required. NA only where none of the inspection personnel witnessed working required correction lenses."
+    },
+    {
+      "id": "7.8.1",
+      "question": "Were symbols and/or marking methods used to denote magnetic particle inspection status?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.8.2",
+      "question": "Were all inspection results properly recorded and traceable to the parts?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    }
+  ],
+  "total_questions": 159
+}

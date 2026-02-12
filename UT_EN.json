@@ -1,0 +1,1337 @@
+{
+  "audit_tool": "Ultrasonic Testing (TPG-AC7114/3)",
+  "revision": "E",
+  "questions": [
+    {
+      "id": "3.1",
+      "question": "Has the auditee completed the material and equipment list and has the auditor reviewed it for appropriateness, content, and accuracy?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Appendices are for information only but must be fully completed. NCRs are not written against appendices."
+    },
+    {
+      "id": "4.1.1",
+      "question": "Is there a procedure, general or specific, for the processing and testing of common product forms such as plate, bar stock, forgings, etc., using the ultrasonic method?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.1.2",
+      "question": "Is there a procedure for tracking and recording UT rejections and recordable indications?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Indications classified as recordable discontinuities and rejectable flaws per customer requirements."
+    },
+    {
+      "id": "4.2.1",
+      "question": "Do the procedures show approval by the responsible Level 3?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: The responsible Level 3 can be the user, qualified or approved Level 3, internal Level 3, and/or external Level 3."
+    },
+    {
+      "id": "4.3.1",
+      "question": "Does the written procedure contain traceability to the name and address of the testing facility?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.2",
+      "question": "Does the procedure contain a procedure identification number and the date of procedure approval?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.3",
+      "question": "Does the procedure require that all personnel are qualified and certified for the task performed and applicable contract requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.4",
+      "question": "Does the procedure reference the applicable process specification?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.5",
+      "question": "Does the procedure contain the specific material and form for which the procedure is written?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.6",
+      "question": "Does the procedure contain the specific part number or configuration to be tested?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.7",
+      "question": "Does the procedure reference the reference standards to be applied?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.8",
+      "question": "Does the procedure contain the test technique (Contact, Immersion, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.9",
+      "question": "Does the procedure contain manufacturer and model numbers of the instrument/system to be used in the test, including any recording devices, alarm devices, and electronic Distance Amplitude Correction (DAC) / Time Corrected Gain (TCG) devices, if applicable?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10",
+      "question": "Does the procedure contain transducer type and size, including frequency, beam angle, and description of wedges, shoes, saddles, standoffs, bubbler or spray nozzles, if applicable?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10.1",
+      "question": "If rectangular \"brush\" transducers are approved for straight beam, immersion primary scans of plate, are the following items procedurally addressed?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10.2",
+      "question": "The method for providing a uniform entry surface for the entire beam spread when using calibration blocks for instrument calibration and settings?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10.3",
+      "question": "The method for determining a sensitivity profile across the major dimension of the beam to locate the least sensitive area?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: Scanning sensitivity must be set using the least active part of the transducer at any position of the DAC curve to be used."
+    },
+    {
+      "id": "4.3.10.4",
+      "question": "The method for masking the ends of the transducer to eliminate over-sensitive responses?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10.5",
+      "question": "The method for evaluating indications detected during scanning?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10.6",
+      "question": "The method for determining the effective beam width (major dimension of the transducer)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: The scan index shall be based on the beam width determined in this manner."
+    },
+    {
+      "id": "4.3.11",
+      "question": "Description of the manipulation and scanning equipment?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.12",
+      "question": "Surface preparation (finish, cleaning, pickling, water-break free surface, manual rubbing, mechanical cleaning, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.13",
+      "question": "Special material handling and processing of parts defined (e.g., for Beryllium, Titanium, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.14",
+      "question": "Applicable acceptance requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.15",
+      "question": "The method for identifying the test status?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.16",
+      "question": "Test zones and the method for ensuring applicable coverage?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.17",
+      "question": "A method for determining discontinuity location?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: This may include electronic or computer-assisted raster and/or mapping systems."
+    },
+    {
+      "id": "4.3.18",
+      "question": "Transducer-to-part distances for through-transmission, held within the same geometric and distance limits (+/-) under which the applicable calibration standard was successfully scanned?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.19",
+      "question": "Couplant including, if necessary, corrosion inhibitor and wetting agent?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.20",
+      "question": "Is there a scan plan that contains the description of the surfaces from which the test is conducted and the ultrasonic beam paths to be used including water path distance (for immersion method) and the beam refraction or incident angle, if applicable?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.20.1",
+      "question": "Was the primary scan, where possible, conducted parallel to the primary grain flow direction?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.20.2",
+      "question": "If the directions of maximum loading are specified by the specifications or engineering drawings, was scanning performed to locate discontinuities oriented in specific directions?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.21",
+      "question": "Method for determining the dB correction factor, transfer and application of the correction, if required?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.22",
+      "question": "Pulse repetition rate, if required?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.23",
+      "question": "Method for setting scan sensitivity?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.23.1",
+      "question": "Does the procedure address how the scan index is handled for each individual immersion transducer (Type I)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.23.2",
+      "question": "Does the procedure address how the scan index is handled for each individual immersion transducer (Type II)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.23.3",
+      "question": "Does the procedure address the method for determining the effective beam width (major dimension of the transducer)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: The scan index shall be based on the beam width determined in this manner."
+    },
+    {
+      "id": "4.3.24",
+      "question": "Does the procedure address the method for determining the scan index?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.25",
+      "question": "Does the procedure address the method for determining the scan rate?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.26",
+      "question": "Method for determining the effective beam width of the transducer?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.26.1",
+      "question": "Test mode (Shear, Longitudinal, etc.)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.26.2",
+      "question": "Scan speed and scan index?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.27",
+      "question": "Rejection limits, noise levels, gate levels?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.28",
+      "question": "Alarm levels?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: Required when testing parts or material with regular shape and parallel surfaces such as plate, bar stock, and forging stock."
+    },
+    {
+      "id": "4.3.29",
+      "question": "Instructions for discontinuity evaluation?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.30",
+      "question": "Complete post-test cleaning instructions or reference to procedures containing such instructions?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.31",
+      "question": "A requirement that all electronic devices be checked after each repair or component/part replacement that could affect their response characteristics?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.32",
+      "question": "How transducers are evaluated, listing the acceptance/rejection criteria for the various types of transducers in use?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.33",
+      "question": "Verification of transducer performance when damage is suspected?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.34",
+      "question": "Is there a procedure that addresses the reverification of scanning and indexing equipment when maintenance or modifications are performed?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.35",
+      "question": "Is there a procedure that defines when a rejection rate is unacceptable?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.36",
+      "question": "Is there a procedure to notify customers when rejection rates reach an unacceptable level?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.37",
+      "question": "Is there a procedure for a containment plan when rejection rates reach an unacceptable level?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.38",
+      "question": "When testing for flaws whose major dimension is not parallel to the surfaces, is there a process for establishing standardization parameters for angled examinations?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: It is NOT expected that the specific angle is determined, only that there is a method of standardization."
+    },
+    {
+      "id": "4.4.1",
+      "question": "When testing for flaws whose major dimension is not parallel to the surfaces, is there a process for establishing compensation factors if they affect sensitivity or acceptance levels?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: It is NOT expected that a process exists to determine if sensitivity and acceptance levels are affected; only that a method for compensation exists."
+    },
+    {
+      "id": "4.4.1.1",
+      "question": "Has the facility established rejection thresholds in the procedure/technique and are these criteria followed?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.4.2",
+      "question": "Does the procedure or technique address or define the active aperture size?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.4.3",
+      "question": "Does the procedure or technique define the scan index of the virtual probe within the array in terms of the number of elements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.4.4",
+      "question": "Does the procedure or technique define a check for dead elements, including location and acceptance for use?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.4.5",
+      "question": "For ASME Section V, Article 4, when procedure qualification is specified by the referencing ASME Code Section, did the procedure require that a change of a requirement for items marked with an \"e\" (essential variable) from the specified value or range of values requires requalification of the written procedure?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: A change of a requirement identified as non-essential from the specified value or range of values does not require requalification of the written procedure."
+    },
+    {
+      "id": "4.5.1",
+      "question": "Do all changes of essential or non-essential variables from the value or range of values specified by the written procedure require a revision or addendum to the written procedure?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.5.2",
+      "question": "Does the procedure require a scan plan (documented examination strategy) showing the search unit arrangement and movement that provides a standardized and repeatable methodology for the examination?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.6.1",
+      "question": "Does the procedure require that the following items are included?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2",
+      "question": "Search unit(s) including element spacing, size, number, and gap dimensions?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2.1",
+      "question": "Focal range(s) including plane, depth, or sound path, as applicable?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2.2",
+      "question": "Virtual aperture size(s) including number of elements, element width, and effective height?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2.3",
+      "question": "Wedge natural refraction angle?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2.4",
+      "question": "Scan plan?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2.5",
+      "question": "Weld axis reference point marking?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.3.1",
+      "question": "Raster angle?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.6.3.2",
+      "question": "Aperture start and stop element numbers?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.3.3",
+      "question": "Aperture incremental change(s) (number of elements stepped through)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.4.1",
+      "question": "Angle range(s) for sweep?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.6.4.2",
+      "question": "Angle sweep increment (incremental angle change, degrees)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.4.3",
+      "question": "Aperture element numbers (first and last)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.1",
+      "question": "If maintenance or modifications were performed on scanning and indexing equipment, was reverification performed?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.1.2",
+      "question": "If line voltage fluctuations cause variations of more than ± 2.5 percent of the vertical limit in a signal with an amplitude of half the vertical limit, was a voltage regulator used at the power source?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: NA would be used for battery-powered units."
+    },
+    {
+      "id": "5.2.1",
+      "question": "If used, is the equipment capable of performing dynamic focusing of either annular or linear arrays with a depth resolution to achieve near and far surface resolution as required in the criteria?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.2.2",
+      "question": "If sweep angle is used, are the array and focal law capable of producing the refraction angles required in the criteria used?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: It is expected that a procedure exists to adjust the array to produce the specific angle."
+    },
+    {
+      "id": "5.2.3",
+      "question": "If required, is the system software capable of performing full A-scan capture?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.2.4",
+      "question": "If required, is the system software capable of displaying A-scan, B-scan, C-scan, and sector scan data for both immersion and contact method?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.2.5",
+      "question": "If attenuation measurement is required, does the pulser/receiver software have the capability to normalize attenuation data across the array?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: This is typically used for porosity quantification on material structures with parallel front and back surfaces. If NA is not selected; a procedure/technique should exist."
+    },
+    {
+      "id": "5.3.1",
+      "question": "Are all transducers serialized?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.2",
+      "question": "Is the focal spot size or effective beam width verified and documented for all immersion focus transducers to determine the maximum scan index?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.3.3",
+      "question": "If transducer damage is suspected, was performance verified prior to use?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1",
+      "question": "Does the probe identification and/or certification protocol address the following?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.1",
+      "question": "Center frequency",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.2",
+      "question": "Probe type (linear, annular, matrix)",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.3",
+      "question": "Number of elements",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.4",
+      "question": "Active element size, length or diameter",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.5",
+      "question": "Passive aperture size or elevation",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.6",
+      "question": "Serial number",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.7",
+      "question": "Bandwidth",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.2",
+      "question": "If permanent shoes or delays are bonded to the array face, does the certification protocol or probe identification include the center frequency response before and after bonding?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.1",
+      "question": "Are reference standards stored and handled to prevent damage from improper handling, corrosion, pitting, etc.?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.6.1",
+      "question": "For hollow cylindrical standards, is there a method for determining the incident angle or offset distance \"d\" for maximum amplitude responses for all quality grades included in the procedure?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.6.1.1",
+      "question": "Was the standard thickness equal to ± 25 percent of the part thickness?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.6.1.2",
+      "question": "Was the outside diameter within ± 10 percent of the outside diameter of the part or section to be evaluated?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.1",
+      "question": "Are system standardization checks performed before and immediately after or concurrently with each test lot, change of equipment, and/or settings?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.2",
+      "question": "If the instrument fails the post-test standardization check, are all parts since the last acceptable standardization check re-evaluated or retested, as required?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.3",
+      "question": "Are there requirements for visual examination and surface preparation to ensure that parts to be tested have an adequate surface condition?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.4",
+      "question": "If Distance Amplitude Correction (DAC) or Time Corrected Gain (TCG) is used, are distance/amplitude response curves recorded or electronically maintained for transducer and instrument combinations used?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.1",
+      "question": "If instrument/system channel calibration is performed internally, do procedures exist that define the calibration requirements, and are they available for review?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.1.1",
+      "question": "If instrument/system channel calibration is performed internally, was it performed in accordance with ASTM-E-317, MIL-STD-2154 - Table II, AMS-STD-2154 or customer requirements and/or manufacturer recommendations, as applicable?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.2",
+      "question": "Do records provide evidence that all instrument/system channels used are calibrated in accordance with ASTM-E-317, MIL-STD-2154 - Table II, AMS-STD-2154 or customer requirements and/or manufacturer recommendations, as applicable?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.2.1",
+      "question": "For ASME work, is the amplitude control linearity of the ultrasonic instrument evaluated in accordance with ASME Section V Article IV, Mandatory Appendix II for each pulser-receiver circuit?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.2.2",
+      "question": "Are instrument/system channel calibrations performed at least annually?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.2.3",
+      "question": "Are instrument/system channel calibrations performed after each repair or component/part replacement that could affect the instrument response characteristics?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.3",
+      "question": "Is scanning and indexing equipment verified to ensure complete coverage of the area of interest?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.3.1",
+      "question": "Does the scanning and indexing equipment allow measurement of scan and/or index distances within ± 0.1 inch (0.25 cm)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.3.2",
+      "question": "Are records of this verification in the file and do they provide evidence of acceptable results?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.4",
+      "question": "Is scanning and indexing equipment controlled and verified to ensure rotational accuracy?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.4.1",
+      "question": "Are records of this verification in the file and do they provide evidence of acceptable results?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.5",
+      "question": "Is manipulation equipment verified to ensure search unit angular control to within one degree in two mutually perpendicular directions?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.5.1",
+      "question": "Are records of this verification in the file and do they provide evidence of acceptable results?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.2.1",
+      "question": "Is documentation available for all reference standards fabricated in accordance with ASTM-E-127/428?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: Comparison amplitude documentation of all reference standards shall be available showing amplitude linearity to class size (specify linear amplifier or linear dB display) available per ASTM-E127/428."
+    },
+    {
+      "id": "6.2.2",
+      "question": "For special standards, is the standard comparable to the component to be tested, including surface condition?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3",
+      "question": "Was the following information available to verify the correctness of reference standard fabrication?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.1",
+      "question": "Dimensional or construction inspection data and/or radiography data verifying that holes are in correct alignment?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.2",
+      "question": "Comparison amplitude plot of all holes or notches showing amplitude linearity to class size?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.3",
+      "question": "For cylindrical standards, listing of the incident angle or offset distance \"d\" for maximum amplitude response for all quality grades?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.4",
+      "question": "Measured surface roughness (RMS, AA or RHR) of the standard?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.5",
+      "question": "Certification that the standard material is free from discontinuities detrimental to a reliable response from the reference standard?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.6",
+      "question": "Table of dimensions showing the location of reference holes or notches?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.7",
+      "question": "Alloy type and heat treatment condition?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.8",
+      "question": "Other types of reference reflectors (milled EDM notches, side drilled holes, etc.), as specified in contract or order?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.1",
+      "question": "Provide the following documentation for review by the auditor for each of the parts examined during the compliance portion of the audit:",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: EC-LR materials shall not leave the auditee's facility."
+    },
+    {
+      "id": "7.1A",
+      "question": "Compliance Documentation",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.2.1",
+      "question": "Does the facility use the appropriate specification(s) and revision(s) in accordance with the contract documents?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: This shall be confirmed by the auditor by reviewing the customer purchase order and end user drawing, if available."
+    },
+    {
+      "id": "7.2.2",
+      "question": "If the facility operates with deviations, have these been approved by the customer?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Note: The auditor will confirm documented customer approval; this may be in the form of written communication, engineering release, or a formal deviation from the end user."
+    },
+    {
+      "id": "7.2.3",
+      "question": "Were the applicable procedures, techniques, acceptance standards, scan plans, and unique customer requirements made available to the ultrasonic testers?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: The term \"available\" means that these documents are readily accessible to the technicians. These documents are available and used to perform the examinations, not from memory."
+    },
+    {
+      "id": "7.2.4",
+      "question": "If written procedures and/or techniques require review and/or approval by the cognizant engineering organization, is this approval evident?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: This shall be investigated and confirmed by reviewing the last ten shipped parts."
+    },
+    {
+      "id": "7.2.5",
+      "question": "Did the examiners follow the planning and other instructions?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.2.6",
+      "question": "Was there evidence of compliance with document control procedures?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: Auditor confirms approval."
+    },
+    {
+      "id": "7.2.7",
+      "question": "If applicable, were all specification, drawing, procedure, or technique changes authorized?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Note: The auditor shall review the documents for unauthorized changes."
+    },
+    {
+      "id": "7.3.1.1",
+      "question": "Part number / material identification?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.2",
+      "question": "Specification reference?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.3",
+      "question": "Inspection acceptance requirements?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.4",
+      "question": "Correct sequence of operations?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.1",
+      "question": "Is there evidence that the calibration of the ultrasonic equipment is current?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.1",
+      "question": "If parts were serialized or heat coded, were the serial numbers or heat codes recorded on all shop paperwork and inspection records?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.6.1",
+      "question": "Were the surfaces of parts to be inspected free from dirt, scale, oil, or other contaminants that would interfere with the inspection operation?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.6.2",
+      "question": "Was the surface finish of the parts to be inspected adequate for the level of inspection to be performed?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.7.1",
+      "question": "Was the water free of bubbles and adequately filtered?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.7.2",
+      "question": "Was the correct couplant used for the material and process performed?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.7.3",
+      "question": "If corrosion inhibiting agent and/or a wetting agent have been added, have they been previously determined to be suitable for the materials to be inspected and are they approved by the customer?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.8.1",
+      "question": "Were set-ups made according to the procedure/technique sheet/scan plan?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.8.2",
+      "question": "Was attenuation/transfer checked?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.8.3",
+      "question": "Were transducers used according to the technique sheet/scan plan as required?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.8.4",
+      "question": "Were the correct standards used?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.8.5",
+      "question": "If applicable, were gates, alarms, and recorders properly used?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.8.6.1",
+      "question": "Are all individual beams used in the examination calibrated to provide measurement of distance and amplitude correction over the sound path employed in the examination?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.8.7",
+      "question": "Were technique sheet/scan plans and procedures approved by the applicable Level 3?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.9.1",
+      "question": "Was the hardware scanned according to the technique sheet/scan plan?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.9.2",
+      "question": "Was the inspection scan speed performed at the same scan speed (or proven capability) as the calibration standard?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: Proven capability for this purpose refers to the systems capability to detect that size flaw required at a given scan speed. As long as it can be demonstrated that the flaws can be detected, the scan speed should be considered acceptable."
+    },
+    {
+      "id": "7.9.3",
+      "question": "Was the inspection index performed at the same or smaller index as the calibration standard?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.4",
+      "question": "If required, was a loss of back reflection inspection performed?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.5",
+      "question": "Was a system standardization check performed per technique?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.9.6",
+      "question": "Has the containment plan been followed if reject rates have reached unacceptable levels?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.7",
+      "question": "Has the impact or root cause been evaluated when there has been an unacceptable reject rate?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.1",
+      "question": "Was the required volume of the weld and base material to be examined scanned using a linear scanning technique with an encoder?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.2",
+      "question": "Was each linear scan parallel to the weld axis at a constant standoff distance with the beam oriented perpendicular to the weld axis?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.3",
+      "question": "Was the search unit maintained at a fixed distance from the weld axis by a fixed guide or mechanical means?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.4",
+      "question": "Were the examination angle(s) for E-scan and range of angles for S-scan appropriate for the joint to be examined?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.5",
+      "question": "Was the scanning speed such that data drop-out was less than 2 data lines per inch (25 mm) of the linear scan length and that there are no adjacent data line skips?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.6",
+      "question": "For E-scan techniques, was overlap between adjacent active apertures (i.e., aperture incremental change) a minimum of 50% of the effective height?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.7",
+      "question": "For S-scan techniques, was the angular sweep incremental change a maximum of 1 deg or sufficient to assure 50% beam overlap?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.8",
+      "question": "When multiple linear scans are required to cover the required volume of weld and base material, was the overlap between adjacent linear scans a minimum of 10% of the effective aperture height for E-scans or beam width for S-scans?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.9",
+      "question": "If the post-inspection standardization check failed, were all parts inspected since the last acceptable standardization re-evaluated or re-inspected?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.10.1",
+      "question": "If required, were all post inspection cleaning operations followed?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.10.2",
+      "question": "If required, were all inspected parts dried and coated with a corrosion protective agent before being stacked, nested, or otherwise placed in contact with one another?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.1",
+      "question": "Reference standard used?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.2",
+      "question": "Material lot or identification number?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.3",
+      "question": "Acceptance criteria?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.4",
+      "question": "Applicable specification(s)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.5",
+      "question": "Number of parts inspected, accepted, rejected?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.6",
+      "question": "Inspector identification and date of inspection?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.7",
+      "question": "Location and general description of rejectable indications?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.12.1",
+      "question": "Was A-scan data recorded for the area of interest in an unprocessed form with no thresholding, at a minimum digitization rate of five times examination frequency?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.12.2",
+      "question": "Was A-scan data recorded at increments of a maximum of 0.04 in. (1 mm) for material < 3 in. (75 mm) thick and 0.08 in. (2 mm) for material ≥ 3 in. (75 mm) thick?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.12.3",
+      "question": "For each examination, was the required information of T-492 and the following information recorded?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.12.3.1",
+      "question": "Search unit element size, number, and pitch and gap dimensions?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.12.3.2",
+      "question": "Focal law parameters, including, as applicable, angle or angular range, focal depth and plane, element numbers used, angular or element incremental change, and start and stop element numbers or start element number?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.12.3.3",
+      "question": "Wedge natural refracted angle?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.13.1",
+      "question": "Were inspection personnel certified to the correct levels for the work being performed?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Guidance: This shall be verified by review of the certification records."
+    },
+    {
+      "id": "7.13.2",
+      "question": "Were all non-certified or in-training ultrasonic inspection personnel properly supervised?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: This shall be determined by direct observation."
+    },
+    {
+      "id": "7.13.3",
+      "question": "Were all personnel who require near vision correction to pass the visual acuity exam wearing vision correction for detection and evaluation purposes during testing/inspections?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Guidance: The auditor shall verify that corrective lenses were used if required. \"Near vision correction\" refers to the glasses or contacts that were required to pass the vision test. It is required that such correction is worn during all testing/inspection at 1x."
+    },
+    {
+      "id": "7.14.1",
+      "question": "Are symbols and/or marking methods used to denote ultrasonic inspection status?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.14.2",
+      "question": "Were all inspection results properly recorded and traceable to the parts?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    }
+  ],
+  "total_questions": 208
+}

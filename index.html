@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Audit ZfP - Schaeffler Technologies</title>
+    <style>
+        /* === DARK MODE VARIABLEN === */
+        :root,
+        html[data-theme="light"] {
+            --bg-primary: #eef8ee;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f3fbf3;
+            --text-primary: #333333;
+            --text-secondary: #7f8c8d;
+            --text-tertiary: #111111;
+            --border-color: #bdc3c7;
+            --border-light: #ecf0f1;
+            --shadow-color: rgba(0,0,0,0.1);
+            --header-border: #0f2a1a;
+            --header-bg: #1f6f43;
+            --btn-back: #7f8c8d;
+            --btn-report: #8e44ad;
+            --btn-danger: #e74c3c;
+            --btn-info: #17a2b8;
+            --btn-success: #27ae60;
+            --btn-warning: #f39c12;
+            --btn-export: #3498db;
+            --audit-et: #3498db;
+            --audit-mt: #e74c3c;
+            --audit-ne: #2ecc71;
+            --audit-ut: #9b59b6;
+            --progress-bg: #ecf0f1;
+            --progress-100: #27ae60;
+            --progress-75: #2ecc71;
+            --progress-50: #f39c12;
+            --progress-25: #e67e22;
+            --progress-0: #e74c3c;
+            --question-border: #3498db;
+            --question-bg: #f8f9fa;
+            --answer-yes: #27ae60;
+            --answer-no: #e74c3c;
+            --answer-na: #95a5a6;
+            --input-bg: #ffffff;
+            --input-border: #ddd;
+            --input-text: #333;
+            --modal-bg: rgba(0,0,0,0.8);
+            --modal-content-bg: #ffffff;
+            --submenu-bg: #f8f9fa;
+            --submenu-item-hover: #e9ecef;
+        }
+        
+        html[data-theme="dark"] {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-tertiary: #2d2d2d;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --text-tertiary: #ffffff;
+            --border-color: #444444;
+            --border-light: #333333;
+            --shadow-color: rgba(0,0,0,0.3);
+            --header-border: #1f2a66;
+            --header-bg: #2c3e50;
+            --btn-back: #5d6d7e;
+            --btn-report: #6c3483;
+            --btn-danger: #c0392b;
+            --btn-info: #117a8b;
+            --btn-success: #229954;
+            --btn-warning: #b9770e;
+            --btn-export: #2874a6;
+            --audit-et: #2874a6;
+            --audit-mt: #c0392b;
+            --audit-ne: #239b56;
+            --audit-ut: #7d3c98;
+            --progress-bg: #34495e;
+            --progress-100: #27ae60;
+            --progress-75: #2ecc71;
+            --progress-50: #f39c12;
+            --progress-25: #e67e22;
+            --progress-0: #c0392b;
+            --question-border: #3498db;
+            --question-bg: #2d2d2d;
+            --answer-yes: #27ae60;
+            --answer-no: #e74c3c;
+            --answer-na: #7f8c8d;
+            --input-bg: #2d2d2d;
+            --input-border: #444444;
+            --input-text: #e0e0e0;
+            --modal-bg: rgba(0,0,0,0.9);
+            --modal-content-bg: #1e1e1e;
+            --submenu-bg: #2d2d2d;
+            --submenu-item-hover: #3d3d3d;
+        }
+        
+        /* === GRUNDSTYLES === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            padding: 6px;
+            font-size: 14px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--header-border);
+            position: relative;
+        }
+        
+        h1 {
+            color: var(--text-tertiary);
+            margin-bottom: 4px;
+            font-size: 1.3em;
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        
+        /* === THEME TOGGLE === */
+        .theme-toggle {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 900;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background: var(--toggle-bg, #ffffff);
+            color: var(--toggle-text, #333333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            font-size: 18px;
+        }
+        
+        /* === AUDIT AUSWAHL (STARTSEITE) === */
+        .audit-selection {
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .audit-selection h2 {
+            color: var(--text-tertiary);
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        
+        .audit-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .audit-btn {
+            padding: 12px 8px;
+            background: var(--audit-et);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: bold;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+        }
+        
+        .audit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+        
+        .audit-btn.wirbelstrom { background: var(--audit-et); }
+        .audit-btn.magnetpulver { background: var(--audit-mt); }
+        .audit-btn.nital { background: var(--audit-ne); }
+        .audit-btn.ultraschall { background: var(--audit-ut); }
+        
+        .audit-btn .btn-icon {
+            font-size: 1.6em;
+            margin-bottom: 6px;
+        }
+        
+        .audit-btn .btn-progress {
+            margin-top: 4px;
+            font-size: 0.7em;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 6px;
+            border-radius: 8px;
+            min-width: 35px;
+        }
+        
+        /* === SUBMENU (AUDIT ÜBERSICHT) === */
+        .audit-submenu {
+            display: none;
+            padding: 20px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .audit-submenu.active {
+            display: block;
+        }
+        
+        .submenu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .submenu-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--text-tertiary);
+        }
+        
+        .submenu-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .info-card {
+            background: var(--bg-secondary);
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+        
+        .info-card h3 {
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+        
+        .info-card p {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--text-tertiary);
+        }
+        
+        .section-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .section-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .section-item:hover {
+            transform: translateX(5px);
+            border-color: var(--header-bg);
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+        
+        .section-icon {
+            font-size: 1.2em;
+            margin-right: 15px;
+        }
+        
+        .section-details {
+            flex: 1;
+        }
+        
+        .section-name {
+            font-weight: bold;
+            color: var(--text-tertiary);
+            margin-bottom: 4px;
+        }
+        
+        .section-progress {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+        }
+        
+        .section-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            background: var(--progress-bg);
+            color: var(--text-secondary);
+        }
+        
+        .section-status.completed {
+            background: var(--progress-100);
+            color: white;
+        }
+        
+        .section-status.in-progress {
+            background: var(--progress-50);
+            color: white;
+        }
+        
+        .submenu-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            justify-content: flex-end;
+        }
+        
+        /* === AUDIT CONTENT (FRAGEN) === */
+        .audit-content {
+            display: none;
+        }
+        
+        .audit-content.active {
+            display: block;
+        }
+        
+        /* === CONTROLS === */
+        .controls-container {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .controls-scroll {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scrollbar-width: thin;
+        }
+        
+        .controls-scroll button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.8em;
+            min-height: 35px;
+            min-width: 80px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-back { background: var(--btn-back); color: white; }
+        .btn-submenu { background: var(--btn-info); color: white; }
+        .btn-report { background: var(--btn-report); color: white; }
+        .btn-danger { background: var(--btn-danger); color: white; }
+        .btn-info { background: var(--btn-info); color: white; }
+        .btn-export { background: var(--btn-export); color: white; }
+        
+        button:hover { 
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        
+        /* === STATUS & PROGRESS === */
+        .audit-status {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.85em;
+            background: var(--bg-tertiary);
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border-light);
+            flex-wrap: wrap;
+        }
+        
+        .audit-status span {
+            flex: 1;
+            text-align: center;
+            min-width: 100px;
+            margin: 2px 0;
+        }
+        
+        .audit-progress-container {
+            margin: 10px 0 15px 0;
+            background: var(--progress-bg);
+            border-radius: 5px;
+            height: 12px;
+            overflow: hidden;
+        }
+        
+        .audit-progress-bar {
+            height: 100%;
+            background: var(--progress-100);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.6em;
+            font-weight: bold;
+        }
+        
+        /* === KATEGORIEN === */
+        .section {
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: var(--header-bg);
+            color: white;
+            padding: 10px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        
+        .section-header h2 { 
+            margin: 0; 
+            font-size: 1em;
+        }
+        
+        .section-content {
+            padding: 12px;
+        }
+        
+        /* === FRAGEN STYLES === */
+        .question {
+            margin-bottom: 12px;
+            padding: 12px;
+            background: var(--question-bg);
+            border-radius: 4px;
+            border-left: 3px solid var(--question-border);
+            transition: all 0.3s ease;
+        }
+        
+        .question.unanswered {
+            border-left-color: #ffc107;
+            background-color: #fffdf2;
+        }
+
+        html[data-theme="dark"] .question.unanswered {
+            border-left-color: #ffc107;
+            background-color: #2d2d2d;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .question.unanswered .question-id {
+            background-color: #ffc107 !important;
+            color: #333 !important;
+        }
+
+        html[data-theme="dark"] .question.unanswered .question-id {
+            background-color: #ffc107 !important;
+            color: #000 !important;
+        }
+        
+        .question.yes-answer {
+            border-left-color: var(--answer-yes);
+            background-color: rgba(39, 174, 96, 0.05);
+        }
+        
+        .question.no-answer {
+            border-left-color: var(--answer-no);
+            background-color: rgba(231, 76, 60, 0.05);
+        }
+        
+        .question.na-answer {
+            border-left-color: var(--answer-na);
+        }
+        
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .question-text { 
+            flex: 1; 
+            font-weight: 500;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        
+        .question-id {
+            background: var(--question-border);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.75em;
+            margin-left: 8px;
+            white-space: nowrap;
+        }
+        
+        .answer-options {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .answer-option {
+            flex: 1;
+            min-width: 70px;
+            padding: 8px 5px;
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: all 0.2s ease;
+        }
+        
+        .answer-option:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .answer-option.selected { 
+            color: white;
+        }
+        
+        .answer-option[data-answer="YES"] { 
+            border-color: var(--answer-yes); 
+            color: var(--answer-yes);
+        }
+        .answer-option[data-answer="YES"].selected { 
+            background: var(--answer-yes); 
+            color: white;
+        }
+        
+        .answer-option[data-answer="NO"] { 
+            border-color: var(--answer-no); 
+            color: var(--answer-no);
+        }
+        .answer-option[data-answer="NO"].selected { 
+            background: var(--answer-no); 
+            color: white;
+        }
+        
+        .answer-option[data-answer="NA"] { 
+            border-color: var(--answer-na); 
+            color: var(--answer-na);
+        }
+        .answer-option[data-answer="NA"].selected { 
+            background: var(--answer-na); 
+            color: white;
+        }
+        
+        .evidence {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid var(--input-border);
+            border-radius: 3px;
+            resize: vertical;
+            min-height: 45px;
+            font-family: inherit;
+            margin-bottom: 8px;
+            font-size: 0.85em;
+            background: var(--input-bg);
+            color: var(--input-text);
+        }
+        
+        .guidance {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        
+        /* === MOBILE STYLES === */
+        @media (max-width: 768px) {
+            body { padding: 5px; font-size: 13px; }
+            .container { padding: 10px !important; }
+            .audit-buttons { grid-template-columns: 1fr; gap: 6px; }
+            .audit-btn { padding: 10px 6px; min-height: 70px; font-size: 0.85em; flex-direction: row; justify-content: flex-start; text-align: left; padding-left: 12px; }
+            .audit-btn .btn-icon { font-size: 1.4em; margin-right: 8px; margin-bottom: 0; }
+            .audit-btn .btn-progress { margin-left: auto; margin-top: 0; }
+            .section-header { padding: 8px 10px; font-size: 0.9em; }
+            .section-content { padding: 8px; }
+            .question { padding: 10px; }
+            .question-text { font-size: 0.9em; }
+            .question-id { font-size: 0.7em; margin-left: 5px; }
+            .answer-options { gap: 4px; }
+            .answer-option { min-width: 60px; padding: 6px 3px; font-size: 0.85em; }
+            .controls-scroll button { min-width: 70px; font-size: 0.75em; padding: 6px 8px; }
+            .submenu-info { grid-template-columns: 1fr; }
+        }
+        
+        @media (min-width: 769px) {
+            body { font-size: 15px; }
+            .container { padding: 20px; }
+            .section-header { padding: 12px 15px; font-size: 1em; }
+            .section-content { padding: 15px; }
+            .question { padding: 15px; }
+            .question-text { font-size: 1em; }
+            .question-id { font-size: 0.85em; padding: 4px 10px; }
+            .answer-option { min-width: 80px; padding: 10px 5px; font-size: 1em; }
+            .evidence { padding: 10px 12px; font-size: 0.9em; min-height: 50px; }
+        }
+        
+        /* === MODAL === */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--modal-bg);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: var(--modal-content-bg);
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 95%;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .audit-selection { display: block; }
+        .audit-selection.active { display: block; }
+        .audit-submenu { display: none; }
+        .audit-submenu.active { display: block; }
+        .audit-content { display: none; }
+        .audit-content.active { display: block; }
+        
+        footer {
+            text-align: center;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+        
+        .language-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            background: var(--header-bg);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        
+        .lang-btn {
+            padding: 8px 20px;
+            background: var(--header-bg);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        
+        .lang-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        
+        .lang-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="mainTitle">Self-Audit ZfP Verfahren</h1>
+            <div class="subtitle" id="mainSubtitle">Schaeffler Technologies AG & Co. KG</div>
+        </header>
+
+        <!-- AUDIT AUSWAHL (STARTSEITE) -->
+        <div id="auditSelection" class="audit-selection active">
+            <h2 id="selectionTitle">Audit-Verfahren auswählen:</h2>
+            <div class="audit-buttons">
+                <button class="audit-btn wirbelstrom" data-audit="ET">
+                    <div class="btn-icon">⚡</div>
+                    <span class="audit-title-de">Wirbelstromprüfung</span>
+                    <span class="audit-title-en" style="display:none;">Eddy Current Testing</span>
+                    <div class="btn-progress" id="etProgress">0%</div>
+                </button>
+                <button class="audit-btn magnetpulver" data-audit="MT">
+                    <div class="btn-icon">🧲</div>
+                    <span class="audit-title-de">Magnetpulverprüfung</span>
+                    <span class="audit-title-en" style="display:none;">Magnetic Particle Testing</span>
+                    <div class="btn-progress" id="mtProgress">0%</div>
+                </button>
+                <button class="audit-btn nital" data-audit="NE">
+                    <div class="btn-icon">🧪</div>
+                    <span class="audit-title-de">Nital-Ätzen</span>
+                    <span class="audit-title-en" style="display:none;">Nital Etching</span>
+                    <div class="btn-progress" id="neProgress">0%</div>
+                </button>
+                <button class="audit-btn ultraschall" data-audit="UT">
+                    <div class="btn-icon">📡</div>
+                    <span class="audit-title-de">Ultraschallprüfung</span>
+                    <span class="audit-title-en" style="display:none;">Ultrasonic Testing</span>
+                    <div class="btn-progress" id="utProgress">0%</div>
+                </button>
+            </div>
+            <div style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+                <button id="langDeBtn" class="lang-btn" style="background: var(--header-bg);">DEUTSCH</button>
+                <button id="langEnBtn" class="lang-btn" style="background: var(--btn-back);">ENGLISH</button>
+            </div>
+        </div>
+
+        <!-- AUDIT SUBMENU (ÜBERSICHT) -->
+        <div id="auditSubmenu" class="audit-submenu">
+            <div class="submenu-header">
+                <div class="submenu-title" id="submenuTitle">Audit Übersicht</div>
+                <span class="language-badge" id="languageBadge">DE</span>
+            </div>
+            
+            <div class="submenu-info" id="submenuInfo">
+                <!-- Wird dynamisch befüllt -->
+            </div>
+            
+            <h3 id="sectionsTitle" style="margin-bottom: 15px; color: var(--text-tertiary);">Verfügbare Prüfbereiche:</h3>
+            
+            <div class="section-list" id="sectionList">
+                <!-- Wird dynamisch mit Sektionen befüllt -->
+            </div>
+            
+            <div class="submenu-actions">
+                <button class="btn-back" id="backFromSubmenuBtn">← Zurück zur Auswahl</button>
+                <button class="btn-report" id="reportFromSubmenuBtn">📋 Bericht</button>
+            </div>
+        </div>
+
+        <!-- AUDIT CONTENT (FRAGEN) -->
+        <div id="auditContent" class="audit-content">
+            <!-- CONTROLS -->
+            <div class="controls-container">
+                <div class="controls-scroll">
+                    <button class="btn-submenu" id="backToSubmenuBtn">← Übersicht</button>
+                    <button class="btn-back" id="backToSelectionBtn">← Auswahl</button>
+                    <button class="btn-report" id="reportBtn">📋 Bericht</button>
+                    <button class="btn-danger" id="resetBtn">🗑️ Reset</button>
+                    <button class="btn-info" id="summaryBtn">📊 Zusammenfassung</button>
+                    <button class="btn-export" id="exportBtn">📤 Export</button>
+                </div>
+            </div>
+
+            <!-- STATUS -->
+            <div class="audit-status">
+                <span class="status-part">Fortschritt: <strong id="progressText">0%</strong></span>
+                <span class="separator">|</span>
+                <span class="status-part">Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong></span>
+                <span class="separator">|</span>
+                <span class="status-part">Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></span>
+            </div>
+            <div class="audit-progress-container">
+                <div class="audit-progress-bar" id="auditProgressBar" style="width: 0%">0%</div>
+            </div>
+
+            <!-- AKTUELLE SEKTION -->
+            <div id="currentSectionHeader" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h2 id="currentSectionTitle" style="color: var(--text-tertiary); margin: 0;"></h2>
+                <button id="backToSectionListBtn" class="btn-info" style="padding: 6px 12px;">← Alle Bereiche</button>
+            </div>
+
+            <!-- FRAGEN DER AKTUELLEN SEKTION -->
+            <div id="questionsContainer"></div>
+        </div>
+
+        <footer>
+            <p>Self-Audit ZfP Verfahren &copy; 2026 Schaeffler Technologies AG & Co. KG</p>
+            <div class="creator-info">Ersteller: Daniel Häusner, WI/SW2-PQT</div>
+        </footer>
+    </div>
+
+    <button id="themeToggleBtn" class="theme-toggle" title="Hell/Dunkel umschalten">🌓</button>
+
+    <script>
+        // === GLOBALE VARIABLEN ===
+        let currentAuditType = null;
+        let currentAuditData = null;
+        let allQuestions = [];
+        let auditSections = [];
+        let currentLanguage = 'de'; // Standard: Deutsch
+        let currentSectionIndex = -1;
+        let jsonCache = {}; // Cache für geladene JSON-Dateien
+        
+        // === AUDIT-TYPEN ===
+        const AUDIT_TYPES = {
+            ET: { 
+                id: 'ET', 
+                title: { de: 'Wirbelstromprüfung', en: 'Eddy Current Testing' },
+                short: 'ET', 
+                color: 'var(--audit-et)', 
+                icon: '⚡',
+                standards: { de: 'TPG-AC7114/5', en: 'TPG-AC7114/5' }
+            },
+            MT: { 
+                id: 'MT', 
+                title: { de: 'Magnetpulverprüfung', en: 'Magnetic Particle Testing' }, 
+                short: 'MT', 
+                color: 'var(--audit-mt)', 
+                icon: '🧲',
+                standards: { de: 'TPG-AC7114/2', en: 'TPG-AC7114/2' }
+            },
+            NE: { 
+                id: 'NE', 
+                title: { de: 'Nital-Ätzen', en: 'Nital Etching' }, 
+                short: 'NE', 
+                color: 'var(--audit-ne)', 
+                icon: '🧪',
+                standards: { de: 'TPG-AC7114/12', en: 'TPG-AC7114/12' }
+            },
+            UT: { 
+                id: 'UT', 
+                title: { de: 'Ultraschallprüfung', en: 'Ultrasonic Testing' }, 
+                short: 'UT', 
+                color: 'var(--audit-ut)', 
+                icon: '📡',
+                standards: { de: 'TPG-AC7114/3', en: 'TPG-AC7114/3' }
+            }
+        };
+
+        // === INITIALISIERUNG ===
+        document.addEventListener('DOMContentLoaded', function() {
+            initThemeToggle();
+            initLanguage();
+            setupEventListeners();
+            loadAllAuditProgress();
+        });
+
+        // === THEME FUNKTIONEN ===
+        function getSavedTheme() {
+            return localStorage.getItem('zfp_selfaudit_theme');
+        }
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+
+        function initThemeToggle() {
+            const saved = getSavedTheme();
+            const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initial = saved || (systemDark ? 'dark' : 'light');
+            applyTheme(initial);
+            
+            const btn = document.getElementById('themeToggleBtn');
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    const current = document.documentElement.getAttribute('data-theme') || 'light';
+                    const next = current === 'dark' ? 'light' : 'dark';
+                    localStorage.setItem('zfp_selfaudit_theme', next);
+                    applyTheme(next);
+                });
+            }
+        }
+
+        // === SPRACH-FUNKTIONEN (KOMPLETT ÜBERARBEITET) ===
+        function initLanguage() {
+            const savedLang = localStorage.getItem('zfp_selfaudit_language') || 'de';
+            
+            // Sprach-Buttons
+            document.getElementById('langDeBtn').addEventListener('click', () => setLanguage('de'));
+            document.getElementById('langEnBtn').addEventListener('click', () => setLanguage('en'));
+            
+            // Initiale Sprache setzen
+            setLanguage(savedLang, false);
+        }
+
+        function setLanguage(lang, save = true) {
+            if (currentLanguage === lang) return;
+            
+            const oldLanguage = currentLanguage;
+            currentLanguage = lang;
+            
+            if (save) {
+                localStorage.setItem('zfp_selfaudit_language', lang);
+            }
+            
+            // UI aktualisieren
+            document.getElementById('languageBadge').textContent = lang.toUpperCase();
+            
+            // Button-Styling
+            document.getElementById('langDeBtn').style.background = lang === 'de' ? 'var(--header-bg)' : 'var(--btn-back)';
+            document.getElementById('langEnBtn').style.background = lang === 'en' ? 'var(--header-bg)' : 'var(--btn-back)';
+            
+            // Audit-Titel umschalten
+            document.querySelectorAll('.audit-title-de').forEach(el => el.style.display = lang === 'de' ? 'inline' : 'none');
+            document.querySelectorAll('.audit-title-en').forEach(el => el.style.display = lang === 'en' ? 'inline' : 'none');
+            
+            // UI-Texte aktualisieren
+            updateUITexts();
+            
+            // +++ WICHTIG: Wenn ein Audit geladen ist, KOMPLETT NEU LADEN +++
+            if (currentAuditType) {
+                // Aktuellen Audit-Typ merken
+                const auditType = currentAuditType;
+                
+                // Antworten für alte Sprache speichern (getrennte Sprachstände)
+                if (allQuestions.length > 0) {
+                    saveCurrentAuditData(oldLanguage);
+                }
+                
+                // Audit in NEUER Sprache laden
+                currentAuditType = null;
+                currentAuditData = null;
+                allQuestions = [];
+                auditSections = [];
+                
+                startAudit(auditType);
+            }
+        }
+
+        function updateUITexts() {
+            // Auswahlseite
+            document.getElementById('selectionTitle').textContent = 
+                currentLanguage === 'de' ? 'Audit-Verfahren auswählen:' : 'Select audit procedure:';
+            
+            // Submenu
+            document.getElementById('submenuTitle').textContent = 
+                currentLanguage === 'de' ? 'Audit Übersicht' : 'Audit Overview';
+            document.getElementById('sectionsTitle').textContent = 
+                currentLanguage === 'de' ? 'Verfügbare Prüfbereiche:' : 'Available inspection areas:';
+            document.getElementById('backFromSubmenuBtn').innerHTML = 
+                `← ${currentLanguage === 'de' ? 'Zurück zur Auswahl' : 'Back to selection'}`;
+            document.getElementById('reportFromSubmenuBtn').innerHTML = 
+                `📋 ${currentLanguage === 'de' ? 'Bericht' : 'Report'}`;
+            
+            // Content Buttons
+            document.getElementById('backToSubmenuBtn').innerHTML = 
+                `← ${currentLanguage === 'de' ? 'Übersicht' : 'Overview'}`;
+            document.getElementById('backToSelectionBtn').innerHTML = 
+                `← ${currentLanguage === 'de' ? 'Auswahl' : 'Selection'}`;
+            document.getElementById('backToSectionListBtn').innerHTML = 
+                `← ${currentLanguage === 'de' ? 'Alle Bereiche' : 'All areas'}`;
+            document.getElementById('reportBtn').innerHTML = `📋 ${currentLanguage === 'de' ? 'Bericht' : 'Report'}`;
+            document.getElementById('resetBtn').innerHTML = `🗑️ ${currentLanguage === 'de' ? 'Reset' : 'Reset'}`;
+            document.getElementById('summaryBtn').innerHTML = `📊 ${currentLanguage === 'de' ? 'Zusammenfassung' : 'Summary'}`;
+            document.getElementById('exportBtn').innerHTML = `📤 ${currentLanguage === 'de' ? 'Export' : 'Export'}`;
+            
+            // Status
+            const statusParts = document.querySelectorAll('.status-part');
+            if (statusParts.length >= 3) {
+                statusParts[0].innerHTML = `${currentLanguage === 'de' ? 'Fortschritt' : 'Progress'}: <strong id="progressText">0%</strong>`;
+                statusParts[1].innerHTML = `${currentLanguage === 'de' ? 'Fragen' : 'Questions'}: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong>`;
+                statusParts[2].innerHTML = `${currentLanguage === 'de' ? 'Ja' : 'Yes'}: <strong id="yesCount">0</strong> | ${currentLanguage === 'de' ? 'Nein' : 'No'}: <strong id="noCount">0</strong>`;
+            }
+            
+            // Header aktualisieren, wenn Audit geladen
+            if (currentAuditType) {
+                const auditInfo = AUDIT_TYPES[currentAuditType];
+                document.getElementById('mainTitle').textContent = `Self-Audit: ${auditInfo.title[currentLanguage]}`;
+                document.getElementById('mainSubtitle').textContent = auditInfo.standards[currentLanguage];
+            }
+        }
+
+        // === JSON-LADE-FUNKTIONEN ===
+        async function loadAuditFromJSON(auditType) {
+            const fileName = `${auditType}_${currentLanguage.toUpperCase()}.json`;
+            
+            try {
+                // Cache prüfen
+                if (jsonCache[fileName]) {
+                    console.log(`✅ Cache: ${fileName}`);
+                    return jsonCache[fileName];
+                }
+                
+                console.log(`📁 Lade: ${fileName}`);
+                const response = await fetch(fileName);
+                
+                if (!response.ok) {
+                    throw new Error(`Datei ${fileName} nicht gefunden`);
+                }
+                
+                const jsonData = await response.json();
+                
+                // +++ WICHTIG: Antwort-Optionen normalisieren +++
+                if (jsonData.questions) {
+                    jsonData.questions.forEach(q => {
+                        if (q.answer_options) {
+                            q.answer_options = q.answer_options.map(opt => {
+                                if (opt === 'Ja' || opt === 'YES' || opt === 'JA') return 'YES';
+                                if (opt === 'Nein' || opt === 'NO') return 'NO';
+                                if (opt === 'N/A' || opt === 'NA') return 'NA';
+                                return opt;
+                            });
+                        }
+                        if (q.answer_options && !q.has_na_option) {
+                            q.has_na_option = q.answer_options.includes('NA');
+                        }
+                    });
+                }
+                
+                jsonCache[fileName] = jsonData;
+                return jsonData;
+                
+            } catch (error) {
+                console.error(`❌ Fehler: ${fileName} - ${error.message}`);
+                return null;
+            }
+        }
+
+        // === AUDIT STARTEN (KOMPLETT ÜBERARBEITET) ===
+        async function startAudit(auditType) {
+            // Alte Daten speichern (getrennte Sprachstände)
+            if (currentAuditType && currentAuditData) {
+                saveCurrentAuditData(currentLanguage === 'de' ? 'en' : 'de');
+            }
+            
+            currentAuditType = auditType;
+            currentSectionIndex = -1;
+            
+            // UI umschalten
+            document.getElementById('auditSelection').classList.remove('active');
+            document.getElementById('auditSubmenu').classList.add('active');
+            document.getElementById('auditContent').classList.remove('active');
+            
+            try {
+                // 1. Gespeicherte Daten für DIESE Sprache laden
+                const savedKey = `zfpSelfAudit_${currentAuditType}_${currentLanguage}`;
+                const saved = localStorage.getItem(savedKey);
+                
+                if (saved) {
+                    console.log(`📦 Gespeicherte Daten: ${savedKey}`);
+                    const parsed = JSON.parse(saved);
+                    currentAuditData = parsed;
+                    allQuestions = parsed.questions || [];
+                    auditSections = parsed.sections || [];
+                } else {
+                    // 2. JSON laden
+                    console.log(`🔄 Lade JSON für ${auditType} (${currentLanguage})`);
+                    let jsonData = await loadAuditFromJSON(auditType);
+                    
+                    if (!jsonData) {
+                        alert(`❌ Datei ${auditType}_${currentLanguage.toUpperCase()}.json nicht gefunden!`);
+                        goBackToSelection();
+                        return;
+                    }
+                    
+                    // 3. Audit-Daten initialisieren
+                    initializeAuditData(jsonData);
+                }
+                
+                // 4. UI aktualisieren
+                const auditInfo = AUDIT_TYPES[auditType];
+                document.getElementById('mainTitle').textContent = `Self-Audit: ${auditInfo.title[currentLanguage]}`;
+                document.getElementById('mainSubtitle').textContent = auditInfo.standards[currentLanguage];
+                
+                // 5. Submenu rendern
+                renderSubmenu();
+                updateCurrentAuditProgress();
+                updateProgressDisplays();
+                
+            } catch (error) {
+                console.error('Fehler:', error);
+                alert(`Fehler beim Laden des Audits: ${error.message}`);
+                goBackToSelection();
+            }
+        }
+
+        function initializeAuditData(jsonData) {
+            allQuestions = [];
+            
+            if (!jsonData.questions || !Array.isArray(jsonData.questions)) {
+                console.error('Ungültiges JSON-Format');
+                return;
+            }
+            
+            // Fragen normalisieren
+            jsonData.questions.forEach(q => {
+                const question = {
+                    id: q.id,
+                    text: q.question,
+                    guidance: q.guidance || "",
+                    options: q.answer_options || ["YES", "NO"],
+                    hasNA: q.has_na_option || (q.answer_options && q.answer_options.includes('NA')),
+                    sectionId: q.id.split('.')[0],
+                    answer: "",
+                    evidence: ""
+                };
+                allQuestions.push(question);
+            });
+            
+            // Sektionen extrahieren
+            auditSections = extractSectionsFromQuestions(allQuestions);
+            
+            // Sektionstitel zuweisen
+            allQuestions.forEach(q => {
+                const section = auditSections.find(s => s.id === q.sectionId);
+                if (section) {
+                    q.sectionTitle = section.title;
+                }
+            });
+            
+            // Audit-Daten speichern
+            currentAuditData = {
+                meta: {
+                    title: jsonData.audit_tool || `${AUDIT_TYPES[currentAuditType].title[currentLanguage]}`,
+                    revision: jsonData.revision || "1.0",
+                    audit_tool: jsonData.audit_tool || "",
+                    created: new Date().toISOString(),
+                    lastModified: new Date().toISOString(),
+                    auditType: currentAuditType,
+                    language: currentLanguage
+                },
+                sections: auditSections,
+                questions: allQuestions
+            };
+            
+            saveCurrentAuditData();
+        }
+
+        // === SEKTIONEN EXTRAHIEREN (ANGEPASST AN IHRE JSONs) ===
+        function extractSectionsFromQuestions(questions) {
+            const sectionMap = new Map();
+            
+            // IDs extrahieren
+            const uniqueSectionIds = [...new Set(questions.map(q => q.id.split('.')[0]))];
+            
+            uniqueSectionIds.sort((a, b) => {
+                const aNum = parseFloat(a);
+                const bNum = parseFloat(b);
+                return aNum - bNum;
+            });
+            
+            uniqueSectionIds.forEach(id => {
+                let title = '';
+                
+                if (currentLanguage === 'de') {
+                    switch(id) {
+                        case '3': title = '3. AUSRÜSTUNG UND MATERIALIEN'; break;
+                        case '4': title = '4. VERFAHRENSANWEISUNGEN UND TECHNIKEN'; break;
+                        case '5': title = '5. SYSTEMLEISTUNG UND PRÜFUNGEN'; break;
+                        case '6': title = '6. KALIBRIERUNG UND NORMALE'; break;
+                        case '7': title = '7. DURCHFÜHRUNG DER PRÜFUNG'; break;
+                        case '8': title = '8. DOKUMENTATION'; break;
+                        default: 
+                            if (id.startsWith('3')) title = '3. AUSRÜSTUNG';
+                            else if (id.startsWith('4')) title = '4. VERFAHREN';
+                            else if (id.startsWith('5')) title = '5. PRÜFUNGEN';
+                            else if (id.startsWith('6')) title = '6. KALIBRIERUNG';
+                            else if (id.startsWith('7')) title = '7. DURCHFÜHRUNG';
+                            else if (id.startsWith('8')) title = '8. DOKUMENTATION';
+                            else title = `${id}. BEREICH`;
+                    }
+                } else {
+                    switch(id) {
+                        case '3': title = '3. EQUIPMENT AND MATERIALS'; break;
+                        case '4': title = '4. PROCEDURES AND TECHNIQUES'; break;
+                        case '5': title = '5. SYSTEM PERFORMANCE AND CHECKS'; break;
+                        case '6': title = '6. CALIBRATION AND STANDARDS'; break;
+                        case '7': title = '7. INSPECTION PERFORMANCE'; break;
+                        case '8': title = '8. DOCUMENTATION'; break;
+                        default: 
+                            if (id.startsWith('3')) title = '3. EQUIPMENT';
+                            else if (id.startsWith('4')) title = '4. PROCEDURES';
+                            else if (id.startsWith('5')) title = '5. CHECKS';
+                            else if (id.startsWith('6')) title = '6. CALIBRATION';
+                            else if (id.startsWith('7')) title = '7. PERFORMANCE';
+                            else if (id.startsWith('8')) title = '8. DOCUMENTATION';
+                            else title = `${id}. SECTION`;
+                    }
+                }
+                
+                sectionMap.set(id, {
+                    id: id,
+                    title: title,
+                    questions: questions.filter(q => q.id.split('.')[0] === id)
+                });
+            });
+            
+            return Array.from(sectionMap.values());
+        }
+
+        // === RENDER-FUNKTIONEN ===
+        function renderSubmenu() {
+            const auditInfo = AUDIT_TYPES[currentAuditType];
+            const totalQuestions = allQuestions.length;
+            const answered = allQuestions.filter(q => q.answer && q.answer !== "").length;
+            const percent = totalQuestions > 0 ? Math.round((answered / totalQuestions) * 100) : 0;
+            
+            // Info-Cards
+            document.getElementById('submenuInfo').innerHTML = `
+                <div class="info-card">
+                    <h3>${currentLanguage === 'de' ? 'Audit-Typ' : 'Audit Type'}</h3>
+                    <p>${auditInfo.title[currentLanguage]}</p>
+                </div>
+                <div class="info-card">
+                    <h3>${currentLanguage === 'de' ? 'Standard' : 'Standard'}</h3>
+                    <p>${auditInfo.standards[currentLanguage]}</p>
+                </div>
+                <div class="info-card">
+                    <h3>${currentLanguage === 'de' ? 'Fragen' : 'Questions'}</h3>
+                    <p>${totalQuestions}</p>
+                </div>
+                <div class="info-card">
+                    <h3>${currentLanguage === 'de' ? 'Fortschritt' : 'Progress'}</h3>
+                    <p>${percent}% (${answered}/${totalQuestions})</p>
+                </div>
+            `;
+            
+            // Sektionsliste
+            const sectionList = document.getElementById('sectionList');
+            sectionList.innerHTML = '';
+            
+            auditSections.forEach((section, index) => {
+                const sectionQuestions = allQuestions.filter(q => q.sectionId === section.id);
+                const sectionAnswered = sectionQuestions.filter(q => q.answer && q.answer !== "").length;
+                const sectionTotal = sectionQuestions.length;
+                const sectionPercent = sectionTotal > 0 ? Math.round((sectionAnswered / sectionTotal) * 100) : 0;
+                
+                let statusClass = '';
+                let statusText = currentLanguage === 'de' ? 'Ausstehend' : 'Pending';
+                
+                if (sectionPercent === 100) {
+                    statusClass = 'completed';
+                    statusText = currentLanguage === 'de' ? 'Abgeschlossen' : 'Completed';
+                } else if (sectionPercent > 0) {
+                    statusClass = 'in-progress';
+                    statusText = currentLanguage === 'de' ? 'In Bearbeitung' : 'In Progress';
+                }
+                
+                const sectionItem = document.createElement('div');
+                sectionItem.className = 'section-item';
+                sectionItem.dataset.sectionIndex = index;
+                sectionItem.onclick = () => openSection(index);
+                
+                sectionItem.innerHTML = `
+                    <div class="section-icon">📌</div>
+                    <div class="section-details">
+                        <div class="section-name">${section.title}</div>
+                        <div class="section-progress">${sectionAnswered}/${sectionTotal} ${currentLanguage === 'de' ? 'Fragen' : 'questions'} • ${sectionPercent}%</div>
+                    </div>
+                    <div class="section-status ${statusClass}">${statusText}</div>
+                `;
+                
+                sectionList.appendChild(sectionItem);
+            });
+        }
+
+        function openSection(sectionIndex) {
+            currentSectionIndex = sectionIndex;
+            
+            document.getElementById('auditSubmenu').classList.remove('active');
+            document.getElementById('auditContent').classList.add('active');
+            
+            const section = auditSections[sectionIndex];
+            document.getElementById('currentSectionTitle').textContent = section.title;
+            
+            renderCurrentSection();
+            updateCurrentAuditProgress();
+        }
+
+        function renderCurrentSection() {
+            if (currentSectionIndex < 0 || !auditSections[currentSectionIndex]) return;
+            
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+            
+            const section = auditSections[currentSectionIndex];
+            const sectionQuestions = allQuestions.filter(q => q.sectionId === section.id);
+            
+            if (sectionQuestions.length === 0) {
+                container.innerHTML = `<div style="text-align: center; padding: 40px;">📭 ${currentLanguage === 'de' ? 'Keine Fragen' : 'No questions'}</div>`;
+                return;
+            }
+            
+            // Sortieren nach ID
+            sectionQuestions.sort((a, b) => {
+                const aNum = parseFloat(a.id);
+                const bNum = parseFloat(b.id);
+                return aNum - bNum;
+            });
+            
+            sectionQuestions.forEach(question => {
+                container.appendChild(createQuestionElement(question));
+            });
+        }
+
+        function createQuestionElement(question) {
+            const questionElement = document.createElement('div');
+            questionElement.className = 'question';
+            questionElement.dataset.questionId = question.id;
+            
+            // Antwort-Klassen
+            if (!question.answer || question.answer === "") {
+                questionElement.classList.add('unanswered');
+            } else if (question.answer === "YES") {
+                questionElement.classList.add('yes-answer');
+            } else if (question.answer === "NO") {
+                questionElement.classList.add('no-answer');
+            } else if (question.answer === "NA") {
+                questionElement.classList.add('na-answer');
+            }
+            
+            // Header
+            const header = document.createElement('div');
+            header.className = 'question-header';
+            
+            const text = document.createElement('div');
+            text.className = 'question-text';
+            text.textContent = question.text;
+            
+            const id = document.createElement('div');
+            id.className = 'question-id';
+            id.textContent = question.id;
+            
+            header.appendChild(text);
+            header.appendChild(id);
+            questionElement.appendChild(header);
+            
+            // Guidance
+            if (question.guidance) {
+                const guidance = document.createElement('div');
+                guidance.className = 'guidance';
+                guidance.textContent = question.guidance;
+                questionElement.appendChild(guidance);
+            }
+            
+            // Antwort-Optionen
+            const options = document.createElement('div');
+            options.className = 'answer-options';
+            
+            const yesBtn = document.createElement('button');
+            yesBtn.className = `answer-option ${question.answer === 'YES' ? 'selected' : ''}`;
+            yesBtn.dataset.answer = 'YES';
+            yesBtn.textContent = currentLanguage === 'de' ? 'JA' : 'YES';
+            yesBtn.onclick = () => selectAnswer(question.id, 'YES');
+            options.appendChild(yesBtn);
+            
+            const noBtn = document.createElement('button');
+            noBtn.className = `answer-option ${question.answer === 'NO' ? 'selected' : ''}`;
+            noBtn.dataset.answer = 'NO';
+            noBtn.textContent = currentLanguage === 'de' ? 'NEIN' : 'NO';
+            noBtn.onclick = () => selectAnswer(question.id, 'NO');
+            options.appendChild(noBtn);
+            
+            if (question.hasNA) {
+                const naBtn = document.createElement('button');
+                naBtn.className = `answer-option ${question.answer === 'NA' ? 'selected' : ''}`;
+                naBtn.dataset.answer = 'NA';
+                naBtn.textContent = 'N/A';
+                naBtn.onclick = () => selectAnswer(question.id, 'NA');
+                options.appendChild(naBtn);
+            }
+            
+            questionElement.appendChild(options);
+            
+            // Nachweis
+            const evidence = document.createElement('textarea');
+            evidence.className = 'evidence';
+            evidence.placeholder = currentLanguage === 'de' ? 'Nachweise / Kommentare' : 'Evidence / Comments';
+            evidence.value = question.evidence || '';
+            evidence.oninput = () => updateEvidence(question.id, evidence.value);
+            
+            questionElement.appendChild(evidence);
+            
+            return questionElement;
+        }
+
+        // === ANTWORT-FUNKTIONEN ===
+        function selectAnswer(questionId, answer) {
+            const question = allQuestions.find(q => q.id === questionId);
+            if (!question) return;
+            
+            question.answer = answer;
+            saveCurrentAuditData();
+            
+            // UI aktualisieren
+            const questionElement = document.querySelector(`[data-question-id="${questionId}"]`);
+            if (questionElement) {
+                questionElement.classList.remove('unanswered', 'yes-answer', 'no-answer', 'na-answer');
+                
+                if (answer === "YES") questionElement.classList.add('yes-answer');
+                else if (answer === "NO") questionElement.classList.add('no-answer');
+                else if (answer === "NA") questionElement.classList.add('na-answer');
+                
+                questionElement.querySelectorAll('.answer-option').forEach(btn => {
+                    btn.classList.remove('selected');
+                    if (btn.dataset.answer === answer) {
+                        btn.classList.add('selected');
+                    }
+                });
+            }
+            
+            updateCurrentAuditProgress();
+            renderSubmenu();
+        }
+
+        function updateEvidence(questionId, evidence) {
+            const question = allQuestions.find(q => q.id === questionId);
+            if (question) {
+                question.evidence = evidence;
+                saveCurrentAuditData();
+            }
+        }
+
+        // === SPEICHER-FUNKTIONEN (GETRENNTE SPRACHSTÄNDE) ===
+        function saveCurrentAuditData(lang = currentLanguage) {
+            if (!currentAuditType || !currentAuditData) return;
+            
+            currentAuditData.questions = allQuestions;
+            currentAuditData.sections = auditSections;
+            currentAuditData.meta.lastModified = new Date().toISOString();
+            currentAuditData.meta.language = lang;
+            
+            const key = `zfpSelfAudit_${currentAuditType}_${lang}`;
+            localStorage.setItem(key, JSON.stringify(currentAuditData));
+            
+            updateProgressDisplays();
+        }
+
+        // === PROGRESS-FUNKTIONEN ===
+        function updateCurrentAuditProgress() {
+            if (!allQuestions.length) {
+                document.getElementById('answeredCount').textContent = '0';
+                document.getElementById('totalCount').textContent = '0';
+                document.getElementById('progressText').textContent = '0%';
+                document.getElementById('yesCount').textContent = '0';
+                document.getElementById('noCount').textContent = '0';
+                return;
+            }
+            
+            const total = allQuestions.length;
+            const answered = allQuestions.filter(q => q.answer && q.answer !== "").length;
+            const yesCount = allQuestions.filter(q => q.answer === "YES").length;
+            const noCount = allQuestions.filter(q => q.answer === "NO").length;
+            const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
+            
+            document.getElementById('answeredCount').textContent = answered;
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('progressText').textContent = `${percent}%`;
+            document.getElementById('yesCount').textContent = yesCount;
+            document.getElementById('noCount').textContent = noCount;
+            
+            const progressBar = document.getElementById('auditProgressBar');
+            progressBar.style.width = `${percent}%`;
+            progressBar.textContent = `${percent}%`;
+        }
+
+        function loadAllAuditProgress() {
+            Object.keys(AUDIT_TYPES).forEach(auditType => {
+                const saved = localStorage.getItem(`zfpSelfAudit_${auditType}_${currentLanguage}`);
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    const questions = data.questions || [];
+                    const answered = questions.filter(q => q.answer && q.answer !== "").length;
+                    const total = questions.length;
+                    const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
+                    
+                    const progressElement = document.getElementById(`${auditType.toLowerCase()}Progress`);
+                    if (progressElement) progressElement.textContent = `${percent}%`;
+                } else {
+                    const progressElement = document.getElementById(`${auditType.toLowerCase()}Progress`);
+                    if (progressElement) progressElement.textContent = '0%';
+                }
+            });
+        }
+
+        function updateProgressDisplays() {
+            loadAllAuditProgress();
+        }
+
+        // === NAVIGATION ===
+        function goBackToSelection() {
+            saveCurrentAuditData();
+            currentAuditType = null;
+            currentAuditData = null;
+            allQuestions = [];
+            auditSections = [];
+            currentSectionIndex = -1;
+            
+            document.getElementById('auditSelection').classList.add('active');
+            document.getElementById('auditSubmenu').classList.remove('active');
+            document.getElementById('auditContent').classList.remove('active');
+            document.getElementById('mainTitle').textContent = 'Self-Audit ZfP Verfahren';
+            document.getElementById('mainSubtitle').textContent = 'Schaeffler Technologies AG & Co. KG';
+            
+            updateProgressDisplays();
+        }
+
+        function goBackToSubmenu() {
+            saveCurrentAuditData();
+            currentSectionIndex = -1;
+            
+            document.getElementById('auditSubmenu').classList.add('active');
+            document.getElementById('auditContent').classList.remove('active');
+            renderSubmenu();
+        }
+
+        // === RESET ===
+        function resetAudit() {
+            if (!currentAuditType) return;
+            
+            if (!confirm(currentLanguage === 'de' 
+                ? 'Möchten Sie wirklich alle Antworten zurücksetzen?' 
+                : 'Do you really want to reset all answers?')) {
+                return;
+            }
+            
+            allQuestions.forEach(q => {
+                q.answer = "";
+                q.evidence = "";
+            });
+            
+            saveCurrentAuditData();
+            
+            if (currentSectionIndex >= 0) {
+                renderCurrentSection();
+            }
+            updateCurrentAuditProgress();
+            renderSubmenu();
+        }
+
+        // === REPORT ===
+        function showReport() {
+            if (!currentAuditType || !allQuestions.length) {
+                alert(currentLanguage === 'de' ? 'Kein Audit geladen!' : 'No audit loaded!');
+                return;
+            }
+            
+            const auditInfo = AUDIT_TYPES[currentAuditType];
+            const total = allQuestions.length;
+            const answered = allQuestions.filter(q => q.answer && q.answer !== "").length;
+            const yesCount = allQuestions.filter(q => q.answer === "YES").length;
+            const noCount = allQuestions.filter(q => q.answer === "NO").length;
+            const naCount = allQuestions.filter(q => q.answer === "NA").length;
+            const percent = Math.round((answered / total) * 100);
+            
+            let reportHTML = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Report - ${auditInfo.title[currentLanguage]}</title>
+                    <style>
+                        body { font-family: Arial; margin: 20px; }
+                        .header { text-align: center; margin-bottom: 30px; }
+                        .summary { background: #f5f5f5; padding: 20px; border-radius: 5px; }
+                        .section { margin: 30px 0; border: 1px solid #ddd; border-radius: 5px; }
+                        .section-header { background: #2c3e50; color: white; padding: 10px; }
+                        .question { padding: 15px; border-bottom: 1px solid #eee; }
+                        .yes { background: #27ae60; color: white; padding: 3px 8px; border-radius: 3px; }
+                        .no { background: #e74c3c; color: white; padding: 3px 8px; border-radius: 3px; }
+                        .na { background: #95a5a6; color: white; padding: 3px 8px; border-radius: 3px; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>${auditInfo.title[currentLanguage]}</h1>
+                        <p>${auditInfo.standards[currentLanguage]} | Revision: ${currentAuditData.meta?.revision || '1.0'}</p>
+                        <p>${new Date().toLocaleDateString()}</p>
+                    </div>
+                    <div class="summary">
+                        <h2>${currentLanguage === 'de' ? 'Zusammenfassung' : 'Summary'}</h2>
+                        <p>${currentLanguage === 'de' ? 'Fragen' : 'Questions'}: ${total}</p>
+                        <p>${currentLanguage === 'de' ? 'Beantwortet' : 'Answered'}: ${answered} (${percent}%)</p>
+                        <p>${currentLanguage === 'de' ? 'Ja' : 'Yes'}: ${yesCount} | ${currentLanguage === 'de' ? 'Nein' : 'No'}: ${noCount} | N/A: ${naCount}</p>
+                    </div>
+            `;
+            
+            auditSections.forEach(section => {
+                const sectionQuestions = allQuestions.filter(q => q.sectionId === section.id);
+                if (sectionQuestions.length === 0) return;
+                
+                reportHTML += `<div class="section"><div class="section-header">${section.title}</div>`;
+                
+                sectionQuestions.sort((a,b) => parseFloat(a.id) - parseFloat(b.id)).forEach(q => {
+                    let answerClass = '';
+                    let answerText = '';
+                    
+                    if (q.answer === 'YES') { answerClass = 'yes'; answerText = currentLanguage === 'de' ? 'JA' : 'YES'; }
+                    else if (q.answer === 'NO') { answerClass = 'no'; answerText = currentLanguage === 'de' ? 'NEIN' : 'NO'; }
+                    else if (q.answer === 'NA') { answerClass = 'na'; answerText = 'N/A'; }
+                    else { answerText = currentLanguage === 'de' ? '❌ Nicht beantwortet' : '❌ Not answered'; }
+                    
+                    reportHTML += `
+                        <div class="question">
+                            <strong>${q.id}</strong> - ${q.text}<br>
+                            <span class="${answerClass}">${answerText}</span>
+                            ${q.evidence ? `<br><small><em>${q.evidence}</em></small>` : ''}
+                        </div>
+                    `;
+                });
+                
+                reportHTML += `</div>`;
+            });
+            
+            reportHTML += `</body></html>`;
+            
+            const win = window.open('', '_blank');
+            win.document.write(reportHTML);
+            win.document.close();
+        }
+
+        // === EXPORT ===
+        function exportData() {
+            if (!currentAuditType || !allQuestions.length) {
+                alert(currentLanguage === 'de' ? 'Keine Daten!' : 'No data!');
+                return;
+            }
+            
+            const exportObj = {
+                meta: currentAuditData.meta,
+                sections: auditSections,
+                questions: allQuestions,
+                summary: {
+                    total: allQuestions.length,
+                    answered: allQuestions.filter(q => q.answer && q.answer !== "").length,
+                    yes: allQuestions.filter(q => q.answer === "YES").length,
+                    no: allQuestions.filter(q => q.answer === "NO").length,
+                    na: allQuestions.filter(q => q.answer === "NA").length
+                }
+            };
+            
+            const blob = new Blob([JSON.stringify(exportObj, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${currentAuditType}_${currentLanguage}_${new Date().toISOString().slice(0,10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // === SUMMARY ===
+        function showSummary() {
+            if (!currentAuditType || !allQuestions.length) return;
+            
+            const unanswered = allQuestions.filter(q => !q.answer || q.answer === "").length;
+            const noAnswers = allQuestions.filter(q => q.answer === "NO").length;
+            
+            let summary = `${currentLanguage === 'de' ? 'Zusammenfassung' : 'Summary'}:\n\n`;
+            summary += `📊 ${currentLanguage === 'de' ? 'Fortschritt' : 'Progress'}: ${allQuestions.filter(q => q.answer && q.answer !== "").length}/${allQuestions.length}\n`;
+            summary += `✅ ${currentLanguage === 'de' ? 'Ja' : 'Yes'}: ${allQuestions.filter(q => q.answer === "YES").length}\n`;
+            summary += `❌ ${currentLanguage === 'de' ? 'Nein' : 'No'}: ${noAnswers}\n`;
+            summary += `⚪ N/A: ${allQuestions.filter(q => q.answer === "NA").length}\n`;
+            summary += `⚠️ ${currentLanguage === 'de' ? 'Unbeantwortet' : 'Unanswered'}: ${unanswered}`;
+            
+            alert(summary);
+        }
+
+        // === EVENT LISTENERS ===
+        function setupEventListeners() {
+            // Audit-Buttons
+            document.querySelectorAll('.audit-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    startAudit(this.dataset.audit);
+                });
+            });
+
+            // Navigation
+            document.getElementById('backFromSubmenuBtn').addEventListener('click', goBackToSelection);
+            document.getElementById('reportFromSubmenuBtn').addEventListener('click', showReport);
+            document.getElementById('backToSubmenuBtn').addEventListener('click', goBackToSubmenu);
+            document.getElementById('backToSelectionBtn').addEventListener('click', goBackToSelection);
+            document.getElementById('backToSectionListBtn').addEventListener('click', goBackToSubmenu);
+            
+            // Actions
+            document.getElementById('reportBtn').addEventListener('click', showReport);
+            document.getElementById('resetBtn').addEventListener('click', resetAudit);
+            document.getElementById('summaryBtn').addEventListener('click', showSummary);
+            document.getElementById('exportBtn').addEventListener('click', exportData);
+        }
+    </script>
+</body>
+</html>

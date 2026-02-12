@@ -1,0 +1,1022 @@
+{
+  "audit_tool": "Magnetpulverprüfung (TPG-AC7114/2)",
+  "revision": "C",
+  "questions": [
+    {
+      "id": "3.1",
+      "question": "Der Auditiere muss die vom Auditierten bereitgestellte Material- und Geräteliste ausfüllen, und der Auditor muss sie auf Angemessenheit, Inhalt und Richtigkeit überprüfen.",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Anhänge dienen nur zur Information, müssen aber vollständig ausgefüllt sein. NCRs dürfen nicht gegen Anhänge geschrieben werden. (Anhang TPG-AC7114/2-A)."
+    },
+    {
+      "id": "3.2.1",
+      "question": "Ist die Herstellerbescheinigung für die verwendeten Magnetpulver verfügbar und gibt es einen Nachweis, dass sie der anwendbaren AMS entsprechen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der Auditiere muss eine Rückverfolgbarkeit zur Herstellerbescheinigung haben."
+    },
+    {
+      "id": "3.2.2",
+      "question": "Ist die Herstellerbescheinigung für das verwendete Trägermedium und/oder Konditionierungsmittel, falls zutreffend, verfügbar und gibt es einen Nachweis, dass es dem anwendbaren Standard entspricht?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Der Auditiere muss eine Rückverfolgbarkeit zur Herstellerbescheinigung haben. Nicht oben aufgeführte Trägermedien erfordern eine dokumentierte Kundenfreigabe."
+    },
+    {
+      "id": "3.3.1",
+      "question": "Gibt es einen Nachweis vom Hersteller, der die korrekte Peak-Wellenlänge der Ausgangsleistung validiert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die Peak-Ausgangswellenlänge muss 365±5nm betragen. N/A ist nur zu verwenden, wenn keine LED-Quellen zur Verwendung verfügbar sind."
+    },
+    {
+      "id": "4.1.1",
+      "question": "Gibt es eine Verfahrensanweisung, allgemein oder spezifisch, für die Verarbeitung und Prüfung mit der Magnetpulvermethode?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.2.1",
+      "question": "Zeigt die Verfahrensanweisung(en) die Genehmigung durch den zuständigen Level-3?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der zuständige Level-3 kann der Anwender, ein qualifizierter oder zugelassener Level 3, interner Level 3 und/oder externer Level 3 sein."
+    },
+    {
+      "id": "4.3.1",
+      "question": "Verfahrensidentifikationsnummer und das Datum der Verfahrensgenehmigung?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.2",
+      "question": "Eine Anforderung, dass das gesamte Personal für die durchgeführte Tätigkeit und die anwendbaren Vertragsanforderungen qualifiziert und zertifiziert ist?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.3",
+      "question": "Identifikation des/der Teile, für die das Verfahren gilt, einschließlich Material, Legierung und Abmessungen des Teils, wenn es für die Technikentwicklung verwendet wird?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.4",
+      "question": "Für die Magnetisierung zu verwendende Geräte?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.5",
+      "question": "Art des Magnetisierungsstroms (z. B. einweggleichgerichtet, Drehstrom, Einphasenstrom, Wechselstrom, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.6",
+      "question": "Zu verwendende Magnetisierungsrichtungen, die Reihenfolge ihrer Anwendung und etwaige Entmagnetisierungsverfahren zwischen den Schüssen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.7",
+      "question": "Verwendete Magnetpulver-Auftragsmethode (kontinuierlich / remanent)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.8",
+      "question": "Pulsdauer, Typ (AC, DC) und Anzahl (Impulse/Schuss)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Das Minimum, das als akzeptabel angesehen wird, sind 2 Schüsse mit jeweils mindestens ½ Sekunde."
+    },
+    {
+      "id": "4.3.9",
+      "question": "Stromstärke, Richtung aller Magnetfelder, Magnetfeldstärken, Arten von Magnetfeldstärkeindikatoren, Amperewindungen, etc.?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.9a",
+      "question": "Wird die Magnetfeldstärke durch eine geeignete Methode bestimmt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die Magnetfeldstärke muss durch a, b oder c bestimmt werden. Falls c zutrifft, muss dies in Verbindung mit entweder a oder b erfolgen."
+    },
+    {
+      "id": "4.3.10",
+      "question": "Anweisungen zur Positionierung des Prüfgegenstands in Bezug auf die Magnetisierungsausrüstung?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.11",
+      "question": "Vollständige Anforderungen an Entmagnetisierung, Reinigung und Konservierung vor und nach der Prüfung oder Verweis auf Verfahrensanweisungen, die solche Anweisungen enthalten?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.12",
+      "question": "Zu prüfende Bereiche des Teils/der Teile einschließlich einer Abbildung; entweder eine Zeichnung oder ein Foto?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.13",
+      "question": "Methode zur Erzeugung der Magnetisierung (z. B. Spannkopf, Spule, Kabelwicklung, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.14",
+      "question": "Art der Aufzeichnungen und/oder Methode zur Kennzeichnung von Teilen nach der Prüfung?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.15",
+      "question": "Identifikation der für die Systemleistungsüberprüfung verwendeten Prüfteile?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.16",
+      "question": "Reihenfolge der Magnetpulverprüfung in Bezug auf die Herstellungsvorgänge, falls zutreffend?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.17",
+      "question": "Art des zu verwendenden Magnetpulvermaterials (trocken oder nass, oder fluoreszierend, etc.) und die Methode und Ausrüstung, die für seinen Auftrag verwendet werden soll?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.18",
+      "question": "Erforderliche Spezialausrüstung, einschließlich Art und Intensität des Lichts, falls von der Standardverarbeitung abweichend?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.19",
+      "question": "Annahmeanforderungen zur Bewertung von Anzeigen und Verfügung über das/die Teil(e) nach der Prüfung?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.19.1",
+      "question": "Adressiert die Verfahrensanweisung die Maßnahmen, die ergriffen werden müssen, um Lichtbogenbildung oder Überhitzung der Teile zu verhindern?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt nur, wenn keine direkten Kontaktverfahren verwendet werden."
+    },
+    {
+      "id": "4.3.19.2",
+      "question": "Adressiert die Verfahrensanweisung die Maßnahmen, die ergriffen werden müssen, falls Lichtbogenbildung oder Überhitzung auftritt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.19.3",
+      "question": "Adressiert die Verfahrensanweisung den Prozess zur Findung der Grundursache der Lichtbogenbildung oder Überhitzung?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.20",
+      "question": "Adressiert die Prüfung von Hardware, die eine Beschichtung oder Plattierung gemäß dem Standard aufweist? (falls zutreffend)",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.21",
+      "question": "Adressiert, was zu tun ist, wenn eine Fehlfunktion der Magnetpulverausrüstung vermutet wird?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.22.1",
+      "question": "Für ASME Section V, Article 6, wenn die Verfahrensqualifikation durch den referenzierenden Code Section vorgeschrieben ist, erfordert die Verfahrensanweisung dann, dass die Änderung einer mit 'e' gekennzeichneten Anforderung, einer wesentlichen Variablen, eine Requalifikation des schriftlichen Verfahrens durch Demonstration erfordert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Eine Änderung einer als unwesentlich identifizierten Anforderung erfordert keine Requalifikation des schriftlichen Verfahrens."
+    },
+    {
+      "id": "4.3.22.2",
+      "question": "Erfordern alle Änderungen von wesentlichen oder unwesentlichen Variablen gegenüber denen, die im schriftlichen Verfahren festgelegt sind, eine Überarbeitung des oder einen Nachtrag zum schriftlichen Verfahren?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.1",
+      "question": "Wird die Nasspulver-Konzentration alle 8 Stunden oder zu Schichtbeginn geprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die Überprüfung der Suspensionskonzentration gilt nicht für Aerosol-Sprühdosen oder Trockenpulver."
+    },
+    {
+      "id": "5.1.2",
+      "question": "Wird die Suspension mindestens 30 Minuten vor der Durchführung der Konzentrationsprüfung aufgerührt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.3",
+      "question": "Wird die Suspensionsprobe entmagnetisiert und vor der Durchführung der Konzentrationsprüfung mindestens 60 Minuten für Suspensionen auf Erdölbasis oder 30 Minuten für konditionierte Wassersuspensionen zum Absetzen gebracht?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.4",
+      "question": "Wird die Suspension unter Verwendung eines birnenförmigen Zentrifugenröhrchens mit einer graduierten Skala in 0,05-mL-Schritten für fluoreszierende Bäder oder 0,1 mL für nicht-fluoreszierende Bäder überprüft, das der Richtlinie E709 entspricht?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.5",
+      "question": "Liegt die Magnetpulver-Konzentration innerhalb der folgenden Grenzen? Fluoreszierend 0,1 - 0,4 mL pro 100 mL Probe",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.6",
+      "question": "Sind Aufzeichnungen der Konzentrationsprüfung archiviert und weisen sie akzeptable Ergebnisse aus?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der tatsächliche Konzentrationswert muss aufgezeichnet werden; 'OK' oder eine andere Markierung ist nicht akzeptabel."
+    },
+    {
+      "id": "5.1.7",
+      "question": "Hat die Einrichtung die erforderliche Suspensionskonzentrationsprüfung ordnungsgemäß demonstriert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.2.1",
+      "question": "Wird das Trägermedium mindestens wöchentlich auf Verunreinigungen bewertet?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die Überprüfung der Suspensionsverunreinigung gilt nicht für Aerosol-Sprühdosen, Trockenpulver oder wenn jedes Mal neues Trägermedium/Suspension verwendet wird."
+    },
+    {
+      "id": "5.2.2",
+      "question": "Wurde der graduierte Teil des Röhrchens unter UV-Licht untersucht, wobei auf die Flüssigkeit direkt über dem Präzipitat geschaut wurde?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Akzeptable Flüssigkeit zeigt wenig Fluoreszenz."
+    },
+    {
+      "id": "5.2.3",
+      "question": "Wenn die 'gebrauchte' Probe merklich stärker fluoresziert als der Vergleichsstandard, wird die Suspension dann abgelassen, die Maschine gereinigt und mit neuer Suspension befüllt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.2.4",
+      "question": "Sind Aufzeichnungen der Trägermedium-Verunreinigungsprüfungen archiviert und weisen sie akzeptable Ergebnisse aus?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die Prüfergebnisse sollen einen Prozentsatz angeben oder einfach 'akzeptabel' oder einen anderen Begriff, der Annahme bezeichnet."
+    },
+    {
+      "id": "5.2.5",
+      "question": "Hat die Einrichtung die erforderlichen Trägermedium-Verunreinigungsprüfungen ordnungsgemäß demonstriert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1",
+      "question": "Werden die Partikel mindestens wöchentlich auf Verunreinigungen bewertet?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die Partikel-Verunreinigungsprüfung gilt nicht für Aerosol-Sprühdosen, Trockenpulver oder wenn jedes Mal neues Trägermedium/Suspension verwendet wird."
+    },
+    {
+      "id": "5.3.2",
+      "question": "Wurde der graduierte Teil des Röhrchens sowohl unter UV-Licht (nur für fluoreszierende Bäder) als auch unter sichtbarem Licht (sowohl für fluoreszierende als auch nicht-fluoreszierende Bäder) auf Streifen oder Bänder untersucht, die in Farbe oder Erscheinung unterschiedlich sind?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.3",
+      "question": "Beträgt das maximal akzeptable Volumen an Verunreinigungen 30 % oder weniger des Volumens der Magnetpartikel?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.4",
+      "question": "Wenn die Partikel Bänder oder Streifen von Verunreinigungen zeigen, die 30 % des Volumens der Magnetpartikel überschreiten, wird die Suspension dann abgelassen, die Maschine gereinigt und mit neuer Suspension befüllt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Bänder oder Streifen können auf Verunreinigungen hinweisen. Wenn dieser Zustand aufgetreten ist, muss es dokumentierte Nachweise ergriffener Korrekturmaßnahmen geben."
+    },
+    {
+      "id": "5.3.5",
+      "question": "Sind Aufzeichnungen der Verunreinigungsprüfungen archiviert und weisen sie akzeptable Ergebnisse aus?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die Prüfergebnisse sollen einen Prozentsatz angeben oder einfach 'akzeptabel' oder einen anderen Begriff, der Annahme bezeichnet."
+    },
+    {
+      "id": "5.3.6",
+      "question": "Hat die Einrichtung die erforderlichen Partikel-Verunreinigungsprüfungen ordnungsgemäß demonstriert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1",
+      "question": "Wird der Wasseraufreißtest für wasserbasierte Träger mindestens täglich durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A, Schaeffler verwendet ölbasierte Träger"
+    },
+    {
+      "id": "5.4.2",
+      "question": "Sind Aufzeichnungen dieses Tests archiviert und liefern sie akzeptable Ergebnisse?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.3",
+      "question": "Hat die Einrichtung diese Prüfung ordnungsgemäß demonstriert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.1",
+      "question": "Wird ein Messgerät zur Überprüfung der UV-Lichtintensität verwendet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.2",
+      "question": "Wird die UV-Lichtintensität des Prüflichts/der Prüflichter mindestens täglich, vor Gebrauch oder nach Gerätewartung überprüft?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.3",
+      "question": "Wenn eine batteriebetriebene UV-A-LED-Lampe verwendet wird, gibt es dann eine Verfahrensanweisung, die sicherstellt, dass die korrekte UV-Intensität während der gesamten Gebrauchsdauer aufrechterhalten wird?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.4",
+      "question": "Werden UV-A-LED-Taschenlampen (kleine batteriebetriebene UV-A-Quellen) nur für lokalisierte Inspektionen (z. B. Schweißnahtreparaturen, Bohrungsinspektionen, schwer zugängliche Bereiche) verwendet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.5",
+      "question": "Liegt die minimal akzeptable Grenze bei 1000 µW/cm² und die maximale bei 10.000 µW/cm² bei einem festgelegten Abstand von 15 Zoll (38 cm)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die Boreskop-Intensität muss mindestens 1000 µW/cm² an der Prüfoberfläche betragen, gemessen vom Prüfabstand aus."
+    },
+    {
+      "id": "5.5.6",
+      "question": "Beträgt die Weißlichtleckage der UV-Einheit maximal 2 Fußkerzen (21,5 Lux), wenn sie auf den 15-Zoll (38 cm) Abstand eingestellt ist, der für die UV-Lichtmessung verwendet wird?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Diese Messung wird im abgedunkelten Inspektionsbereich direkt unterhalb der UV-Einheit durchgeführt, wobei das Lichtmessgerät bewegt wird, um die Weißlichtmessung zu maximieren."
+    },
+    {
+      "id": "5.5.7",
+      "question": "Bei Verwendung einer Quecksilberdampflampe: Wurden mindestens fünf Minuten vor ihrer Verwendung oder Messung der Intensität des emittierten UV-Lichts für das Aufwärmen der UV-Lichtquelle eingeräumt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die Frage kann nur mit N/A beantwortet werden, wenn keine Quecksilberdampflampen verwendet werden."
+    },
+    {
+      "id": "5.5.8",
+      "question": "Sind die UV-Lichtquellen in gutem und sauberem Zustand?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.9",
+      "question": "Hat die Einrichtung diese Prüfung ordnungsgemäß demonstriert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.10",
+      "question": "Sind Aufzeichnungen dieser Prüfung archiviert und weisen sie akzeptable Ergebnisse aus?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die tatsächliche Lichtintensität muss für diese Prüfung aufgezeichnet werden; 'OK' oder eine andere Markierung ist nicht akzeptabel."
+    },
+    {
+      "id": "5.6.1",
+      "question": "Für Typ-1-Systeme: Ist das Umgebungs-Weißlicht im Inspektionsbereich für die fluoreszierende Magnetpulverprüfung auf nicht mehr als 2 ft-Kerzen/21,5 Lux begrenzt, gemessen an der Prüfoberfläche?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Diese Messung wird im abgedunkelten Inspektionsbereich einschließlich der Prüfoberfläche bei betriebenen UV-Lichtern in der festgelegten Position von 15 Zoll (38 cm) durchgeführt. Diese Frage ist nur N/A für Inspektionen mit nicht-fluoreszierenden Magnetpartikeln."
+    },
+    {
+      "id": "5.6.2",
+      "question": "Wird diese Prüfung mindestens wöchentlich oder vor Gebrauch oder nach Gerätewartung durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.6.3",
+      "question": "Sind Aufzeichnungen dieser Prüfung archiviert und weisen sie akzeptable Ergebnisse aus?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die tatsächliche Lichtintensität muss für diese Prüfung aufgezeichnet werden; 'OK' oder eine andere Markierung ist nicht akzeptabel."
+    },
+    {
+      "id": "5.6.4",
+      "question": "Sind 100 ft-Kerzen/1076 Lux oder mehr an der Teiloberfläche zur visuellen Verifizierung von fluoreszierenden Magnetpulveranzeigen verfügbar?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Dies gilt möglicherweise nicht für einige Verbindungselement-Hersteller, die alle MT-Anzeigen direkt an MRB ablehnen. Dies ist jedoch erforderlich, wenn eine visuelle Verifizierung erforderlich oder durchgeführt wird."
+    },
+    {
+      "id": "5.6.5",
+      "question": "Beträgt das bei der Prüfung mit nicht-fluoreszierenden Magnetpartikeln verwendete sichtbare Licht eine minimale Lichtintensität von 100 ft-Kerzen/1076 Lux, gemessen an der Oberfläche des zu prüfenden oder zu bewertenden Teils?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Diese Frage ist nur N/A für Inspektionen mit fluoreszierenden Magnetpartikeln."
+    },
+    {
+      "id": "5.6.6",
+      "question": "Wird das Weißlicht mindestens wöchentlich oder vor Gebrauch überprüft und dokumentiert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die tatsächliche Lichtintensität muss für diese Prüfung aufgezeichnet werden; 'OK' oder eine andere Markierung ist nicht akzeptabel."
+    },
+    {
+      "id": "5.6.7",
+      "question": "Hat die Einrichtung diese Prüfung ordnungsgemäß demonstriert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.7.1",
+      "question": "Wird ein Hilfsmittel zur Überwachung der Systemleistung verwendet? (Anwendbare Methode identifizieren)",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Eines oder mehrere der oben genannten Hilfsmittel müssen zur Überwachung der Systemleistung verwendet werden. Jeder andere vom Kunden genehmigte Standard muss einen dokumentierten Nachweis der Genehmigung haben."
+    },
+    {
+      "id": "5.7.2",
+      "question": "Falls Kerbfolien oder flexible Laminatstreifen verwendet werden, sind sie verfügbar und in gutem Zustand?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Es darf keine Beschädigung vorliegen, die ihre Verwendung beeinträchtigen könnte, z. B. Risse, Falten oder Korrosion. Bei Verwendung von AS 5371 Kerbfolien muss die Schutzbeschichtung vor Gebrauch entfernt worden sein und sie müssen korrekt am Bauteil befestigt sein. Dies muss nicht dokumentiert werden."
+    },
+    {
+      "id": "5.7.3.1",
+      "question": "Wird ein Ketos-Werkzeugstahlring für den Systemleistungstest verwendet und gibt es eine Dokumentation, die den Nachweis erbringt, dass er gemäß den Anforderungen für Ketos-Werkzeugstahlringe zertifiziert ist?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.3.2",
+      "question": "Ist der Ketos-Werkzeugstahlring frei von Beschädigungen oder Korrosion, die seine Verwendung beeinträchtigen würden?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.3.3",
+      "question": "Wird die Systemleistung der Magnetpulveranlage mindestens täglich oder vor Gebrauch durch Prüfung des Ketos-Werkzeugstahlrings überprüft, wobei die erforderlichen Löcher pro maximal zulässiger Stromstärkeeinstellung angezeigt werden?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.4.1",
+      "question": "Wird ein AS5282-Stahlring für den Systemleistungstest verwendet und gibt es eine Dokumentation, die den Nachweis erbringt, dass er ordnungsgemäß nach AS5282-Anforderungen zertifiziert ist?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.4.2",
+      "question": "Ist der AS5282-Stahlring frei von Beschädigungen oder Korrosion, die seine Verwendung beeinträchtigen würden?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.4.3",
+      "question": "Wird die Systemleistung der Magnetpulveranlage mindestens täglich oder vor Gebrauch durch Prüfung des AS5282-Stahlrings überprüft, wobei die erforderlichen Löcher pro maximal zulässiger Stromstärkeeinstellung angezeigt werden?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die in der Tabelle angegebenen maximalen Stromstärkewerte dürfen nicht überschritten werden."
+    },
+    {
+      "id": "5.7.4.4",
+      "question": "Sind Aufzeichnungen dieses Tests archiviert und weisen sie akzeptable Ergebnisse aus?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.5.1",
+      "question": "Wird ein alternatives Testgerät (TP 1-4, bekanntes fehlerhaftes Teil oder anderer in 5.7.1 aufgeführter Standard) zur Überwachung der Systemleistung verwendet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Wenn kein Ketos-Werkzeugstahlring oder AS5282-Stahlring zur Überwachung der Systemleistung verwendet wird, muss ein alternatives Testgerät, wie TP 1-4, ein bekanntes fehlerhaftes Teil oder ein anderer in 5.7.1 aufgeführter Standard, verwendet werden."
+    },
+    {
+      "id": "5.7.5.2",
+      "question": "Wird die Systemleistung der Magnetpulveranlage mindestens täglich oder vor Gebrauch überprüft?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.5.3",
+      "question": "Übertrifft oder erreicht die Leistung des verwendeten Testgeräts die ursprünglich definierte Baseline?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Testgeräte müssen vorbestimmte Stromwerte für die Anzeigen/Fehler, definierte Annahmekriterien und Genehmigung durch den Kunden haben."
+    },
+    {
+      "id": "5.7.5.4",
+      "question": "Ist das verwendete Gerät frei von Beschädigungen oder Korrosion, die seine Verwendung beeinträchtigen würden?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.5.5",
+      "question": "Sind Aufzeichnungen dieses Tests archiviert und weisen sie akzeptable Ergebnisse aus?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die tatsächliche Anzahl der Anzeigen oder die Größenmessung der Anzeigen muss aufgezeichnet werden."
+    },
+    {
+      "id": "5.8.1",
+      "question": "Falls Hall-Effekt-Gaußmeter verwendet werden, werden sie mindestens halbjährlich kalibriert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Das Messgerät muss mindestens kalibriert werden und Messwerte müssen an mindestens drei Punkten in jedem Dynamikbereich und jeder Polarität, zusätzlich zum Nullpunkt, genommen werden."
+    },
+    {
+      "id": "5.9.1",
+      "question": "Werden Restfeldindikatoren, die zur Überprüfung der Entmagnetisierung verwendet werden, mindestens halbjährlich kalibriert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A nur, wenn ein Hall-Effekt-Gaußmeter oder ein anderes akzeptables Gerät anstelle eines anderen Feldindikators verwendet wird. Das Messgerät muss mindestens kalibriert werden und Messwerte müssen an mindestens drei Punkten in jedem Dynamikbereich und jeder Polarität, zusätzlich zum Nullpunkt, genommen werden."
+    },
+    {
+      "id": "5.10.1",
+      "question": "Wird das Amperemeter der Magnetpulvermaschine mindestens halbjährlich an mindestens drei Punkten, die den Anwendungsbereich abdecken, überprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die Amperemeter/Shunt-Kombination und das Amperemeter der Magnetpulvermaschine dürfen um nicht mehr als 10 % oder 50 Ampere, je nachdem, welcher Wert größer ist, von der Ausgangsleistung des Geräts abweichen. Die Kalibrierpunkte für ein Messgerät, das bei 100 Ampere bis 3000 Ampere verwendet wird, könnten bei 100/1000/3000 kalibriert werden, um die Anforderung zu erfüllen."
+    },
+    {
+      "id": "5.10.2",
+      "question": "Gibt es einen Nachweis, dass mindestens halbjährlich eine Wiederholbarkeitsprüfung durchgeführt wurde, um eine minimale nutzbare Ausgangsleistung zu bestimmen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der niedrigste nutzbare Strom wird bestimmt, indem die Ausrüstung eingestellt und eine Reihe aufeinanderfolgender Schüsse durchgeführt wird, um sicherzustellen, dass die Ausgangsleistung nicht mehr als 10 % oder 50 Ampere, je nachdem, welcher Wert größer ist, variiert."
+    },
+    {
+      "id": "5.10.3",
+      "question": "Ist die Ausrüstung mit den niedrigsten nutzbaren Ausgangswerten gekennzeichnet, die durch die Ausgangs-Wiederholbarkeitsprüfung bestimmt wurden?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.10.4",
+      "question": "Sind Aufzeichnungen dieser Prüfung archiviert und weisen sie akzeptable Ergebnisse aus?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die tatsächlichen Werte müssen für diese Prüfung aufgezeichnet werden; 'OK' oder eine andere Markierung ist nicht akzeptabel."
+    },
+    {
+      "id": "5.11.1",
+      "question": "Für Geräte, die einen Zeitgeber zur Steuerung der Pulsdauer verwenden: Wird die Pulsdauer des Magnetisierungsstromflusses so gesteuert, dass mindestens 0,5 Sekunden erreicht werden können?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.11.2",
+      "question": "Für Geräte mit Zeitgeber: Wird der Pulszeitgeber mindestens halbjährlich kalibriert, um innerhalb von ± 0,1 Sekunden zu liegen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.11.3",
+      "question": "Sind Aufzeichnungen dieser Prüfung archiviert und weisen sie akzeptable Ergebnisse aus?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die tatsächlichen Werte müssen für diese Prüfung aufgezeichnet werden; 'OK' oder eine andere Markierung ist nicht akzeptabel."
+    },
+    {
+      "id": "6.5.1",
+      "question": "Falls die Magnetpulvermaschine mit der Schnellunterbrechungsfunktion ausgestattet ist, wird die Schnellunterbrechungsfunktion mindestens halbjährlich überprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Diese Prüfung ist in der Spule durchzuführen. Die Prüfung kann mit einem geeigneten Oszilloskop oder einer anderen anwendbaren Methode gemäß den Herstellerangaben durchgeführt werden."
+    },
+    {
+      "id": "6.5.2",
+      "question": "Sind Aufzeichnungen dieses Tests archiviert und weisen sie akzeptable Ergebnisse gemäß den Herstellerrichtlinien aus?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Aufzeichnungen, die 'OK' oder eine andere Prüfmarkierung angeben, sind für diesen Test akzeptabel. Die Herstellerrichtlinien müssen Annahmekriterien angeben."
+    },
+    {
+      "id": "6.6.1",
+      "question": "Wird die Magnetpulverausrüstung regelmäßig auf interne Kurzschlüsse überprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Wenn die Spannköpfe auf maximale Stromabgabe eingestellt sind, ist jede Abweichung des Amperemeters, wenn der Strom ohne Leiter zwischen den Kontakten aktiviert wird, ein Hinweis auf einen internen Kurzschluss und muss vor der Verwendung repariert werden."
+    },
+    {
+      "id": "6.6.2",
+      "question": "Sind Aufzeichnungen dieser Prüfung archiviert und weisen sie akzeptable Ergebnisse aus?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Aufzeichnungen, die 'OK' oder eine andere Prüfmarkierung angeben, sind für diesen Test akzeptabel."
+    },
+    {
+      "id": "6.7.1",
+      "question": "Werden Joche und Permanentmagnete mindestens halbjährlich einer Gewichtsprüfung unterzogen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.7.2",
+      "question": "Für Wechselstrom- und Permanentjoche: Beträgt die Hubkraft mindestens 10 lbs (4,5 kg) bei einem Abstand von 2 bis 6 Zoll (50 bis 150 mm) zwischen den Schenkeln?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.7.3",
+      "question": "Für Gleichstromjoche: Beträgt die Hubkraft mindestens 30 lbs (13,5 kg) bei einem Abstand von 2 bis 4 Zoll (50 bis 100 mm) zwischen den Schenkeln oder 50 lbs (22,5 kg) bei einem Abstand von 4 bis 6 Zoll (100 bis 150 mm) zwischen den Schenkeln?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A, wenn keine Gleichstromjoche verwendet werden."
+    },
+    {
+      "id": "6.8.1",
+      "question": "Wird die Kalibrierung des Messgeräts mindestens halbjährlich oder, mit angemessener Dokumentation, verlängert wie vom geltenden Standard erlaubt, durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Das Lichtmessgerät umfasst alle Elemente des Messsystems, z. B. Sensor und Anzeigegerät."
+    },
+    {
+      "id": "6.8.2",
+      "question": "Wird die Kalibrierung an mindestens drei Punkten durchgeführt, um die Linearität festzustellen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Es müssen keine spezifischen Werte verwendet werden."
+    },
+    {
+      "id": "6.8.3",
+      "question": "Ist das Lichtmessgerät innerhalb eines etablierten Standards genau?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der Wert von ±5 % bezieht sich auf einen Vergleich des zu kalibrierenden Lichtmessgeräts mit einem anderen kalibrierten (rückführbar auf NIST oder andere nationale Normen) Lichtmessgerät. Es ist nicht als 'echte' ±5 %-Kalibriertoleranz gedacht. Das Lichtmessgerät umfasst alle Elemente des Messsystems, z. B. Sensor und Anzeigegerät."
+    },
+    {
+      "id": "6.8.4",
+      "question": "Ist das Lichtmessgerät zu den Kalibrierdaten rückverfolgbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Das Messgerät muss serialisiert, beklebt oder anderweitig zu den Kalibrierdaten identifizierbar sein."
+    },
+    {
+      "id": "6.8.5",
+      "question": "Ist die Kalibrierung aktuell?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.9.1",
+      "question": "Wird die Kalibrierung des Messgeräts mindestens halbjährlich oder, mit angemessener Dokumentation, verlängert wie vom geltenden Standard erlaubt, durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Das Lichtmessgerät umfasst alle Elemente des Messsystems, z. B. Sensor und Anzeigegerät."
+    },
+    {
+      "id": "6.9.2",
+      "question": "Wird die Kalibrierung an mindestens drei Punkten durchgeführt, um die Linearität festzustellen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Es müssen keine spezifischen Werte verwendet werden."
+    },
+    {
+      "id": "6.9.3",
+      "question": "Ist das Lichtmessgerät innerhalb eines etablierten Standards genau?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der Wert von ±5 % bezieht sich auf einen Vergleich des zu kalibrierenden Lichtmessgeräts mit einem anderen kalibrierten (rückführbar auf NIST oder andere nationale Normen) Lichtmessgerät. Es ist nicht als 'echte' ±5 %-Kalibriertoleranz gedacht. Das Lichtmessgerät umfasst alle Elemente des Messsystems, z. B. Sensor und Anzeigegerät."
+    },
+    {
+      "id": "6.9.4",
+      "question": "Ist die Kalibrierung aktuell?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.9.5",
+      "question": "Ist das Weißlichtmessgerät zu den Kalibrierdaten rückverfolgbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Das Messgerät muss serialisiert, beklebt oder anderweitig zu den Kalibrierdaten identifizierbar sein."
+    },
+    {
+      "id": "6.9.6.1",
+      "question": "Für Teile, die nach den Anforderungen von ASME Section V Article 7 verarbeitet wurden, wurden die Kalibrieranforderungen von T-760 eingehalten?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.1",
+      "question": "Legen Sie die folgende Dokumentation zur Überprüfung durch den Auditor für jedes der während des Konformitätsteils des Audits geprüften Teile vor:",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: ECLR-Materialien dürfen die Einrichtung des Auditierten nicht verlassen."
+    },
+    {
+      "id": "7.1A",
+      "question": "Dokumentationsdetails",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.2.1",
+      "question": "Verwendet die Einrichtung die/den geeignete(n) Spezifikation(en) und Revision(en) wie im Vertragsdokument gefordert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Dies muss vom Auditor durch Überprüfung des Kundenauftrags und der Endkundenzeichnung, falls verfügbar, bestätigt werden."
+    },
+    {
+      "id": "7.2.2",
+      "question": "Falls die Einrichtung mit Abweichungen arbeitet, wurden diese vom Kunden genehmigt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der Auditor muss eine dokumentierte Kundenfreigabe bestätigen; diese kann in Form einer schriftlichen Mitteilung, Technikfreigabe oder einer formellen Abweichung vom Endkunden vorliegen."
+    },
+    {
+      "id": "7.2.3",
+      "question": "Wurden die anwendbaren Arbeitsanweisungen/Laufkarten/Betriebsbegleitkarten/Techniken/Verfahrensanweisungen, Annahmekriterien und spezifischen Kundenanforderungen den Magnetpulver-Prüfern zugänglich gemacht?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der Begriff 'verfügbar' bedeutet, dass diese Dokumente für die Techniker leicht zugänglich sind. Diese Dokumente sind verfügbar und werden zur Durchführung der Inspektionen verwendet, nicht aus dem Gedächtnis."
+    },
+    {
+      "id": "7.2.4",
+      "question": "Falls schriftliche Verfahrensanweisungen und/oder Techniken eine Überprüfung und/oder Genehmigung durch die zuständige technische Organisation erfordern, ist diese Genehmigung ersichtlich?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Dies ist zu untersuchen und vom Auditor durch Überprüfung der letzten zehn versandten Teilenummern zu bestätigen."
+    },
+    {
+      "id": "7.2.5",
+      "question": "Falls zutreffend, werden teilespezifische Zeichnungsprüf- und/oder Annahmevermerke an die Prüfer weitergegeben und von ihnen befolgt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Dies ist zu untersuchen und vom Auditor zu bestätigen."
+    },
+    {
+      "id": "7.2.6",
+      "question": "Gab es einen Nachweis der Konformität mit der Dokumentenlenkungsverfahren?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.2.7",
+      "question": "Falls zutreffend, wurden alle Änderungen an Spezifikationen, Zeichnungen, Verfahrensanweisungen oder Techniken autorisiert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Auditor muss die Genehmigung bestätigen."
+    },
+    {
+      "id": "7.3.1.1",
+      "question": "Enthalten die anwendbaren Arbeitsaufträge/Betriebsbegleitkarten und Technikkarten die Rückverfolgbarkeit zur Teilenummer / Materialidentifikation oder stellen sie diese bereit?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.2",
+      "question": "Enthalten die anwendbaren Arbeitsaufträge/Betriebsbegleitkarten und Technikkarten die Rückverfolgbarkeit zur Spezifikationsreferenz oder stellen sie diese bereit?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.3",
+      "question": "Enthalten die anwendbaren Arbeitsaufträge/Betriebsbegleitkarten und Technikkarten die Rückverfolgbarkeit zu den Prüfannahmeanforderungen oder stellen sie diese bereit?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.4",
+      "question": "Enthalten die anwendbaren Arbeitsaufträge/Betriebsbegleitkarten und Technikkarten die Rückverfolgbarkeit zur korrekten Abfolge der Arbeitsgänge oder stellen sie diese bereit?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.1",
+      "question": "Wird die Prüfung nach allen Prozessen durchgeführt, die das Teil nachteilig beeinflussen könnten (Wärmebehandlung, Umformen, Zerspanen, Schweißen, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: N/A für unabhängige Prüflabore."
+    },
+    {
+      "id": "7.4.2",
+      "question": "Werden Teile bei Bedarf verschlossen oder maskiert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.3",
+      "question": "Hat der/die Prüfer die Spezifikation(en), das Technikblatt und die Verfahrensanweisung(en), sofern zutreffend, vor der Prüfung des Teils eingesehen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.4",
+      "question": "Werden Teile vor der Prüfung, sofern zutreffend, gemäß den anwendbaren Arbeitsanweisungen/Verfahrensanweisungen gereinigt, um Farbe, Zunder, Öl, Schmutz und andere Fremdstoffe zu entfernen, die den Prüfprozess beeinträchtigen könnten?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.5",
+      "question": "Waren alle Teile sauber?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der Auditor muss die Sauberkeit der Teile vor der Prüfung mit allen verfügbaren und angemessenen Mitteln bestätigen."
+    },
+    {
+      "id": "7.4.6",
+      "question": "Wurde die Magnetpulver-Suspension ordnungsgemäß aufgerührt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die Magnetpulver-Suspension muss durchgehend aufgerührt werden, um eine gleichmäßige Konzentration der Partikel in der Suspension zu gewährleisten, wie durch das Konzentrationsergebnis nachgewiesen."
+    },
+    {
+      "id": "7.4.7",
+      "question": "Wurden Teile gemäß der Verfahrensanweisung oder dem Technikblatt ordnungsgemäß magnetisiert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.8",
+      "question": "Wurde die Suspension ordnungsgemäß auf die Teile aufgebracht?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die Suspension muss so auf die Oberfläche des Teils/der Teile aufgebracht werden, dass eine vollständige Abdeckung gewährleistet ist. Die Suspension darf nicht mit einem solchen Druck aufgebracht werden, dass übermäßiges Spritzen verursacht wird."
+    },
+    {
+      "id": "7.4.9",
+      "question": "Wurde das Trockenpulver ordnungsgemäß auf die Teile aufgebracht?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Das Trockenpulver muss so auf die Oberfläche des Teils/der Teile aufgebracht werden, dass eine vollständige Abdeckung gewährleistet ist. Stellen Sie sicher, dass nach dem Auftragen der Partikel, aber vor dem Entfernen der Magnetisierungskraft, überschüssiges Pulver entfernt wird."
+    },
+    {
+      "id": "7.4.10",
+      "question": "Hielt(en) der/die Prüfer die Anforderung ein, keine photochromatischen Brillengläser oder dauerhaft getönte Linsen zu tragen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Dies soll die Verwendung von Brillen mit Linsen, die zur Absorption von ultraviolettem Licht behandelt wurden, nicht verbieten."
+    },
+    {
+      "id": "7.4.11",
+      "question": "Gewöhnte(n) sich der/die Prüfer vor der Durchführung einer Prüfung, die ultraviolettes Licht erfordert, mindestens eine Minute lang an die Dunkelheit?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Prüfer müssen sich mindestens 1 Minute an die Dunkelheit gewöhnen, wenn sie aus Umgebungslicht kommen. Die Adaptionszeit während der Inspektion und Bewertung ist nicht erforderlich, es sei denn, der Kunde spezifiziert dies anders. Ein Zeitmessgerät ist für die Überwachung der Augenadaptation erforderlich, aber ein Kalibriernachweis ist nicht erforderlich."
+    },
+    {
+      "id": "7.4.12",
+      "question": "Wurden Teile erforderlichenfalls zwischen jedem Arbeitsgang entmagnetisiert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Teile müssen zwischen jedem Arbeitsgang entmagnetisiert werden, wenn die Stärke des Magnetisierungsfeldes nicht ausreicht, um das Remanenzfeld der vorherigen Magnetisierung zu überwinden."
+    },
+    {
+      "id": "7.4.13",
+      "question": "Falls zutreffend: Wurde bei direkter Stromdurchleitung durch das Teil (direkter Spannkopfschuss) darauf geachtet, ein Brennen/Lichtbogenbildung des Teils an den Kontaktstellen zu verhindern?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Wenn Strom direkt durch das Teil geleitet wird (direkter Spannkopfschuss), darf es nicht zu Lichtbogenbildung/Brennen zwischen den Kontaktbereichen der Maschine und dem Teil kommen."
+    },
+    {
+      "id": "7.3.13.1",
+      "question": "Falls Lichtbogenbildung oder Überhitzung auftrat, befolgte der Bediener die in der Verfahrensanweisung definierten Anforderungen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.4.14.1",
+      "question": "Für Teile, die nach den Anforderungen von ASME Section V Article 7 verarbeitet wurden, wurden die Technikanforderungen von T-750 eingehalten?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.5.1",
+      "question": "Wurde die UV-Lichtintensität zum Zeitpunkt dieser Erhebung mit mindestens 1000 µW/cm² an der Prüfoberfläche gemessen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.2",
+      "question": "Für Inspektionen mit sichtbaren Partikeln: Wurde die Weißlichtintensität zum Zeitpunkt dieser Erhebung mit mindestens 100 ft-Kerzen/1076 Lux gemessen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.5.3",
+      "question": "Wurden alle Bereiche des Teils gemäß Technikblatt oder Verfahrensanweisung geprüft?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.4",
+      "question": "Falls zutreffend, hat der/die Prüfer jede relevante Anzeige gemäß dem Kundenstandard ordnungsgemäß bewertet?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.5.5",
+      "question": "Wurden die spezifischen Annahmekriterien vom/von den Prüfer(n) richtig verstanden?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Es wird erwartet, dass der Auditor das Verständnis mit den erforderlichen Mitteln bestätigt. Dies kann durch Beobachtung möglich sein oder in einigen Fällen kann es erforderlich sein, dass der Auditor den/die Prüfer nach den Kriterien und deren Anwendung fragt."
+    },
+    {
+      "id": "7.5.6",
+      "question": "Wurden bei der Handhabung der Teile während der Prüfung Vorsichtsmaßnahmen getroffen, um Anzeigen nicht zu verschmieren oder zu verw

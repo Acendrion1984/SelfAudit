@@ -1,0 +1,812 @@
+{
+  "audit_tool": "Nital-/Temperätzprüfung (TPG-AC7114/12)",
+  "revision": "A",
+  "questions": [
+    {
+      "id": "3.1.1.1",
+      "question": "Enthält die Begleitkarte (KBK) jeder Charge einen Nachweis der Genehmigung für eingefrorene Prozesse, falls vom Kunden gefordert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die Begleitkarte (KBK) muss nicht die Bestell- oder Vertragsnummer referenzieren, muss aber die Rückverfolgbarkeit dazu oder zu den technischen Anforderungen sicherstellen."
+    },
+    {
+      "id": "3.1.1.2",
+      "question": "Enthält die Begleitkarte (KBK) die relevante Auftragsnummer oder eine Rückverfolgbarkeit zu technischen Anforderungen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die Begleitkarte (KBK) muss nicht die Bestell- oder Vertragsnummer referenzieren, muss aber die Rückverfolgbarkeit dazu oder zu den technischen Anforderungen sicherstellen."
+    },
+    {
+      "id": "3.1.1.3",
+      "question": "Enthält die Begleitkarte (KBK) Teileidentifikation, Menge, Material und Materialgüte?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.1.1.4",
+      "question": "Enthält die Begleitkarte (KBK) die Wareneingangsprüfung?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt für den Werkstransfer zwischen Einrichtungen oder Abteilungen."
+    },
+    {
+      "id": "3.1.1.5",
+      "question": "Enthält die Begleitkarte (KBK) die Methode(n) der Vorreinigung?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn dieser Schritt für den Prozess nicht erforderlich ist."
+    },
+    {
+      "id": "3.1.1.6",
+      "question": "Enthält die Begleitkarte (KBK) Abdeckungen/Maskierungen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn dieser Schritt für den Prozess nicht erforderlich ist."
+    },
+    {
+      "id": "3.1.1.7",
+      "question": "Enthält die Begleitkarte (KBK) Vorrichtungen, Gestelle?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn Vorrichtungen und Gestelle nicht erforderlich sind, z. B. bei lokaler Ätzung."
+    },
+    {
+      "id": "3.1.1.8",
+      "question": "Enthält die Begleitkarte (KBK) die Zwischenreinigung, Wasseraufreißtest?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.1.1.9",
+      "question": "Enthält die Begleitkarte (KBK) die Ätzschritte?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.1.1.10",
+      "question": "Enthält die Begleitkarte (KBK) Nachprozessschritte einschließlich Reinigung, Trocknung, Demaskierung und Entfernung von Vorrichtungen und Gestellen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.1.1.11",
+      "question": "Enthält die Begleitkarte (KBK) den Ätzprüfschritt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.1.1.12",
+      "question": "Enthält die Begleitkarte (KBK) die Endprüfung?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt für den Werkstransfer zwischen Einrichtungen oder Abteilungen."
+    },
+    {
+      "id": "3.1.1.13",
+      "question": "Enthält die Begleitkarte (KBK) die Verpackung?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn Teile innerhalb derselben Einrichtung bewegt werden."
+    },
+    {
+      "id": "3.1.1.14",
+      "question": "Enthält die Begleitkarte (KBK) den Versand?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn Teile innerhalb derselben Einrichtung bewegt werden."
+    },
+    {
+      "id": "3.1.1.15",
+      "question": "Enthält die Begleitkarte (KBK) die Dokumentation von Nacharbeit, die zur Begleitkarte (KBK) und allen an den Teilen durchgeführten Verarbeitungsschritten rückverfolgbar ist?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn während des Audits keine Nacharbeit beobachtet wurde."
+    },
+    {
+      "id": "3.1.2",
+      "question": "Gibt es separate Abnahmeschritte für Wareneingangskontrolle, Verarbeitung, Prüfung, Endkontrolle und Versand, sofern zutreffend?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Wareneingangskontrolle, Endkontrolle und Versand gelten nicht, wenn Teile innerhalb derselben Einrichtung bewegt werden."
+    },
+    {
+      "id": "3.1.3",
+      "question": "Werden die Zwischenreinigungszeit, Ätzzeit und Ätzlösungstemperatur aufgezeichnet und sind zur Begleitkarte (KBK) rückverfolgbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.2.1",
+      "question": "Zeigen Aufzeichnungen, dass die Wartung gemäß einer Verfahrensanweisung und mit definierter Häufigkeit durchgeführt wurde?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Dies umfasst elektrische Kontakte, regelmäßige Reinigung von Spültanks, Filterwechsel basierend auf Druckabfall, Kühlervorfilter, Überprüfung der Restwelligkeitskalibrierung usw."
+    },
+    {
+      "id": "3.2.2",
+      "question": "Verfügt die Druckluftversorgung für Strahlbehandlung und Teileabblasen über Partikel-, Feuchtigkeits- und Ölfilter mit geplanter Wartung und Luftreinheitsprüfung am Verwendungsort?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: N/A gilt, wenn keine Strahlbehandlung verwendet wird und Druckluft nicht zum Trocknen von Teilen verwendet wird."
+    },
+    {
+      "id": "3.2.3",
+      "question": "Sind Zeitmessgeräte verfügbar, für den Zweck geeignet, kalibriert und von den Tanks aus sichtbar oder hörbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Für die Prozesssteuerung verwendete Zeitmessgeräte müssen kalibriert sein."
+    },
+    {
+      "id": "3.3.1",
+      "question": "Sind Tanks mit Identifikationsnummer, Inhalt und Temperaturbereichen gekennzeichnet?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.3.2",
+      "question": "Stimmen die Tankkennzeichnungen mit Verfahrensanweisungen, Begleitkarte (KBK) und Aufzeichnungen überein?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.3.3",
+      "question": "Sind Tanks und Arbeitsflächen frei von Korrosion und Chemikalienspritzern, die den Prozess beeinträchtigen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.3.4",
+      "question": "Sind Sprüh- und Tauchspültanks sauber, klar, frei durchfließend oder werden sie auf Verschmutzungsgrad überwacht?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Gilt nicht für Ablauftanks, wenn ausreichendes Spülen folgt."
+    },
+    {
+      "id": "3.3.5",
+      "question": "Sind Sprüh- und Tauchspültanks in einer Reihenfolge angeordnet, die Kreuzkontamination von Prozesstanks verhindert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.3.6",
+      "question": "Gewährleisten Sprüh- und Tauchspültanks eine ausreichende Neutralisierung und/oder Entfernung von Prozesschemikalien?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Besondere Aufmerksamkeit ist bei Teilen wie kleinen Rohrdurchmessern erforderlich."
+    },
+    {
+      "id": "3.3.7",
+      "question": "Werden Tanks oder Teile bewegt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Bewegung kann kontinuierlich oder vor Gebrauch erfolgen."
+    },
+    {
+      "id": "3.3.8",
+      "question": "Arbeiten Tanks mit definierten Temperaturbereichen innerhalb des spezifizierten Bereichs?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.1",
+      "question": "Gibt es ein verfahrensmäßig definiertes Kontrollsystem, das sicherstellt, dass die Lösungszusammensetzung innerhalb der Kontrollgrenzen gemäß den anwendbaren Spezifikationen gehalten wird, und ein System zur Anpassung der Analysehäufigkeit basierend auf der Änderungsrate?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: In der Spezifikation identifizierte Verunreinigungen gelten als Zusammensetzungsanforderungen."
+    },
+    {
+      "id": "3.4.2",
+      "question": "Enthalten die Lösungsüberwachungsaufzeichnungen die folgenden Informationen für jeden überwachten Tank?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.1",
+      "question": "Tankidentifikation?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.2",
+      "question": "Tankinhalt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.3",
+      "question": "Tankgröße (Arbeitsvolumen) und Füllstand?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Das Arbeitsvolumen muss im Datensatz definiert sein, der Füllstand kann am Tank markiert oder automatisch gesteuert werden."
+    },
+    {
+      "id": "3.4.2.4",
+      "question": "Analysefrequenz?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.5",
+      "question": "Zu analysierende Komponenten?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.6",
+      "question": "Basieren die Betriebstoleranzen auf Spezifikationsanforderungen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.7",
+      "question": "Werden Zugaben und Anpassungen aufgezeichnet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.8",
+      "question": "Werden Lösungswechsel aufgezeichnet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.9",
+      "question": "Werden die Ergebnisse der Analyse aufgezeichnet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.2.10",
+      "question": "Werden Datum und Unterschrift der Person, die die Analyse durchführt, aufgezeichnet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.3",
+      "question": "Sind Lösungsüberwachungsaufzeichnungen für die letzten 12 Monate verfügbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.4",
+      "question": "Sind Lösungsüberwachungsaufzeichnungen zur Begleitkarte (KBK) und zu den Teilen rückverfolgbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.5",
+      "question": "Werden Lösungsüberwachungsaufzeichnungen von einer verantwortlichen Person geprüft und genehmigt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.5.1",
+      "question": "Wird das pH-Meter täglich, vor dem ersten Gebrauch, mit mindestens zwei Pufferlösungen standardisiert, die sowohl den sauren als auch den alkalischen Bereich repräsentieren, falls zutreffend?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die zur Standardisierung des Messgeräts verwendeten pH-Puffer müssen die sauren und/oder alkalischen Bereiche repräsentieren, müssen aber nicht den gesamten pH-Bereich der getesteten Proben abdecken."
+    },
+    {
+      "id": "3.4.5.2",
+      "question": "Sind zertifizierte, handelsübliche oder bessere Pufferlösungen innerhalb der Haltbarkeit?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.5.3",
+      "question": "Wird die pH-Elektrode bei Nichtgebrauch in der entsprechenden Aufbewahrungslösung aufbewahrt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.6",
+      "question": "Werden Lösungsüberwachungsaufzeichnungen auf Trends überprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.4.7",
+      "question": "Werden Lösungsüberwachungsaufzeichnungen auf Toleranzüberschreitungen überprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.4.8",
+      "question": "Werden Lösungsüberwachungsaufzeichnungen auf Korrekturmaßnahmen überprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.4.9",
+      "question": "Werden Lösungsüberwachungsaufzeichnungen auf Revalidierung des Prozesses nach Korrekturmaßnahmen überprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.4.10",
+      "question": "Werden Lösungsüberwachungsaufzeichnungen auf Revalidierung des Prozesses nach Lösungswechseln überprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "3.4.10.1",
+      "question": "Wird das pH-Meter mindestens jährlich kalibriert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.4.10.2",
+      "question": "Wird die Temperaturkompensationsfunktion des pH-Meters verifiziert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.6.1",
+      "question": "Werden Teile ohne unangemessene Verzögerung zwischen Tanks bewegt, sodass die Prozessqualität nicht beeinträchtigt wird?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.6.2",
+      "question": "Wenn der Auditiere eine kathodische Reinigungskapazität hat, ist deren Verwendung zur Reinigung von Teilen für das Nitalätzen untersagt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.6.3",
+      "question": "Werden Teile nach der Reinigung und vor dem Ätzen mindestens 15 Sekunden lang auf Wasseraufreißfreiheit geprüft?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.6.6.1",
+      "question": "Sind alle zu ätzenden Oberflächen frei von Oxid und Zunder?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "3.6.6.2",
+      "question": "Erfüllt die Lösungszusammensetzung die Spezifikationsanforderungen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.1.1",
+      "question": "Wird das Weißlichtmessgerät mindestens jährlich kalibriert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.1.2",
+      "question": "Deckt die Kalibrierung den Anwendungsbereich ab?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.1.3",
+      "question": "Ist das Lichtmessgerät auf ±5 % des Standardinstrumentenwerts genau?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.2.1",
+      "question": "Sind 200 Fußkerzen/2200 Lux Weißlicht oder mehr an der Teiloberfläche zur visuellen Überprüfung von Anzeigen verfügbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.2.2",
+      "question": "Wird die Weißlichtintensitätsprüfung mindestens wöchentlich oder vor Gebrauch und nach Gerätewartung durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.2.3",
+      "question": "Hat die Einrichtung diese Prüfung ordnungsgemäß demonstriert und aufgezeichnet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3",
+      "question": "Sind Verfahrensanweisungen für Bewertungstechniken verfügbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Stellen Sie sicher, dass alle Verfahrensanweisungen oder Arbeitsanweisungen für Bewertungstechniken alle Kundenanforderungen erfüllen und verfügbar sind."
+    },
+    {
+      "id": "4.4",
+      "question": "Sind Fotos oder andere visuelle Standards für Annahme-/Ablehnungskriterien verfügbar, falls von Kunden oder internen Verfahrensanweisungen gefordert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Stellen Sie sicher, dass die Bilder oder anderen visuellen Hilfsmittel für den Kunden geeignet sind und alle Kundenanforderungen erfüllen."
+    },
+    {
+      "id": "5.1",
+      "question": "Muss Ätzpersonal für die Sichtprüfung (VT) gemäß ISO 9712 oder ASNT-TC-1A qualifiziert sein?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.2",
+      "question": "Jährlicher Sehtest, der eines der folgenden Kriterien erfüllt: - Tumbling E nach ISO 18490 - 20/25 (Snellen) bei 16 Zoll (40,64 cm), +/- 1 Zoll (2,54 cm)* - Jaeger Nr. 1 bei nicht weniger als 12 Zoll (30,48 cm)* *Mit mindestens einem Auge, natürlich oder korrigiert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: ISO 18490-Tests (Tumbling E) müssen gemäß den darin enthaltenen Anforderungen durchgeführt werden."
+    },
+    {
+      "id": "5.2.1",
+      "question": "Jährliche Sehprüfung, die zeigt, dass der Prüfer Kontraststufen der geätzten Teile unterscheiden und differenzieren kann?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.2.2",
+      "question": "Wurden die Seh- und Kontrastprüfungen von geschultem Personal durchgeführt, das vom verantwortlichen Level-3 oder einer medizinisch qualifizierten Person benannt wurde?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.2.3",
+      "question": "Definiert eine Verfahrensanweisung die Anforderungen für die Wiederholungsprüfung, einschließlich einer Wartezeit von 30 Tagen ab dem Datum des Nichtbestehens, für Personal, das die Qualifikationskriterien nicht erfüllt/nicht besteht?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Eine Wiederholungsprüfung ist nach zusätzlicher dokumentierter Schulung in den Bereichen, in denen Mängel festgestellt wurden, mit 25 % neuen Fragen in der neuen Prüfung erforderlich."
+    },
+    {
+      "id": "5.3.1.1",
+      "question": "Enthalten die Schulungs-/Zertifizierungsaufzeichnungen des Auditierten das Qualifikationsdatum?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1.2",
+      "question": "Enthalten die Schulungs-/Zertifizierungsaufzeichnungen des Auditierten einen Nachweis der Erstschulung?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1.3",
+      "question": "Enthalten die Schulungs-/Zertifizierungsaufzeichnungen des Auditierten einen Nachweis der praktischen Ausbildung am Arbeitsplatz?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1.4",
+      "question": "Enthalten die Schulungs-/Zertifizierungsaufzeichnungen des Auditierten für Personal der Stufe 1 und 2 einen Nachweis der jährlichen Seh- und Kontrasttests?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1.5",
+      "question": "Enthalten die Schulungs-/Zertifizierungsaufzeichnungen des Auditierten für Personal der Stufe 1 und 2 einen Nachweis der anfänglichen schriftlichen Prüfung und der anfänglichen und fünfjährigen praktischen Prüfungen, einschließlich Ergebnisse?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.1.6",
+      "question": "Korrekte Freigabe/Entzug der Zertifizierung basierend auf Ergebnissen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.1",
+      "question": "Teilebeschreibung",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.2",
+      "question": "Kennzeichnung, ob es sich um eine laufende Auftragsprüfung oder eine historische Auftragsprüfung handelt:",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.3",
+      "question": "Teilenummer",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.4",
+      "question": "Kunde",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.5",
+      "question": "Hauptauftragnehmer",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.6",
+      "question": "Auftragsnummer/Revisionsstand",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.7",
+      "question": "Teilemenge",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.8",
+      "question": "Serien-/Losnummer",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.9",
+      "question": "Auftragsdatum/Auftragsnummer",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.10",
+      "question": "Verarbeitungsspezifikation und Revisionsstand",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.1",
+      "question": "Wird die Wareneingangsprüfung gemäß Begleitkarte (KBK) korrekt durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn Teile zwischen Abteilungen transferiert werden und keine Wareneingangsprüfung erforderlich ist."
+    },
+    {
+      "id": "6.2.2",
+      "question": "Wird ein Fehlernormal mit einer Häufigkeit gemäß anwendbarer Spezifikation durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn kein tägliches Fehlernormal erforderlich ist."
+    },
+    {
+      "id": "6.2.3",
+      "question": "Wird die Vorreinigung gemäß Begleitkarte (KBK) durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn dieser Schritt nicht erforderlich ist."
+    },
+    {
+      "id": "6.2.4",
+      "question": "Wird die Maskierung gemäß Begleitkarte (KBK) durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn dieser Schritt nicht erforderlich ist."
+    },
+    {
+      "id": "6.2.5",
+      "question": "Wird das Teil gemäß Begleitkarte (KBK) positioniert und fixiert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.6",
+      "question": "Wird die Zwischenreinigung, z. B. alkalische Reinigung, gemäß Begleitkarte (KBK) durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.7",
+      "question": "Wird nach dem Reinigungszyklus eine 15-sekündige wasseraufreißfreie Oberfläche beobachtet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.8",
+      "question": "Werden die Ätzschritte gemäß Begleitkarte (KBK) durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.9",
+      "question": "Werden Teile während des Ätzens so positioniert, dass Lufteinschlüsse oder sich entwickelnde Gase in Taschen oder anderen vertieften Bereichen minimiert/verhindert werden?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.10",
+      "question": "Werden Teile nach dem Ätzen zügig und gründlich gespült, um lokales Überätzen zu verhindern?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Lokales Überätzen kann als Streifen sichtbar sein, die über die Teiloberflächen verlaufen."
+    },
+    {
+      "id": "6.2.11",
+      "question": "Werden Nach-Hauptprozess-Schritte (z. B. Entfernung von Schmutz) gemäß Begleitkarte (KBK) durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn dieser Schritt nicht erforderlich ist."
+    },
+    {
+      "id": "6.2.12",
+      "question": "Werden Demaskierung und Reinigung nach dem Prozess gemäß Begleitkarte (KBK) durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn dieser Schritt nicht erforderlich ist."
+    },
+    {
+      "id": "6.2.13",
+      "question": "Wird eine Zwangstrocknung nach der Verarbeitung durchgeführt und beträgt die Temperatur mindestens 50 °F (28 °C)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn dieser Schritt nicht erforderlich ist."
+    },
+    {
+      "id": "6.2.14",
+      "question": "Werden die Zwischenreinigungszeit, die Nital-Ätzzeit und die Nital-Ätzlösungstemperatur auf der Begleitkarte (KBK) oder in einem zur Begleitkarte rückverfolgbaren Datensatz aufgezeichnet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.15",
+      "question": "Sind die Prozessparameter konform mit internen Anweisungen und der Spezifikation?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Bei der Nital-/Temperätzung kann die Ätzzeit auf der Zeit basieren, die benötigt wird, um ein bekanntes Fehlernormal korrekt zu ätzen oder einen bestimmten Grauwert zu erreichen."
+    },
+    {
+      "id": "6.2.16",
+      "question": "Sind alle erforderlichen Oberflächen geätzt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.17",
+      "question": "Sind alle erforderlichen Oberflächen geprüft?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.18",
+      "question": "Wird die Prüfung unter der korrekten Lichtintensität durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.19",
+      "question": "Werden alle Anzeigen identifiziert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn keine Anzeigen vorhanden sind."
+    },
+    {
+      "id": "6.2.20",
+      "question": "Werden alle Anzeigen korrekt bewertet?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn keine Anzeigen vorhanden sind."
+    },
+    {
+      "id": "6.2.21",
+      "question": "Werden alle Prüfergebnisse ordnungsgemäß aufgezeichnet und sind sie zu den Teilen rückverfolgbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.22",
+      "question": "Wurden die Teile von einer zertifizierten Level-1-, Level-2- oder Level-3-Person verarbeitet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.23",
+      "question": "Wurden Anzeigen von einer zertifizierten Level-1-, Level-2- oder Level-3-Person identifiziert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.24",
+      "question": "Wurde die Annahme/Ablehnung des Teils von einer zertifizierten Level-2- oder Level-3-Person oder einer Level-1-Person mit spezifischen schriftlichen Kriterien von einer Level-2- oder Level-3-Person durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.25",
+      "question": "Werden alle Arbeitsgänge vom Bediener/Prüfer unterschrieben und datiert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.26",
+      "question": "Wurde die Lösungszusammensetzung gemäß den Anforderungen kontrolliert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Siehe Spezifikation für Anforderungen an die Lösungssteuerung; einige Lösungen können durch Zusammensetzung gesteuert werden, andere durch die Zeit, die ein Prüfkörper benötigt, um einen bestimmten Grauwert zu erreichen."
+    },
+    {
+      "id": "6.2.27",
+      "question": "Sind alle Prozesssteuerungs- und Prozessüberwachungs-/Aufzeichnungsgeräte kalibriert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.28",
+      "question": "Werden alle Nacharbeitsvorgänge dokumentiert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A gilt, wenn für diesen Auftrag keine Nacharbeit erforderlich ist."
+    }
+  ],
+  "total_questions": 119
+}

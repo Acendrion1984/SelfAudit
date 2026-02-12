@@ -1,0 +1,1337 @@
+{
+  "audit_tool": "Ultraschallprüfung (TPG-AC7114/3)",
+  "revision": "E",
+  "questions": [
+    {
+      "id": "3.1",
+      "question": "Hat der Auditiere die Material- und Geräteliste ausgefüllt und hat der Auditor sie auf Angemessenheit, Inhalt und Richtigkeit überprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Anhänge dienen nur zur Information, müssen aber vollständig ausgefüllt sein. NCRs werden nicht gegen Anhänge geschrieben."
+    },
+    {
+      "id": "4.1.1",
+      "question": "Gibt es eine Verfahrensanweisung, allgemein oder spezifisch, für die Verarbeitung und Prüfung gängiger Produktformen wie Platten, Stangenmaterial, Schmiedestücke usw. mit der Ultraschallmethode?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.1.2",
+      "question": "Gibt es eine Verfahrensanweisung zur Verfolgung und Aufzeichnung von UT-Ablehnungen und aufzeichnungspflichtigen Anzeigen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Anzeigen, die gemäß Kundenanforderungen als aufzeichnungspflichtige Unregelmäßigkeiten und zurückweisbare Fehler klassifiziert sind."
+    },
+    {
+      "id": "4.2.1",
+      "question": "Zeigen die Verfahrensanweisungen die Genehmigung durch die verantwortliche Level-3-Person?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Die verantwortliche Level-3-Person kann der Anwender, ein qualifizierter oder zugelassener Level 3, interner Level 3 und/oder externer Level 3 sein."
+    },
+    {
+      "id": "4.3.1",
+      "question": "Enthält das schriftliche Verfahren die Rückverfolgbarkeit zum Namen und zur Adresse der Prüfeinrichtung?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.2",
+      "question": "Enthält die Verfahrensanweisung eine Verfahrensidentifikationsnummer und das Datum der Verfahrensgenehmigung?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.3",
+      "question": "Fordert die Verfahrensanweisung, dass das gesamte Personal für die durchgeführte Aufgabe und die anwendbaren Vertragsanforderungen qualifiziert und zertifiziert ist?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.4",
+      "question": "Verweist die Verfahrensanweisung auf die anwendbare Prozessspezifikation?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.5",
+      "question": "Enthält die Verfahrensanweisung das spezifische Material und die Form, für die das Verfahren geschrieben wurde?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.6",
+      "question": "Enthält die Verfahrensanweisung die spezifische Teilenummer oder Konfiguration, die geprüft werden soll?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.7",
+      "question": "Verweist die Verfahrensanweisung auf die anzuwendenden Referenznormale?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.8",
+      "question": "Enthält die Verfahrensanweisung die Prüftechnik (Kontakt, Tauchtechnik, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.9",
+      "question": "Enthält die Verfahrensanweisung Hersteller und Modellnummern des/der bei der Prüfung zu verwendenden Instruments/Systems, einschließlich etwaiger Aufzeichnungsgeräte, Alarmgeräte und elektronischer DAC/TCG-Geräte, falls zutreffend?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10",
+      "question": "Enthält die Verfahrensanweisung den Schallkopf-Typ und die Größe, einschließlich Frequenz, Schallbündelwinkel und Beschreibung von Vorlaufkeilen, Schuhen, Sätteln, Abstandshaltern, Taucher- oder Sprühdüsen, falls zutreffend?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10.1",
+      "question": "Falls rechteckige \"Brush\"-Schallköpfe für die Senkrechteinschallung, Tauchtechnik-Hauptabtastung von Platten zugelassen sind, sind die folgenden Punkte verfahrenstechnisch adressiert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10.2",
+      "question": "Die Methode zur Bereitstellung einer gleichmäßigen Eintrittsfläche für die gesamte Schallbündelbreite bei Verwendung von Kalibrierblöcken zur Gerätekalibrierung und -einstellung?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10.3",
+      "question": "Die Methode zur Bestimmung eines Empfindlichkeitsprofils über die Hauptabmessung des Schallbündels, um den am wenigsten empfindlichen Bereich zu lokalisieren?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Die Abtastempfindlichkeit muss unter Verwendung des am wenigsten aktiven Teils des Schallkopfs an jeder Position der zu verwendenden DAC-Kurve eingestellt werden."
+    },
+    {
+      "id": "4.3.10.4",
+      "question": "Die Methode zur Maskierung der Enden des Schallkopfs zur Eliminierung überempfindlicher Reaktionen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10.5",
+      "question": "Die Methode zur Bewertung von während der Abtastung erfassten Anzeigen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.10.6",
+      "question": "Die Methode zur Bestimmung der effektiven Schallbündelbreite (Hauptabmessung des Schallkopfs)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Der Abtastindex muss auf der so bestimmten Schallbündelbreite basieren."
+    },
+    {
+      "id": "4.3.11",
+      "question": "Beschreibung der Manipulations- und Abtastausrüstung?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.12",
+      "question": "Oberflächenvorbereitung (Oberflächengüte, Reinigung, Beizen, wasseraufreißfreie Oberfläche, manuelles Reiben, mechanische Reinigung, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.13",
+      "question": "Spezielle Materialhandhabung und Verarbeitung von Teilen definiert (z. B. für Beryllium, Titan, etc.)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.14",
+      "question": "Anwendbare Annahmeanforderungen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.15",
+      "question": "Die Methode zur Kennzeichnung des Prüfstatus?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.16",
+      "question": "Prüfzonen und die Methode zur Sicherstellung der anwendbaren Abdeckung?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.17",
+      "question": "Eine Methode zur Bestimmung der Lage der Unregelmäßigkeit?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Dies kann elektronische oder computergestützte Raster- und/oder Kartierungssysteme umfassen."
+    },
+    {
+      "id": "4.3.18",
+      "question": "Werden Schallkopf-zu-Teil-Abstände für Durchschallung innerhalb derselben geometrischen und Entfernungsgrenzen (+/-) gehalten, unter denen das anwendbare Kalibriernormal erfolgreich abgetastet wurde?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.19",
+      "question": "Koppelmittel, einschließlich, falls erforderlich, Korrosionsinhibitor und Benetzungsmittel?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.20",
+      "question": "Gibt es einen Abtastplan, der die Beschreibung der Oberflächen, von denen aus die Prüfung durchgeführt wird, und die zu verwendenden Ultraschallstrahlengänge einschließlich Wasserwegstrecke (für Tauchtechnik) und Strahlbrechungs- oder Einfallswinkel, falls zutreffend, enthält?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.20.1",
+      "question": "Wurde die Hauptabtastung, wo möglich, parallel zur primären Kornflussrichtung durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.20.2",
+      "question": "Falls die Richtungen der maximalen Belastung durch die Spezifikationen oder technischen Zeichnungen vorgegeben sind, wurde die Abtastung durchgeführt, um Unregelmäßigkeiten zu lokalisieren, die in bestimmten Richtungen orientiert sind?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.21",
+      "question": "Methode zur Bestimmung des dB-Korrekturfaktors, Übertragung und Anwendung der Korrektur, falls erforderlich?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.22",
+      "question": "Pulsfolgefrequenz, falls erforderlich?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.23",
+      "question": "Methode zur Einstellung der Abtastempfindlichkeit?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.23.1",
+      "question": "Adressiert die Verfahrensanweisung, wie der Abtastindex für jeden einzelnen Tauchschallkopf (Typ I) gehandhabt wird?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.23.2",
+      "question": "Adressiert die Verfahrensanweisung, wie der Abtastindex für jeden einzelnen Tauchschallkopf (Typ II) gehandhabt wird?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.23.3",
+      "question": "Adressiert die Verfahrensanweisung die Methode zur Bestimmung der effektiven Schallbündelbreite (Hauptabmessung des Schallkopfs)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Der Abtastindex muss auf der so bestimmten Schallbündelbreite basieren."
+    },
+    {
+      "id": "4.3.24",
+      "question": "Adressiert die Verfahrensanweisung die Methode zur Bestimmung des Abtastindex?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.25",
+      "question": "Adressiert die Verfahrensanweisung die Methode zur Bestimmung der Abtastgeschwindigkeit?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.26",
+      "question": "Methode zur Bestimmung der effektiven Schallbündelbreite des Schallkopfs?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.26.1",
+      "question": "Prüfmodus (Scherwelle, Longitudinalwelle, etc.)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.26.2",
+      "question": "Abtastgeschwindigkeit und Abtastindex?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.27",
+      "question": "Ablehnungsgrenzen, Rauschpegel, Torpegel?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.28",
+      "question": "Alarmpegel?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Erforderlich bei der Prüfung von Teilen oder Material mit regelmäßiger Form und parallelen Oberflächen wie Platten, Stangenmaterial und Vormaterial für Schmiedestücke."
+    },
+    {
+      "id": "4.3.29",
+      "question": "Anweisungen zur Unregelmäßigkeitsbewertung?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.30",
+      "question": "Vollständige Anweisungen zur Reinigung nach der Prüfung oder Verweis auf Verfahrensanweisungen, die solche Anweisungen enthalten?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.31",
+      "question": "Eine Anforderung, dass alle elektronischen Geräte nach jeder Reparatur oder jedem Austausch von Komponenten/Teilen, die ihre Ansprechcharakteristik beeinträchtigen könnten, überprüft werden?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.32",
+      "question": "Wie Schallköpfe bewertet werden, Auflistung der Annahme-/Ablehnungskriterien für die verschiedenen verwendeten Schallkopftypen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.33",
+      "question": "Überprüfung der Schallkopfleistung bei Verdacht auf Beschädigung?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.34",
+      "question": "Gibt es eine Verfahrensanweisung, die die Wiederüberprüfung von Abtast- und Indexierungsgeräten nach Wartung oder Modifikationen adressiert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.35",
+      "question": "Gibt es eine Verfahrensanweisung, die definiert, wann eine Ablehnungsrate inakzeptabel ist?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.36",
+      "question": "Gibt es eine Verfahrensanweisung, um Kunden zu benachrichtigen, wenn Ablehnungsraten ein inakzeptables Niveau erreichen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.3.37",
+      "question": "Gibt es eine Verfahrensanweisung für einen Eindämmungsplan, wenn Ablehnungsraten ein inakzeptables Niveau erreichen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.3.38",
+      "question": "Gibt es bei der Prüfung auf Fehler, deren Hauptabmessung nicht parallel zu den Oberflächen ist, einen Prozess zur Festlegung von Standardisierungsparametern für Winkelfprüfungen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Es wird NICHT erwartet, dass der spezifische Winkel bestimmt wird, sondern nur, dass es eine Methode der Standardisierung gibt."
+    },
+    {
+      "id": "4.4.1",
+      "question": "Gibt es bei der Prüfung auf Fehler, deren Hauptabmessung nicht parallel zu den Oberflächen ist, einen Prozess zur Festlegung von Kompensationsfaktoren, wenn diese Empfindlichkeit oder Annahmepegel beeinflussen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Es wird NICHT erwartet, dass ein Prozess existiert, um zu bestimmen, ob Empfindlichkeit und Annahmepegel beeinflusst werden; nur dass eine Methode zur Kompensation existiert."
+    },
+    {
+      "id": "4.4.1.1",
+      "question": "Hat die Einrichtung Ableitungsschwellen im Verfahren/in der Technik festgelegt und werden diese Kriterien befolgt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.4.2",
+      "question": "Adressiert oder definiert die Verfahrensanweisung oder Technik die aktive Aperturgröße?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.4.3",
+      "question": "Definiert die Verfahrensanweisung oder Technik den Abtastindex der virtuellen Sonde innerhalb des Arrays in Bezug auf die Anzahl der Elemente?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.4.4",
+      "question": "Definiert die Verfahrensanweisung oder Technik eine Prüfung auf tote Elemente, einschließlich Lage und Akzeptanz für die Verwendung?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.4.5",
+      "question": "Für ASME Section V, Article 4, wenn die Verfahrensqualifikation durch den referenzierenden ASME Code Section vorgeschrieben ist, erfordert die Verfahrensanweisung dann, dass eine Änderung einer Anforderung für mit \"e\" gekennzeichnete Punkte (wesentliche Variable) vom angegebenen Wert oder Wertebereich eine Requalifikation des schriftlichen Verfahrens erfordert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Eine Änderung einer als unwesentlich identifizierten Anforderung vom angegebenen Wert oder Wertebereich erfordert keine Requalifikation des schriftlichen Verfahrens."
+    },
+    {
+      "id": "4.5.1",
+      "question": "Erfordern alle Änderungen von wesentlichen oder unwesentlichen Variablen gegenüber dem vom schriftlichen Verfahren festgelegten Wert oder Wertebereich eine Überarbeitung oder einen Nachtrag zum schriftlichen Verfahren?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.5.2",
+      "question": "Erfordert die Verfahrensanweisung einen Abtastplan (dokumentierte Prüfstrategie), der die Anordnung und Bewegung des Prüfkopfes zeigt und eine standardisierte und wiederholbare Methodik für die Prüfung bereitstellt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.6.1",
+      "question": "Erfordert die Verfahrensanweisung, dass die folgenden Punkte enthalten sind?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2",
+      "question": "Prüfkopf/Prüfköpfe einschließlich Elementabstand, Größe, Anzahl und Spaltmaße?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2.1",
+      "question": "Fokusbereich(e) einschließlich Ebene, Tiefe oder Schallweg, je nach Anwendbarkeit?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2.2",
+      "question": "Virtuelle Aperturgröße(n) einschließlich Anzahl der Elemente, Elementbreite und effektive Höhe?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2.3",
+      "question": "Natürlicher Brechungswinkel des Vorlaufkeils?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2.4",
+      "question": "Abtastplan?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.2.5",
+      "question": "Markierung des Schweißnahtachsen-Referenzpunkts?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.3.1",
+      "question": "Rasterwinkel?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.6.3.2",
+      "question": "Apertur-Start- und Stopp-Elementnummern?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.3.3",
+      "question": "Apertur-Inkrementaländerung(en) (Anzahl der durchschrittenen Elemente)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.4.1",
+      "question": "Winkelbereich(e) für den Sweep?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "4.6.4.2",
+      "question": "Winkel-Sweep-Inkrement (inkrementelle Winkeländerung, Grad)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "4.6.4.3",
+      "question": "Apertur-Elementnummern (erstes und letztes)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.1.1",
+      "question": "Falls Wartung oder Modifikationen an Abtast- und Indexierungsgeräten durchgeführt wurden, wurde eine Wiederüberprüfung durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.1.2",
+      "question": "Falls Netzspannungsschwankungen Abweichungen von mehr als ±2,5 Prozent der vertikalen Grenze bei einem Signal mit einer Amplitude von der Hälfte der vertikalen Grenze verursachen, wurde ein Spannungsregler an der Stromquelle verwendet?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: N/A würde für batteriebetriebene Geräte verwendet werden."
+    },
+    {
+      "id": "5.2.1",
+      "question": "Falls verwendet, ist das Gerät in der Lage, dynamische Fokussierung von Ring- oder Lineararrays mit einer Tiefenauflösung durchzuführen, um die Auflösung nahe und ferner Oberflächen gemäß den Kriterien zu erreichen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.2.2",
+      "question": "Falls ein Sweep-Winkel verwendet wird, sind das Array und die Fokusvorschriften in der Lage, die in den verwendeten Kriterien geforderten Brechungswinkel zu erzeugen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Es wird erwartet, dass eine Verfahrensanweisung existiert, um das Array zur Erzeugung des spezifischen Winkels anzupassen."
+    },
+    {
+      "id": "5.2.3",
+      "question": "Falls erforderlich, ist die Systemsoftware in der Lage, eine vollständige A-Bild-Erfassung durchzuführen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.2.4",
+      "question": "Falls erforderlich, ist die Systemsoftware in der Lage, A-Bild-, B-Bild-, C-Bild- und Sektor-Scan-Daten sowohl für Tauch- als auch für Kontaktverfahren anzuzeigen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.2.5",
+      "question": "Falls eine Dämpfungsmessung erforderlich ist, hat die Pulser-/Empfänger-Software die Fähigkeit, Dämpfungsdaten über das Array zu normalisieren?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Dies wird typischerweise zur Porositätsquantifizierung bei Materialstrukturen mit parallelen Vorder- und Rückseiten verwendet. Wenn N/A nicht ausgewählt ist, sollte eine Verfahrensanweisung/Technik existieren."
+    },
+    {
+      "id": "5.3.1",
+      "question": "Sind alle Schallköpfe serialisiert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.3.2",
+      "question": "Werden Fokusfleckgröße oder effektive Schallbündelbreite für alle fokussierenden Tauchschallköpfe verifiziert und dokumentiert, um den maximalen Abtastindex zu bestimmen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.3.3",
+      "question": "Bei Verdacht auf Schallkopfschädigung: Wurde die Leistung vor der Verwendung verifiziert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1",
+      "question": "Adressiert die Sondenidentifikation und/oder das Zertifizierungsprotokoll Folgendes?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.1",
+      "question": "Mittenfrequenz",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.2",
+      "question": "Sondentyp (linear, ringförmig, Matrix)",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.3",
+      "question": "Anzahl der Elemente",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.4",
+      "question": "Aktive Elementgröße, Länge oder Durchmesser",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.5",
+      "question": "Passive Aperturgröße oder Elevation",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.6",
+      "question": "Seriennummer",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.1.7",
+      "question": "Bandbreite",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.4.2",
+      "question": "Falls permanente Schuhe oder Verzögerungsstrecken auf der Array-Oberfläche angebracht sind, enthält das Zertifizierungsprotokoll oder die Sondenidentifikation die Mittenfrequenzantwort vor und nach dem Anbringen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.5.1",
+      "question": "Werden Referenznormale so gelagert und gehandhabt, dass Schäden durch unsachgemäße Handhabung, Korrosion, Lochfraß etc. verhindert werden?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.6.1",
+      "question": "Für hohlzylindrische Normale: Gibt es eine Methode zur Bestimmung des Einfallswinkels oder Versatzmaßes 'd' für maximale Amplitudenantworten für alle im Verfahren enthaltenen Qualitätsstufen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "5.6.1.1",
+      "question": "Entsprach die Normaldicke ±25 Prozent der Teiledicke?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.6.1.2",
+      "question": "Lag der Außendurchmesser innerhalb von ±10 Prozent des Außendurchmessers des zu bewertenden Teils oder Abschnitts?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.1",
+      "question": "Werden Systemstandardisierungsprüfungen vor und unmittelbar nach oder gleichzeitig mit jeder Prüfcharge, bei Gerätewechsel und/oder Einstellungsänderungen durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.2",
+      "question": "Falls das Gerät die Standardisierungsprüfung nach der Prüfung nicht besteht, werden dann alle Teile seit der letzten akzeptablen Standardisierungsprüfung nach Anforderung neu bewertet oder erneut geprüft?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.3",
+      "question": "Gibt es Anforderungen an die Sichtprüfung und Oberflächenvorbereitung, um sicherzustellen, dass die zu prüfenden Teile einen angemessenen Oberflächenzustand aufweisen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "5.7.4",
+      "question": "Falls Distance Amplitude Correction (DAC) oder Time Corrected Gain (TCG) verwendet wird, werden Entfernungs-/Amplituden-Antwortkurven für verwendete Schallkopf- und Instrumentenkombinationen aufgezeichnet oder elektronisch vorgehalten?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.1",
+      "question": "Falls die Kalibrierung des Instrumenten-/Systemkanals intern durchgeführt wird, existieren Verfahrensanweisungen, die die Kalibrieranforderungen definieren, und sind sie zur Überprüfung verfügbar?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.1.1",
+      "question": "Falls die Kalibrierung des Instrumenten-/Systemkanals intern durchgeführt wird, wurde sie gemäß ASTM-E-317, MIL-STD-2154 - Tabelle II, AMS-STD-2154 oder Kundenanforderungen und/oder Herstellerempfehlungen, je nach Anwendbarkeit, durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.2",
+      "question": "Liefern Aufzeichnungen den Nachweis, dass alle verwendeten Instrumenten-/Systemkanäle gemäß ASTM-E-317, MIL-STD-2154 - Tabelle II, AMS-STD-2154 oder Kundenanforderungen und/oder Herstellerempfehlungen, je nach Anwendbarkeit, kalibriert sind?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.2.1",
+      "question": "Für ASME-Arbeiten: Wird die Amplitudensteuerungslinearität des Ultraschallinstruments gemäß ASME Section V Article IV, Mandatory Appendix II für jeden Pulser-Empfänger-Kreis bewertet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.2.2",
+      "question": "Werden Instrumenten-/Systemkanalkalibrierungen mindestens jährlich durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.1.2.3",
+      "question": "Werden Instrumenten-/Systemkanalkalibrierungen nach jeder Reparatur oder jedem Austausch von Komponenten/Teilen durchgeführt, die die Ansprechcharakteristik des Instruments beeinträchtigen könnten?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.3",
+      "question": "Wird die Abtast- und Indexierungsausrüstung verifiziert, um eine vollständige Abdeckung des interessierenden Bereichs sicherzustellen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.3.1",
+      "question": "Ermöglicht die Abtast- und Indexierungsausrüstung die Messung von Abtast- und/oder Indexabständen innerhalb von ±0,1 Zoll (0,25 cm)?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.3.2",
+      "question": "Sind Aufzeichnungen dieser Verifizierung in der Akte und liefern sie einen Nachweis akzeptabler Ergebnisse?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.4",
+      "question": "Wird die Abtast- und Indexierungsausrüstung kontrolliert und verifiziert, um die Rotationsgenauigkeit sicherzustellen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.4.1",
+      "question": "Sind Aufzeichnungen dieser Verifizierung in der Akte und liefern sie einen Nachweis akzeptabler Ergebnisse?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.5",
+      "question": "Wird die Manipulationsausrüstung verifiziert, um die Winkelsteuerung des Prüfkopfes auf innerhalb eines Grads in zwei zueinander senkrechten Richtungen sicherzustellen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.1.5.1",
+      "question": "Sind Aufzeichnungen dieser Verifizierung in der Akte und liefern sie einen Nachweis akzeptabler Ergebnisse?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.2.1",
+      "question": "Ist eine Dokumentation für alle Referenznormale verfügbar, die gemäß ASTM-E-127/428 hergestellt wurden?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Eine Vergleichsamplitudendokumentation aller Referenznormale muss verfügbar sein und die Amplitudenlinearität zur Klassengröße (spezifizieren Linearverstärker oder lineare dB-Anzeige) gemäß ASTM-E127/428 zeigen."
+    },
+    {
+      "id": "6.2.2",
+      "question": "Bei Sondernormalen: Ist das Normal mit dem zu prüfenden Bauteil vergleichbar, einschließlich Oberflächenbeschaffenheit?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3",
+      "question": "Waren die folgenden Informationen verfügbar, um die Korrektheit der Referenznormalherstellung zu verifizieren?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.1",
+      "question": "Maß- oder Konstruktionsprüfdaten und/oder Röntgendaten, die verifizieren, dass Löcher in korrekter Ausrichtung sind?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.2",
+      "question": "Vergleichsamplitudendiagramm aller Löcher oder Kerben, das die Amplitudenlinearität zur Klassengröße zeigt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.3",
+      "question": "Für zylindrische Normale: Auflistung des Einfallswinkels oder Versatzmaßes 'd' für maximale Amplitudenantwort für alle Qualitätsstufen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.4",
+      "question": "Gemessene Oberflächenrauheit (RMS, AA oder RHR) des Normals?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.5",
+      "question": "Zertifizierung, dass das Normalmaterial frei von Unregelmäßigkeiten ist, die eine zuverlässige Reaktion des Referenznormals beeinträchtigen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.6",
+      "question": "Maßtabelle mit der Position der Referenzlöcher oder -kerben?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.7",
+      "question": "Legierungstyp und Wärmebehandlungszustand?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "6.2.3.8",
+      "question": "Andere Arten von Referenzreflektoren (gefräste EDM-Kerben, seitlich gebohrte Löcher, etc.), wie im Vertrag oder Auftrag festgelegt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.1",
+      "question": "Legen Sie die folgende Dokumentation zur Überprüfung durch den Auditor für jedes der während des Konformitätsteils des Audits geprüften Teile vor:",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: EC-LR-Materialien dürfen die Einrichtung des Auditierten nicht verlassen."
+    },
+    {
+      "id": "7.1A",
+      "question": "Konformitätsdokumentation",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.2.1",
+      "question": "Verwendet die Einrichtung die/den geeignete(n) Spezifikation(en) und Revision(en) gemäß den Vertragsdokumenten?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Dies muss vom Auditor durch Überprüfung des Kundenauftrags und der Endkundenzeichnung, falls verfügbar, bestätigt werden."
+    },
+    {
+      "id": "7.2.2",
+      "question": "Falls die Einrichtung mit Abweichungen arbeitet, wurden diese vom Kunden genehmigt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Der Auditor wird die dokumentierte Kundenfreigabe bestätigen; diese kann in Form einer schriftlichen Mitteilung, technischen Freigabe oder einer formellen Abweichung vom Endkunden vorliegen."
+    },
+    {
+      "id": "7.2.3",
+      "question": "Wurden die anwendbaren Verfahrensanweisungen, Techniken, Annahmestandards, Abtastpläne und spezifischen Kundenanforderungen den Ultraschallprüfern zugänglich gemacht?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der Begriff \"verfügbar\" bedeutet, dass diese Dokumente für die Techniker leicht zugänglich sind. Diese Dokumente sind verfügbar und werden zur Durchführung der Prüfungen verwendet, nicht aus dem Gedächtnis."
+    },
+    {
+      "id": "7.2.4",
+      "question": "Falls schriftliche Verfahrensanweisungen und/oder Techniken eine Überprüfung und/oder Genehmigung durch die zuständige technische Organisation erfordern, ist diese Genehmigung ersichtlich?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Dies ist zu untersuchen und durch Überprüfung der letzten zehn versandten Teile zu bestätigen."
+    },
+    {
+      "id": "7.2.5",
+      "question": "Folgten die Prüfer der Planung und anderen Anweisungen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.2.6",
+      "question": "Gab es einen Nachweis der Konformität mit den Dokumentenlenkungsverfahren?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Auditor bestätigt die Genehmigung."
+    },
+    {
+      "id": "7.2.7",
+      "question": "Falls zutreffend, wurden alle Änderungen an Spezifikationen, Zeichnungen, Verfahrensanweisungen oder Techniken autorisiert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Der Auditor muss die Dokumente auf nicht autorisierte Änderungen überprüfen."
+    },
+    {
+      "id": "7.3.1.1",
+      "question": "Teilenummer / Materialidentifikation?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.2",
+      "question": "Spezifikationsreferenz?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.3",
+      "question": "Prüfannahmeanforderungen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.3.1.4",
+      "question": "Korrekte Abfolge der Arbeitsgänge?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.4.1",
+      "question": "Gibt es einen Nachweis, dass die Kalibrierung der Ultraschallausrüstung aktuell ist?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.1",
+      "question": "Falls Teile serialisiert oder wärmebehandlungscodiert waren, wurden die Seriennummern oder Wärmebehandlungscodes auf allen Betriebspapieren und Prüfaufzeichnungen festgehalten?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.6.1",
+      "question": "Waren die Oberflächen der zu prüfenden Teile frei von Schmutz, Zunder, Öl oder anderen Verunreinigungen, die den Prüfvorgang beeinträchtigen könnten?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.6.2",
+      "question": "War die Oberflächengüte der zu prüfenden Teile für das durchzuführende Prüfniveau ausreichend?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.7.1",
+      "question": "War das Wasser frei von Blasen und ausreichend gefiltert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.7.2",
+      "question": "Wurde das korrekte Koppelmittel für das Material und den durchgeführten Prozess verwendet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.7.3",
+      "question": "Falls Korrosionsinhibitor und/oder Benetzungsmittel zugesetzt wurden, wurde zuvor festgestellt, dass sie für die zu prüfenden Materialien geeignet sind, und sind sie vom Kunden genehmigt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.8.1",
+      "question": "Wurden die Setups gemäß Verfahrensanweisung/Technikblatt/Abtastplan durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.8.2",
+      "question": "Wurde die Dämpfung/Übertragung überprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.8.3",
+      "question": "Wurden Schallköpfe gemäß Technikblatt/Abtastplan verwendet, wie erforderlich?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.8.4",
+      "question": "Wurden die korrekten Normale verwendet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.8.5",
+      "question": "Falls zutreffend, wurden Tore, Alarme und Aufzeichnungsgeräte ordnungsgemäß verwendet?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.8.6.1",
+      "question": "Werden alle bei der Prüfung verwendeten Einzelstrahlen kalibriert, um eine Messung der Entfernung und Amplitudenkorrektur über den bei der Prüfung verwendeten Schallweg zu ermöglichen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.8.7",
+      "question": "Wurden Technikblätter/Abtastpläne und Verfahrensanweisungen vom zuständigen Level-3 genehmigt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.9.1",
+      "question": "Wurde die Hardware gemäß Technikblatt/Abtastplan abgetastet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.9.2",
+      "question": "Wurde die Prüf-Abtastgeschwindigkeit mit derselben Abtastgeschwindigkeit (oder nachgewiesener Fähigkeit) wie beim Kalibriernormal durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Nachgewiesene Fähigkeit bezieht sich hier auf die Fähigkeit des Systems, die erforderliche Fehlergröße bei einer gegebenen Abtastgeschwindigkeit zu erkennen. Solange nachgewiesen werden kann, dass die Fehler erkannt werden können, gilt die Abtastgeschwindigkeit als akzeptabel."
+    },
+    {
+      "id": "7.9.3",
+      "question": "Wurde der Prüfindex mit dem gleichen oder einem kleineren Index als beim Kalibriernormal durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.4",
+      "question": "Falls erforderlich, wurde eine Prüfung auf Rückwandechoverlust durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.5",
+      "question": "Wurde eine Systemstandardisierungsprüfung gemäß Technik durchgeführt?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.9.6",
+      "question": "Wurde der Eindämmungsplan befolgt, wenn Ablehnungsraten inakzeptable Niveaus erreicht haben?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.7",
+      "question": "Wurden die Auswirkungen oder die Grundursache bewertet, wenn es eine inakzeptable Ablehnungsrate gab?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.1",
+      "question": "Wurde das erforderliche Volumen der Schweißnaht und des Grundmaterials unter Verwendung einer linearen Abtasttechnik mit Encoder abgetastet?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.2",
+      "question": "Wurde jeder lineare Scan parallel zur Schweißnahtachse mit konstantem Abstand und senkrecht zur Schweißnahtachse ausgerichtetem Schallbündel durchgeführt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.3",
+      "question": "Wurde der Prüfkopf durch eine feste Führung oder mechanische Mittel in einem festgelegten Abstand zur Schweißnahtachse gehalten?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.4",
+      "question": "Waren die Prüfwinkel für E-Scan und der Winkelbereich für S-Scan für die zu prüfende Verbindung geeignet?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.5",
+      "question": "War die Abtastgeschwindigkeit so, dass der Datenausfall weniger als 2 Datenzeilen pro Zoll (25 mm) der linearen Abtastlänge betrug und dass keine benachbarten Datenzeilen ausgelassen wurden?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.6",
+      "question": "Für E-Scan-Techniken: Betrug die Überlappung zwischen benachbarten aktiven Aperturen (d. h. Apertur-Inkrementaländerung) mindestens 50 % der effektiven Höhe?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.7",
+      "question": "Für S-Scan-Techniken: Betrug die inkrementelle Winkeländerung des Sweeps maximal 1 Grad oder ausreichend, um eine 50%ige Strahlüberlappung sicherzustellen?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.8.8",
+      "question": "Wenn mehrere lineare Scans erforderlich sind, um das erforderliche Volumen von Schweißnaht und Grundmaterial abzudecken, betrug die Überlappung zwischen benachbarten linearen Scans mindestens 10 % der effektiven Aperturhöhe für E-Scans oder der Strahlbreite für S-Scans?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.9.9",
+      "question": "Falls die Standardisierungsprüfung nach der Prüfung fehlschlug, wurden dann alle seit der letzten akzeptablen Standardisierung geprüften Teile neu bewertet oder erneut geprüft?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.10.1",
+      "question": "Falls erforderlich, wurden alle Reinigungsvorgänge nach der Prüfung eingehalten?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.10.2",
+      "question": "Falls erforderlich, wurden alle geprüften Teile getrocknet und mit einem Korrosionsschutzmittel beschichtet, bevor sie gestapelt, ineinandergesetzt oder anderweitig miteinander in Kontakt gebracht wurden?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.1",
+      "question": "Verwendetes Referenznormal?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.2",
+      "question": "Materiallos- oder Identifikationsnummer?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.3",
+      "question": "Annahmekriterien?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.4",
+      "question": "Anwendbare Spezifikation(en)?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.5",
+      "question": "Anzahl der geprüften, angenommenen, abgelehnten Teile?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.6",
+      "question": "Prüferidentifikation und Prüfdatum?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.11.1.7",
+      "question": "Lage und allgemeine Beschreibung von zurückweisbaren Anzeigen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.12.1",
+      "question": "Wurden A-Bild-Daten für den interessierenden Bereich in unverarbeiteter Form ohne Schwellwertbildung mit einer minimalen Digitalisierungsrate von fünfmal der Prüffrequenz aufgezeichnet?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.12.2",
+      "question": "Wurden A-Bild-Daten in Schritten von maximal 0,04 Zoll (1 mm) für Material < 3 Zoll (75 mm) Dicke und 0,08 Zoll (2 mm) für Material ≥ 3 Zoll (75 mm) Dicke aufgezeichnet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.12.3",
+      "question": "Wurden für jede Prüfung die erforderlichen Informationen gemäß T-492 und die folgenden Informationen aufgezeichnet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.12.3.1",
+      "question": "Prüfkopfelementgröße, Anzahl, Teilung und Spaltmaße?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.12.3.2",
+      "question": "Fokusvorschrift-Parameter, einschließlich, je nach Anwendbarkeit, Winkel oder Winkelbereich, Fokustiefe und -ebene, verwendete Elementnummern, Winkel- oder Element-Inkrementaländerung sowie Start- und Stopp-Elementnummern oder Startelementnummer?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.12.3.3",
+      "question": "Natürlicher Brechungswinkel des Vorlaufkeils?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.13.1",
+      "question": "War das Prüfpersonal für die durchgeführten Arbeiten auf den korrekten Stufen zertifiziert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Hinweis: Dies muss durch Überprüfung der Zertifizierungsaufzeichnungen verifiziert werden."
+    },
+    {
+      "id": "7.13.2",
+      "question": "Wurde das gesamte nicht zertifizierte oder in Ausbildung befindliche Ultraschall-Prüfpersonal ordnungsgemäß beaufsichtigt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Dies muss durch direkte Beobachtung festgestellt werden."
+    },
+    {
+      "id": "7.13.3",
+      "question": "Trug das gesamte Personal, das eine Nahsehkorrektur benötigt, um die Sehschärfeprüfung zu bestehen, während der Prüfungen/Inspektionen zur Erkennung und Bewertung eine Sehhilfe?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Hinweis: Der Auditor muss überprüfen, ob Korrektionslinsen verwendet wurden, falls erforderlich. \"Nahsehkorrektur\" bezieht sich auf die Brille oder Kontaktlinsen, die erforderlich waren, um den Sehtest zu bestehen. Es ist erforderlich, dass eine solche Korrektur während aller Prüfungen/Inspektionen bei 1x getragen wird."
+    },
+    {
+      "id": "7.14.1",
+      "question": "Werden Symbole und/oder Markierungsmethoden zur Kennzeichnung des Ultraschallprüfstatus verwendet?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.14.2",
+      "question": "Wurden alle Prüfergebnisse ordnungsgemäß aufgezeichnet und sind sie zu den Teilen rückverfolgbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    }
+  ],
+  "total_questions": 208
+}
