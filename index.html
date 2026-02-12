@@ -619,6 +619,8 @@
             .audit-btn { padding: 10px 6px; min-height: 70px; font-size: 0.85em; flex-direction: row; justify-content: flex-start; text-align: left; padding-left: 12px; }
             .audit-btn .btn-icon { font-size: 1.4em; margin-right: 8px; margin-bottom: 0; }
             .audit-btn .btn-progress { margin-left: auto; margin-top: 0; }
+            .section-header { padding: 8px 10px; font-size: 0.9em; }
+            .section-content { padding: 8px; }
             .question { padding: 10px; }
             .question-text { font-size: 0.9em; }
             .question-id { font-size: 0.7em; margin-left: 5px; }
@@ -626,17 +628,51 @@
             .answer-option { min-width: 60px; padding: 6px 3px; font-size: 0.85em; }
             .controls-scroll button { min-width: 70px; font-size: 0.75em; padding: 6px 8px; }
             .overview-stats { grid-template-columns: 1fr; }
+            .submenu-info { grid-template-columns: 1fr; }
         }
         
         @media (min-width: 769px) {
             body { font-size: 15px; }
             .container { padding: 20px; }
+            .section-header { padding: 12px 15px; font-size: 1em; }
+            .section-content { padding: 15px; }
             .question { padding: 15px; }
             .question-text { font-size: 1em; }
             .question-id { font-size: 0.85em; padding: 4px 10px; }
             .answer-option { min-width: 80px; padding: 10px 5px; font-size: 1em; }
             .evidence { padding: 10px 12px; font-size: 0.9em; min-height: 50px; }
         }
+        
+        /* === MODAL === */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--modal-bg);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: var(--modal-content-bg);
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 95%;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .audit-selection { display: block; }
+        .audit-selection.active { display: block; }
+        .audit-submenu { display: none; }
+        .audit-submenu.active { display: block; }
+        .audit-content { display: none; }
+        .audit-content.active { display: block; }
         
         footer {
             text-align: center;
@@ -645,6 +681,37 @@
             border-top: 1px solid var(--border-light);
             color: var(--text-secondary);
             font-size: 0.85em;
+        }
+        
+        .language-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            background: var(--header-bg);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        
+        .lang-btn {
+            padding: 8px 20px;
+            background: var(--header-bg);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        
+        .lang-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        
+        .lang-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -684,46 +751,39 @@
             </div>
         </div>
 
-        <!-- === SEITE 2: AUDIT-ÜBERSICHT (BEREICHE) === -->
+        <!-- === SEITE 2: AUDIT-ÜBERSICHT === -->
         <div id="pageOverview" class="page audit-overview">
             <div class="overview-header">
                 <div class="overview-title" id="overviewTitle">Audit Übersicht</div>
             </div>
             
-            <div class="overview-stats" id="overviewStats">
-                <!-- Wird dynamisch befüllt -->
-            </div>
+            <div class="overview-stats" id="overviewStats"></div>
             
             <h3 style="margin-bottom: 15px; color: var(--text-tertiary);">Verfügbare Prüfbereiche:</h3>
             
-            <div class="section-list" id="sectionList">
-                <!-- Wird dynamisch mit Sektionen befüllt -->
-            </div>
+            <div class="section-list" id="sectionList"></div>
             
             <div class="overview-actions">
                 <button class="btn-back" id="backToSelectionBtn">← Zurück zur Auswahl</button>
-                <button class="btn-report" id="reportFromOverviewBtn">📋 Englischer Bericht</button>
+                <button class="btn-report" id="reportBtn">📋 ENGLISCHEN BERICHT ERSTELLEN</button>
             </div>
         </div>
 
-        <!-- === SEITE 3: AUDIT-FRAGEN (EINZELNER BEREICH) === -->
+        <!-- === SEITE 3: AUDIT-FRAGEN === -->
         <div id="pageQuestions" class="page audit-questions-page">
             <div class="questions-header">
                 <div class="questions-title" id="currentSectionTitle"></div>
                 <button class="back-btn" id="backToOverviewBtn">← Alle Bereiche</button>
             </div>
 
-            <!-- CONTROLS -->
             <div class="controls-container">
                 <div class="controls-scroll">
                     <button class="btn-back" id="backToSelectionFromQuestionsBtn">← Auswahl</button>
-                    <button class="btn-report" id="reportFromQuestionsBtn">📋 Englischer Bericht</button>
+                    <button class="btn-report" id="reportFromQuestionsBtn">📋 ENGLISCHER BERICHT</button>
                     <button class="btn-danger" id="resetBtn">🗑️ Reset</button>
-                    <button class="btn-export" id="exportBtn">📤 Export</button>
                 </div>
             </div>
 
-            <!-- STATUS -->
             <div class="audit-status">
                 <span>Fortschritt: <strong id="progressText">0%</strong></span>
                 <span>|</span>
@@ -735,7 +795,6 @@
                 <div class="audit-progress-bar" id="auditProgressBar" style="width: 0%">0%</div>
             </div>
 
-            <!-- FRAGEN -->
             <div class="questions-container" id="questionsContainer"></div>
         </div>
 
@@ -750,45 +809,45 @@
     <script>
         // === GLOBALE VARIABLEN ======================
         let currentAuditType = null;
-        let currentAuditData = null;
-        let allQuestions = [];
+        let germanQuestions = [];
+        let englishQuestions = [];
         let auditSections = [];
         let currentSectionIndex = -1;
         let jsonCache = {};
 
-        // === AUDIT-TYPEN ===
+        // === AUDIT-TYPEN ============================
         const AUDIT_TYPES = {
             ET: { 
-                id: 'ET', 
-                title: 'Wirbelstromprüfung',
-                standard: 'TPG-AC7114/5',
-                icon: '⚡',
-                file: 'ET.json'
+                title: 'Wirbelstromprüfung', 
+                standard: 'TPG-AC7114/5', 
+                file_de: 'ET.json', 
+                file_en: 'ET_EN.json',
+                icon: '⚡'
             },
             MT: { 
-                id: 'MT', 
-                title: 'Magnetpulverprüfung',
-                standard: 'TPG-AC7114/2',
-                icon: '🧲',
-                file: 'MT.json'
+                title: 'Magnetpulverprüfung', 
+                standard: 'TPG-AC7114/2', 
+                file_de: 'MT.json', 
+                file_en: 'MT_EN.json',
+                icon: '🧲'
             },
             NE: { 
-                id: 'NE', 
-                title: 'Nital-Ätzen',
-                standard: 'TPG-AC7114/12',
-                icon: '🧪',
-                file: 'NE.json'
+                title: 'Nital-Ätzen', 
+                standard: 'TPG-AC7114/12', 
+                file_de: 'NE.json', 
+                file_en: 'NE_EN.json',
+                icon: '🧪'
             },
             UT: { 
-                id: 'UT', 
-                title: 'Ultraschallprüfung',
-                standard: 'TPG-AC7114/3',
-                icon: '📡',
-                file: 'UT.json'
+                title: 'Ultraschallprüfung', 
+                standard: 'TPG-AC7114/3', 
+                file_de: 'UT.json', 
+                file_en: 'UT_EN.json',
+                icon: '📡'
             }
         };
 
-        // === SEITEN-NAVIGATION ===
+        // === SEITEN-NAVIGATION ======================
         const PAGES = {
             SELECTION: 'pageSelection',
             OVERVIEW: 'pageOverview',
@@ -802,14 +861,7 @@
             document.getElementById(pageId).classList.add('active');
         }
 
-        // === INITIALISIERUNG ========================
-        document.addEventListener('DOMContentLoaded', function() {
-            initThemeToggle();
-            setupEventListeners();
-            loadAllAuditProgress();
-        });
-
-        // === THEME FUNKTIONEN ===
+        // === THEME FUNKTIONEN =======================
         function initThemeToggle() {
             const saved = localStorage.getItem('zfp_selfaudit_theme');
             const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -824,138 +876,172 @@
             });
         }
 
-        // === JSON LADEN ============================
-        async function loadAuditFromJSON(auditType) {
-            const auditInfo = AUDIT_TYPES[auditType];
-            const fileName = auditInfo.file;
+        // === INITIALISIERUNG ========================
+        document.addEventListener('DOMContentLoaded', function() {
+            initThemeToggle();
+            setupEventListeners();
+            loadAllAuditProgress();
+        });
+
+        // === JSON LADEN (DEUTSCH + ENGLISCH) ========
+        async function loadAuditJSONs(auditType) {
+            const info = AUDIT_TYPES[auditType];
+            const results = { german: null, english: null };
             
             try {
-                if (jsonCache[fileName]) {
-                    return jsonCache[fileName];
+                // 1. DEUTSCHE Fragen laden
+                console.log(`Lade DE: ${info.file_de}`);
+                const deResponse = await fetch(info.file_de + '?t=' + Date.now());
+                if (!deResponse.ok) {
+                    throw new Error(`DE Datei ${info.file_de} nicht gefunden (${deResponse.status})`);
                 }
+                results.german = await deResponse.json();
+                console.log(`✅ DE geladen: ${info.file_de}`);
                 
-                console.log(`Lade: ${fileName}`);
-                
-                let url = fileName;
-                if (window.location.hostname.includes('github.io')) {
-                    const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
-                    url = basePath + fileName;
+                // 2. ENGLISCHE Fragen laden
+                console.log(`Lade EN: ${info.file_en}`);
+                const enResponse = await fetch(info.file_en + '?t=' + Date.now());
+                if (!enResponse.ok) {
+                    throw new Error(`EN Datei ${info.file_en} nicht gefunden (${enResponse.status})`);
                 }
+                results.english = await enResponse.json();
+                console.log(`✅ EN geladen: ${info.file_en}`);
                 
-                const response = await fetch(url + '?t=' + Date.now());
-                
-                if (!response.ok) {
-                    throw new Error(`Datei ${fileName} nicht gefunden`);
-                }
-                
-                const jsonData = await response.json();
-                jsonCache[fileName] = jsonData;
-                return jsonData;
+                return results;
                 
             } catch (error) {
-                console.error(`Fehler: ${error.message}`);
-                alert(`Fehler: ${fileName} konnte nicht geladen werden!`);
+                console.error('❌ Fehler:', error);
+                
+                let errorMessage = `❌ Datei konnte nicht geladen werden!\n\n`;
+                errorMessage += `${error.message}\n\n`;
+                errorMessage += `Aktueller Pfad: ${window.location.pathname}\n`;
+                errorMessage += `Server: ${window.location.hostname}\n\n`;
+                
+                if (!results.german) errorMessage += `❌ ${info.file_de} fehlt!\n`;
+                if (!results.english) errorMessage += `❌ ${info.file_en} fehlt!\n`;
+                
+                errorMessage += `\nLösungen:\n`;
+                errorMessage += `1. Legen Sie die JSON-Dateien im selben Ordner wie index.html ab\n`;
+                errorMessage += `2. Prüfen Sie die Groß-/Kleinschreibung (ET.json ≠ et.json)\n`;
+                errorMessage += `3. Öffnen Sie die Konsole (F12) für Details`;
+                
+                alert(errorMessage);
                 return null;
             }
         }
 
         // === AUDIT STARTEN =========================
         async function startAudit(auditType) {
-            if (currentAuditType) {
-                saveCurrentAuditData();
-            }
+            console.log(`🚀 Starte Audit: ${auditType}`);
             
             currentAuditType = auditType;
             currentSectionIndex = -1;
             
-            // Gespeicherte Daten laden
             const savedKey = `zfpSelfAudit_${currentAuditType}`;
             const saved = localStorage.getItem(savedKey);
             
             if (saved) {
+                console.log(`📦 Lade gespeicherte Daten`);
                 const parsed = JSON.parse(saved);
-                currentAuditData = parsed;
-                allQuestions = parsed.questions || [];
+                germanQuestions = parsed.germanQuestions || [];
+                englishQuestions = parsed.englishQuestions || [];
                 auditSections = parsed.sections || [];
-            } else {
-                // JSON laden
-                const jsonData = await loadAuditFromJSON(auditType);
-                if (!jsonData) {
-                    return;
+                
+                if (germanQuestions.length === 0 || englishQuestions.length === 0) {
+                    console.log('⚠️ Gespeicherte Daten unvollständig, lade neu');
+                    const data = await loadAuditJSONs(auditType);
+                    if (!data) return;
+                    processJSONdata(data);
                 }
-                initializeAuditData(jsonData);
+            } else {
+                console.log(`🔄 Lade neue Daten`);
+                const data = await loadAuditJSONs(auditType);
+                if (!data) return;
+                processJSONdata(data);
             }
             
-            // UI aktualisieren
             document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditType].title}`;
             document.getElementById('mainSubtitle').textContent = AUDIT_TYPES[auditType].standard;
             
-            // Übersichtsseite anzeigen
             renderOverview();
             showPage(PAGES.OVERVIEW);
             updateProgressDisplays();
         }
 
-        // === AUDIT-DATEN INITIALISIEREN ============
-        function initializeAuditData(jsonData) {
-            allQuestions = [];
+        // === JSON DATEN VERARBEITEN ================
+        function processJSONdata(data) {
+            console.log('📊 Verarbeite JSON Daten');
             
-            jsonData.questions.forEach(q => {
-                // Deutschen Text verwenden
-                let questionText = q.question;
-                let guidanceText = q.guidance;
-                
-                if (q.question && typeof q.question === 'object') {
-                    questionText = q.question.de || '';
-                }
-                
-                if (q.guidance && typeof q.guidance === 'object') {
-                    guidanceText = q.guidance.de || '';
-                }
-                
-                // Antwort-Optionen normalisieren
-                let options = q.answer_options || ["YES", "NO"];
-                options = options.map(opt => {
-                    if (opt === 'Ja' || opt === 'YES' || opt === 'JA') return 'YES';
-                    if (opt === 'Nein' || opt === 'NO') return 'NO';
-                    if (opt === 'N/A' || opt === 'NA') return 'NA';
-                    return opt;
+            // DEUTSCHE Fragen
+            germanQuestions = [];
+            if (data.german && data.german.questions) {
+                data.german.questions.forEach(q => {
+                    let questionText = q.question;
+                    let guidanceText = q.guidance;
+                    
+                    if (q.question && typeof q.question === 'object') {
+                        questionText = q.question.de || q.question;
+                    }
+                    if (q.guidance && typeof q.guidance === 'object') {
+                        guidanceText = q.guidance.de || q.guidance;
+                    }
+                    
+                    germanQuestions.push({
+                        id: q.id,
+                        text: questionText || '',
+                        guidance: guidanceText || '',
+                        options: normalizeOptions(q.answer_options),
+                        hasNA: q.has_na_option || (q.answer_options && q.answer_options.includes('N/A')),
+                        sectionId: q.id.split('.')[0],
+                        answer: "",
+                        evidence: ""
+                    });
                 });
-                
-                allQuestions.push({
-                    id: q.id,
-                    text: questionText,
-                    guidance: guidanceText,
-                    options: options,
-                    hasNA: q.has_na_option || options.includes('NA'),
-                    sectionId: q.id.split('.')[0],
-                    answer: "",
-                    evidence: ""
+            }
+            
+            // ENGLISCHE Fragen
+            englishQuestions = [];
+            if (data.english && data.english.questions) {
+                data.english.questions.forEach(q => {
+                    let questionText = q.question;
+                    let guidanceText = q.guidance;
+                    
+                    if (q.question && typeof q.question === 'object') {
+                        questionText = q.question.en || q.question;
+                    }
+                    if (q.guidance && typeof q.guidance === 'object') {
+                        guidanceText = q.guidance.en || q.guidance;
+                    }
+                    
+                    englishQuestions.push({
+                        id: q.id,
+                        text: questionText || '',
+                        guidance: guidanceText || '',
+                        options: normalizeOptions(q.answer_options),
+                        hasNA: q.has_na_option || (q.answer_options && q.answer_options.includes('N/A')),
+                        sectionId: q.id.split('.')[0]
+                    });
                 });
-            });
+            }
             
-            // Sektionen extrahieren
-            auditSections = extractSectionsFromQuestions(allQuestions);
+            console.log(`✅ DE: ${germanQuestions.length} Fragen`);
+            console.log(`✅ EN: ${englishQuestions.length} Fragen`);
             
-            // Sektionstitel zuweisen
-            allQuestions.forEach(q => {
-                const section = auditSections.find(s => s.id === q.sectionId);
-                if (section) q.sectionTitle = section.title;
-            });
-            
-            currentAuditData = {
-                meta: {
-                    title: jsonData.audit_tool?.de || AUDIT_TYPES[currentAuditType].title,
-                    revision: jsonData.revision || "1.0",
-                    created: new Date().toISOString(),
-                    lastModified: new Date().toISOString(),
-                    auditType: currentAuditType
-                },
-                sections: auditSections,
-                questions: allQuestions
-            };
-            
+            auditSections = extractSectionsFromQuestions(germanQuestions);
             saveCurrentAuditData();
+        }
+
+        // === ANTWORT-OPTIONEN NORMALISIEREN ========
+        function normalizeOptions(options) {
+            if (!options || !Array.isArray(options)) {
+                return ["YES", "NO"];
+            }
+            return options.map(opt => {
+                if (opt === 'Ja' || opt === 'YES' || opt === 'JA') return 'YES';
+                if (opt === 'Nein' || opt === 'NO') return 'NO';
+                if (opt === 'N/A' || opt === 'NA') return 'NA';
+                return opt;
+            });
         }
 
         // === SEKTIONEN EXTRAHIEREN =================
@@ -963,10 +1049,15 @@
             const sectionMap = new Map();
             const sectionIds = [...new Set(questions.map(q => q.id.split('.')[0]))];
             
-            sectionIds.sort((a, b) => parseFloat(a) - parseFloat(b));
+            sectionIds.sort((a, b) => {
+                const aNum = parseFloat(a);
+                const bNum = parseFloat(b);
+                return aNum - bNum;
+            });
             
             sectionIds.forEach(id => {
                 let title = '';
+                
                 switch(id) {
                     case '3': title = '3. AUSRÜSTUNG UND MATERIALIEN'; break;
                     case '4': title = '4. VERFAHRENSANWEISUNGEN UND TECHNIKEN'; break;
@@ -997,8 +1088,8 @@
         // === ÜBERSICHT RENDERN =====================
         function renderOverview() {
             const auditInfo = AUDIT_TYPES[currentAuditType];
-            const totalQuestions = allQuestions.length;
-            const answered = allQuestions.filter(q => q.answer && q.answer !== "").length;
+            const totalQuestions = germanQuestions.length;
+            const answered = germanQuestions.filter(q => q.answer && q.answer !== "").length;
             const percent = totalQuestions > 0 ? Math.round((answered / totalQuestions) * 100) : 0;
             
             document.getElementById('overviewTitle').textContent = `${auditInfo.title} - Übersicht`;
@@ -1026,7 +1117,7 @@
             sectionList.innerHTML = '';
             
             auditSections.forEach((section, index) => {
-                const sectionQuestions = allQuestions.filter(q => q.sectionId === section.id);
+                const sectionQuestions = germanQuestions.filter(q => q.sectionId === section.id);
                 const sectionAnswered = sectionQuestions.filter(q => q.answer && q.answer !== "").length;
                 const sectionTotal = sectionQuestions.length;
                 const sectionPercent = sectionTotal > 0 ? Math.round((sectionAnswered / sectionTotal) * 100) : 0;
@@ -1060,7 +1151,7 @@
             });
         }
 
-        // === SEKTION ÖFFNEN (FRAGENSEITE) ==========
+        // === SEKTION ÖFFNEN ========================
         function openSection(sectionIndex) {
             currentSectionIndex = sectionIndex;
             const section = auditSections[sectionIndex];
@@ -1074,20 +1165,24 @@
 
         // === FRAGEN RENDERN ========================
         function renderCurrentSection() {
-            if (currentSectionIndex < 0) return;
+            if (currentSectionIndex < 0 || !auditSections[currentSectionIndex]) return;
             
             const container = document.getElementById('questionsContainer');
             container.innerHTML = '';
             
             const section = auditSections[currentSectionIndex];
-            const sectionQuestions = allQuestions.filter(q => q.sectionId === section.id);
+            const sectionQuestions = germanQuestions.filter(q => q.sectionId === section.id);
             
             if (sectionQuestions.length === 0) {
-                container.innerHTML = `<div style="text-align: center; padding: 40px;">📭 Keine Fragen in diesem Bereich</div>`;
+                container.innerHTML = `<div style="text-align: center; padding: 40px; color: var(--text-secondary);">📭 Keine Fragen in diesem Bereich</div>`;
                 return;
             }
             
-            sectionQuestions.sort((a, b) => parseFloat(a.id) - parseFloat(b.id));
+            sectionQuestions.sort((a, b) => {
+                const aNum = parseFloat(a.id);
+                const bNum = parseFloat(b.id);
+                return aNum - bNum;
+            });
             
             sectionQuestions.forEach(question => {
                 container.appendChild(createQuestionElement(question));
@@ -1096,27 +1191,26 @@
 
         // === FRAGE-ELEMENT ERSTELLEN ===============
         function createQuestionElement(question) {
-            const qEl = document.createElement('div');
-            qEl.className = 'question';
-            qEl.dataset.questionId = question.id;
+            const questionElement = document.createElement('div');
+            questionElement.className = 'question';
+            questionElement.dataset.questionId = question.id;
             
             if (!question.answer || question.answer === "") {
-                qEl.classList.add('unanswered');
+                questionElement.classList.add('unanswered');
             } else if (question.answer === "YES") {
-                qEl.classList.add('yes-answer');
+                questionElement.classList.add('yes-answer');
             } else if (question.answer === "NO") {
-                qEl.classList.add('no-answer');
+                questionElement.classList.add('no-answer');
             } else if (question.answer === "NA") {
-                qEl.classList.add('na-answer');
+                questionElement.classList.add('na-answer');
             }
             
-            // Header
             const header = document.createElement('div');
             header.className = 'question-header';
             
             const text = document.createElement('div');
             text.className = 'question-text';
-            text.textContent = question.text;
+            text.textContent = question.text || '';
             
             const id = document.createElement('div');
             id.className = 'question-id';
@@ -1124,17 +1218,15 @@
             
             header.appendChild(text);
             header.appendChild(id);
-            qEl.appendChild(header);
+            questionElement.appendChild(header);
             
-            // Guidance
             if (question.guidance) {
                 const guidance = document.createElement('div');
                 guidance.className = 'guidance';
                 guidance.textContent = question.guidance;
-                qEl.appendChild(guidance);
+                questionElement.appendChild(guidance);
             }
             
-            // Antwort-Optionen
             const options = document.createElement('div');
             options.className = 'answer-options';
             
@@ -1161,38 +1253,44 @@
                 options.appendChild(naBtn);
             }
             
-            qEl.appendChild(options);
+            questionElement.appendChild(options);
             
-            // Nachweis
             const evidence = document.createElement('textarea');
             evidence.className = 'evidence';
             evidence.placeholder = 'Nachweise / Kommentare';
             evidence.value = question.evidence || '';
             evidence.oninput = () => updateEvidence(question.id, evidence.value);
             
-            qEl.appendChild(evidence);
+            questionElement.appendChild(evidence);
             
-            return qEl;
+            return questionElement;
         }
 
-        // === ANTWORT-FUNKTIONEN ====================
+        // === ANTWORTEN ==============================
         function selectAnswer(questionId, answer) {
-            const question = allQuestions.find(q => q.id === questionId);
+            const question = germanQuestions.find(q => q.id === questionId);
             if (!question) return;
             
             question.answer = answer;
             saveCurrentAuditData();
             
-            const qEl = document.querySelector(`[data-question-id="${questionId}"]`);
-            if (qEl) {
-                qEl.classList.remove('unanswered', 'yes-answer', 'no-answer', 'na-answer');
-                if (answer === "YES") qEl.classList.add('yes-answer');
-                else if (answer === "NO") qEl.classList.add('no-answer');
-                else if (answer === "NA") qEl.classList.add('na-answer');
+            const questionElement = document.querySelector(`[data-question-id="${questionId}"]`);
+            if (questionElement) {
+                questionElement.classList.remove('unanswered', 'yes-answer', 'no-answer', 'na-answer');
                 
-                qEl.querySelectorAll('.answer-option').forEach(btn => {
+                if (answer === "YES") {
+                    questionElement.classList.add('yes-answer');
+                } else if (answer === "NO") {
+                    questionElement.classList.add('no-answer');
+                } else if (answer === "NA") {
+                    questionElement.classList.add('na-answer');
+                }
+                
+                questionElement.querySelectorAll('.answer-option').forEach(btn => {
                     btn.classList.remove('selected');
-                    if (btn.dataset.answer === answer) btn.classList.add('selected');
+                    if (btn.dataset.answer === answer) {
+                        btn.classList.add('selected');
+                    }
                 });
             }
             
@@ -1201,30 +1299,33 @@
         }
 
         function updateEvidence(questionId, evidence) {
-            const question = allQuestions.find(q => q.id === questionId);
+            const question = germanQuestions.find(q => q.id === questionId);
             if (question) {
                 question.evidence = evidence;
                 saveCurrentAuditData();
             }
         }
 
-        // === SPEICHERN =============================
+        // === SPEICHERN ==============================
         function saveCurrentAuditData() {
-            if (!currentAuditType || !currentAuditData) return;
-            
-            currentAuditData.questions = allQuestions;
-            currentAuditData.sections = auditSections;
-            currentAuditData.meta.lastModified = new Date().toISOString();
+            if (!currentAuditType) return;
             
             const key = `zfpSelfAudit_${currentAuditType}`;
-            localStorage.setItem(key, JSON.stringify(currentAuditData));
+            const dataToSave = {
+                germanQuestions: germanQuestions,
+                englishQuestions: englishQuestions,
+                sections: auditSections,
+                lastModified: new Date().toISOString(),
+                auditType: currentAuditType
+            };
             
+            localStorage.setItem(key, JSON.stringify(dataToSave));
             updateProgressDisplays();
         }
 
         // === PROGRESS ==============================
         function updateCurrentAuditProgress() {
-            if (!allQuestions.length) {
+            if (!germanQuestions.length) {
                 document.getElementById('answeredCount').textContent = '0';
                 document.getElementById('totalCount').textContent = '0';
                 document.getElementById('progressText').textContent = '0%';
@@ -1233,11 +1334,11 @@
                 return;
             }
             
-            const total = allQuestions.length;
-            const answered = allQuestions.filter(q => q.answer && q.answer !== "").length;
-            const yesCount = allQuestions.filter(q => q.answer === "YES").length;
-            const noCount = allQuestions.filter(q => q.answer === "NO").length;
-            const percent = Math.round((answered / total) * 100);
+            const total = germanQuestions.length;
+            const answered = germanQuestions.filter(q => q.answer && q.answer !== "").length;
+            const yesCount = germanQuestions.filter(q => q.answer === "YES").length;
+            const noCount = germanQuestions.filter(q => q.answer === "NO").length;
+            const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
             
             document.getElementById('answeredCount').textContent = answered;
             document.getElementById('totalCount').textContent = total;
@@ -1254,14 +1355,25 @@
             Object.keys(AUDIT_TYPES).forEach(auditType => {
                 const saved = localStorage.getItem(`zfpSelfAudit_${auditType}`);
                 if (saved) {
-                    const data = JSON.parse(saved);
-                    const questions = data.questions || [];
-                    const answered = questions.filter(q => q.answer && q.answer !== "").length;
-                    const total = questions.length;
-                    const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
-                    
+                    try {
+                        const data = JSON.parse(saved);
+                        const questions = data.germanQuestions || [];
+                        const answered = questions.filter(q => q.answer && q.answer !== "").length;
+                        const total = questions.length;
+                        const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
+                        
+                        const progressElement = document.getElementById(`${auditType.toLowerCase()}Progress`);
+                        if (progressElement) {
+                            progressElement.textContent = `${percent}%`;
+                        }
+                    } catch (e) {
+                        console.error('Fehler beim Laden des Fortschritts:', e);
+                    }
+                } else {
                     const progressElement = document.getElementById(`${auditType.toLowerCase()}Progress`);
-                    if (progressElement) progressElement.textContent = `${percent}%`;
+                    if (progressElement) {
+                        progressElement.textContent = '0%';
+                    }
                 }
             });
         }
@@ -1272,152 +1384,303 @@
 
         // === ENGLISCHER BERICHT ====================
         function generateEnglishReport() {
-            if (!currentAuditType || !allQuestions.length) {
-                alert('Kein Audit geladen!');
+            if (!currentAuditType || !germanQuestions.length || !englishQuestions.length) {
+                alert('❌ Kein Audit geladen oder Fragen fehlen!');
                 return;
             }
+
+            console.log('📝 Generiere englischen Bericht');
             
             const auditInfo = AUDIT_TYPES[currentAuditType];
             
-            // Englische Titel aus den JSON-Daten holen
-            let auditTitleEn = auditInfo.title;
-            let revision = '1.0';
-            
-            if (currentAuditData?.meta?.audit_tool && typeof currentAuditData.meta.audit_tool === 'object') {
-                auditTitleEn = currentAuditData.meta.audit_tool.en || auditInfo.title;
+            let auditTitleEn = `${auditInfo.standard} Self-Audit`;
+            if (currentAuditData?.meta?.audit_tool?.en) {
+                auditTitleEn = currentAuditData.meta.audit_tool.en;
             }
-            
-            const total = allQuestions.length;
-            const answered = allQuestions.filter(q => q.answer && q.answer !== "").length;
-            const yesCount = allQuestions.filter(q => q.answer === "YES").length;
-            const noCount = allQuestions.filter(q => q.answer === "NO").length;
-            const naCount = allQuestions.filter(q => q.answer === "NA").length;
+
+            const total = germanQuestions.length;
+            const answered = germanQuestions.filter(q => q.answer && q.answer !== "").length;
+            const yesCount = germanQuestions.filter(q => q.answer === "YES").length;
+            const noCount = germanQuestions.filter(q => q.answer === "NO").length;
+            const naCount = germanQuestions.filter(q => q.answer === "NA").length;
             const percent = Math.round((answered / total) * 100);
             
             let reportHTML = `<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self-Audit Report - ${auditInfo.standard}</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 30px; line-height: 1.6; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        .header { text-align: center; margin-bottom: 30px; }
-        .summary { background: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 30px; }
-        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0; }
-        .stat-box { background: white; padding: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
-        .section { margin: 30px 0; border: 1px solid #dee2e6; border-radius: 5px; }
-        .section-header { background: #2c3e50; color: white; padding: 12px 15px; border-radius: 5px 5px 0 0; }
-        .question { padding: 15px; border-bottom: 1px solid #dee2e6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 30px; 
+            line-height: 1.6; 
+            color: #333;
+            background: #fff;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { 
+            color: #2c3e50; 
+            border-bottom: 3px solid #3498db; 
+            padding-bottom: 10px; 
+            margin-bottom: 20px;
+        }
+        h2 { color: #34495e; margin-bottom: 15px; }
+        h3 { color: #2c3e50; margin-bottom: 10px; }
+        .header { 
+            text-align: center; 
+            margin-bottom: 30px; 
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .summary { 
+            background: #f8f9fa; 
+            padding: 25px; 
+            border-radius: 8px; 
+            margin-bottom: 30px;
+            border: 1px solid #e9ecef;
+        }
+        .stats { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+            margin: 25px 0; 
+        }
+        .stat-box { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+        .stat-box h4 { 
+            font-size: 2em; 
+            color: #2c3e50; 
+            margin-bottom: 5px; 
+        }
+        .stat-box p { 
+            color: #7f8c8d; 
+            font-size: 0.9em; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        .section { 
+            margin: 30px 0; 
+            border: 1px solid #dee2e6; 
+            border-radius: 8px; 
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .section-header { 
+            background: #2c3e50; 
+            color: white; 
+            padding: 15px 20px; 
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .question { 
+            padding: 20px; 
+            border-bottom: 1px solid #e9ecef; 
+            background: white;
+        }
         .question:last-child { border-bottom: none; }
-        .question-id { background: #3498db; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.85em; }
-        .answer-yes { background: #27ae60; color: white; padding: 3px 10px; border-radius: 15px; display: inline-block; }
-        .answer-no { background: #e74c3c; color: white; padding: 3px 10px; border-radius: 15px; display: inline-block; }
-        .answer-na { background: #95a5a6; color: white; padding: 3px 10px; border-radius: 15px; display: inline-block; }
-        .evidence { margin-top: 8px; padding: 8px; background: #f8f9fa; border-left: 3px solid #6c757d; }
-        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #dee2e6; font-size: 0.9em; color: #6c757d; }
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .question-id { 
+            background: #3498db; 
+            color: white; 
+            padding: 4px 10px; 
+            border-radius: 20px; 
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        .question-text {
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+        .answer-badge { 
+            display: inline-block; 
+            padding: 6px 16px; 
+            border-radius: 25px; 
+            font-weight: bold; 
+            font-size: 0.95em;
+            margin-top: 8px;
+        }
+        .answer-yes { background: #27ae60; color: white; }
+        .answer-no { background: #e74c3c; color: white; }
+        .answer-na { background: #95a5a6; color: white; }
+        .evidence { 
+            margin-top: 15px; 
+            padding: 15px; 
+            background: #f8f9fa; 
+            border-left: 4px solid #6c757d; 
+            border-radius: 4px;
+            font-style: italic;
+        }
+        .footer { 
+            margin-top: 50px; 
+            padding-top: 25px; 
+            border-top: 2px solid #ecf0f1; 
+            font-size: 0.9em; 
+            color: #6c757d;
+            text-align: center;
+        }
+        .progress-bar {
+            background: #ecf0f1;
+            height: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .progress-fill {
+            height: 10px;
+            background: #27ae60;
+            border-radius: 5px;
+            width: ${percent}%;
+        }
+        @media print {
+            body { margin: 0.5in; }
+            .section { break-inside: avoid; }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Self-Audit Report</h1>
-        <h2>${auditTitleEn}</h2>
-        <p><strong>Standard:</strong> ${auditInfo.standard} | <strong>Revision:</strong> ${currentAuditData?.meta?.revision || revision}</p>
-        <p><strong>Date:</strong> ${new Date().toLocaleDateString('en-US')} | <strong>Time:</strong> ${new Date().toLocaleTimeString('en-US')}</p>
-    </div>
-    
-    <div class="summary">
-        <h3>📊 Summary</h3>
-        <div class="stats">
-            <div class="stat-box"><h4>${total}</h4><p>Total Questions</p></div>
-            <div class="stat-box"><h4>${answered}</h4><p>Answered</p></div>
-            <div class="stat-box"><h4>${yesCount}</h4><p>Yes</p></div>
-            <div class="stat-box"><h4>${noCount}</h4><p>No</p></div>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Self-Audit Report</h1>
+            <h2>${auditTitleEn}</h2>
+            <p style="color: #7f8c8d; margin-top: 10px;">
+                <strong>Standard:</strong> ${auditInfo.standard} | 
+                <strong>Revision:</strong> ${currentAuditData?.meta?.revision || 'C'} | 
+                <strong>Date:</strong> ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
         </div>
-        <p><strong>Progress:</strong> ${percent}% (${answered}/${total}) | <strong>N/A:</strong> ${naCount}</p>
-    </div>`;
-            
-            // Sektionen
+        
+        <div class="summary">
+            <h3 style="margin-bottom: 20px;">📊 Executive Summary</h3>
+            <div class="stats">
+                <div class="stat-box">
+                    <h4>${total}</h4>
+                    <p>Total Questions</p>
+                </div>
+                <div class="stat-box">
+                    <h4>${answered}</h4>
+                    <p>Answered</p>
+                </div>
+                <div class="stat-box">
+                    <h4>${yesCount}</h4>
+                    <p>Yes</p>
+                </div>
+                <div class="stat-box">
+                    <h4>${noCount}</h4>
+                    <p>No</p>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <p style="display: flex; justify-content: space-between; align-items: center;">
+                    <span><strong>Overall Progress:</strong> ${percent}% (${answered}/${total})</span>
+                    <span><strong>N/A Responses:</strong> ${naCount}</span>
+                </p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+        </div>`;
+
             auditSections.forEach(section => {
-                const sectionQuestions = allQuestions.filter(q => q.sectionId === section.id);
+                const sectionQuestions = germanQuestions.filter(q => q.sectionId === section.id);
                 if (sectionQuestions.length === 0) return;
                 
-                reportHTML += `<div class="section"><div class="section-header">${section.title}</div>`;
+                let sectionTitleEn = section.title;
+                if (sectionTitleEn.includes('AUSRÜSTUNG')) sectionTitleEn = sectionTitleEn.replace('AUSRÜSTUNG', 'EQUIPMENT');
+                if (sectionTitleEn.includes('VERFAHRENSANWEISUNGEN')) sectionTitleEn = sectionTitleEn.replace('VERFAHRENSANWEISUNGEN', 'PROCEDURES');
+                if (sectionTitleEn.includes('SYSTEMLEISTUNG')) sectionTitleEn = sectionTitleEn.replace('SYSTEMLEISTUNG', 'SYSTEM PERFORMANCE');
+                if (sectionTitleEn.includes('KALIBRIERUNG')) sectionTitleEn = sectionTitleEn.replace('KALIBRIERUNG', 'CALIBRATION');
+                if (sectionTitleEn.includes('DURCHFÜHRUNG')) sectionTitleEn = sectionTitleEn.replace('DURCHFÜHRUNG', 'INSPECTION');
+                if (sectionTitleEn.includes('DOKUMENTATION')) sectionTitleEn = sectionTitleEn.replace('DOKUMENTATION', 'DOCUMENTATION');
                 
-                sectionQuestions.sort((a,b) => parseFloat(a.id) - parseFloat(b.id)).forEach(q => {
-                    let answerClass = '', answerText = '';
-                    if (q.answer === 'YES') { answerClass = 'answer-yes'; answerText = 'YES'; }
-                    else if (q.answer === 'NO') { answerClass = 'answer-no'; answerText = 'NO'; }
-                    else if (q.answer === 'NA') { answerClass = 'answer-na'; answerText = 'N/A'; }
-                    else { answerText = '❌ Not answered'; }
+                reportHTML += `<div class="section">
+                    <div class="section-header">${sectionTitleEn}</div>`;
+                
+                sectionQuestions.sort((a,b) => parseFloat(a.id) - parseFloat(b.id)).forEach(gq => {
+                    const eq = englishQuestions.find(e => e.id === gq.id);
+                    const questionText = eq ? eq.text : gq.text;
+                    const guidanceText = eq?.guidance || gq.guidance;
+                    
+                    let answerClass = '', answerText = '', answerLabel = '';
+                    if (gq.answer === 'YES') { 
+                        answerClass = 'answer-yes'; 
+                        answerText = 'YES';
+                        answerLabel = '✅ YES';
+                    } else if (gq.answer === 'NO') { 
+                        answerClass = 'answer-no'; 
+                        answerText = 'NO';
+                        answerLabel = '❌ NO';
+                    } else if (gq.answer === 'NA') { 
+                        answerClass = 'answer-na'; 
+                        answerText = 'N/A';
+                        answerLabel = '⚪ N/A';
+                    } else { 
+                        answerText = 'Not answered';
+                        answerLabel = '⭕ Not answered';
+                    }
                     
                     reportHTML += `
                         <div class="question">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <strong>${q.id}</strong>
-                                <span class="question-id">${q.id}</span>
+                            <div class="question-header">
+                                <strong style="font-size: 1.1em;">${gq.id}</strong>
+                                <span class="question-id">${gq.id}</span>
                             </div>
-                            <p>${q.text}</p>
-                            ${answerText ? `<span class="${answerClass}">${answerText}</span>` : ''}
-                            ${q.evidence ? `<div class="evidence"><strong>Evidence/Comments:</strong> ${q.evidence}</div>` : ''}
+                            <div class="question-text">${questionText}</div>
+                            ${guidanceText ? `<div style="color: #7f8c8d; font-size: 0.95em; margin-bottom: 12px; padding: 8px; background: #f1f3f4; border-radius: 4px;"><em>${guidanceText}</em></div>` : ''}
+                            <span class="answer-badge ${answerClass}">${answerLabel}</span>
+                            ${gq.evidence ? `<div class="evidence"><strong>📎 Evidence / Comments:</strong><br>${gq.evidence}</div>` : ''}
                         </div>
                     `;
                 });
                 
                 reportHTML += `</div>`;
             });
-            
+
             reportHTML += `
-    <div class="footer">
-        <p><strong>Report generated:</strong> ${new Date().toLocaleString('en-US')}</p>
-        <p><strong>Document ID:</strong> SA-${currentAuditType}-${new Date().getTime()}</p>
-        <p><strong>Auditor:</strong> Daniel Häusner, WI/SW2-PQT</p>
-        <p><strong>Company:</strong> Schaeffler Technologies AG & Co. KG</p>
+        <div class="footer">
+            <p style="font-size: 1.1em; margin-bottom: 15px;"><strong>Schaeffler Technologies AG & Co. KG</strong></p>
+            <p><strong>Report generated:</strong> ${new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'long' })}</p>
+            <p><strong>Document ID:</strong> SA-${currentAuditType}-${new Date().getTime()}</p>
+            <p><strong>Auditor:</strong> Daniel Häusner, WI/SW2-PQT</p>
+            <p><strong>Generated by:</strong> Self-Audit Tool v2.0</p>
+            <p style="margin-top: 20px; font-size: 0.85em;">This report was automatically generated. All responses are based on the auditor's evaluation.</p>
+        </div>
     </div>
 </body>
 </html>`;
-            
-            const reportWindow = window.open('', '_blank');
-            reportWindow.document.write(reportHTML);
-            reportWindow.document.close();
-        }
 
-        // === EXPORT ================================
-        function exportData() {
-            if (!currentAuditType || !allQuestions.length) {
-                alert('Keine Daten zum Exportieren!');
-                return;
+            const reportWindow = window.open('', '_blank');
+            if (reportWindow) {
+                reportWindow.document.write(reportHTML);
+                reportWindow.document.close();
+                console.log('✅ Bericht erstellt');
+            } else {
+                alert('⚠️ Popup-Blocker erlaubt kein neues Fenster!');
             }
-            
-            const exportObj = {
-                meta: currentAuditData.meta,
-                sections: auditSections,
-                questions: allQuestions,
-                summary: {
-                    total: allQuestions.length,
-                    answered: allQuestions.filter(q => q.answer && q.answer !== "").length,
-                    yes: allQuestions.filter(q => q.answer === "YES").length,
-                    no: allQuestions.filter(q => q.answer === "NO").length,
-                    na: allQuestions.filter(q => q.answer === "NA").length
-                }
-            };
-            
-            const blob = new Blob([JSON.stringify(exportObj, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${currentAuditType}_${new Date().toISOString().slice(0,10)}.json`;
-            a.click();
-            URL.revokeObjectURL(url);
         }
 
         // === RESET =================================
         function resetAudit() {
             if (!currentAuditType) return;
             
-            if (!confirm('Möchten Sie wirklich ALLE Antworten zurücksetzen?')) return;
+            if (!confirm('⚠️ Möchten Sie wirklich ALLE Antworten und Kommentare zurücksetzen?\n\nDiese Aktion kann nicht rückgängig gemacht werden!')) {
+                return;
+            }
             
-            allQuestions.forEach(q => {
+            germanQuestions.forEach(q => {
                 q.answer = "";
                 q.evidence = "";
             });
@@ -1426,17 +1689,19 @@
             
             if (currentSectionIndex >= 0) {
                 renderCurrentSection();
+                updateCurrentAuditProgress();
             }
-            updateCurrentAuditProgress();
+            
             renderOverview();
+            console.log('🗑️ Audit zurückgesetzt');
         }
 
         // === NAVIGATION ============================
         function goBackToSelection() {
             saveCurrentAuditData();
             currentAuditType = null;
-            currentAuditData = null;
-            allQuestions = [];
+            germanQuestions = [];
+            englishQuestions = [];
             auditSections = [];
             currentSectionIndex = -1;
             
@@ -1456,27 +1721,32 @@
 
         // === EVENT LISTENERS =======================
         function setupEventListeners() {
-            // Audit-Buttons
             document.querySelectorAll('.audit-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
+                btn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    startAudit(e.currentTarget.dataset.audit);
+                    startAudit(this.dataset.audit);
                 });
             });
 
-            // Navigation
             document.getElementById('backToSelectionBtn').addEventListener('click', goBackToSelection);
             document.getElementById('backToSelectionFromQuestionsBtn').addEventListener('click', goBackToSelection);
             document.getElementById('backToOverviewBtn').addEventListener('click', goBackToOverview);
             
-            // Bericht-Buttons
-            document.getElementById('reportFromOverviewBtn').addEventListener('click', generateEnglishReport);
+            document.getElementById('reportBtn').addEventListener('click', generateEnglishReport);
             document.getElementById('reportFromQuestionsBtn').addEventListener('click', generateEnglishReport);
             
-            // Aktionen
             document.getElementById('resetBtn').addEventListener('click', resetAudit);
-            document.getElementById('exportBtn').addEventListener('click', exportData);
         }
+
+        // === CURRENT AUDIT DATA REFERENZ ===========
+        const currentAuditData = {
+            meta: {
+                revision: 'C',
+                audit_tool: {
+                    en: ''
+                }
+            }
+        };
     </script>
 </body>
 </html>
