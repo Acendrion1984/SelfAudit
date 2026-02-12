@@ -1019,4 +1019,102 @@
     },
     {
       "id": "7.5.6",
-      "question": "Wurden bei der Handhabung der Teile während der Prüfung Vorsichtsmaßnahmen getroffen, um Anzeigen nicht zu verschmieren oder zu verw
+      "question": "Wurden beim Handling der Teile während der Prüfung Vorkehrungen getroffen, um Anzeigen nicht zu verschmieren oder zu verwischen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.7",
+      "question": "Sofern zutreffend, wurden Anzeigen, die den Annahmekriterien nicht entsprechen, auf dem Teil markiert und/oder entsprechend dokumentiert?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Leitfaden: Es wird erwartet, dass der Auditor validiert, dass die geeigneten Markierungsmaterialien gemäß den Kundenanforderungen verwendet werden."
+    },
+    {
+      "id": "7.5.8",
+      "question": "Wurden nach der Bewertung alle Teile entmagnetisiert und wiesen sie unter Verwendung eines Feldindikators auf der Oberfläche des Teils einen absoluten Wert von nicht mehr als 3 Gauß oder 240 A/m auf?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.9",
+      "question": "Wurde der Prüfbereich frei von störenden Rückständen gehalten?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.10",
+      "question": "Wo fluoreszierende Materialien verwendet werden, wurde der Bereich frei von fluoreszierenden Gegenständen gehalten, die nicht mit dem zu prüfenden Teil/Stück in Zusammenhang stehen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.5.11.1",
+      "question": "Wurden bei Teilen, die nach den Anforderungen von ASME Section V Artikel 7 verarbeitet wurden, die Prüfanforderungen von T-770 eingehalten?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.5.11.2",
+      "question": "Wurden bei Teilen, die nach den Anforderungen von ASME Section V Artikel 7 verarbeitet wurden, die Bewertungsanforderungen von T-780 eingehalten?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.6.1",
+      "question": "Wurden die Teile nach der Magnetpulverprüfung ordnungsgemäß gereinigt, um Magnetpulverrückstände aus Löchern, Spalten, Durchgängen usw. zu entfernen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Leitfaden: Die Reinigung muss mit einem geeigneten Lösungsmittel oder auf andere Weise erfolgen, wobei alle Stopfen, Abdeckungen oder anderen Prozesshilfsmittel vorsichtig entfernt werden, da sie die beabsichtigte Verwendung des Teils beeinträchtigen können."
+    },
+    {
+      "id": "7.6.2",
+      "question": "Wurden die Teile nach der Prüfung und entsprechender Reinigung ordnungsgemäß vor Korrosion oder Beschädigung geschützt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": null
+    },
+    {
+      "id": "7.7.1",
+      "question": "War das Prüfpersonal für die von ihm durchgeführten Arbeiten auf das korrekte Niveau zertifiziert?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": "Leitfaden: Dies ist durch die Überprüfung der Zertifizierungsaufzeichnungen zu verifizieren."
+    },
+    {
+      "id": "7.7.2",
+      "question": "Wurde das gesamte nicht-zertifizierte oder in Ausbildung befindliche Personal, das bei der Durchführung von Magnetpulverprozessen beobachtet wurde, ordnungsgemäß beaufsichtigt?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Leitfaden: Dies ist durch direkte Beobachtung festzustellen."
+    },
+    {
+      "id": "7.7.3",
+      "question": "Trugen alle Mitarbeiter, die eine Nahsehkorrektur benötigen, um die Sehschärfeprüfung zu bestehen, während der Tests/Inspektionen zur Erkennung und Bewertung eine Sehhilfe?",
+      "answer_options": ["Ja", "Nein", "N/A"],
+      "has_na_option": true,
+      "guidance": "Leitfaden: Der Auditor muss überprüfen, ob Korrektionsgläser verwendet wurden, falls erforderlich. N/A nur, wenn keines der beobachteten Prüfpersonen Korrektionsgläser benötigte."
+    },
+    {
+      "id": "7.8.1",
+      "question": "Wurden Symbole und/oder Markierungsmethoden verwendet, um den Status der Magnetpulverprüfung zu kennzeichnen?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    },
+    {
+      "id": "7.8.2",
+      "question": "Wurden alle Prüfergebnisse ordnungsgemäß aufgezeichnet und sind sie zu den Teilen rückverfolgbar?",
+      "answer_options": ["Ja", "Nein"],
+      "has_na_option": false,
+      "guidance": null
+    }
+  ],
+  "total_questions": 159
+}
