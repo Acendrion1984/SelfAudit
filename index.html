@@ -382,36 +382,39 @@
         /* === CONTROLS === */
         .controls-container {
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .controls-scroll {
             display: flex;
-            gap: 6px;
+            gap: 8px;
             overflow-x: auto;
-            padding-bottom: 8px;
+            padding-bottom: 5px;
             scrollbar-width: thin;
+            align-items: center;
         }
         
         .controls-scroll button {
-            padding: 8px 12px;
+            padding: 8px 16px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
-            font-size: 0.8em;
-            min-height: 35px;
-            min-width: 80px;
+            font-weight: 600;
+            font-size: 0.85em;
+            min-height: 38px;
             white-space: nowrap;
             flex-shrink: 0;
             transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
         
         .btn-back { background: var(--btn-back); color: white; }
         .btn-report { background: var(--btn-report); color: white; }
         .btn-danger { background: var(--btn-danger); color: white; }
-        .btn-success { background: var(--btn-success); color: white; }
-        .btn-export { background: var(--btn-export); color: white; }
+        .btn-info { background: var(--btn-info); color: white; }
         
         button:hover { 
             opacity: 0.9;
@@ -619,60 +622,33 @@
             .audit-btn { padding: 10px 6px; min-height: 70px; font-size: 0.85em; flex-direction: row; justify-content: flex-start; text-align: left; padding-left: 12px; }
             .audit-btn .btn-icon { font-size: 1.4em; margin-right: 8px; margin-bottom: 0; }
             .audit-btn .btn-progress { margin-left: auto; margin-top: 0; }
-            .section-header { padding: 8px 10px; font-size: 0.9em; }
-            .section-content { padding: 8px; }
             .question { padding: 10px; }
             .question-text { font-size: 0.9em; }
             .question-id { font-size: 0.7em; margin-left: 5px; }
             .answer-options { gap: 4px; }
             .answer-option { min-width: 60px; padding: 6px 3px; font-size: 0.85em; }
-            .controls-scroll button { min-width: 70px; font-size: 0.75em; padding: 6px 8px; }
+            .controls-scroll { gap: 5px; }
+            .controls-scroll button { 
+                min-width: auto; 
+                padding: 8px 12px;
+                font-size: 0.8em;
+            }
             .overview-stats { grid-template-columns: 1fr; }
-            .submenu-info { grid-template-columns: 1fr; }
         }
         
         @media (min-width: 769px) {
             body { font-size: 15px; }
             .container { padding: 20px; }
-            .section-header { padding: 12px 15px; font-size: 1em; }
-            .section-content { padding: 15px; }
             .question { padding: 15px; }
             .question-text { font-size: 1em; }
             .question-id { font-size: 0.85em; padding: 4px 10px; }
             .answer-option { min-width: 80px; padding: 10px 5px; font-size: 1em; }
             .evidence { padding: 10px 12px; font-size: 0.9em; min-height: 50px; }
+            .controls-scroll button { 
+                padding: 8px 20px;
+                font-size: 0.9em;
+            }
         }
-        
-        /* === MODAL === */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--modal-bg);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background: var(--modal-content-bg);
-            padding: 25px;
-            border-radius: 10px;
-            max-width: 95%;
-            width: 95%;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .audit-selection { display: block; }
-        .audit-selection.active { display: block; }
-        .audit-submenu { display: none; }
-        .audit-submenu.active { display: block; }
-        .audit-content { display: none; }
-        .audit-content.active { display: block; }
         
         footer {
             text-align: center;
@@ -681,37 +657,6 @@
             border-top: 1px solid var(--border-light);
             color: var(--text-secondary);
             font-size: 0.85em;
-        }
-        
-        .language-badge {
-            display: inline-block;
-            padding: 3px 8px;
-            background: var(--header-bg);
-            color: white;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-left: 10px;
-        }
-        
-        .lang-btn {
-            padding: 8px 20px;
-            background: var(--header-bg);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s ease;
-        }
-        
-        .lang-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-        
-        .lang-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
         }
     </style>
 </head>
@@ -764,8 +709,8 @@
             <div class="section-list" id="sectionList"></div>
             
             <div class="overview-actions">
-                <button class="btn-back" id="backToSelectionBtn">← Zurück zur Auswahl</button>
-                <button class="btn-report" id="reportBtn">📋 ENGLISCHEN BERICHT ERSTELLEN</button>
+                <button class="btn-back" id="backToSelectionBtn">← Verfahrenswahl</button>
+                <button class="btn-report" id="reportBtn">📋 ENGLISCHER BERICHT</button>
             </div>
         </div>
 
@@ -778,7 +723,7 @@
 
             <div class="controls-container">
                 <div class="controls-scroll">
-                    <button class="btn-back" id="backToSelectionFromQuestionsBtn">← Auswahl</button>
+                    <button class="btn-back" id="backToSelectionFromQuestionsBtn">← Verfahrenswahl</button>
                     <button class="btn-report" id="reportFromQuestionsBtn">📋 ENGLISCHER BERICHT</button>
                     <button class="btn-danger" id="resetBtn">🗑️ Reset</button>
                 </div>
@@ -820,28 +765,28 @@
             ET: { 
                 title: 'Wirbelstromprüfung', 
                 standard: 'TPG-AC7114/5', 
-                file_de: 'ET.json', 
+                file_de: 'ET_DE.json', 
                 file_en: 'ET_EN.json',
                 icon: '⚡'
             },
             MT: { 
                 title: 'Magnetpulverprüfung', 
                 standard: 'TPG-AC7114/2', 
-                file_de: 'MT.json', 
+                file_de: 'MT_DE.json', 
                 file_en: 'MT_EN.json',
                 icon: '🧲'
             },
             NE: { 
                 title: 'Nital-Ätzen', 
                 standard: 'TPG-AC7114/12', 
-                file_de: 'NE.json', 
+                file_de: 'NE_DE.json', 
                 file_en: 'NE_EN.json',
                 icon: '🧪'
             },
             UT: { 
                 title: 'Ultraschallprüfung', 
                 standard: 'TPG-AC7114/3', 
-                file_de: 'UT.json', 
+                file_de: 'UT_DE.json', 
                 file_en: 'UT_EN.json',
                 icon: '📡'
             }
@@ -922,7 +867,7 @@
                 
                 errorMessage += `\nLösungen:\n`;
                 errorMessage += `1. Legen Sie die JSON-Dateien im selben Ordner wie index.html ab\n`;
-                errorMessage += `2. Prüfen Sie die Groß-/Kleinschreibung (ET.json ≠ et.json)\n`;
+                errorMessage += `2. Prüfen Sie die Groß-/Kleinschreibung (ET_DE.json ≠ et_de.json)\n`;
                 errorMessage += `3. Öffnen Sie die Konsole (F12) für Details`;
                 
                 alert(errorMessage);
@@ -1605,6 +1550,7 @@
                 if (sectionTitleEn.includes('KALIBRIERUNG')) sectionTitleEn = sectionTitleEn.replace('KALIBRIERUNG', 'CALIBRATION');
                 if (sectionTitleEn.includes('DURCHFÜHRUNG')) sectionTitleEn = sectionTitleEn.replace('DURCHFÜHRUNG', 'INSPECTION');
                 if (sectionTitleEn.includes('DOKUMENTATION')) sectionTitleEn = sectionTitleEn.replace('DOKUMENTATION', 'DOCUMENTATION');
+                if (sectionTitleEn.includes('UND')) sectionTitleEn = sectionTitleEn.replace('UND', 'AND');
                 
                 reportHTML += `<div class="section">
                     <div class="section-header">${sectionTitleEn}</div>`;
