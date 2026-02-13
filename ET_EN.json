@@ -3,566 +3,670 @@
   "revision": "NA",
   "questions": [
     {
-      "id": "3.1.1",
-      "question": "Are all test probes identified or traceable to part number, frequency, coil diameter, probe type (Array, Differential, Absolute, etc.) and whether the coil is shielded or not?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true,
-      "guidance": "Note: Type and frequency can be traceable via the part number."
+        "id": "3.1.1",
+        "question": "Are all probes identified, or provide traceability to, part number, frequency, coil diameter, probe type (array, differential, absolute, etc) and if the probe coil is shielded or unshielded?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "3.1.2",
-      "question": "Is a magnetometer / residual field indicator available to check for demagnetization?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true,
-      "guidance": "Guidance: If no ferromagnetic components are being tested → NA."
+        "id": "3.1.2",
+        "question": "Is a magnetometer/residual field indicator(s), used to verify demagnetization, available?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true,
+        "guidance": "Guidance: If ferrous materials/parts are not Eddy Current inspected, answer NA."
     },
     {
-      "id": "4.1.1",
-      "question": "Does a procedure (general or specific) exist for the eddy current test?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false,
-      "guidance": "(\"Procedure\" can be a technique sheet, traveler, route card, or similar.)"
+        "id": "4.1.1",
+        "question": "Is there a procedure, general or specific, for processing and inspection using the Eddy Current Testing method?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.1.2",
-      "question": "Does the procedure(s) provide traceability to the name and address of the testing facility?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.1.2",
+        "question": "Does the procedure(s) have traceability to the name and address of the facility performing inspection?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.1.3",
-      "question": "Is the procedure approved by the responsible Level-3?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.1.3",
+        "question": "Does the procedure(s) indicate approval by the applicable Level 3?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.1.4",
-      "question": "Does the procedure(s) have an identification number and an approval date?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.1.4",
+        "question": "Does the procedure(s) have an identification number and the date the procedure was approved?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.1.5",
-      "question": "Do the procedures require that all personnel are qualified/certified for the task and contractual requirements?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.1.5",
+        "question": "A requirement that all personnel are qualified and certified to the required level for the activity undertaken and the applicable contract requirements?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.1.6",
-      "question": "Are the types of records and the method for identifying the inspection status described?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.1.6",
+        "question": "Type of records and description for the method of identifying inspection status?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.1.7",
-      "question": "Is there a method for controlling software/programming for automated processing equipment (if applicable)?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "4.1.7",
+        "question": "Method for control of software or programming used for automated processing equipment as applicable?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "4.2.1.1",
-      "question": "Does the written procedure contain at least the part number, material, and material designation of the part to be tested?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.2.1.1",
+        "question": "The part number, material, alloy, type relevant to the material/part to be examined?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.2",
-      "question": "Are the equipment to be used for the test, including manufacturer and model, documented?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.2.1.2",
+        "question": "The equipment to be used for inspection, including manufacturer and model number?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.3",
-      "question": "Are frequency, coil diameter, shielded/unshielded, type, and part number of the probes used listed?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false,
-      "guidance": "Guidance: Type and frequency can be traceable via part number."
+        "id": "4.2.1.3",
+        "question": "The frequency, coil diameter, shielded/un-shielded, type and part number of probes used?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.4",
-      "question": "Are the test instrument settings (e.g., gain, offset, phase, etc.) documented?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.2.1.4",
+        "question": "The reference standard identification?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.5",
-      "question": "Does the procedure include requirements for demagnetization of reference standards and workpieces?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true,
-      "guidance": "Guidance: If no ferromagnetic parts are tested → NA."
+        "id": "4.2.1.5",
+        "question": "The reference standard and material/part demagnetization requirements?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "4.2.1.6",
-      "question": "Does the procedure use magnetic field indicators to verify demagnetization?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "4.2.1.6",
+        "question": "The use of magnetic field indicators to verify demagnetization?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "4.2.1.7",
-      "question": "If residual magnetism is present, are parts demagnetized and retested?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "4.2.1.7",
+        "question": "If residual magnetism is present, the material/part(s) are to be demagnetized and re-inspected?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "4.2.1.8",
-      "question": "Are customer acceptance criteria addressed or traceable?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.2.1.8",
+        "question": "Address or provide traceability to customer acceptance criteria?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.9",
-      "question": "Are the required standardization parameters documented (e.g., minimum notch amplitude, gate settings)?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.2.1.9",
+        "question": "The required standardization parameters?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.10",
-      "question": "Is the minimum signal-to-noise ratio specified?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.2.1.10",
+        "question": "The minimum signal to noise ratio?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.11",
-      "question": "Does the procedure contain sketches, photos, or diagrams of the inspection area coverage/orientation?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.2.1.11",
+        "question": "Sketches, photos, chart or procedure indicating area and coverage and/or orientation of the material/part?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.12",
-      "question": "Which internal filter settings are used (e.g., high-pass, low-pass)?",
-      "answer_options": ["YES (documented)", "NO", "NA"],
-      "has_na_option": true
+        "id": "4.2.1.12",
+        "question": "The internal filter setting used?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "4.2.1.13",
-      "question": "Which external filter settings are used?",
-      "answer_options": ["YES (documented)", "NO", "NA"],
-      "has_na_option": true,
-      "guidance": "(No external filters in use = Note)"
+        "id": "4.2.1.13",
+        "question": "The external filter setting used?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "4.2.1.14",
-      "question": "Are inspection index increments, scan speed, and coverage verification method specified?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.2.1.14",
+        "question": "The inspection index increments, scan speed and inspection coverage verification method used?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.15",
-      "question": "Are the acceptance requirements for evaluating indications and the action for the part after inspection specified?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.2.1.15",
+        "question": "The acceptance requirements to be used for evaluating indications and disposition of part(s) after examination?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.16",
-      "question": "Is the system checked at the start of inspection, after 4 hours, at the end of the shift, at the end of the batch, or at the end of inspection?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "4.2.1.16",
+        "question": "That the system is checked at the beginning of the examination, then after 4 hours, at the end of the shift, at the end of the lot or at the end of the inspection?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.17",
-      "question": "Is the system checked when equipment/accessories are changed or when power supply changes occur?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "4.2.1.17",
+        "question": "That the system is checked whenever there is a change in equipment or accessories or whenever there are changes in the electrical power supply that affect the Eddy Current examination?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "4.2.1.18",
-      "question": "If an equipment failure occurs: Is the equipment repaired/replaced and the entire batch retested?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "4.2.1.18",
+        "question": "If there is an equipment malfunction, that the equipment is repaired or replaced and the entire lot re-inspected?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "4.2.1.19",
-      "question": "Is there a method for controlling software/programming for automated processing (if applicable)?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "4.2.1.19",
+        "question": "The method for the control of software or programming used for automated processing equipment as applicable?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "5.1.1",
-      "question": "Does the standardization meet the requirements of the technique?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "5.1.1",
+        "question": "Does the standardization reflect the requirements given in the technique?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "5.1.2",
-      "question": "Is the roughness of the standard such that the signal-to-noise ratio required by the customer is maintained?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "5.1.2",
+        "question": "Is the surface roughness of the standard such that the Subscriber customer required defect signal to noise ratio is maintained?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "5.1.3",
-      "question": "Are the same scan parameters used on the test part as on the reference standard?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "5.1.3",
+        "question": "Are the inspection scanning parameters used to inspect material/parts the same as those used on the reference standard?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "5.1.4",
-      "question": "Do the probe ends have protection against scratches (e.g., Teflon tape), if specified by the customer?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true,
-      "guidance": "NA if the probe is not in contact with the surface."
+        "id": "5.1.4",
+        "question": "Do the ends of the probes employ a protective barrier to eliminate scratches on parts under inspection; e.g., teflon tape, etc. as required by the Subscriber customer's specification?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "5.1.5",
-      "question": "Does the lift-off distance (probe ↔ material) correspond to the standardization?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "5.1.5",
+        "question": "Is the lift-off distance between the probe and material/part, as required by the approved technique, the same as the standardization as listed in paragraph 5.1.1?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "5.1.6",
-      "question": "If Bolt-Hole/Encircling/ID-Coils are used: Is the fill-factor within ±10% of the reference standard?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "5.1.6",
+        "question": "If bolt hole probes, encircling and/or inside diameter coils are used, is the fill factor between probes and material/parts within +/-10% of the reference standard as listed in paragraph 5.1.1?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "5.2.1",
-      "question": "Is the system checked at start-up, after changes, after 4 hours, at the end of the shift, at the end of the batch, or at the end of inspection?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "5.2.1",
+        "question": "Is the system checked at the beginning of the examination, whenever there is a change in equipment or accessories, whenever there are changes in the electrical power supply that affect the Eddy Current examination, after 4 hours, at the end of the shift, at the end of the lot or at the end of the inspection?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "5.2.2",
-      "question": "For automated systems: Has the standardization been performed according to customer requirements?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "5.2.2",
+        "question": "For automated systems is the system standardized in accordance with the Subscriber customer requirements?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "6.1.1.1",
-      "question": "The Hall Effect meters shall be calibrated at a minimum of three points in each dynamic range and each polarity in addition to zero?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "6.1.1.1",
+        "question": "The Hall Effect meters shall be calibrated at a minimum of three points each dynamic range and each polarity in addition to zero?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "6.1.1.2",
-      "question": "The Hall Effect meters are calibrated at least semi-annually?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "6.1.1.2",
+        "question": "The Hall Effect meters are calibrated at least semi-annually?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "6.1.2",
-      "question": "Is there evidence of compliance to the procedure and are records of this test on file and do they indicate that the calibration is current?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "6.1.2",
+        "question": "Is there evidence of compliance to the procedure and are records of this test on file and do they indicate that the calibration is current?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "6.3.1.1",
-      "question": "The Eddy Current instrument shall hold a calibration certificate or metrology verification?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "6.3.1.1",
+        "question": "The Eddy Current instrument shall hold a calibration certificate or metrology verification?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "6.3.1.2",
-      "question": "The Eddy Current instrument shall be calibrated or checked by metrology at least annually?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "6.3.1.2",
+        "question": "The Eddy Current instrument shall be calibrated or checked by metrology at least annually?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "6.3.2",
-      "question": "Is there evidence of compliance to the procedure and are records of this test on file and do they indicate that the calibration / metrology certificate is current?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "6.3.2",
+        "question": "Is there evidence of compliance to the procedure and are records of this test on file and do they indicate that the calibration / metrology certificate is current?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "6.4.1.1",
-      "question": "That documentation is available for all reference standards fabricated in accordance with Subscriber specifications or referenced standards?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "6.4.1.1",
+        "question": "That documentation is available for all reference standards fabricated in accordance with Subscriber specifications or referenced standards?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "6.4.1.2",
-      "question": "For special standards, the standard is comparable to the component being inspected, including surface finish?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "6.4.1.2",
+        "question": "For special standards, the standard is comparable to the component being inspected, including surface finish?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "6.4.1.2.1",
-      "question": "That manufacturing documentation of the reference standards shall be available for review?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "6.4.1.2.1",
+        "question": "That manufacturing documentation of the reference standards shall be available for review?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "6.4.1.3",
-      "question": "That all standards are clearly identified as to material type, notch size, and depth, etc. or traceable to documentation with noted requirements?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "6.4.1.3",
+        "question": "That all standards are clearly identified as to material type, notch size, depth, etc. or traceable to documentation with noted requirements?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "6.4.1.4",
-      "question": "The bearing reference standard shall be representative of the configuration being inspected, per technique/procedure?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "6.4.1.4",
+        "question": "The bearing reference standard shall be representative of the configuration being inspected, per technique/procedure?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "6.4.1.5",
-      "question": "That reference/calibration standards are stored and handled to prevent damage from mishandling, corrosion, pitting, etc.?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "6.4.1.5",
+        "question": "That reference/calibration standards are stored and handled to prevent damage from mishandling, corrosion, pitting, etc.?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "6.4.2",
-      "question": "Is there evidence of compliance with the procedure and are the test results documented and acceptable?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "6.4.2",
+        "question": "Is there evidence of compliance to the procedure and are records of this test on file and do they indicate acceptable results?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.1",
-      "question": "Documentation: Have the required documents for the tested parts been provided (order, drawing, work order, process specification, internal procedures, lot/serial number, Technique Card, Traveler, inspection log)?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.1.A.1",
+        "question": "Compliance",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.1A",
-      "question": "Is the part controlled under U.S. Export Control Regulations as declared by the Auditee?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false,
-      "guidance": "Guidance: A NO answer does not require an NCR"
+        "id": "7.1.A.2",
+        "question": "Customer:",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.1A.1",
-      "question": "Compliance",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.1.A.3",
+        "question": "Subscriber / End User:",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.1A.13",
-      "question": "Is the inspector wearing vision correction as required?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true,
-      "guidance": "Guidance: The Auditor shall verify that corrective lenses were used if required."
+        "id": "7.1.A.4",
+        "question": "Purchase Order Number:",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.2",
-      "question": "Are the parts to be tested clearly identified and traceable to the order/drawing?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.1.A.5",
+        "question": "Work Order Number:",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.3",
-      "question": "Are appropriate customer-specific specifications and revisions used (according to contract)?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.1.A.6",
+        "question": "Lot / Batch / Serial Number:",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.4.1.1",
-      "question": "Do inspection documents contain traceability to part number / material identification?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.1.A.7",
+        "question": "Process Specification(s) / Revision(s):",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.4.1.2",
-      "question": "Are process specification and revision available?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.1.A.8",
+        "question": "Internal Procedure(s) / Revision(s):",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.4.1.3",
-      "question": "Are acceptance criteria and revision documented?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.1.A.9",
+        "question": "Acceptance Specification / Drawing Notes (including Revision level; Class and/or Grade if applicable):",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.4.1.4",
-      "question": "Is the correct sequence of operations maintained?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.1.A.10",
+        "question": "Part Description:",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.5.1",
-      "question": "Did the inspector review the relevant specifications, technique sheets and procedures before the inspection?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.1.A.11",
+        "question": "Part Number / Revision:",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.5.2",
-      "question": "Was the component checked for residual field before testing and, if necessary, demagnetized?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.1.A.12",
+        "question": "Inspectors / Level(s):",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.5.3",
-      "question": "If ferromagnetic parts were tested: Was the reference standard demagnetized to ≤1 Gauss (with residual field indicator) before testing?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.1.A.13",
+        "question": "Is the inspector wearing vision correction as required?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.5.4",
-      "question": "Does the equipment support the frequency ranges of the probes used?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.1.A.14",
+        "question": "Equipment / Tool ID:",
+        "answer_options": [],
+        "has_na_option": false
     },
     {
-      "id": "7.5.5",
-      "question": "Is the equipment capable of detecting all relevant discontinuities mentioned in the customer acceptance specifications?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.3.1",
+        "question": "Is the facility using the appropriate specifications and revisions as required by the contract document?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.5.6",
-      "question": "Do the test probes meet customer requirements?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.3.2",
+        "question": "If the facility is working to any deviations, have they been approved by the customer?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.5.7",
-      "question": "Were all parts clean before testing?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.3.3",
+        "question": "Were the applicable requirements, procedures and acceptance criteria made available to the Eddy Current inspectors?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.5.8",
-      "question": "Were the parts tested according to the applicable procedure/technique sheet?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.3.4",
+        "question": "If written procedures, and or techniques, require review and/or approval by the Cognizant Engineering Organization(Subscriber Customer), is that approval evident?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.5.9",
-      "question": "Was it ensured that after standardization no settings were changed that could affect test performance?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.3.5",
+        "question": "If applicable, are part specific drawing inspection and/or acceptance notes being flowed down and followed by the inspectors?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.6.1",
-      "question": "Were residual field strength measurements performed on bearings before testing?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.3.6",
+        "question": "Was there evidence of compliance to the document control procedure?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.6.2",
-      "question": "If required, were all parts demagnetized before testing?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.3.7",
+        "question": "If applicable, are all specifications, drawings, procedures or technique changes authorized?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.6.3",
-      "question": "Was the reference standard, if ferromagnetic, demagnetized so that ≤1 Gauss was present when measured?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.3.8",
+        "question": "Are Eddy Current inspections appropriately performed on 100% of the material/parts or is a sampling plan utilized?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.6.4",
-      "question": "Is eddy current only performed on finished bearing components?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.3.8.1",
+        "question": "If sampling plans are utilized, have they been approved by the customer?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.6.5",
-      "question": "Was the scan increment used according to technique/procedure?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.4.1.1",
+        "question": "Part number / Material Identification?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.6.6",
-      "question": "Was the test speed the same as during setup?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.4.1.2",
+        "question": "Process specification and revision?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.6.7",
-      "question": "Were all equipment settings made during setup left unchanged during testing?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.4.1.3",
+        "question": "Acceptance criteria specification and revision?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.6.8",
-      "question": "In case of failure: Was equipment repaired/replaced and the entire batch retested?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.4.1.4",
+        "question": "Correct sequence of operations?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.6.9",
-      "question": "Were rejected parts with detected residual magnetism demagnetized and retested?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.5.1",
+        "question": "Did the inspector review the applicable specification(s), technique sheet, and/or procedure(s) prior to inspecting the material/part?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.6.10",
-      "question": "In case of faulty setup execution, was the entire batch retested after correction?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.5.2",
+        "question": "Was the material or part(s) checked for a residual magnetic field prior to the inspection? And if so, were they demagnetized if required?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.6.11",
-      "question": "After testing a batch, was the reference standard retested for verification?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.5.3",
+        "question": "If ferromagnetic material or parts were inspected, was the reference standard, material or part properly demagnetized prior to inspection to ensure that a magnetic field of 1 gauss or less was present when tested with a residual field indicator (magnetometer)?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.6.12",
-      "question": "For repeatability, was the signal amplitude response observed as defined in the procedure?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.5.4",
+        "question": "Does the Eddy Current equipment support the frequency ranges of the probes being used?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.6.12.1",
-      "question": "If not: Were corrective actions taken and the batch retested?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.5.5",
+        "question": "Is the equipment capable of detecting all relevant discontinuities called out by the customer's acceptance specifications?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.7.1",
-      "question": "Did the inspector correctly evaluate all indications and reject parts with relevant indications above limit value?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.5.6",
+        "question": "Do the Eddy Current probe(s) meet the requirements called out by the customer?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.7.2",
-      "question": "Were all rejectable indications marked on the component and/or documented?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.5.7",
+        "question": "Were all parts clean?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.7.3",
-      "question": "Were all relevant documents traceable to the part?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.5.8",
+        "question": "Were the parts inspected in accordance with the applicable procedure and/or technique sheet?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.7.4",
-      "question": "Did the inspector understand the specific acceptance/rejection criteria?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.5.9",
+        "question": "Was care taken to ensure that no adjustments were made to the equipment after standardization was completed that could affect inspection performance?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.7.5",
-      "question": "Do the acceptance criteria correctly reflect the customer requirements?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.6.1",
+        "question": "Were residual field strength measurements taken prior to inspection?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.8.1",
-      "question": "If required: Was appropriate post-cleaning performed?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.6.2",
+        "question": "If required, were all parts demagnetized prior to performing inspection?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.8.2",
-      "question": "Were parts adequately protected against corrosion/damage after cleaning?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.6.3",
+        "question": "If ferromagnetic material or parts were inspected, was the reference standard, material or part properly demagnetized prior to inspection to ensure that a magnetic field of 1 gauss or less was present when tested with a residual field indicator (magnetometer)?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
     },
     {
-      "id": "7.9.1",
-      "question": "Were the inspection personnel certified at the level required for their activity?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.6.4",
+        "question": "Is Eddy Current inspection performed on finished bearing components only?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.9.2",
-      "question": "Are all Level 1 personnel properly supervised by Level II/III personnel during ET operations?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.6.5",
+        "question": "Was the scanning increment used as defined by the technique/procedures?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.10.1",
-      "question": "Are symbols/markings used to indicate the inspection status (e.g., ET tested) on paper routing/traveler?",
-      "answer_options": ["YES", "NO", "NA"],
-      "has_na_option": true
+        "id": "7.6.6",
+        "question": "Was the speed of the inspection the same as that used during the set-up of the equipment?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     },
     {
-      "id": "7.10.2",
-      "question": "Were all test results correctly recorded and traceably assigned to the parts?",
-      "answer_options": ["YES", "NO"],
-      "has_na_option": false
+        "id": "7.6.7",
+        "question": "Were all equipment settings made during set-up left unchanged during the inspection?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
+    },
+    {
+        "id": "7.6.8",
+        "question": "If it was determined that there was an equipment malfunction, was the equipment repaired or replaced and the entire lot re-inspected?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.6.9",
+        "question": "If it was determined that there was residual magnetism present, was/were the rejected material/part(s) demagnetized and re-inspected?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.6.10",
+        "question": "If it was determined that the set-up or inspection steps were performed improperly, was the entire lot re-inspected following the appropriate corrective action?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.6.11",
+        "question": "Following the inspection of a lot of bearing components, was the standard re-run for verification purposes?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
+    },
+    {
+        "id": "7.6.12",
+        "question": "For repeatability, was the signal amplitude response obtained as by the technique/procedures?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
+    },
+    {
+        "id": "7.6.12.1",
+        "question": "If not, was appropriate corrective action taken to ensure that the inspection was performed properly and that the lot was re-inspected?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.6.13",
+        "question": "Is the reference standard representative of the part configuration being inspected, per technique/procedure?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
+    },
+    {
+        "id": "7.6.14",
+        "question": "Was the system checked if the inspection ran for more than four hours?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.7.1",
+        "question": "If required, did the inspector properly evaluate every indication and reject parts containing relevant indications that exceeded the acceptance limits?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.7.2",
+        "question": "Were all rejectable indications marked on the part and/or appropriately documented?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.7.3",
+        "question": "Was all pertinent paperwork traceable to the part?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
+    },
+    {
+        "id": "7.7.4",
+        "question": "Were the specific accept/reject criteria properly understood by the inspector?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
+    },
+    {
+        "id": "7.7.5",
+        "question": "Did the accept/reject criteria properly reflect the customer criteria?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
+    },
+    {
+        "id": "7.8.1",
+        "question": "If required was an adequate post process cleaning operation performed?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.8.2",
+        "question": "After inspection and appropriate cleaning, were parts properly protected from corrosion or damage?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.9.1",
+        "question": "Were the inspection personnel certified to the correct levels for the work they were performing?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
+    },
+    {
+        "id": "7.9.2",
+        "question": "Were all level 1 personnel observed performing ET operations properly supervised by a level II or level III personnel?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.10.1",
+        "question": "Are symbols and/or marking methods used to denote Eddy Current inspection status through paper router, shop traveler, etc?",
+        "answer_options": ["YES", "NO", "NA"],
+        "has_na_option": true
+    },
+    {
+        "id": "7.10.2",
+        "question": "Were all inspection results properly recorded and traceable to the parts?",
+        "answer_options": ["YES", "NO"],
+        "has_na_option": false
     }
-  ],
-  "total_questions": 104
-}
+]
