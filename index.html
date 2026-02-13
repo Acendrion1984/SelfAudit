@@ -1170,7 +1170,6 @@
             currentSectionIndex = sectionIndex;
             const section = auditSections[sectionIndex];
             
-            document.getElementById('currentSectionTitle').textContent = section.title;
             
             renderCurrentSection();
             updateCurrentAuditProgress();
@@ -1843,15 +1842,15 @@
             document.getElementById('backToSelectionBtn').addEventListener('click', goBackToSelection);
             document.getElementById('backToOverviewBtn').addEventListener('click', goBackToOverview);
             
-            // Report
-            document.getElementById('reportBtn').addEventListener('click', generateEnglishReport);
-            document.getElementById('reportFromQuestionsBtn').addEventListener('click', generateEnglishReport);
-            
-            // Reset
-            document.getElementById('resetBtn').addEventListener('click', resetAudit);
-            
-            // === NEU: Ergebnisse laden ===
-            document.getElementById('loadResultsBtn').addEventListener('click', showImportModal);
+// Report
+document.getElementById('reportBtn').addEventListener('click', generateEnglishReport);
+document.getElementById('reportFromQuestionsBtn').addEventListener('click', generateEnglishReport);
+
+// Reset - KORRIGIERT
+document.getElementById('resetFromQuestionsBtn').addEventListener('click', resetAudit);
+
+// === NEU: Ergebnisse laden - KORRIGIERT ===
+document.getElementById('loadResultsFromQuestionsBtn').addEventListener('click', showImportModal);
             
             // Modal Buttons
             document.getElementById('cancelImportBtn').addEventListener('click', () => {
