@@ -338,11 +338,19 @@
             color: white;
         }
         
-        /* === AUDIT FRAGEN (NEUE SEITE) === */
+        .overview-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            justify-content: flex-end;
+        }
+        
+        /* === AUDIT FRAGEN (NEUE SEITE) - OHNE EXTRA BUTTON ÜBER DEN CONTROLS === */
         .audit-questions-page {
             padding: 0;
         }
         
+        /* Der "Alle Bereiche" Button ist jetzt in der Button-Leiste */
         .questions-header {
             display: flex;
             justify-content: center;
@@ -409,7 +417,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         
-        /* === STATUS & PROGRESS (nur auf Fragen-Seite) === */
+        /* === STATUS & PROGRESS === */
         .audit-status {
             display: flex;
             justify-content: space-between;
@@ -754,16 +762,6 @@
 
         <!-- === SEITE 2: AUDIT-ÜBERSICHT === -->
         <div id="pageOverview" class="page audit-overview">
-            <!-- === BUTTON-LEISTE AUCH AUF DER ÜBERSICHTSSEITE === -->
-            <div class="controls-container">
-                <div class="button-row">
-                    <button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button>
-                    <button class="btn-report" id="reportFromOverviewBtn">📋 ENGLISCHER BERICHT</button>
-                    <button class="btn-load" id="loadResultsFromOverviewBtn">📂 Ergebnisse laden</button>
-                    <button class="btn-danger" id="resetFromOverviewBtn">🗑️ Reset</button>
-                </div>
-            </div>
-            
             <div class="overview-header">
                 <div class="overview-title" id="overviewTitle">Audit Übersicht</div>
             </div>
@@ -773,24 +771,24 @@
             <h3 style="margin-bottom: 15px; color: var(--text-tertiary);">Verfügbare Prüfbereiche:</h3>
             
             <div class="section-list" id="sectionList"></div>
+            
+            <div class="overview-actions">
+                <button class="btn-back" id="backToSelectionBtn">← Verfahrenswahl</button>
+                <button class="btn-report" id="reportBtn">📋 PRI Bericht (eng.)</button>
+            </div>
         </div>
 
-        <!-- === SEITE 3: AUDIT-FRAGEN === -->
-        <div id="pageQuestions" class="page audit-questions-page">
-            <!-- === GLEICHE BUTTON-LEISTE AUCH AUF DER FRAGENSEITE === -->
-            <div class="controls-container">
-                <div class="button-row">
-                    <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
-                    <button class="btn-back" id="backToSelectionFromQuestionsBtn">← Verfahrenswahl</button>
-                    <button class="btn-report" id="reportFromQuestionsBtn">📋 ENGLISCHER BERICHT</button>
-                    <button class="btn-load" id="loadResultsFromQuestionsBtn">📂 Ergebnisse laden</button>
-                    <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
-                </div>
-            </div>
-            
-            <div class="questions-header">
-                <div class="questions-title" id="currentSectionTitle"></div>
-            </div>
+<!-- === SEITE 3: AUDIT-FRAGEN === -->
+<div id="pageQuestions" class="page audit-questions-page">
+    <!-- === GLEICHE BUTTON-LEISTE AUCH AUF DER FRAGENSEITE === -->
+    <div class="controls-container">
+        <div class="button-row">
+            <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
+            <button class="btn-report" id="reportFromQuestionsBtn">📋 ENGLISCHER BERICHT</button>
+            <button class="btn-load" id="loadResultsFromQuestionsBtn">📂 Ergebnisse laden</button>
+            <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
+        </div>
+    </div>
 
             <div class="audit-status">
                 <span>Fortschritt: <strong id="progressText">0%</strong></span>
@@ -1841,24 +1839,19 @@
                 });
             });
 
-            // Navigation von der Übersichtsseite
-            document.getElementById('backToSelectionFromOverviewBtn').addEventListener('click', goBackToSelection);
-            
-            // Navigation von der Fragenseite
-            document.getElementById('backToSelectionFromQuestionsBtn').addEventListener('click', goBackToSelection);
+            // Navigation
+            document.getElementById('backToSelectionBtn').addEventListener('click', goBackToSelection);
             document.getElementById('backToOverviewBtn').addEventListener('click', goBackToOverview);
             
-            // Report von beiden Seiten
-            document.getElementById('reportFromOverviewBtn').addEventListener('click', generateEnglishReport);
+            // Report
+            document.getElementById('reportBtn').addEventListener('click', generateEnglishReport);
             document.getElementById('reportFromQuestionsBtn').addEventListener('click', generateEnglishReport);
             
-            // Reset von beiden Seiten
-            document.getElementById('resetFromOverviewBtn').addEventListener('click', resetAudit);
-            document.getElementById('resetFromQuestionsBtn').addEventListener('click', resetAudit);
+            // Reset
+            document.getElementById('resetBtn').addEventListener('click', resetAudit);
             
-            // Ergebnisse laden von beiden Seiten
-            document.getElementById('loadResultsFromOverviewBtn').addEventListener('click', showImportModal);
-            document.getElementById('loadResultsFromQuestionsBtn').addEventListener('click', showImportModal);
+            // === NEU: Ergebnisse laden ===
+            document.getElementById('loadResultsBtn').addEventListener('click', showImportModal);
             
             // Modal Buttons
             document.getElementById('cancelImportBtn').addEventListener('click', () => {
