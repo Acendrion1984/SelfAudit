@@ -760,49 +760,58 @@
             </div>
         </div>
 
-        <!-- === SEITE 2: AUDIT-ÜBERSICHT === -->
-        <div id="pageOverview" class="page audit-overview">
-            <div class="overview-header">
-                <div class="overview-title" id="overviewTitle">Audit Übersicht</div>
-            </div>
-            
-            <div class="overview-stats" id="overviewStats"></div>
-            
-            <h3 style="margin-bottom: 15px; color: var(--text-tertiary);">Verfügbare Prüfbereiche:</h3>
-            
-            <div class="section-list" id="sectionList"></div>
-            
-            <div class="overview-actions">
-                <button class="btn-back" id="backToSelectionBtn">← Verfahrenswahl</button>
-                <button class="btn-report" id="reportBtn">📋 PRI Bericht (eng.)</button>
-            </div>
+<!-- === SEITE 2: AUDIT-ÜBERSICHT === -->
+<div id="pageOverview" class="page audit-overview">
+    <!-- === BUTTON-LEISTE ÜBER DEN PRÜFBEREICHEN === -->
+    <div class="controls-container" style="margin-bottom: 25px;">
+        <div class="button-row">
+            <button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button>
+            <button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button>
+            <!-- Englischer Bericht Button wurde entfernt, da er jetzt in den Audits nicht mehr vorkommt -->
         </div>
+    </div>
+    
+    <div class="overview-header">
+        <div class="overview-title" id="overviewTitle">Audit Übersicht</div>
+    </div>
+    
+    <div class="overview-stats" id="overviewStats"></div>
+    
+    <h3 style="margin-bottom: 15px; color: var(--text-tertiary);">Verfügbare Prüfbereiche:</h3>
+    
+    <div class="section-list" id="sectionList"></div>
+</div>
 
 <!-- === SEITE 3: AUDIT-FRAGEN === -->
 <div id="pageQuestions" class="page audit-questions-page">
-    <!-- === GLEICHE BUTTON-LEISTE AUCH AUF DER FRAGENSEITE === -->
+    <!-- === BUTTON-LEISTE AUF DER FRAGENSEITE === -->
     <div class="controls-container">
         <div class="button-row">
             <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
-            <button class="btn-report" id="reportFromQuestionsBtn">📋 ENGLISCHER BERICHT</button>
+            <!-- Der englische Bericht Button wurde hier entfernt -->
             <button class="btn-load" id="loadResultsFromQuestionsBtn">📂 Ergebnisse laden</button>
             <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
         </div>
     </div>
+    
+    <!-- Rest bleibt gleich -->
+    <div class="questions-header">
+        <div class="questions-title" id="currentSectionTitle"></div>
+    </div>
 
-            <div class="audit-status">
-                <span>Fortschritt: <strong id="progressText">0%</strong></span>
-                <span>|</span>
-                <span>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong></span>
-                <span>|</span>
-                <span>Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></span>
-            </div>
-            <div class="audit-progress-container">
-                <div class="audit-progress-bar" id="auditProgressBar" style="width: 0%">0%</div>
-            </div>
+    <div class="audit-status">
+        <span>Fortschritt: <strong id="progressText">0%</strong></span>
+        <span>|</span>
+        <span>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong></span>
+        <span>|</span>
+        <span>Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></span>
+    </div>
+    <div class="audit-progress-container">
+        <div class="audit-progress-bar" id="auditProgressBar" style="width: 0%">0%</div>
+    </div>
 
-            <div class="questions-container" id="questionsContainer"></div>
-        </div>
+    <div class="questions-container" id="questionsContainer"></div>
+</div>
         
         <!-- === MODAL FÜR ERGEBNISSE LADEN === -->
         <div id="importModal" class="modal">
@@ -1844,7 +1853,6 @@
             
 // Report
 document.getElementById('reportBtn').addEventListener('click', generateEnglishReport);
-document.getElementById('reportFromQuestionsBtn').addEventListener('click', generateEnglishReport);
 
 // Reset - KORRIGIERT
 document.getElementById('resetFromQuestionsBtn').addEventListener('click', resetAudit);
