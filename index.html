@@ -345,14 +345,15 @@
             justify-content: flex-end;
         }
         
-        /* === AUDIT FRAGEN (NEUE SEITE) === */
+        /* === AUDIT FRAGEN (NEUE SEITE) - OHNE EXTRA BUTTON ÜBER DEN CONTROLS === */
         .audit-questions-page {
             padding: 0;
         }
         
+        /* Der "Alle Bereiche" Button ist jetzt in der Button-Leiste */
         .questions-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin-bottom: 15px;
             padding-bottom: 10px;
@@ -363,23 +364,6 @@
             font-size: 1.1em;
             font-weight: bold;
             color: var(--text-tertiary);
-        }
-        
-        .back-btn {
-            padding: 6px 12px;
-            background: var(--btn-info);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.8em;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-        
-        .back-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
         }
         
         /* === CONTROLS - ALLE BUTTONS IN EINEM CONTAINER UND EINER ZEILE! === */
@@ -711,11 +695,8 @@
             .overview-stats { grid-template-columns: 1fr; }
             .questions-header {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
                 gap: 10px;
-            }
-            .back-btn {
-                align-self: flex-end;
             }
         }
         
@@ -799,14 +780,15 @@
 
         <!-- === SEITE 3: AUDIT-FRAGEN === -->
         <div id="pageQuestions" class="page audit-questions-page">
+            <!-- Nur noch der Titel, kein separater Button mehr -->
             <div class="questions-header">
                 <div class="questions-title" id="currentSectionTitle"></div>
-                <button class="back-btn" id="backToOverviewBtn">← Alle Bereiche</button>
             </div>
 
             <!-- === ALLE BUTTONS IN EINEM CONTAINER UND EINER ZEILE! === -->
             <div class="controls-container">
                 <div class="button-row">
+                    <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
                     <button class="btn-back" id="backToSelectionFromQuestionsBtn">← Verfahrenswahl</button>
                     <button class="btn-report" id="reportFromQuestionsBtn">📋 ENGLISCHER BERICHT</button>
                     <button class="btn-load" id="loadResultsBtn">📂 Ergebnisse laden</button>
