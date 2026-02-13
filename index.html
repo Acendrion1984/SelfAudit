@@ -382,7 +382,7 @@
             transform: translateY(-1px);
         }
         
-        /* === CONTROLS - ALLE BUTTONS IN EINER ZEILE! === */
+        /* === CONTROLS - ALLE BUTTONS IN EINEM CONTAINER UND EINER ZEILE! === */
         .controls-container {
             width: 100%;
             margin-bottom: 20px;
@@ -392,17 +392,18 @@
             border: 1px solid var(--border-light);
         }
         
-        .controls-scroll {
+        .button-row {
             display: flex;
+            flex-wrap: nowrap;
             gap: 10px;
             overflow-x: auto;
             padding-bottom: 5px;
             scrollbar-width: thin;
             align-items: center;
-            flex-wrap: nowrap;
+            justify-content: flex-start;
         }
         
-        .controls-scroll button {
+        .button-row button {
             padding: 10px 18px;
             border: none;
             border-radius: 6px;
@@ -411,7 +412,7 @@
             font-size: 0.9em;
             min-height: 42px;
             white-space: nowrap;
-            flex-shrink: 0;
+            flex: 0 0 auto;
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
@@ -701,8 +702,8 @@
             .question-id { font-size: 0.7em; margin-left: 5px; }
             .answer-options { gap: 4px; }
             .answer-option { min-width: 60px; padding: 6px 3px; font-size: 0.85em; }
-            .controls-scroll { gap: 8px; }
-            .controls-scroll button { 
+            .button-row { gap: 8px; }
+            .button-row button { 
                 padding: 8px 14px;
                 font-size: 0.85em;
                 min-height: 38px;
@@ -726,7 +727,7 @@
             .question-id { font-size: 0.85em; padding: 4px 10px; }
             .answer-option { min-width: 80px; padding: 10px 5px; font-size: 1em; }
             .evidence { padding: 10px 12px; font-size: 0.9em; min-height: 50px; }
-            .controls-scroll button { 
+            .button-row button { 
                 padding: 10px 20px;
                 font-size: 0.95em;
             }
@@ -803,9 +804,9 @@
                 <button class="back-btn" id="backToOverviewBtn">← Alle Bereiche</button>
             </div>
 
-            <!-- === ALLE BUTTONS IN EINER ZEILE - IM SELBEN CONTAINER! === -->
+            <!-- === ALLE BUTTONS IN EINEM CONTAINER UND EINER ZEILE! === -->
             <div class="controls-container">
-                <div class="controls-scroll">
+                <div class="button-row">
                     <button class="btn-back" id="backToSelectionFromQuestionsBtn">← Verfahrenswahl</button>
                     <button class="btn-report" id="reportFromQuestionsBtn">📋 ENGLISCHER BERICHT</button>
                     <button class="btn-load" id="loadResultsBtn">📂 Ergebnisse laden</button>
