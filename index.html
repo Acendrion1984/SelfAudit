@@ -1838,57 +1838,81 @@
         }
 
         // === EVENT LISTENERS =======================
-        function setupEventListeners() {
-            // Audit-Buttons
-            document.querySelectorAll('.audit-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    startAudit(this.dataset.audit);
-                });
-            });
+// === EVENT LISTENERS =======================
+function setupEventListeners() {
+    // Audit-Buttons
+    document.querySelectorAll('.audit-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            startAudit(this.dataset.audit);
+        });
+    });
 
-            // Navigation
-            document.getElementById('backToSelectionBtn').addEventListener('click', goBackToSelection);
-            document.getElementById('backToOverviewBtn').addEventListener('click', goBackToOverview);
-            
-// Report
-document.getElementById('reportBtn').addEventListener('click', generateEnglishReport);
+    // Navigation von Übersicht zurück zur Auswahl
+    const backToSelectionBtn = document.getElementById('backToSelectionFromOverviewBtn');
+    if (backToSelectionBtn) {
+        backToSelectionBtn.addEventListener('click', goBackToSelection);
+    }
 
-// Reset - KORRIGIERT
-document.getElementById('resetFromQuestionsBtn').addEventListener('click', resetAudit);
+    // Report-Button in der Übersicht
+    const reportFromOverviewBtn = document.getElementById('reportFromOverviewBtn');
+    if (reportFromOverviewBtn) {
+        reportFromOverviewBtn.addEventListener('click', generateEnglishReport);
+    }
 
-// === NEU: Ergebnisse laden - KORRIGIERT ===
-document.getElementById('loadResultsFromQuestionsBtn').addEventListener('click', showImportModal);
-            
-            // Modal Buttons
-            document.getElementById('cancelImportBtn').addEventListener('click', () => {
-                document.getElementById('importModal').style.display = 'none';
-            });
-            
-            document.getElementById('confirmImportBtn').addEventListener('click', () => {
-                const fileInput = document.getElementById('importFileInput');
-                if (fileInput.files && fileInput.files[0]) {
-                    importResults(fileInput.files[0]);
-                } else {
-                    alert('❌ Bitte wählen Sie eine Datei aus!');
-                }
-            });
-            
-            // Modal schließen bei Klick außerhalb
-            window.addEventListener('click', (e) => {
-                const modal = document.getElementById('importModal');
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-            
-            // Tastatur: ESC schließt Modal
-            window.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    document.getElementById('importModal').style.display = 'none';
-                }
-            });
+    // Navigation von Fragen zurück zur Übersicht
+    const backToOverviewBtn = document.getElementById('backToOverviewBtn');
+    if (backToOverviewBtn) {
+        backToOverviewBtn.addEventListener('click', goBackToOverview);
+    }
+
+    // Reset-Button in den Fragen
+    const resetBtn = document.getElementById('resetFromQuestionsBtn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetAudit);
+    }
+
+    // Ergebnisse laden Button
+    const loadBtn = document.getElementById('loadResultsFromQuestionsBtn');
+    if (loadBtn) {
+        loadBtn.addEventListener('click', showImportModal);
+    }
+    
+    // Modal Buttons
+    const cancelBtn = document.getElementById('cancelImportBtn');
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', () => {
+            document.getElementById('importModal').style.display = 'none';
+        });
+    }
+    
+    const confirmBtn = document.getElementById('confirmImportBtn');
+    if (confirmBtn) {
+        confirmBtn.addEventListener('click', () => {
+            const fileInput = document.getElementById('importFileInput');
+            if (fileInput.files && fileInput.files[0]) {
+                importResults(fileInput.files[0]);
+            } else {
+                alert('❌ Bitte wählen Sie eine Datei aus!');
+            }
+        });
+    }
+    
+    // Modal schließen bei Klick außerhalb
+    window.addEventListener('click', (e) => {
+        const modal = document.getElementById('importModal');
+        if (e.target === modal) {
+            modal.style.display = 'none';
         }
+    });
+    
+    // Tastatur: ESC schließt Modal
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.getElementById('importModal').style.display = 'none';
+        }
+    });
+}
     </script>
 </body>
 </html>
