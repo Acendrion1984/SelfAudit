@@ -788,8 +788,7 @@
     <div class="controls-container">
         <div class="button-row">
             <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
-            <!-- Der englische Bericht Button wurde hier entfernt -->
-            <button class="btn-load" id="loadResultsFromQuestionsBtn">📂 Ergebnisse laden</button>
+            <!-- Der "Ergebnisse laden" Button wurde ENTFERNT -->
             <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
         </div>
     </div>
@@ -811,21 +810,7 @@
     </div>
 
     <div class="questions-container" id="questionsContainer"></div>
-</div>
-        
-        <!-- === MODAL FÜR ERGEBNISSE LADEN === -->
-        <div id="importModal" class="modal">
-            <div class="modal-content">
-                <h3>📂 Ergebnisse laden</h3>
-                <p style="margin-bottom: 15px; color: var(--text-secondary);">Wählen Sie eine JSON-Datei aus, die Sie zuvor exportiert haben:</p>
-                <input type="file" id="importFileInput" accept=".json,application/json">
-                <div class="modal-buttons">
-                    <button id="cancelImportBtn" class="btn-cancel">Abbrechen</button>
-                    <button id="confirmImportBtn" class="btn-import">Laden</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>   
 
     <button id="themeToggleBtn" class="theme-toggle" title="Hell/Dunkel umschalten">🌓</button>
 
@@ -1837,7 +1822,6 @@
             showPage(PAGES.OVERVIEW);
         }
 
-        // === EVENT LISTENERS =======================
 // === EVENT LISTENERS =======================
 function setupEventListeners() {
     // Audit-Buttons
@@ -1870,32 +1854,6 @@ function setupEventListeners() {
     const resetBtn = document.getElementById('resetFromQuestionsBtn');
     if (resetBtn) {
         resetBtn.addEventListener('click', resetAudit);
-    }
-
-    // Ergebnisse laden Button
-    const loadBtn = document.getElementById('loadResultsFromQuestionsBtn');
-    if (loadBtn) {
-        loadBtn.addEventListener('click', showImportModal);
-    }
-    
-    // Modal Buttons
-    const cancelBtn = document.getElementById('cancelImportBtn');
-    if (cancelBtn) {
-        cancelBtn.addEventListener('click', () => {
-            document.getElementById('importModal').style.display = 'none';
-        });
-    }
-    
-    const confirmBtn = document.getElementById('confirmImportBtn');
-    if (confirmBtn) {
-        confirmBtn.addEventListener('click', () => {
-            const fileInput = document.getElementById('importFileInput');
-            if (fileInput.files && fileInput.files[0]) {
-                importResults(fileInput.files[0]);
-            } else {
-                alert('❌ Bitte wählen Sie eine Datei aus!');
-            }
-        });
     }
     
     // Modal schließen bei Klick außerhalb
