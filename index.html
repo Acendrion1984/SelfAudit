@@ -2,6 +2,10 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes"><!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
     <title>Self-Audit ZfP - Schaeffler Technologies</title>
     <style>
@@ -1185,11 +1189,34 @@
                 return;
             }
             
-            sectionQuestions.sort((a, b) => {
-                const aNum = parseFloat(a.id);
-                const bNum = parseFloat(b.id);
-                return aNum - bNum;
-            });
+// Vorher:
+sectionQuestions.sort((a, b) => {
+    const aNum = parseFloat(a.id);
+    const bNum = parseFloat(b.id);
+    return aNum - bNum;
+});
+
+// Nachher (gleiche verbesserte Sortierung):
+sectionQuestions.sort((a, b) => {
+    const aParts = a.id.split('.');
+    const bParts = b.id.split('.');
+    
+    for (let i = 0; i < Math.min(aParts.length, bParts.length); i++) {
+        const aPart = aParts[i];
+        const bPart = bParts[i];
+        
+        const aNum = parseFloat(aPart);
+        const bNum = parseFloat(bPart);
+        
+        if (!isNaN(aNum) && !isNaN(bNum)) {
+            if (aNum !== bNum) return aNum - bNum;
+        } else {
+            if (aPart !== bPart) return aPart.localeCompare(bPart);
+        }
+    }
+    
+    return aParts.length - bParts.length;
+});
             
             sectionQuestions.forEach(question => {
                 container.appendChild(createQuestionElement(question));
@@ -1874,3 +1901,4 @@ function setupEventListeners() {
     </script>
 </body>
 </html>
+
