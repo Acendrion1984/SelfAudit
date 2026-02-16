@@ -2,10 +2,6 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes"><!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
     <title>Self-Audit ZfP - Schaeffler Technologies</title>
     <style>
@@ -35,6 +31,13 @@
             --audit-mt: #e74c3c;
             --audit-ne: #2ecc71;
             --audit-ut: #9b59b6;
+            
+            /* Glass-Tints */
+            --audit-et-glass: #3498db;
+            --audit-mt-glass: #e74c3c;
+            --audit-ne-glass: #2ecc71;
+            --audit-ut-glass: #9b59b6;
+            
             --progress-bg: #ecf0f1;
             --progress-100: #27ae60;
             --progress-75: #2ecc71;
@@ -79,6 +82,13 @@
             --audit-mt: #c0392b;
             --audit-ne: #239b56;
             --audit-ut: #7d3c98;
+            
+            /* Glass-Tints (Dark) */
+            --audit-et-glass: #2874a6E6;
+            --audit-mt-glass: #c0392bE6;
+            --audit-ne-glass: #239b56E6;
+            --audit-ut-glass: #7d3c98E6;
+            
             --progress-bg: #34495e;
             --progress-100: #27ae60;
             --progress-75: #2ecc71;
@@ -123,6 +133,7 @@
             padding: 15px;
             border-radius: 6px;
             box-shadow: 0 2px 8px var(--shadow-color);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         
         header {
@@ -155,14 +166,38 @@
             height: 40px;
             border-radius: 10px;
             border: 1px solid #ccc;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
+            background: var(--toggle-bg, #ffffff);
+            color: var(--toggle-text, #333333);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
             font-size: 18px;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: translateY(-1px);
+            background: var(--toggle-bg-hover, #f9fafb);
+        }
+        
+        .theme-toggle:active { 
+            transform: translateY(0); 
+        }
+        
+        [data-theme="dark"] .theme-toggle {
+            --toggle-bg: #2d2d2d;
+            --toggle-text: #e0e0e0;
+            --toggle-bg-hover: #333333;
+            border-color: #444;
+        }
+        
+        [data-theme="light"] .theme-toggle {
+            --toggle-bg: #ffffff;
+            --toggle-text: #333333;
+            --toggle-bg-hover: #f9fafb;
+            border-color: #ccc;
         }
         
         /* === AUDIT AUSWAHL (STARTSEITE) === */
@@ -192,16 +227,21 @@
             margin-bottom: 15px;
         }
         
+        /* === GLASS-EFFECT FÜR AUDIT-KACHELN === */
         .audit-btn {
+            position: relative;
+            color: #fff;
+            border-radius: 10px;
+            border: 2px solid rgba(255,255,255,0.38);
+            border-right-color: rgba(255,255,255,0.25);
+            border-bottom-color: rgba(255,255,255,0.25);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.25);
+            transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+            isolation: isolate;
             padding: 12px 8px;
-            background: var(--audit-et);
-            color: white;
-            border: none;
-            border-radius: 5px;
             cursor: pointer;
             font-size: 0.95em;
             font-weight: bold;
-            transition: all 0.2s;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -209,28 +249,89 @@
             min-height: 80px;
         }
         
-        .audit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        .audit-btn::before {
+            content: "";
+            position: absolute;
+            inset: 2px 2px auto 2px;
+            height: 45%;
+            border-radius: 8px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.15));
+            pointer-events: none;
         }
         
-        .audit-btn.wirbelstrom { background: var(--audit-et); }
-        .audit-btn.magnetpulver { background: var(--audit-mt); }
-        .audit-btn.nital { background: var(--audit-ne); }
-        .audit-btn.ultraschall { background: var(--audit-ut); }
-        
-        .audit-btn .btn-icon {
-            font-size: 1.6em;
-            margin-bottom: 6px;
+        .audit-btn .btn-icon,
+        .audit-btn span,
+        .audit-btn .btn-progress {
+            text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 2;
         }
         
         .audit-btn .btn-progress {
+            background: rgba(255,255,255,0.22);
+            border-radius: 999px;
+            padding: 2px 8px;
             margin-top: 4px;
             font-size: 0.7em;
-            background: rgba(255,255,255,0.2);
-            padding: 2px 6px;
-            border-radius: 8px;
             min-width: 35px;
+            border: 1px solid rgba(255,255,255,0.35);
+        }
+        
+        .audit-btn.wirbelstrom {
+            background: linear-gradient(135deg, rgba(255,255,255,0.01), rgba(255,255,255,0.08)), linear-gradient(0deg, var(--audit-et-glass), var(--audit-et-glass));
+        }
+        .audit-btn.magnetpulver {
+            background: linear-gradient(135deg, rgba(255,255,255,0.01), rgba(255,255,255,0.08)), linear-gradient(0deg, var(--audit-mt-glass), var(--audit-mt-glass));
+        }
+        .audit-btn.nital {
+            background: linear-gradient(135deg, rgba(255,255,255,0.01), rgba(255,255,255,0.08)), linear-gradient(0deg, var(--audit-ne-glass), var(--audit-ne-glass));
+        }
+        .audit-btn.ultraschall {
+            background: linear-gradient(135deg, rgba(255,255,255,0.01), rgba(255,255,255,0.08)), linear-gradient(0deg, var(--audit-ut-glass), var(--audit-ut-glass));
+        }
+        
+        .audit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.01), inset 0 1px 0 rgba(255,255,255,0.01);
+        }
+        .audit-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.25);
+        }
+        
+        @supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+            .audit-btn {
+                backdrop-filter: blur(10px) saturate(140%);
+                -webkit-backdrop-filter: blur(10px) saturate(140%);
+            }
+        }
+        
+        /* Light Mode spezifische Anpassungen */
+        html[data-theme="light"] .audit-btn {
+            border-color: rgba(0,0,0,0.38) !important;
+            box-shadow: 0 12px 26px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.35) inset !important;
+        }
+        
+        html[data-theme="light"] .audit-btn::before {
+            opacity: 0.65;
+        }
+        
+        html[data-theme="light"] .audit-btn .btn-progress {
+            background: rgba(0,0,0,0.22) !important;
+            color: #fff !important;
+            font-weight: 900 !important;
+            border: 1px solid rgba(255,255,255,0.35) !important;
+        }
+        
+        /* Dark Mode Anpassungen */
+        @media (prefers-color-scheme: dark) {
+            .audit-btn {
+                border-color: rgba(255,255,255,0.28);
+                box-shadow: 0 8px 18px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08);
+            }
+            .audit-btn::before {
+                background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06));
+            }
         }
         
         /* === AUDIT ÜBERSICHT (NEUE SEITE) === */
@@ -349,12 +450,11 @@
             justify-content: flex-end;
         }
         
-        /* === AUDIT FRAGEN (NEUE SEITE) - OHNE EXTRA BUTTON ÜBER DEN CONTROLS === */
+        /* === AUDIT FRAGEN (NEUE SEITE) === */
         .audit-questions-page {
             padding: 0;
         }
         
-        /* Der "Alle Bereiche" Button ist jetzt in der Button-Leiste */
         .questions-header {
             display: flex;
             justify-content: center;
@@ -682,9 +782,24 @@
             body { padding: 5px; font-size: 13px; }
             .container { padding: 10px !important; }
             .audit-buttons { grid-template-columns: 1fr; gap: 6px; }
-            .audit-btn { padding: 10px 6px; min-height: 70px; font-size: 0.85em; flex-direction: row; justify-content: flex-start; text-align: left; padding-left: 12px; }
-            .audit-btn .btn-icon { font-size: 1.4em; margin-right: 8px; margin-bottom: 0; }
-            .audit-btn .btn-progress { margin-left: auto; margin-top: 0; }
+            .audit-btn { 
+                padding: 10px 6px; 
+                min-height: 70px; 
+                font-size: 0.85em; 
+                flex-direction: row; 
+                justify-content: flex-start; 
+                text-align: left; 
+                padding-left: 12px; 
+            }
+            .audit-btn .btn-icon { 
+                font-size: 1.4em; 
+                margin-right: 8px; 
+                margin-bottom: 0; 
+            }
+            .audit-btn .btn-progress { 
+                margin-left: auto; 
+                margin-top: 0; 
+            }
             .question { padding: 10px; }
             .question-text { font-size: 0.9em; }
             .question-id { font-size: 0.7em; margin-left: 5px; }
@@ -764,57 +879,57 @@
             </div>
         </div>
 
-<!-- === SEITE 2: AUDIT-ÜBERSICHT === -->
-<div id="pageOverview" class="page audit-overview">
-    <!-- === BUTTON-LEISTE ÜBER DEN PRÜFBEREICHEN === -->
-    <div class="controls-container" style="margin-bottom: 25px;">
-        <div class="button-row">
-            <button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button>
-            <button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button>
-            <!-- Englischer Bericht Button wurde entfernt, da er jetzt in den Audits nicht mehr vorkommt -->
+        <!-- === SEITE 2: AUDIT-ÜBERSICHT === -->
+        <div id="pageOverview" class="page audit-overview">
+            <div class="controls-container" style="margin-bottom: 25px;">
+                <div class="button-row">
+                    <button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button>
+                    <button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button>
+                </div>
+            </div>
+            
+            <div class="overview-header">
+                <div class="overview-title" id="overviewTitle">Audit Übersicht</div>
+            </div>
+            
+            <div class="overview-stats" id="overviewStats"></div>
+            
+            <h3 style="margin-bottom: 15px; color: var(--text-tertiary);">Verfügbare Prüfbereiche:</h3>
+            
+            <div class="section-list" id="sectionList"></div>
         </div>
-    </div>
-    
-    <div class="overview-header">
-        <div class="overview-title" id="overviewTitle">Audit Übersicht</div>
-    </div>
-    
-    <div class="overview-stats" id="overviewStats"></div>
-    
-    <h3 style="margin-bottom: 15px; color: var(--text-tertiary);">Verfügbare Prüfbereiche:</h3>
-    
-    <div class="section-list" id="sectionList"></div>
-</div>
 
-<!-- === SEITE 3: AUDIT-FRAGEN === -->
-<div id="pageQuestions" class="page audit-questions-page">
-    <!-- === BUTTON-LEISTE AUF DER FRAGENSEITE === -->
-    <div class="controls-container">
-        <div class="button-row">
-            <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
-            <!-- Der "Ergebnisse laden" Button wurde ENTFERNT -->
-            <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
-        </div>
-    </div>
-    
-    <!-- Rest bleibt gleich -->
-    <div class="questions-header">
-        <div class="questions-title" id="currentSectionTitle"></div>
-    </div>
+        <!-- === SEITE 3: AUDIT-FRAGEN === -->
+        <div id="pageQuestions" class="page audit-questions-page">
+            <div class="controls-container">
+                <div class="button-row">
+                    <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
+                    <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
+                </div>
+            </div>
+            
+            <div class="questions-header">
+                <div class="questions-title" id="currentSectionTitle"></div>
+            </div>
 
-    <div class="audit-status">
-        <span>Fortschritt: <strong id="progressText">0%</strong></span>
-        <span>|</span>
-        <span>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong></span>
-        <span>|</span>
-        <span>Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></span>
-    </div>
-    <div class="audit-progress-container">
-        <div class="audit-progress-bar" id="auditProgressBar" style="width: 0%">0%</div>
-    </div>
+            <div class="audit-status">
+                <span>Fortschritt: <strong id="progressText">0%</strong></span>
+                <span>|</span>
+                <span>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong></span>
+                <span>|</span>
+                <span>Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></span>
+            </div>
+            <div class="audit-progress-container">
+                <div class="audit-progress-bar" id="auditProgressBar" style="width: 0%">0%</div>
+            </div>
 
-    <div class="questions-container" id="questionsContainer"></div>
-</div>   
+            <div class="questions-container" id="questionsContainer"></div>
+        </div>   
+
+        <footer>
+            <p>Self-Audit ZfP &copy; 2026 Schaeffler Technologies AG & Co. KG</p>
+        </footer>
+    </div>
 
     <button id="themeToggleBtn" class="theme-toggle" title="Hell/Dunkel umschalten">🌓</button>
 
@@ -901,7 +1016,6 @@
             const results = { german: null, english: null };
             
             try {
-                // 1. DEUTSCHE Fragen laden
                 console.log(`Lade DE: ${info.file_de}`);
                 const deResponse = await fetch(info.file_de + '?t=' + Date.now());
                 if (!deResponse.ok) {
@@ -910,7 +1024,6 @@
                 results.german = await deResponse.json();
                 console.log(`✅ DE geladen: ${info.file_de}`);
                 
-                // 2. ENGLISCHE Fragen laden
                 console.log(`Lade EN: ${info.file_en}`);
                 const enResponse = await fetch(info.file_en + '?t=' + Date.now());
                 if (!enResponse.ok) {
@@ -1168,7 +1281,6 @@
             currentSectionIndex = sectionIndex;
             const section = auditSections[sectionIndex];
             
-            
             renderCurrentSection();
             updateCurrentAuditProgress();
             showPage(PAGES.QUESTIONS);
@@ -1189,34 +1301,26 @@
                 return;
             }
             
-// Vorher:
-sectionQuestions.sort((a, b) => {
-    const aNum = parseFloat(a.id);
-    const bNum = parseFloat(b.id);
-    return aNum - bNum;
-});
-
-// Nachher (gleiche verbesserte Sortierung):
-sectionQuestions.sort((a, b) => {
-    const aParts = a.id.split('.');
-    const bParts = b.id.split('.');
-    
-    for (let i = 0; i < Math.min(aParts.length, bParts.length); i++) {
-        const aPart = aParts[i];
-        const bPart = bParts[i];
-        
-        const aNum = parseFloat(aPart);
-        const bNum = parseFloat(bPart);
-        
-        if (!isNaN(aNum) && !isNaN(bNum)) {
-            if (aNum !== bNum) return aNum - bNum;
-        } else {
-            if (aPart !== bPart) return aPart.localeCompare(bPart);
-        }
-    }
-    
-    return aParts.length - bParts.length;
-});
+            sectionQuestions.sort((a, b) => {
+                const aParts = a.id.split('.');
+                const bParts = b.id.split('.');
+                
+                for (let i = 0; i < Math.min(aParts.length, bParts.length); i++) {
+                    const aPart = aParts[i];
+                    const bPart = bParts[i];
+                    
+                    const aNum = parseFloat(aPart);
+                    const bNum = parseFloat(bPart);
+                    
+                    if (!isNaN(aNum) && !isNaN(bNum)) {
+                        if (aNum !== bNum) return aNum - bNum;
+                    } else {
+                        if (aPart !== bPart) return aPart.localeCompare(bPart);
+                    }
+                }
+                
+                return aParts.length - bParts.length;
+            });
             
             sectionQuestions.forEach(question => {
                 container.appendChild(createQuestionElement(question));
@@ -1463,7 +1567,6 @@ sectionQuestions.sort((a, b) => {
             const modal = document.getElementById('importModal');
             modal.style.display = 'flex';
             
-            // File Input zurücksetzen
             document.getElementById('importFileInput').value = '';
         }
 
@@ -1474,14 +1577,12 @@ sectionQuestions.sort((a, b) => {
                 try {
                     const importData = JSON.parse(e.target.result);
                     
-                    // Prüfen ob Audit-Typ übereinstimmt
                     if (importData.auditType !== currentAuditType) {
                         if (!confirm(`⚠️ Die importierte Datei ist für "${importData.auditTitle || importData.auditType}", aber Sie haben "${AUDIT_TYPES[currentAuditType].title}" geladen.\n\nTrotzdem importieren?`)) {
                             return;
                         }
                     }
                     
-                    // Antworten und Evidenz importieren
                     let importCount = 0;
                     importData.germanQuestions.forEach(importQ => {
                         const targetQ = germanQuestions.find(q => q.id === importQ.id);
@@ -1494,7 +1595,6 @@ sectionQuestions.sort((a, b) => {
                     
                     saveCurrentAuditData();
                     
-                    // UI aktualisieren
                     if (currentSectionIndex >= 0) {
                         renderCurrentSection();
                         updateCurrentAuditProgress();
@@ -1503,7 +1603,6 @@ sectionQuestions.sort((a, b) => {
                     
                     alert(`✅ ${importCount} von ${germanQuestions.length} Antworten importiert!`);
                     
-                    // Modal schließen
                     document.getElementById('importModal').style.display = 'none';
                     
                 } catch (error) {
@@ -1849,56 +1948,48 @@ sectionQuestions.sort((a, b) => {
             showPage(PAGES.OVERVIEW);
         }
 
-// === EVENT LISTENERS =======================
-function setupEventListeners() {
-    // Audit-Buttons
-    document.querySelectorAll('.audit-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            startAudit(this.dataset.audit);
-        });
-    });
+        // === EVENT LISTENERS =======================
+        function setupEventListeners() {
+            document.querySelectorAll('.audit-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    startAudit(this.dataset.audit);
+                });
+            });
 
-    // Navigation von Übersicht zurück zur Auswahl
-    const backToSelectionBtn = document.getElementById('backToSelectionFromOverviewBtn');
-    if (backToSelectionBtn) {
-        backToSelectionBtn.addEventListener('click', goBackToSelection);
-    }
+            const backToSelectionBtn = document.getElementById('backToSelectionFromOverviewBtn');
+            if (backToSelectionBtn) {
+                backToSelectionBtn.addEventListener('click', goBackToSelection);
+            }
 
-    // Report-Button in der Übersicht
-    const reportFromOverviewBtn = document.getElementById('reportFromOverviewBtn');
-    if (reportFromOverviewBtn) {
-        reportFromOverviewBtn.addEventListener('click', generateEnglishReport);
-    }
+            const reportFromOverviewBtn = document.getElementById('reportFromOverviewBtn');
+            if (reportFromOverviewBtn) {
+                reportFromOverviewBtn.addEventListener('click', generateEnglishReport);
+            }
 
-    // Navigation von Fragen zurück zur Übersicht
-    const backToOverviewBtn = document.getElementById('backToOverviewBtn');
-    if (backToOverviewBtn) {
-        backToOverviewBtn.addEventListener('click', goBackToOverview);
-    }
+            const backToOverviewBtn = document.getElementById('backToOverviewBtn');
+            if (backToOverviewBtn) {
+                backToOverviewBtn.addEventListener('click', goBackToOverview);
+            }
 
-    // Reset-Button in den Fragen
-    const resetBtn = document.getElementById('resetFromQuestionsBtn');
-    if (resetBtn) {
-        resetBtn.addEventListener('click', resetAudit);
-    }
-    
-    // Modal schließen bei Klick außerhalb
-    window.addEventListener('click', (e) => {
-        const modal = document.getElementById('importModal');
-        if (e.target === modal) {
-            modal.style.display = 'none';
+            const resetBtn = document.getElementById('resetFromQuestionsBtn');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', resetAudit);
+            }
+            
+            window.addEventListener('click', (e) => {
+                const modal = document.getElementById('importModal');
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    document.getElementById('importModal').style.display = 'none';
+                }
+            });
         }
-    });
-    
-    // Tastatur: ESC schließt Modal
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            document.getElementById('importModal').style.display = 'none';
-        }
-    });
-}
     </script>
 </body>
 </html>
-
