@@ -697,5 +697,6 @@
         "answer_options": ["JA", "NEIN"],
         "has_na_option": false
     }
-]
-
+  ],
+  "total_questions": 92
+}
