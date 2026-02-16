@@ -32,7 +32,7 @@
       "question": "Wurde die(n) Verfahrensanweisung(en) vom zuständigen Level 3 genehmigt?",
       "answer_options": ["JA", "NEIN"],
       "has_na_option": false
-    }
+    },
     {
         "id": "4.1.4",
         "question": "Hat das Verfahren eine Identifikationsnummer und das Datum der Genehmigung?",
@@ -698,3 +698,4 @@
         "has_na_option": false
     }
 ]
+
