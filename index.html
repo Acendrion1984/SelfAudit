@@ -334,6 +334,93 @@
             }
         }
         
+        /* === KACHEL FÜR ABGESCHLOSSENE AUDITS === */
+        .completed-audits-section {
+            margin-top: 30px;
+            border-top: 2px solid var(--border-color);
+            padding-top: 20px;
+        }
+        
+        .completed-audits-title {
+            color: var(--text-tertiary);
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .completed-audits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+        }
+        
+        .completed-audit-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .completed-audit-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-color);
+            border-color: var(--header-bg);
+        }
+        
+        .completed-audit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .completed-audit-type {
+            font-weight: bold;
+            color: var(--text-tertiary);
+            font-size: 0.95em;
+        }
+        
+        .completed-audit-date {
+            font-size: 0.75em;
+            color: var(--text-secondary);
+        }
+        
+        .completed-audit-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
+            color: var(--text-secondary);
+        }
+        
+        .completed-audit-progress {
+            height: 4px;
+            background: var(--progress-bg);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .completed-audit-progress-fill {
+            height: 100%;
+            background: var(--progress-100);
+            border-radius: 2px;
+        }
+        
+        .no-completed-audits {
+            color: var(--text-secondary);
+            font-style: italic;
+            padding: 20px;
+            text-align: center;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+        }
+        
         /* === AUDIT ÜBERSICHT (NEUE SEITE) === */
         .audit-overview {
             padding: 0;
@@ -514,6 +601,7 @@
         .btn-danger { background: var(--btn-danger); color: white; }
         .btn-info { background: var(--btn-info); color: white; }
         .btn-load { background: var(--btn-load); color: white; }
+        .btn-import { background: var(--btn-success); color: white; }
         
         button:hover { 
             opacity: 0.9;
@@ -800,6 +888,7 @@
                 margin-left: auto; 
                 margin-top: 0; 
             }
+            .completed-audits-grid { grid-template-columns: 1fr; }
             .question { padding: 10px; }
             .question-text { font-size: 0.9em; }
             .question-id { font-size: 0.7em; margin-left: 5px; }
@@ -877,6 +966,17 @@
                     </button>
                 </div>
             </div>
+
+            <!-- === KACHEL FÜR ABGESCHLOSSENE AUDITS === -->
+            <div class="completed-audits-section">
+                <div class="completed-audits-title">
+                    <span>📋 Abgeschlossene Audits</span>
+                    <span style="font-size: 0.8em; color: var(--text-secondary);" id="completedCount"></span>
+                </div>
+                <div id="completedAuditsContainer" class="completed-audits-grid">
+                    <div class="no-completed-audits">Keine abgeschlossenen Audits vorhanden</div>
+                </div>
+            </div>
         </div>
 
         <!-- === SEITE 2: AUDIT-ÜBERSICHT === -->
@@ -885,6 +985,7 @@
                 <div class="button-row">
                     <button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button>
                     <button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button>
+                    <button class="btn-import" id="importFromOverviewBtn">📂 Import</button>
                 </div>
             </div>
             
@@ -905,6 +1006,7 @@
                 <div class="button-row">
                     <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
                     <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
+                    <button class="btn-import" id="importFromQuestionsBtn">📂 Import</button>
                 </div>
             </div>
             
@@ -925,6 +1027,19 @@
 
             <div class="questions-container" id="questionsContainer"></div>
         </div>   
+
+        <!-- === IMPORT MODAL === -->
+        <div id="importModal" class="modal">
+            <div class="modal-content">
+                <h3>📂 Ergebnisse importieren</h3>
+                <p style="margin-bottom: 15px; color: var(--text-secondary);">Wählen Sie eine JSON-Datei mit gespeicherten Ergebnissen aus.</p>
+                <input type="file" id="importFileInput" accept=".json,application/json">
+                <div class="modal-buttons">
+                    <button class="btn-cancel" onclick="document.getElementById('importModal').style.display='none'">Abbrechen</button>
+                    <button class="btn-import" onclick="handleImportFile()">Importieren</button>
+                </div>
+            </div>
+        </div>
 
         <footer>
             <p>Self-Audit ZfP &copy; 2026 Schaeffler Technologies AG & Co. KG</p>
@@ -988,39 +1103,40 @@
             document.getElementById(pageId).classList.add('active');
         }
 
- // === SYNCHRONISIERTES THEME MANAGEMENT =======
-const THEME_STORAGE_KEY = 'zfp-theme-preference';
+        // === SYNCHRONISIERTES THEME MANAGEMENT =======
+        const THEME_STORAGE_KEY = 'zfp-theme-preference';
 
-function initThemeToggle() {
-    const saved = localStorage.getItem(THEME_STORAGE_KEY);
-    const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial = saved || (systemDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', initial);
-    
-    document.getElementById('themeToggleBtn').addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme') || 'light';
-        const next = current === 'dark' ? 'light' : 'dark';
-        localStorage.setItem(THEME_STORAGE_KEY, next);
-        document.documentElement.setAttribute('data-theme', next);
-        
-        // Andere Tabs benachrichtigen
-        localStorage.setItem('theme_changed_at', Date.now().toString());
-    });
-    
-    // Auf Änderungen in anderen Tabs reagieren
-    window.addEventListener('storage', function(e) {
-        if (e.key === THEME_STORAGE_KEY) {
-            const newTheme = e.newValue;
-            document.documentElement.setAttribute('data-theme', newTheme);
+        function initThemeToggle() {
+            const saved = localStorage.getItem(THEME_STORAGE_KEY);
+            const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initial = saved || (systemDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', initial);
+            
+            document.getElementById('themeToggleBtn').addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme') || 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                localStorage.setItem(THEME_STORAGE_KEY, next);
+                document.documentElement.setAttribute('data-theme', next);
+                
+                // Andere Tabs benachrichtigen
+                localStorage.setItem('theme_changed_at', Date.now().toString());
+            });
+            
+            // Auf Änderungen in anderen Tabs reagieren
+            window.addEventListener('storage', function(e) {
+                if (e.key === THEME_STORAGE_KEY) {
+                    const newTheme = e.newValue;
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                }
+            });
         }
-    });
-}
 
         // === INITIALISIERUNG ========================
         document.addEventListener('DOMContentLoaded', function() {
             initThemeToggle();
             setupEventListeners();
             loadAllAuditProgress();
+            renderCompletedAudits();
         });
 
         // === JSON LADEN (DEUTSCH + ENGLISCH) ========
@@ -1085,6 +1201,7 @@ function initThemeToggle() {
                 englishQuestions = parsed.englishQuestions || [];
                 auditSections = parsed.sections || [];
                 
+                // Wenn gespeicherte Daten leer sind oder falsche Anzahl (z.B. UT sollte 206 haben), neu laden
                 if (germanQuestions.length === 0 || englishQuestions.length === 0) {
                     console.log('⚠️ Gespeicherte Daten unvollständig, lade neu');
                     const data = await loadAuditJSONs(auditType);
@@ -1196,6 +1313,7 @@ function initThemeToggle() {
             sectionIds.forEach(id => {
                 let title = '';
                 
+                // Überschriften basierend auf Abschnitts-ID
                 switch(id) {
                     case '3': title = '3. AUSRÜSTUNG UND MATERIALIEN'; break;
                     case '4': title = '4. VERFAHRENSANWEISUNGEN UND TECHNIKEN'; break;
@@ -1221,6 +1339,103 @@ function initThemeToggle() {
             });
             
             return Array.from(sectionMap.values());
+        }
+
+        // === ABGESCHLOSSENE AUDITS ANZEIGEN ========
+        function renderCompletedAudits() {
+            const container = document.getElementById('completedAuditsContainer');
+            const completedCountSpan = document.getElementById('completedCount');
+            
+            const completedAudits = [];
+            
+            Object.keys(AUDIT_TYPES).forEach(auditType => {
+                const saved = localStorage.getItem(`zfpSelfAudit_${auditType}`);
+                if (saved) {
+                    try {
+                        const data = JSON.parse(saved);
+                        const questions = data.germanQuestions || [];
+                        const answered = questions.filter(q => q.answer && q.answer !== "").length;
+                        const total = questions.length;
+                        
+                        // Als "abgeschlossen" betrachten wir Audits mit mindestens einer Antwort
+                        if (answered > 0) {
+                            const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
+                            const lastModified = data.lastModified ? new Date(data.lastModified) : new Date();
+                            
+                            completedAudits.push({
+                                type: auditType,
+                                title: AUDIT_TYPES[auditType].title,
+                                icon: AUDIT_TYPES[auditType].icon,
+                                answered: answered,
+                                total: total,
+                                percent: percent,
+                                date: lastModified,
+                                data: data
+                            });
+                        }
+                    } catch (e) {
+                        console.error('Fehler beim Laden abgeschlossener Audits:', e);
+                    }
+                }
+            });
+            
+            // Nach Datum sortieren (neueste zuerst)
+            completedAudits.sort((a, b) => b.date - a.date);
+            
+            completedCountSpan.textContent = `(${completedAudits.length})`;
+            
+            if (completedAudits.length === 0) {
+                container.innerHTML = '<div class="no-completed-audits">Keine abgeschlossenen Audits vorhanden</div>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            completedAudits.forEach(audit => {
+                const card = document.createElement('div');
+                card.className = 'completed-audit-card';
+                card.onclick = () => loadCompletedAudit(audit.type, audit.data);
+                
+                const dateStr = audit.date.toLocaleDateString('de-DE', { 
+                    day: '2-digit', 
+                    month: '2-digit', 
+                    year: 'numeric' 
+                });
+                
+                card.innerHTML = `
+                    <div class="completed-audit-header">
+                        <span class="completed-audit-type">${audit.icon} ${audit.title}</span>
+                        <span class="completed-audit-date">${dateStr}</span>
+                    </div>
+                    <div class="completed-audit-stats">
+                        <span>${audit.answered}/${audit.total}</span>
+                        <span>${audit.percent}%</span>
+                    </div>
+                    <div class="completed-audit-progress">
+                        <div class="completed-audit-progress-fill" style="width: ${audit.percent}%"></div>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // === ABGESCHLOSSENES AUDIT LADEN ===========
+        function loadCompletedAudit(auditType, savedData) {
+            console.log(`📂 Lade abgeschlossenes Audit: ${auditType}`);
+            
+            currentAuditType = auditType;
+            currentSectionIndex = -1;
+            
+            germanQuestions = savedData.germanQuestions || [];
+            englishQuestions = savedData.englishQuestions || [];
+            auditSections = savedData.sections || [];
+            
+            document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditType].title}`;
+            document.getElementById('mainSubtitle').textContent = AUDIT_TYPES[auditType].standard;
+            
+            renderOverview();
+            showPage(PAGES.OVERVIEW);
+            updateProgressDisplays();
         }
 
         // === ÜBERSICHT RENDERN =====================
@@ -1472,6 +1687,7 @@ function initThemeToggle() {
             
             localStorage.setItem(key, JSON.stringify(dataToSave));
             updateProgressDisplays();
+            renderCompletedAudits(); // Aktualisiere die abgeschlossenen Audits
         }
 
         // === PROGRESS ==============================
@@ -1531,6 +1747,7 @@ function initThemeToggle() {
 
         function updateProgressDisplays() {
             loadAllAuditProgress();
+            renderCompletedAudits();
         }
 
         // === EXPORT FUNKTION ========================
@@ -1583,6 +1800,18 @@ function initThemeToggle() {
             document.getElementById('importFileInput').value = '';
         }
 
+        function handleImportFile() {
+            const fileInput = document.getElementById('importFileInput');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('❌ Bitte eine Datei auswählen!');
+                return;
+            }
+            
+            importResults(file);
+        }
+
         function importResults(file) {
             const reader = new FileReader();
             
@@ -1590,31 +1819,64 @@ function initThemeToggle() {
                 try {
                     const importData = JSON.parse(e.target.result);
                     
-                    if (importData.auditType !== currentAuditType) {
-                        if (!confirm(`⚠️ Die importierte Datei ist für "${importData.auditTitle || importData.auditType}", aber Sie haben "${AUDIT_TYPES[currentAuditType].title}" geladen.\n\nTrotzdem importieren?`)) {
-                            return;
+                    // Prüfen ob das Format mit "answers" Array ist (wie in audit_ne_full.json)
+                    if (importData.answers && Array.isArray(importData.answers)) {
+                        // Altes Format mit "answers" Array
+                        console.log('📦 Importiere altes Format mit answers-Array');
+                        
+                        let importCount = 0;
+                        importData.answers.forEach(importItem => {
+                            const targetQ = germanQuestions.find(q => q.id === importItem.id);
+                            if (targetQ) {
+                                targetQ.answer = importItem.value || "";
+                                targetQ.evidence = importItem.comment || "";
+                                importCount++;
+                            }
+                        });
+                        
+                        saveCurrentAuditData();
+                        
+                        if (currentSectionIndex >= 0) {
+                            renderCurrentSection();
+                            updateCurrentAuditProgress();
                         }
-                    }
-                    
-                    let importCount = 0;
-                    importData.germanQuestions.forEach(importQ => {
-                        const targetQ = germanQuestions.find(q => q.id === importQ.id);
-                        if (targetQ) {
-                            targetQ.answer = importQ.answer || "";
-                            targetQ.evidence = importQ.evidence || "";
-                            importCount++;
+                        renderOverview();
+                        
+                        alert(`✅ ${importCount} von ${germanQuestions.length} Antworten importiert!`);
+                        
+                    } else if (importData.germanQuestions && Array.isArray(importData.germanQuestions)) {
+                        // Neues Format mit germanQuestions Array
+                        console.log('📦 Importiere neues Format mit germanQuestions');
+                        
+                        if (importData.auditType && importData.auditType !== currentAuditType) {
+                            if (!confirm(`⚠️ Die importierte Datei ist für "${importData.auditTitle || importData.auditType}", aber Sie haben "${AUDIT_TYPES[currentAuditType].title}" geladen.\n\nTrotzdem importieren?`)) {
+                                document.getElementById('importModal').style.display = 'none';
+                                return;
+                            }
                         }
-                    });
-                    
-                    saveCurrentAuditData();
-                    
-                    if (currentSectionIndex >= 0) {
-                        renderCurrentSection();
-                        updateCurrentAuditProgress();
+                        
+                        let importCount = 0;
+                        importData.germanQuestions.forEach(importQ => {
+                            const targetQ = germanQuestions.find(q => q.id === importQ.id);
+                            if (targetQ) {
+                                targetQ.answer = importQ.answer || "";
+                                targetQ.evidence = importQ.evidence || "";
+                                importCount++;
+                            }
+                        });
+                        
+                        saveCurrentAuditData();
+                        
+                        if (currentSectionIndex >= 0) {
+                            renderCurrentSection();
+                            updateCurrentAuditProgress();
+                        }
+                        renderOverview();
+                        
+                        alert(`✅ ${importCount} von ${germanQuestions.length} Antworten importiert!`);
+                    } else {
+                        alert('❌ Ungültiges Dateiformat! Die JSON-Datei muss entweder ein "answers"-Array oder "germanQuestions" enthalten.');
                     }
-                    renderOverview();
-                    
-                    alert(`✅ ${importCount} von ${germanQuestions.length} Antworten importiert!`);
                     
                     document.getElementById('importModal').style.display = 'none';
                     
@@ -1645,7 +1907,7 @@ function initThemeToggle() {
             const yesCount = germanQuestions.filter(q => q.answer === "YES").length;
             const noCount = germanQuestions.filter(q => q.answer === "NO").length;
             const naCount = germanQuestions.filter(q => q.answer === "NA").length;
-            const percent = Math.round((answered / total) * 100);
+            const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
             
             let reportHTML = `<!DOCTYPE html>
 <html lang="en">
@@ -1851,7 +2113,11 @@ function initThemeToggle() {
                 reportHTML += `<div class="section">
                     <div class="section-header">${sectionTitleEn}</div>`;
                 
-                sectionQuestions.sort((a,b) => parseFloat(a.id) - parseFloat(b.id)).forEach(gq => {
+                sectionQuestions.sort((a,b) => {
+                    const aNum = parseFloat(a.id) || 0;
+                    const bNum = parseFloat(b.id) || 0;
+                    return aNum - bNum;
+                }).forEach(gq => {
                     const eq = englishQuestions.find(e => e.id === gq.id);
                     const questionText = eq ? eq.text : gq.text;
                     const guidanceText = eq?.guidance || gq.guidance;
@@ -1952,6 +2218,7 @@ function initThemeToggle() {
             
             showPage(PAGES.SELECTION);
             updateProgressDisplays();
+            renderCompletedAudits();
         }
 
         function goBackToOverview() {
@@ -1988,6 +2255,17 @@ function initThemeToggle() {
             const resetBtn = document.getElementById('resetFromQuestionsBtn');
             if (resetBtn) {
                 resetBtn.addEventListener('click', resetAudit);
+            }
+            
+            // Import Buttons
+            const importFromOverviewBtn = document.getElementById('importFromOverviewBtn');
+            if (importFromOverviewBtn) {
+                importFromOverviewBtn.addEventListener('click', showImportModal);
+            }
+            
+            const importFromQuestionsBtn = document.getElementById('importFromQuestionsBtn');
+            if (importFromQuestionsBtn) {
+                importFromQuestionsBtn.addEventListener('click', showImportModal);
             }
             
             window.addEventListener('click', (e) => {
