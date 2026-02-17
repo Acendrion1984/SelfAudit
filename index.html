@@ -988,20 +988,33 @@
             document.getElementById(pageId).classList.add('active');
         }
 
-        // === THEME FUNKTIONEN =======================
-        function initThemeToggle() {
-            const saved = localStorage.getItem('zfp_selfaudit_theme');
-            const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initial = saved || (systemDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', initial);
-            
-            document.getElementById('themeToggleBtn').addEventListener('click', () => {
-                const current = document.documentElement.getAttribute('data-theme') || 'light';
-                const next = current === 'dark' ? 'light' : 'dark';
-                localStorage.setItem('zfp_selfaudit_theme', next);
-                document.documentElement.setAttribute('data-theme', next);
-            });
+ // === SYNCHRONISIERTES THEME MANAGEMENT =======
+const THEME_STORAGE_KEY = 'zfp-theme-preference';
+
+function initThemeToggle() {
+    const saved = localStorage.getItem(THEME_STORAGE_KEY);
+    const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = saved || (systemDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', initial);
+    
+    document.getElementById('themeToggleBtn').addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(THEME_STORAGE_KEY, next);
+        document.documentElement.setAttribute('data-theme', next);
+        
+        // Andere Tabs benachrichtigen
+        localStorage.setItem('theme_changed_at', Date.now().toString());
+    });
+    
+    // Auf Änderungen in anderen Tabs reagieren
+    window.addEventListener('storage', function(e) {
+        if (e.key === THEME_STORAGE_KEY) {
+            const newTheme = e.newValue;
+            document.documentElement.setAttribute('data-theme', newTheme);
         }
+    });
+}
 
         // === INITIALISIERUNG ========================
         document.addEventListener('DOMContentLoaded', function() {
