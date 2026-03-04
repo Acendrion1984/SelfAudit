@@ -7156,13 +7156,13 @@
     }
   },
   {
-    "id": "audit_UT_1772664754694",
-    "name": "Ultraschallprüfung - 4.3.2026, 23:52:34",
+    "id": "audit_UT_1772664764069",
+    "name": "UT",
     "audit_type": "UT",
     "audit_title": "Ultraschallprüfung",
     "standard": "TPG-AC7114/3",
     "created_at": "2026-03-04T22:52:24.931Z",
-    "last_modified": "2026-03-04T22:52:34.694Z",
+    "last_modified": "2026-03-04T22:52:44.069Z",
     "data": {
       "germanQuestions": [
         {
@@ -7426,7 +7426,7 @@
         },
         {
           "id": "4.3.23.3",
-          "answer": "",
+          "answer": "YES",
           "evidence": "",
           "text": "Adressiert die Verfahrensanweisung die Methode zur Bestimmung der effektiven Schallbündelbreite (Hauptabmessung des Schallkopfs)?",
           "guidance": "Hinweis: Der Abtastindex muss auf der so bestimmten Schallbündelbreite basieren."
@@ -9012,7 +9012,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "",
+              "answer": "YES",
               "evidence": ""
             },
             {
@@ -11087,8 +11087,8 @@
     },
     "summary": {
       "total": 190,
-      "answered": 189,
-      "yes": 119,
+      "answered": 190,
+      "yes": 120,
       "no": 1,
       "na": 69
     }
