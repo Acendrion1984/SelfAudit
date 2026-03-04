@@ -7661,5 +7661,2147 @@
       "no": 2,
       "na": 69
     }
+  },
+  {
+    "id": "audit_1772660785769",
+    "name": "NE",
+    "audit_type": "NE",
+    "audit_title": "Nital-Ätzen",
+    "standard": "TPG-AC7114/12",
+    "created_at": "2026-03-04T21:46:25.769Z",
+    "data": {
+      "germanQuestions": [
+        {
+          "id": "3.1.1.1",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "3.1.1.2",
+          "answer": "YES",
+          "evidence": "Rückverfolgbarkeit über SAP-System"
+        },
+        {
+          "id": "3.1.1.3",
+          "answer": "YES",
+          "evidence": "Über Auftragsbegleitscheine und SAP"
+        },
+        {
+          "id": "3.1.1.4",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "3.1.1.5",
+          "answer": "N/A",
+          "evidence": "Teile sind mit Kühlmittel bedeckt und gehen direkt in das Ultraschallbad."
+        },
+        {
+          "id": "3.1.1.6",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "3.1.1.7",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "3.1.1.8",
+          "answer": "JA",
+          "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "3.1.1.9",
+          "answer": "JA",
+          "evidence": "Gemäß Standard S245013-1"
+        },
+        {
+          "id": "3.1.1.10",
+          "answer": "JA",
+          "evidence": "Gemäß Standard S245013-1"
+        },
+        {
+          "id": "3.1.1.11",
+          "answer": "JA",
+          "evidence": "Gemäß Standard S245013-1"
+        },
+        {
+          "id": "3.1.1.12",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "3.1.1.13",
+          "answer": "N/A",
+          "evidence": "Teile werden innerhalb derselben Einrichtung bewegt."
+        },
+        {
+          "id": "3.1.1.14",
+          "answer": "N/A",
+          "evidence": "Teile werden innerhalb derselben Einrichtung bewegt."
+        },
+        {
+          "id": "3.1.1.15",
+          "answer": "N/A",
+          "evidence": "Teile mit Anzeigen (Schleifbrand) werden nicht N/Achgearbeitet."
+        },
+        {
+          "id": "3.1.2",
+          "answer": "N/A",
+          "evidence": "Keine AbN/Ahme anwendbar."
+        },
+        {
+          "id": "3.1.3",
+          "answer": "JA",
+          "evidence": "Reinigungsbad ist zeit- und temperaturgesteuert. Weitere Bäder werden mit Raumtemperatur verwendet. Ätzbadzeit wird durch Graufärbung direkt vom Bediener überwacht. Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "3.2.1",
+          "answer": "JA",
+          "evidence": "TPM vorhanden"
+        },
+        {
+          "id": "3.2.2",
+          "answer": "N/A",
+          "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "3.2.3",
+          "answer": "JA",
+          "evidence": "Uhren/Zeitgeber sind in der Fertigung verfügbar und kalibriert."
+        },
+        {
+          "id": "3.3.1",
+          "answer": "JA",
+          "evidence": "1.a.1 Tanks sind mit Temperaturbereich / Raumtemperatur für Ringe 1.a.2 1.a.3 gekennzeichnet"
+        },
+        {
+          "id": "3.3.2",
+          "answer": "JA",
+          "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "3.3.3",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.3.4",
+          "answer": "JA",
+          "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "3.3.5",
+          "answer": "JA",
+          "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "3.3.6",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.3.7",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.3.8",
+          "answer": "JA",
+          "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "3.4.1",
+          "answer": "JA",
+          "evidence": "Labor ist informiert, Start ab 01.11.2023 Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "3.4.2",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.2.1",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.2.2",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.2.3",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.2.4",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.2.5",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.2.6",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.2.7",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.2.8",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.2.9",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.2.10",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.3",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.4",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.5",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.5.1",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.5.2",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.5.3",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.6",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.7",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.8",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.9",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.10",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.10.1",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "3.4.10.2",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "3.6.1",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.6.2",
+          "answer": "N/A",
+          "evidence": "Nicht zutreffend"
+        },
+        {
+          "id": "3.6.3",
+          "answer": "JA",
+          "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "3.6.6.1",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "3.6.6.2",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "4.1.1",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "4.1.2",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "4.1.3",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "4.2.1",
+          "answer": "YES",
+          "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "4.2.2",
+          "answer": "YES",
+          "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+        },
+        {
+          "id": "4.2.3",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "4.3",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "4.4",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "5.1",
+          "answer": "JA",
+          "evidence": "Freigegeben durch GE SO-10000857"
+        },
+        {
+          "id": "5.2",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "5.2.1",
+          "answer": "JA",
+          "evidence": "Sehprüfung neu in KW43"
+        },
+        {
+          "id": "5.2.2",
+          "answer": "JA",
+          "evidence": "Durch medizinisch qualifiziertes PersoN/Al."
+        },
+        {
+          "id": "5.2.3",
+          "answer": "JA",
+          "evidence": "Mit GE vereinbart"
+        },
+        {
+          "id": "5.3.1.1",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "5.3.1.2",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "5.3.1.3",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "5.3.1.4",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "5.3.1.5",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "5.3.1.6",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "6.1.1",
+          "answer": "YES",
+          "evidence": "Außenring"
+        },
+        {
+          "id": "6.1.2",
+          "answer": "YES",
+          "evidence": "In-Prozess"
+        },
+        {
+          "id": "6.1.3",
+          "answer": "YES",
+          "evidence": "F-619140-3001.AU.PRL-WPO"
+        },
+        {
+          "id": "6.1.4",
+          "answer": "YES",
+          "evidence": "GE"
+        },
+        {
+          "id": "6.1.5",
+          "answer": "YES",
+          "evidence": "GE"
+        },
+        {
+          "id": "6.1.6",
+          "answer": "YES",
+          "evidence": "3340819"
+        },
+        {
+          "id": "6.1.7",
+          "answer": "YES",
+          "evidence": "1"
+        },
+        {
+          "id": "6.1.8",
+          "answer": "YES",
+          "evidence": "3340819"
+        },
+        {
+          "id": "6.1.9",
+          "answer": "YES",
+          "evidence": "24.09.2024"
+        },
+        {
+          "id": "6.1.10",
+          "answer": "YES",
+          "evidence": "IN FSW 15612 Rev. 00"
+        },
+        {
+          "id": "6.2.1",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.2",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.3",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.4",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.5",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.6",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.7",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.8",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.9",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.10",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.11",
+          "answer": "YES",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.12",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.13",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.14",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.15",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.16",
+          "answer": "YES",
+          "evidence": "02800274"
+        },
+        {
+          "id": "6.2.17",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.18",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.19",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.20",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.21",
+          "answer": "N/A",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.22",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.23",
+          "answer": "YES",
+          "evidence": "02094764"
+        },
+        {
+          "id": "6.2.24",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.25",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.26",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.27",
+          "answer": "JA",
+          "evidence": ""
+        },
+        {
+          "id": "6.2.28",
+          "answer": "JA",
+          "evidence": ""
+        }
+      ],
+      "sections": [
+        {
+          "id": "3",
+          "title": "3. AUSRÜSTUNG UND MATERIALIEN",
+          "questions": [
+            {
+              "id": "3.1.1.1",
+              "text": "Enthält die Begleitkarte (KBK) jeder Charge einen Nachweis der Genehmigung für eingefrorene Prozesse, falls vom Kunden gefordert?",
+              "guidance": "Hinweis: Die Begleitkarte (KBK) muss nicht die Bestell- oder Vertragsnummer referenzieren, muss aber die Rückverfolgbarkeit dazu oder zu den technischen Anforderungen sicherstellen.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.1.1.2",
+              "text": "Enthält die Begleitkarte (KBK) die relevante Auftragsnummer oder eine Rückverfolgbarkeit zu technischen Anforderungen?",
+              "guidance": "Hinweis: Die Begleitkarte (KBK) muss nicht die Bestell- oder Vertragsnummer referenzieren, muss aber die Rückverfolgbarkeit dazu oder zu den technischen Anforderungen sicherstellen.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Rückverfolgbarkeit über SAP-System"
+            },
+            {
+              "id": "3.1.1.3",
+              "text": "Enthält die Begleitkarte (KBK) Teileidentifikation, Menge, Material und Materialgüte?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Über Auftragsbegleitscheine und SAP"
+            },
+            {
+              "id": "3.1.1.4",
+              "text": "Enthält die Begleitkarte (KBK) die Wareneingangsprüfung?",
+              "guidance": "Hinweis: N/A gilt für den Werkstransfer zwischen Einrichtungen oder Abteilungen.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "3.1.1.5",
+              "text": "Enthält die Begleitkarte (KBK) die Methode(n) der Vorreinigung?",
+              "guidance": "Hinweis: N/A gilt, wenn dieser Schritt für den Prozess nicht erforderlich ist.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": "Teile sind mit Kühlmittel bedeckt und gehen direkt in das Ultraschallbad."
+            },
+            {
+              "id": "3.1.1.6",
+              "text": "Enthält die Begleitkarte (KBK) Abdeckungen/Maskierungen?",
+              "guidance": "Hinweis: N/A gilt, wenn dieser Schritt für den Prozess nicht erforderlich ist.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "3.1.1.7",
+              "text": "Enthält die Begleitkarte (KBK) Vorrichtungen, Gestelle?",
+              "guidance": "Hinweis: N/A gilt, wenn Vorrichtungen und Gestelle nicht erforderlich sind, z. B. bei lokaler Ätzung.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "3.1.1.8",
+              "text": "Enthält die Begleitkarte (KBK) die Zwischenreinigung, Wasseraufreißtest?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "3.1.1.9",
+              "text": "Enthält die Begleitkarte (KBK) die Ätzschritte?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Gemäß Standard S245013-1"
+            },
+            {
+              "id": "3.1.1.10",
+              "text": "Enthält die Begleitkarte (KBK) Nachprozessschritte einschließlich Reinigung, Trocknung, Demaskierung und Entfernung von Vorrichtungen und Gestellen?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Gemäß Standard S245013-1"
+            },
+            {
+              "id": "3.1.1.11",
+              "text": "Enthält die Begleitkarte (KBK) den Ätzprüfschritt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Gemäß Standard S245013-1"
+            },
+            {
+              "id": "3.1.1.12",
+              "text": "Enthält die Begleitkarte (KBK) die Endprüfung?",
+              "guidance": "Hinweis: N/A gilt für den Werkstransfer zwischen Einrichtungen oder Abteilungen.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "3.1.1.13",
+              "text": "Enthält die Begleitkarte (KBK) die Verpackung?",
+              "guidance": "Hinweis: N/A gilt, wenn Teile innerhalb derselben Einrichtung bewegt werden.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": "Teile werden innerhalb derselben Einrichtung bewegt."
+            },
+            {
+              "id": "3.1.1.14",
+              "text": "Enthält die Begleitkarte (KBK) den Versand?",
+              "guidance": "Hinweis: N/A gilt, wenn Teile innerhalb derselben Einrichtung bewegt werden.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": "Teile werden innerhalb derselben Einrichtung bewegt."
+            },
+            {
+              "id": "3.1.1.15",
+              "text": "Enthält die Begleitkarte (KBK) die Dokumentation von Nacharbeit, die zur Begleitkarte (KBK) und allen an den Teilen durchgeführten Verarbeitungsschritten rückverfolgbar ist?",
+              "guidance": "Hinweis: N/A gilt, wenn während des Audits keine Nacharbeit beobachtet wurde.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": "Teile mit Anzeigen (Schleifbrand) werden nicht N/Achgearbeitet."
+            },
+            {
+              "id": "3.1.2",
+              "text": "Gibt es separate Abnahmeschritte für Wareneingangskontrolle, Verarbeitung, Prüfung, Endkontrolle und Versand, sofern zutreffend?",
+              "guidance": "Hinweis: Wareneingangskontrolle, Endkontrolle und Versand gelten nicht, wenn Teile innerhalb derselben Einrichtung bewegt werden.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": "Keine AbN/Ahme anwendbar."
+            },
+            {
+              "id": "3.1.3",
+              "text": "Werden die Zwischenreinigungszeit, Ätzzeit und Ätzlösungstemperatur aufgezeichnet und sind zur Begleitkarte (KBK) rückverfolgbar?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Reinigungsbad ist zeit- und temperaturgesteuert. Weitere Bäder werden mit Raumtemperatur verwendet. Ätzbadzeit wird durch Graufärbung direkt vom Bediener überwacht. Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "3.2.1",
+              "text": "Zeigen Aufzeichnungen, dass die Wartung gemäß einer Verfahrensanweisung und mit definierter Häufigkeit durchgeführt wurde?",
+              "guidance": "Hinweis: Dies umfasst elektrische Kontakte, regelmäßige Reinigung von Spültanks, Filterwechsel basierend auf Druckabfall, Kühlervorfilter, Überprüfung der Restwelligkeitskalibrierung usw.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "TPM vorhanden"
+            },
+            {
+              "id": "3.2.2",
+              "text": "Verfügt die Druckluftversorgung für Strahlbehandlung und Teileabblasen über Partikel-, Feuchtigkeits- und Ölfilter mit geplanter Wartung und Luftreinheitsprüfung am Verwendungsort?",
+              "guidance": "Hinweis: N/A gilt, wenn keine Strahlbehandlung verwendet wird und Druckluft nicht zum Trocknen von Teilen verwendet wird.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "3.2.3",
+              "text": "Sind Zeitmessgeräte verfügbar, für den Zweck geeignet, kalibriert und von den Tanks aus sichtbar oder hörbar?",
+              "guidance": "Hinweis: Für die Prozesssteuerung verwendete Zeitmessgeräte müssen kalibriert sein.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Uhren/Zeitgeber sind in der Fertigung verfügbar und kalibriert."
+            },
+            {
+              "id": "3.3.1",
+              "text": "Sind Tanks mit Identifikationsnummer, Inhalt und Temperaturbereichen gekennzeichnet?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "1.a.1 Tanks sind mit Temperaturbereich / Raumtemperatur für Ringe 1.a.2 1.a.3 gekennzeichnet"
+            },
+            {
+              "id": "3.3.2",
+              "text": "Stimmen die Tankkennzeichnungen mit Verfahrensanweisungen, Begleitkarte (KBK) und Aufzeichnungen überein?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "3.3.3",
+              "text": "Sind Tanks und Arbeitsflächen frei von Korrosion und Chemikalienspritzern, die den Prozess beeinträchtigen?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.3.4",
+              "text": "Sind Sprüh- und Tauchspültanks sauber, klar, frei durchfließend oder werden sie auf Verschmutzungsgrad überwacht?",
+              "guidance": "Hinweis: Gilt nicht für Ablauftanks, wenn ausreichendes Spülen folgt.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "3.3.5",
+              "text": "Sind Sprüh- und Tauchspültanks in einer Reihenfolge angeordnet, die Kreuzkontamination von Prozesstanks verhindert?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "3.3.6",
+              "text": "Gewährleisten Sprüh- und Tauchspültanks eine ausreichende Neutralisierung und/oder Entfernung von Prozesschemikalien?",
+              "guidance": "Hinweis: Besondere Aufmerksamkeit ist bei Teilen wie kleinen Rohrdurchmessern erforderlich.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.3.7",
+              "text": "Werden Tanks oder Teile bewegt?",
+              "guidance": "Hinweis: Bewegung kann kontinuierlich oder vor Gebrauch erfolgen.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.3.8",
+              "text": "Arbeiten Tanks mit definierten Temperaturbereichen innerhalb des spezifizierten Bereichs?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "3.4.1",
+              "text": "Gibt es ein verfahrensmäßig definiertes Kontrollsystem, das sicherstellt, dass die Lösungszusammensetzung innerhalb der Kontrollgrenzen gemäß den anwendbaren Spezifikationen gehalten wird, und ein System zur Anpassung der Analysehäufigkeit basierend auf der Änderungsrate?",
+              "guidance": "Hinweis: In der Spezifikation identifizierte Verunreinigungen gelten als Zusammensetzungsanforderungen.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Labor ist informiert, Start ab 01.11.2023 Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "3.4.2",
+              "text": "Enthalten die Lösungsüberwachungsaufzeichnungen die folgenden Informationen für jeden überwachten Tank?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.2.1",
+              "text": "Tankidentifikation?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.2.2",
+              "text": "Tankinhalt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.2.3",
+              "text": "Tankgröße (Arbeitsvolumen) und Füllstand?",
+              "guidance": "Hinweis: Das Arbeitsvolumen muss im Datensatz definiert sein, der Füllstand kann am Tank markiert oder automatisch gesteuert werden.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.2.4",
+              "text": "Analysefrequenz?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.2.5",
+              "text": "Zu analysierende Komponenten?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.2.6",
+              "text": "Basieren die Betriebstoleranzen auf Spezifikationsanforderungen?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.2.7",
+              "text": "Werden Zugaben und Anpassungen aufgezeichnet?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.2.8",
+              "text": "Werden Lösungswechsel aufgezeichnet?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.2.9",
+              "text": "Werden die Ergebnisse der Analyse aufgezeichnet?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.2.10",
+              "text": "Werden Datum und Unterschrift der Person, die die Analyse durchführt, aufgezeichnet?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.3",
+              "text": "Sind Lösungsüberwachungsaufzeichnungen für die letzten 12 Monate verfügbar?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.4",
+              "text": "Sind Lösungsüberwachungsaufzeichnungen zur Begleitkarte (KBK) und zu den Teilen rückverfolgbar?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.5",
+              "text": "Werden Lösungsüberwachungsaufzeichnungen von einer verantwortlichen Person geprüft und genehmigt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.5.1",
+              "text": "Wird das pH-Meter täglich, vor dem ersten Gebrauch, mit mindestens zwei Pufferlösungen standardisiert, die sowohl den sauren als auch den alkalischen Bereich repräsentieren, falls zutreffend?",
+              "guidance": "Hinweis: Die zur Standardisierung des Messgeräts verwendeten pH-Puffer müssen die sauren und/oder alkalischen Bereiche repräsentieren, müssen aber nicht den gesamten pH-Bereich der getesteten Proben abdecken.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.5.2",
+              "text": "Sind zertifizierte, handelsübliche oder bessere Pufferlösungen innerhalb der Haltbarkeit?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.5.3",
+              "text": "Wird die pH-Elektrode bei Nichtgebrauch in der entsprechenden Aufbewahrungslösung aufbewahrt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.6",
+              "text": "Werden Lösungsüberwachungsaufzeichnungen auf Trends überprüft?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.7",
+              "text": "Werden Lösungsüberwachungsaufzeichnungen auf Toleranzüberschreitungen überprüft?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.8",
+              "text": "Werden Lösungsüberwachungsaufzeichnungen auf Korrekturmaßnahmen überprüft?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.9",
+              "text": "Werden Lösungsüberwachungsaufzeichnungen auf Revalidierung des Prozesses nach Korrekturmaßnahmen überprüft?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.10",
+              "text": "Werden Lösungsüberwachungsaufzeichnungen auf Revalidierung des Prozesses nach Lösungswechseln überprüft?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.10.1",
+              "text": "Wird das pH-Meter mindestens jährlich kalibriert?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "3.4.10.2",
+              "text": "Wird die Temperaturkompensationsfunktion des pH-Meters verifiziert?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "3.6.1",
+              "text": "Werden Teile ohne unangemessene Verzögerung zwischen Tanks bewegt, sodass die Prozessqualität nicht beeinträchtigt wird?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.6.2",
+              "text": "Wenn der Auditiere eine kathodische Reinigungskapazität hat, ist deren Verwendung zur Reinigung von Teilen für das Nitalätzen untersagt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "N/A",
+              "evidence": "Nicht zutreffend"
+            },
+            {
+              "id": "3.6.3",
+              "text": "Werden Teile nach der Reinigung und vor dem Ätzen mindestens 15 Sekunden lang auf Wasseraufreißfreiheit geprüft?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "3.6.6.1",
+              "text": "Sind alle zu ätzenden Oberflächen frei von Oxid und Zunder?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "3.6.6.2",
+              "text": "Erfüllt die Lösungszusammensetzung die Spezifikationsanforderungen?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "3",
+              "answer": "JA",
+              "evidence": ""
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "title": "4. VERFAHRENSANWEISUNGEN UND TECHNIKEN",
+          "questions": [
+            {
+              "id": "4.1.1",
+              "text": "Wird das Weißlichtmessgerät mindestens jährlich kalibriert?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "4",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "4.1.2",
+              "text": "Deckt die Kalibrierung den Anwendungsbereich ab?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "4",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "4.1.3",
+              "text": "Ist das Lichtmessgerät auf ±5 % des Standardinstrumentenwerts genau?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "4",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "4.2.1",
+              "text": "Sind 200 Fußkerzen/2200 Lux Weißlicht oder mehr an der Teiloberfläche zur visuellen Überprüfung von Anzeigen verfügbar?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "4",
+              "answer": "JA",
+              "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "4.2.2",
+              "text": "Wird die Weißlichtintensitätsprüfung mindestens wöchentlich oder vor Gebrauch und nach Gerätewartung durchgeführt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "4",
+              "answer": "JA",
+              "evidence": "Gemäß lokaler Anweisung IN FSW15612"
+            },
+            {
+              "id": "4.2.3",
+              "text": "Hat die Einrichtung diese Prüfung ordnungsgemäß demonstriert und aufgezeichnet?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "4",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "4.3",
+              "text": "Sind Verfahrensanweisungen für Bewertungstechniken verfügbar?",
+              "guidance": "Hinweis: Stellen Sie sicher, dass alle Verfahrensanweisungen oder Arbeitsanweisungen für Bewertungstechniken alle Kundenanforderungen erfüllen und verfügbar sind.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "4",
+              "answer": "",
+              "evidence": ""
+            },
+            {
+              "id": "4.4",
+              "text": "Sind Fotos oder andere visuelle Standards für Annahme-/Ablehnungskriterien verfügbar, falls von Kunden oder internen Verfahrensanweisungen gefordert?",
+              "guidance": "Hinweis: Stellen Sie sicher, dass die Bilder oder anderen visuellen Hilfsmittel für den Kunden geeignet sind und alle Kundenanforderungen erfüllen.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "4",
+              "answer": "",
+              "evidence": ""
+            }
+          ]
+        },
+        {
+          "id": "5",
+          "title": "5. SYSTEMLEISTUNG UND PRÜFUNGEN",
+          "questions": [
+            {
+              "id": "5.1",
+              "text": "Muss Ätzpersonal für die Sichtprüfung (VT) gemäß ISO 9712 oder ASNT-TC-1A qualifiziert sein?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "JA",
+              "evidence": "Freigegeben durch GE SO-10000857"
+            },
+            {
+              "id": "5.2",
+              "text": "Jährlicher Sehtest, der eines der folgenden Kriterien erfüllt: - Tumbling E nach ISO 18490 - 20/25 (Snellen) bei 16 Zoll (40,64 cm), +/- 1 Zoll (2,54 cm)* - Jaeger Nr. 1 bei nicht weniger als 12 Zoll (30,48 cm)* *Mit mindestens einem Auge, natürlich oder korrigiert?",
+              "guidance": "Hinweis: ISO 18490-Tests (Tumbling E) müssen gemäß den darin enthaltenen Anforderungen durchgeführt werden.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "5.2.1",
+              "text": "Jährliche Sehprüfung, die zeigt, dass der Prüfer Kontraststufen der geätzten Teile unterscheiden und differenzieren kann?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "JA",
+              "evidence": "Sehprüfung neu in KW43"
+            },
+            {
+              "id": "5.2.2",
+              "text": "Wurden die Seh- und Kontrastprüfungen von geschultem Personal durchgeführt, das vom verantwortlichen Level-3 oder einer medizinisch qualifizierten Person benannt wurde?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "JA",
+              "evidence": "Durch medizinisch qualifiziertes PersoN/Al."
+            },
+            {
+              "id": "5.2.3",
+              "text": "Definiert eine Verfahrensanweisung die Anforderungen für die Wiederholungsprüfung, einschließlich einer Wartezeit von 30 Tagen ab dem Datum des Nichtbestehens, für Personal, das die Qualifikationskriterien nicht erfüllt/nicht besteht?",
+              "guidance": "Hinweis: Eine Wiederholungsprüfung ist nach zusätzlicher dokumentierter Schulung in den Bereichen, in denen Mängel festgestellt wurden, mit 25 % neuen Fragen in der neuen Prüfung erforderlich.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "JA",
+              "evidence": "Mit GE vereinbart"
+            },
+            {
+              "id": "5.3.1.1",
+              "text": "Enthalten die Schulungs-/Zertifizierungsaufzeichnungen des Auditierten das Qualifikationsdatum?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "5.3.1.2",
+              "text": "Enthalten die Schulungs-/Zertifizierungsaufzeichnungen des Auditierten einen Nachweis der Erstschulung?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "5.3.1.3",
+              "text": "Enthalten die Schulungs-/Zertifizierungsaufzeichnungen des Auditierten einen Nachweis der praktischen Ausbildung am Arbeitsplatz?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "5.3.1.4",
+              "text": "Enthalten die Schulungs-/Zertifizierungsaufzeichnungen des Auditierten für Personal der Stufe 1 und 2 einen Nachweis der jährlichen Seh- und Kontrasttests?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "5.3.1.5",
+              "text": "Enthalten die Schulungs-/Zertifizierungsaufzeichnungen des Auditierten für Personal der Stufe 1 und 2 einen Nachweis der anfänglichen schriftlichen Prüfung und der anfänglichen und fünfjährigen praktischen Prüfungen, einschließlich Ergebnisse?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "5.3.1.6",
+              "text": "Korrekte Freigabe/Entzug der Zertifizierung basierend auf Ergebnissen?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "5",
+              "answer": "N/A",
+              "evidence": ""
+            }
+          ]
+        },
+        {
+          "id": "6",
+          "title": "6. KALIBRIERUNG UND NORMALE",
+          "questions": [
+            {
+              "id": "6.1.1",
+              "text": "Teilebeschreibung",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "Außenring"
+            },
+            {
+              "id": "6.1.2",
+              "text": "Kennzeichnung, ob es sich um eine laufende Auftragsprüfung oder eine historische Auftragsprüfung handelt:",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "In-Prozess"
+            },
+            {
+              "id": "6.1.3",
+              "text": "Teilenummer",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "F-619140-3001.AU.PRL-WPO"
+            },
+            {
+              "id": "6.1.4",
+              "text": "Kunde",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "GE"
+            },
+            {
+              "id": "6.1.5",
+              "text": "Hauptauftragnehmer",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "GE"
+            },
+            {
+              "id": "6.1.6",
+              "text": "Auftragsnummer/Revisionsstand",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "3340819"
+            },
+            {
+              "id": "6.1.7",
+              "text": "Teilemenge",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "1"
+            },
+            {
+              "id": "6.1.8",
+              "text": "Serien-/Losnummer",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "3340819"
+            },
+            {
+              "id": "6.1.9",
+              "text": "Auftragsdatum/Auftragsnummer",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "24.09.2024"
+            },
+            {
+              "id": "6.1.10",
+              "text": "Verarbeitungsspezifikation und Revisionsstand",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "IN FSW 15612 Rev. 00"
+            },
+            {
+              "id": "6.2.1",
+              "text": "Wird die Wareneingangsprüfung gemäß Begleitkarte (KBK) korrekt durchgeführt?",
+              "guidance": "Hinweis: N/A gilt, wenn Teile zwischen Abteilungen transferiert werden und keine Wareneingangsprüfung erforderlich ist.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "6",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.2",
+              "text": "Wird ein Fehlernormal mit einer Häufigkeit gemäß anwendbarer Spezifikation durchgeführt?",
+              "guidance": "Hinweis: N/A gilt, wenn kein tägliches Fehlernormal erforderlich ist.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "6",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.3",
+              "text": "Wird die Vorreinigung gemäß Begleitkarte (KBK) durchgeführt?",
+              "guidance": "Hinweis: N/A gilt, wenn dieser Schritt nicht erforderlich ist.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "6",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.4",
+              "text": "Wird die Maskierung gemäß Begleitkarte (KBK) durchgeführt?",
+              "guidance": "Hinweis: N/A gilt, wenn dieser Schritt nicht erforderlich ist.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "6",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.5",
+              "text": "Wird das Teil gemäß Begleitkarte (KBK) positioniert und fixiert?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.6",
+              "text": "Wird die Zwischenreinigung, z. B. alkalische Reinigung, gemäß Begleitkarte (KBK) durchgeführt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.7",
+              "text": "Wird nach dem Reinigungszyklus eine 15-sekündige wasseraufreißfreie Oberfläche beobachtet?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.8",
+              "text": "Werden die Ätzschritte gemäß Begleitkarte (KBK) durchgeführt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.9",
+              "text": "Werden Teile während des Ätzens so positioniert, dass Lufteinschlüsse oder sich entwickelnde Gase in Taschen oder anderen vertieften Bereichen minimiert/verhindert werden?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.10",
+              "text": "Werden Teile nach dem Ätzen zügig und gründlich gespült, um lokales Überätzen zu verhindern?",
+              "guidance": "Hinweis: Lokales Überätzen kann als Streifen sichtbar sein, die über die Teiloberflächen verlaufen.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.11",
+              "text": "Werden Nach-Hauptprozess-Schritte (z. B. Entfernung von Schmutz) gemäß Begleitkarte (KBK) durchgeführt?",
+              "guidance": "Hinweis: N/A gilt, wenn dieser Schritt nicht erforderlich ist.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "6",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.12",
+              "text": "Werden Demaskierung und Reinigung nach dem Prozess gemäß Begleitkarte (KBK) durchgeführt?",
+              "guidance": "Hinweis: N/A gilt, wenn dieser Schritt nicht erforderlich ist.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "6",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.13",
+              "text": "Wird eine Zwangstrocknung nach der Verarbeitung durchgeführt und beträgt die Temperatur mindestens 50 °F (28 °C)?",
+              "guidance": "Hinweis: N/A gilt, wenn dieser Schritt nicht erforderlich ist.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "6",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.14",
+              "text": "Werden die Zwischenreinigungszeit, die Nital-Ätzzeit und die Nital-Ätzlösungstemperatur auf der Begleitkarte (KBK) oder in einem zur Begleitkarte rückverfolgbaren Datensatz aufgezeichnet?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.15",
+              "text": "Sind die Prozessparameter konform mit internen Anweisungen und der Spezifikation?",
+              "guidance": "Hinweis: Bei der Nital-/Temperätzung kann die Ätzzeit auf der Zeit basieren, die benötigt wird, um ein bekanntes Fehlernormal korrekt zu ätzen oder einen bestimmten Grauwert zu erreichen.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.16",
+              "text": "Sind alle erforderlichen Oberflächen geätzt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "02800274"
+            },
+            {
+              "id": "6.2.17",
+              "text": "Sind alle erforderlichen Oberflächen geprüft?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.18",
+              "text": "Wird die Prüfung unter der korrekten Lichtintensität durchgeführt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.19",
+              "text": "Werden alle Anzeigen identifiziert?",
+              "guidance": "Hinweis: N/A gilt, wenn keine Anzeigen vorhanden sind.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.20",
+              "text": "Werden alle Anzeigen korrekt bewertet?",
+              "guidance": "Hinweis: N/A gilt, wenn keine Anzeigen vorhanden sind.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "6",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.21",
+              "text": "Werden alle Prüfergebnisse ordnungsgemäß aufgezeichnet und sind sie zu den Teilen rückverfolgbar?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "N/A",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.22",
+              "text": "Wurden die Teile von einer zertifizierten Level-1-, Level-2- oder Level-3-Person verarbeitet?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.23",
+              "text": "Wurden Anzeigen von einer zertifizierten Level-1-, Level-2- oder Level-3-Person identifiziert?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "",
+              "evidence": "02094764"
+            },
+            {
+              "id": "6.2.24",
+              "text": "Wurde die Annahme/Ablehnung des Teils von einer zertifizierten Level-2- oder Level-3-Person oder einer Level-1-Person mit spezifischen schriftlichen Kriterien von einer Level-2- oder Level-3-Person durchgeführt?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.25",
+              "text": "Werden alle Arbeitsgänge vom Bediener/Prüfer unterschrieben und datiert?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.26",
+              "text": "Wurde die Lösungszusammensetzung gemäß den Anforderungen kontrolliert?",
+              "guidance": "Hinweis: Siehe Spezifikation für Anforderungen an die Lösungssteuerung; einige Lösungen können durch Zusammensetzung gesteuert werden, andere durch die Zeit, die ein Prüfkörper benötigt, um einen bestimmten Grauwert zu erreichen.",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.27",
+              "text": "Sind alle Prozesssteuerungs- und Prozessüberwachungs-/Aufzeichnungsgeräte kalibriert?",
+              "guidance": "",
+              "options": [
+                "YES",
+                "NO"
+              ],
+              "hasNA": false,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            },
+            {
+              "id": "6.2.28",
+              "text": "Werden alle Nacharbeitsvorgänge dokumentiert?",
+              "guidance": "Hinweis: N/A gilt, wenn für diesen Auftrag keine Nacharbeit erforderlich ist.",
+              "options": [
+                "YES",
+                "NO",
+                "NA"
+              ],
+              "hasNA": true,
+              "sectionId": "6",
+              "answer": "JA",
+              "evidence": ""
+            }
+          ]
+        }
+      ]
+    },
+    "summary": {
+      "total": 115,
+      "answered": 115,
+      "yes": 38,
+      "no": 0,
+      "na": 0
+    }
   }
 ]
