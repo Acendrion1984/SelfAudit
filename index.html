@@ -32,7 +32,6 @@
             --audit-ne: #2ecc71;
             --audit-ut: #9b59b6;
             
-            /* Glass-Tints */
             --audit-et-glass: #3498db;
             --audit-mt-glass: #e74c3c;
             --audit-ne-glass: #2ecc71;
@@ -83,7 +82,6 @@
             --audit-ne: #239b56;
             --audit-ut: #7d3c98;
             
-            /* Glass-Tints (Dark) */
             --audit-et-glass: #2874a6E6;
             --audit-mt-glass: #c0392bE6;
             --audit-ne-glass: #239b56E6;
@@ -306,7 +304,6 @@
             }
         }
         
-        /* Light Mode spezifische Anpassungen */
         html[data-theme="light"] .audit-btn {
             border-color: rgba(0,0,0,0.38) !important;
             box-shadow: 0 12px 26px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.35) inset !important;
@@ -323,7 +320,6 @@
             border: 1px solid rgba(255,255,255,0.35) !important;
         }
         
-        /* Dark Mode Anpassungen */
         @media (prefers-color-scheme: dark) {
             .audit-btn {
                 border-color: rgba(255,255,255,0.28);
@@ -358,7 +354,7 @@
             gap: 8px;
         }
         
-        .supabase-status {
+        .github-status {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -369,12 +365,12 @@
             border: 1px solid var(--border-color);
         }
         
-        .supabase-connected {
+        .github-connected {
             color: var(--btn-success);
             font-weight: bold;
         }
         
-        .supabase-disconnected {
+        .github-disconnected {
             color: var(--btn-danger);
             font-weight: bold;
         }
@@ -455,7 +451,7 @@
             color: var(--btn-info);
         }
         
-        .audit-source-supabase {
+        .audit-source-github {
             color: var(--btn-success);
         }
         
@@ -499,12 +495,12 @@
             color: white;
         }
         
-        .btn-supabase-upload {
+        .btn-github-upload {
             background: var(--btn-success);
             color: white;
         }
         
-        .btn-supabase-download {
+        .btn-github-download {
             background: var(--btn-export);
             color: white;
         }
@@ -518,6 +514,201 @@
             border-radius: 8px;
             border: 1px dashed var(--border-color);
             grid-column: 1 / -1;
+        }
+        
+        /* === GITHUB CONFIG PANEL === */
+        .github-config-panel {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+        
+        .github-config-panel h3 {
+            color: var(--text-tertiary);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .github-form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .github-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .github-field label {
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        
+        .github-field input {
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            padding: 8px 10px;
+            font-size: 0.9em;
+            color: var(--input-text);
+            width: 100%;
+        }
+        
+        .github-field input:focus {
+            border-color: var(--btn-info);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(23, 162, 184, 0.2);
+        }
+        
+        .pat-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .pat-row input {
+            flex: 1;
+        }
+        
+        .btn-eye {
+            background: var(--btn-back);
+            border: none;
+            border-radius: 4px;
+            width: 38px;
+            height: 38px;
+            cursor: pointer;
+            color: white;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .pat-warning {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 3px solid var(--btn-danger);
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 0.85em;
+            color: var(--btn-danger);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .github-status-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .github-status-bar.connected {
+            border-color: var(--btn-success);
+            background: rgba(39, 174, 96, 0.05);
+        }
+        
+        .github-status-bar.error {
+            border-color: var(--btn-danger);
+            background: rgba(231, 76, 60, 0.05);
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--text-secondary);
+        }
+        
+        .status-dot.green {
+            background: var(--btn-success);
+            box-shadow: 0 0 5px var(--btn-success);
+        }
+        
+        .status-dot.red {
+            background: var(--btn-danger);
+        }
+        
+        .github-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .saving-indicator {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-left: auto;
+        }
+        
+        .saving-indicator.visible {
+            display: flex;
+        }
+        
+        .save-spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--border-color);
+            border-top-color: var(--btn-success);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .sync-toast {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 0.9em;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transform: translateX(200%);
+            transition: transform 0.3s ease;
+        }
+        
+        .sync-toast.show {
+            transform: translateX(0);
+        }
+        
+        .sync-toast.success {
+            border-color: var(--btn-success);
+            background: rgba(39, 174, 96, 0.1);
+        }
+        
+        .sync-toast.error {
+            border-color: var(--btn-danger);
+            background: rgba(231, 76, 60, 0.1);
         }
         
         /* === AUDIT ÜBERSICHT (NEUE SEITE) === */
@@ -701,7 +892,7 @@
         .btn-info { background: var(--btn-info); color: white; }
         .btn-load { background: var(--btn-load); color: white; }
         .btn-import { background: var(--btn-success); color: white; }
-        .btn-supabase { background: var(--btn-export); color: white; }
+        .btn-github { background: var(--btn-export); color: white; }
         
         button:hover { 
             opacity: 0.9;
@@ -967,7 +1158,7 @@
             color: white;
         }
         
-        .btn-supabase-save {
+        .btn-github-save {
             background: var(--btn-export);
             color: white;
         }
@@ -1014,6 +1205,9 @@
                 align-items: center;
                 gap: 10px;
             }
+            .github-form-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (min-width: 769px) {
@@ -1039,8 +1233,6 @@
             font-size: 0.85em;
         }
     </style>
-    <!-- Supabase SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div class="container">
@@ -1077,6 +1269,60 @@
                 </div>
             </div>
 
+            <!-- === GITHUB KONFIGURATION === -->
+            <div class="github-config-panel" id="githubConfigPanel">
+                <h3><i class="fab fa-github"></i> GitHub JSON Datenbank</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.9em;">
+                    Daten werden als JSON-Datei direkt in einem GitHub Repository gespeichert. 
+                    Jede Änderung erzeugt automatisch einen Commit.
+                </p>
+                
+                <div class="pat-warning">
+                    <span>⚠️ Personal Access Token wird lokal im Browser gespeichert. Niemals teilen!</span>
+                </div>
+                
+                <div class="github-form-grid">
+                    <div class="github-field">
+                        <label>GitHub Username (Owner)</label>
+                        <input id="cfgOwner" placeholder="z.B. maxmustermann">
+                    </div>
+                    <div class="github-field">
+                        <label>Repository Name</label>
+                        <input id="cfgRepo" placeholder="zfp-audits">
+                    </div>
+                    <div class="github-field">
+                        <label>Branch</label>
+                        <input id="cfgBranch" placeholder="main" value="main">
+                    </div>
+                    <div class="github-field">
+                        <label>Dateiname</label>
+                        <input id="cfgFile" placeholder="audits.json" value="audits.json">
+                    </div>
+                    <div class="github-field" style="grid-column: 1 / -1;">
+                        <label>Personal Access Token (PAT)</label>
+                        <div class="pat-row">
+                            <input id="cfgToken" type="password" placeholder="github_pat_...">
+                            <button class="btn-eye" onclick="togglePATVisibility()" title="Token anzeigen/verstecken">👁️</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="github-status-bar" id="githubStatusBar">
+                    <div class="status-dot" id="githubStatusDot"></div>
+                    <span id="githubStatusText">Nicht verbunden</span>
+                </div>
+                
+                <div class="saving-indicator" id="savingIndicator">
+                    <div class="save-spinner"></div>
+                    <span>Speichere in GitHub...</span>
+                </div>
+                
+                <div class="github-actions">
+                    <button class="btn btn-info" onclick="connectGitHub()"><i class="fas fa-plug"></i> Verbinden & Laden</button>
+                    <button class="btn btn-success" onclick="saveGitHubConfig()"><i class="fas fa-save"></i> Einstellungen speichern</button>
+                </div>
+            </div>
+
             <!-- === KACHEL FÜR ABGESCHLOSSENE AUDITS === -->
             <div class="completed-audits-section">
                 <div class="completed-audits-header">
@@ -1084,10 +1330,10 @@
                         <span>📋 Abgeschlossene Audits</span>
                         <span style="font-size: 0.8em; color: var(--text-secondary);" id="completedCount">(0)</span>
                     </div>
-                    <div class="supabase-status">
-                        <span id="supabaseStatusIcon">🔴</span>
-                        <span id="supabaseStatusText">Nicht verbunden</span>
-                        <button class="refresh-btn" onclick="testSupabaseConnection()" title="Verbindung testen">⟳</button>
+                    <div class="github-status">
+                        <span id="githubStatusIcon">⚪</span>
+                        <span id="githubStatusText2">Nicht verbunden</span>
+                        <button class="refresh-btn" onclick="testGitHubConnection()" title="Verbindung testen">⟳</button>
                         <button class="refresh-btn" onclick="loadAllCompletedAudits()" title="Audit-Liste aktualisieren">↻</button>
                     </div>
                 </div>
@@ -1104,7 +1350,7 @@
                     <button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button>
                     <button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button>
                     <button class="btn-import" id="importFromOverviewBtn">📂 Import</button>
-                    <button class="btn-supabase" id="saveToSupabaseBtn">☁️ In Supabase speichern</button>
+                    <button class="btn-github" id="saveToGitHubBtn">☁️ In GitHub speichern</button>
                 </div>
             </div>
             
@@ -1126,7 +1372,7 @@
                     <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
                     <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
                     <button class="btn-import" id="importFromQuestionsBtn">📂 Import</button>
-                    <button class="btn-supabase" id="saveToSupabaseFromQuestionsBtn">☁️ In Supabase speichern</button>
+                    <button class="btn-github" id="saveToGitHubFromQuestionsBtn">☁️ In GitHub speichern</button>
                 </div>
             </div>
             
@@ -1161,18 +1407,21 @@
             </div>
         </div>
 
-        <!-- === SUPABASE SAVE MODAL === -->
-        <div id="supabaseSaveModal" class="modal">
+        <!-- === GITHUB SAVE MODAL === -->
+        <div id="githubSaveModal" class="modal">
             <div class="modal-content">
-                <h3>☁️ In Supabase speichern</h3>
+                <h3>☁️ In GitHub speichern</h3>
                 <p style="margin-bottom: 15px; color: var(--text-secondary);">Geben Sie einen Namen für das Audit ein (optional).</p>
-                <input type="text" id="supabaseAuditName" placeholder="z.B. Q1-2026 Ultraschall" value="">
+                <input type="text" id="githubAuditName" placeholder="z.B. Q1-2026 Ultraschall" value="">
                 <div class="modal-buttons">
-                    <button class="btn-cancel" onclick="document.getElementById('supabaseSaveModal').style.display='none'">Abbrechen</button>
-                    <button class="btn-supabase-save" onclick="saveCurrentAuditToSupabase()">In Supabase speichern</button>
+                    <button class="btn-cancel" onclick="document.getElementById('githubSaveModal').style.display='none'">Abbrechen</button>
+                    <button class="btn-github-save" onclick="saveCurrentAuditToGitHub()">In GitHub speichern</button>
                 </div>
             </div>
         </div>
+
+        <!-- === SYNC TOAST === -->
+        <div class="sync-toast" id="syncToast"></div>
 
         <footer>
             <p>Self-Audit ZfP &copy; 2026 Schaeffler Technologies AG & Co. KG</p>
@@ -1182,104 +1431,195 @@
     <button id="themeToggleBtn" class="theme-toggle" title="Hell/Dunkel umschalten">🌓</button>
 
     <script>
-        // === SUPABASE KONFIGURATION ===================
-        // HIER MÜSSEN SIE IHRE EIGENEN SUPABASE-ZUGANGSDATEN EINTRAGEN!
-        const SUPABASE_URL = 'https://agyktwyeahwrcsmaoibe.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_fiPWCIMlRxbt3fy6DXf8iQ_JibUoEUo';
+        // === GITHUB KONFIGURATION ===================
+        const GITHUB_CONFIG_KEY = 'zfp_github_config';
         
-        let supabaseClient = null;
-        let supabaseConnected = false;
+        let githubConfig = {
+            owner: '',
+            repo: '',
+            branch: 'main',
+            file: 'audits.json',
+            token: ''
+        };
+        
+        let fileSha = null; // GitHub file SHA for updates
+        let githubConnected = false;
+        let configPanelVisible = true;
 
-        // === SUPABASE INITIALISIEREN ==================
-        function initSupabase() {
+        // === GITHUB KONFIGURATION LADEN ==============
+        function loadGitHubConfig() {
             try {
-                if (!SUPABASE_URL || !SUPABASE_ANON_KEY || 
-                    SUPABASE_URL.includes('ihre-projekt-id') || 
-                    SUPABASE_ANON_KEY.includes('ihre-anon-key')) {
-                    console.warn('⚠️ Supabase: Bitte konfigurieren Sie Ihre Zugangsdaten in der Variable SUPABASE_URL und SUPABASE_ANON_KEY');
-                    updateSupabaseStatus(false, 'Nicht konfiguriert');
-                    return;
+                const saved = localStorage.getItem(GITHUB_CONFIG_KEY);
+                if (saved) {
+                    githubConfig = JSON.parse(saved);
                 }
-                
-                supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-                testSupabaseConnection();
-            } catch (error) {
-                console.error('❌ Supabase Initialisierungsfehler:', error);
-                updateSupabaseStatus(false, 'Fehler');
+            } catch (e) {
+                console.error('Fehler beim Laden der GitHub-Konfiguration:', e);
             }
-        }
-
-        // === SUPABASE VERBINDUNG TESTEN ================
-        async function testSupabaseConnection() {
-            try {
-                if (!supabaseClient) {
-                    updateSupabaseStatus(false, 'Nicht initialisiert');
-                    return;
-                }
-                
-                // Einfacher Test: Versuche, auf die Tabelle zuzugreifen
-                const { data, error } = await supabaseClient
-                    .from('audits_v2')
-                    .select('count', { count: 'exact', head: true });
-                
-                if (error) {
-                    console.error('❌ Supabase Verbindungsfehler:', error);
-                    updateSupabaseStatus(false, 'Fehler: ' + (error.message || 'Unbekannt'));
-                } else {
-                    console.log('✅ Supabase verbunden');
-                    updateSupabaseStatus(true, 'Verbunden');
-                }
-            } catch (error) {
-                console.error('❌ Supabase Testfehler:', error);
-                updateSupabaseStatus(false, 'Fehler');
-            }
-        }
-
-        // === SUPABASE STATUS ANZEIGEN ==================
-        function updateSupabaseStatus(connected, text) {
-            supabaseConnected = connected;
-            const icon = document.getElementById('supabaseStatusIcon');
-            const statusText = document.getElementById('supabaseStatusText');
             
-            if (connected) {
-                icon.textContent = '🟢';
-                icon.style.color = '#27ae60';
-                statusText.textContent = text || 'Verbunden';
-            } else {
-                icon.textContent = '🔴';
-                icon.style.color = '#e74c3c';
-                statusText.textContent = text || 'Nicht verbunden';
+            document.getElementById('cfgOwner').value = githubConfig.owner || '';
+            document.getElementById('cfgRepo').value = githubConfig.repo || '';
+            document.getElementById('cfgBranch').value = githubConfig.branch || 'main';
+            document.getElementById('cfgFile').value = githubConfig.file || 'audits.json';
+            document.getElementById('cfgToken').value = githubConfig.token || '';
+        }
+
+        // === GITHUB KONFIGURATION SPEICHERN ==========
+        window.saveGitHubConfig = function() {
+            readGitHubConfigFromForm();
+            localStorage.setItem(GITHUB_CONFIG_KEY, JSON.stringify(githubConfig));
+            showToast('✅ Einstellungen gespeichert', 'success');
+        };
+
+        function readGitHubConfigFromForm() {
+            githubConfig.owner = document.getElementById('cfgOwner').value.trim();
+            githubConfig.repo = document.getElementById('cfgRepo').value.trim();
+            githubConfig.branch = document.getElementById('cfgBranch').value.trim() || 'main';
+            githubConfig.file = document.getElementById('cfgFile').value.trim() || 'audits.json';
+            githubConfig.token = document.getElementById('cfgToken').value.trim();
+        }
+
+        // === GITHUB API HEADERS ======================
+        function githubHeaders() {
+            return {
+                'Authorization': `Bearer ${githubConfig.token}`,
+                'Accept': 'application/vnd.github+json',
+                'X-GitHub-Api-Version': '2022-11-28',
+                'Content-Type': 'application/json'
+            };
+        }
+
+        function githubUrl(path = '') {
+            return `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.file}${path}`;
+        }
+
+        // === GITHUB VERBINDUNG TESTEN ================
+        window.testGitHubConnection = async function() {
+            readGitHubConfigFromForm();
+            await connectGitHub();
+        };
+
+        window.connectGitHub = async function() {
+            readGitHubConfigFromForm();
+            
+            if (!githubConfig.owner || !githubConfig.repo || !githubConfig.token) {
+                updateGitHubStatus(false, '❌ Bitte alle Felder ausfüllen');
+                showToast('❌ Bitte alle Felder ausfüllen', 'error');
+                return;
+            }
+            
+            showSaving(true);
+            
+            try {
+                const url = `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.file}?ref=${githubConfig.branch}&t=${Date.now()}`;
+                const response = await fetch(url, { headers: githubHeaders() });
+                
+                if (response.status === 404) {
+                    // Datei existiert noch nicht - wir können sie später anlegen
+                    fileSha = null;
+                    updateGitHubStatus(true, '✅ Verbunden (neue Datei)');
+                    showToast('✅ Mit GitHub verbunden', 'success');
+                    
+                } else if (response.ok) {
+                    const data = await response.json();
+                    fileSha = data.sha;
+                    updateGitHubStatus(true, `✅ Verbunden mit ${githubConfig.owner}/${githubConfig.repo}`);
+                    showToast('✅ Mit GitHub verbunden', 'success');
+                    
+                } else {
+                    const error = await response.json().catch(() => ({}));
+                    throw new Error(error.message || `HTTP ${response.status}`);
+                }
+                
+                // Konfiguration speichern
+                localStorage.setItem(GITHUB_CONFIG_KEY, JSON.stringify(githubConfig));
+                
+                // Audits laden
+                await loadGitHubAudits();
+                
+            } catch (error) {
+                console.error('GitHub Verbindungsfehler:', error);
+                updateGitHubStatus(false, `❌ Fehler: ${error.message}`);
+                showToast(`❌ ${error.message}`, 'error');
+            } finally {
+                showSaving(false);
+            }
+        };
+
+        // === GITHUB AUDITS LADEN =====================
+        async function loadGitHubAudits() {
+            if (!githubConfig.owner || !githubConfig.repo || !githubConfig.token) {
+                return [];
+            }
+            
+            try {
+                const url = `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.file}?ref=${githubConfig.branch}&t=${Date.now()}`;
+                const response = await fetch(url, { headers: githubHeaders() });
+                
+                if (response.status === 404) {
+                    // Datei existiert nicht
+                    return [];
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                fileSha = data.sha;
+                
+                const content = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+                return JSON.parse(content);
+                
+            } catch (error) {
+                console.error('Fehler beim Laden von GitHub:', error);
+                return [];
             }
         }
 
-        // === AUDIT IN SUPABASE SPEICHERN ================
-        async function saveCurrentAuditToSupabase() {
+        // === AUDIT IN GITHUB SPEICHERN ================
+        window.saveCurrentAuditToGitHub = async function() {
             if (!currentAuditType || !germanQuestions.length) {
                 alert('❌ Kein Audit geladen!');
-                document.getElementById('supabaseSaveModal').style.display = 'none';
+                document.getElementById('githubSaveModal').style.display = 'none';
                 return;
             }
             
-            if (!supabaseClient || !supabaseConnected) {
-                alert('❌ Supabase nicht verbunden! Bitte konfigurieren Sie die Zugangsdaten.');
-                document.getElementById('supabaseSaveModal').style.display = 'none';
+            if (!githubConfig.owner || !githubConfig.repo || !githubConfig.token) {
+                alert('❌ GitHub nicht konfiguriert! Bitte zuerst verbinden.');
+                document.getElementById('githubSaveModal').style.display = 'none';
                 return;
             }
             
-            const auditName = document.getElementById('supabaseAuditName').value.trim() || 
+            const auditName = document.getElementById('githubAuditName').value.trim() || 
                              `${AUDIT_TYPES[currentAuditType].title} - ${new Date().toLocaleDateString('de-DE')}`;
             
+            showSaving(true);
+            
             try {
-                // Audit-Daten vorbereiten
-                const auditData = {
+                // Bestehende Audits laden
+                let existingAudits = [];
+                try {
+                    existingAudits = await loadGitHubAudits();
+                } catch (e) {
+                    // Wenn Datei nicht existiert, starten wir mit leerem Array
+                    existingAudits = [];
+                }
+                
+                // Neues Audit erstellen
+                const newAudit = {
+                    id: `audit_${Date.now()}`,
                     name: auditName,
                     audit_type: currentAuditType,
                     audit_title: AUDIT_TYPES[currentAuditType].title,
                     standard: AUDIT_TYPES[currentAuditType].standard,
                     created_at: new Date().toISOString(),
                     data: {
-                        germanQuestions: germanQuestions,
-                        englishQuestions: englishQuestions,
+                        germanQuestions: germanQuestions.map(q => ({
+                            id: q.id,
+                            answer: q.answer,
+                            evidence: q.evidence
+                        })),
                         sections: auditSections
                     },
                     summary: {
@@ -1291,76 +1631,91 @@
                     }
                 };
                 
-                const { data, error } = await supabaseClient
-                    .from('audits_v2')
-                    .insert([auditData]);
+                existingAudits.push(newAudit);
                 
-                if (error) throw error;
+                // In GitHub speichern
+                await saveToGitHub(existingAudits, `Audit gespeichert: ${auditName}`);
                 
-                alert(`✅ Audit "${auditName}" erfolgreich in Supabase gespeichert!`);
-                document.getElementById('supabaseSaveModal').style.display = 'none';
+                alert(`✅ Audit "${auditName}" erfolgreich in GitHub gespeichert!`);
+                document.getElementById('githubSaveModal').style.display = 'none';
                 
                 // Audit-Liste aktualisieren
                 loadAllCompletedAudits();
                 
             } catch (error) {
-                console.error('❌ Fehler beim Speichern in Supabase:', error);
+                console.error('❌ Fehler beim Speichern in GitHub:', error);
                 alert(`❌ Fehler beim Speichern: ${error.message}`);
+            } finally {
+                showSaving(false);
             }
-        }
+        };
 
-        // === AUDITS AUS SUPABASE LADEN ==================
-        async function loadSupabaseAudits() {
-            if (!supabaseClient || !supabaseConnected) {
-                return [];
+        // === IN GITHUB SPEICHERN =====================
+        async function saveToGitHub(data, message) {
+            const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+            
+            const body = {
+                message: message || `ZfP Audit Update ${new Date().toISOString()}`,
+                content: content,
+                branch: githubConfig.branch
+            };
+            
+            if (fileSha) {
+                body.sha = fileSha;
             }
             
-            try {
-                const { data, error } = await supabaseClient
-                    .from('audits_v2')
-                    .select('*')
-                    .order('created_at', { ascending: false });
-                
-                if (error) throw error;
-                
-                return data || [];
-            } catch (error) {
-                console.error('❌ Fehler beim Laden aus Supabase:', error);
-                return [];
+            const response = await fetch(githubUrl(), {
+                method: 'PUT',
+                headers: githubHeaders(),
+                body: JSON.stringify(body)
+            });
+            
+            if (!response.ok) {
+                const error = await response.json().catch(() => ({}));
+                throw new Error(error.message || `HTTP ${response.status}`);
             }
+            
+            const result = await response.json();
+            fileSha = result.content?.sha;
         }
 
-        // === AUDIT AUS SUPABASE LÖSCHEN =================
-        async function deleteSupabaseAudit(id) {
-            if (!supabaseClient || !supabaseConnected) {
-                alert('❌ Supabase nicht verbunden!');
+        // === AUDIT AUS GITHUB LÖSCHEN =================
+        async function deleteGitHubAudit(auditId, auditData) {
+            if (!githubConfig.owner || !githubConfig.repo || !githubConfig.token) {
+                alert('❌ GitHub nicht verbunden!');
                 return;
             }
             
-            if (!confirm('⚠️ Dieses Audit wirklich aus Supabase löschen?')) {
+            if (!confirm('⚠️ Dieses Audit wirklich aus GitHub löschen?')) {
                 return;
             }
             
+            showSaving(true);
+            
             try {
-                const { error } = await supabaseClient
-                    .from('audits_v2')
-                    .delete()
-                    .eq('id', id);
+                // Bestehende Audits laden
+                let existingAudits = await loadGitHubAudits();
                 
-                if (error) throw error;
+                // Audit entfernen
+                existingAudits = existingAudits.filter(a => a.id !== auditId);
                 
-                alert('✅ Audit aus Supabase gelöscht');
+                // In GitHub speichern
+                await saveToGitHub(existingAudits, `Audit gelöscht: ${auditData.name}`);
+                
+                alert('✅ Audit aus GitHub gelöscht');
                 loadAllCompletedAudits();
                 
             } catch (error) {
-                console.error('❌ Fehler beim Löschen aus Supabase:', error);
+                console.error('❌ Fehler beim Löschen aus GitHub:', error);
                 alert(`❌ Fehler beim Löschen: ${error.message}`);
+            } finally {
+                showSaving(false);
             }
         }
 
-        // === AUDIT AUS SUPABASE LADEN ===================
-        function loadSupabaseAuditData(auditData) {
-            console.log('📂 Lade Audit aus Supabase:', auditData.name);
+        // === AUDIT AUS GITHUB LADEN ===================
+        function loadGitHubAuditData(auditData) {
+            console.log('📂 Lade Audit aus GitHub:', auditData.name);
             
             if (!auditData.data) {
                 alert('❌ Audit-Daten sind beschädigt!');
@@ -1370,17 +1725,78 @@
             currentAuditType = auditData.audit_type;
             currentSectionIndex = -1;
             
-            germanQuestions = auditData.data.germanQuestions || [];
-            englishQuestions = auditData.data.englishQuestions || [];
-            auditSections = auditData.data.sections || [];
-            
-            document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditData.audit_type]?.title || auditData.audit_title}`;
-            document.getElementById('mainSubtitle').textContent = auditData.standard || AUDIT_TYPES[auditData.audit_type]?.standard || '';
-            
-            renderOverview();
-            showPage(PAGES.OVERVIEW);
-            updateProgressDisplays();
+            // Fragen aus den gespeicherten Daten wiederherstellen
+            // Dazu müssen wir zuerst die Basis-Fragen aus den JSON-Dateien laden
+            loadAuditJSONs(auditData.audit_type).then(data => {
+                if (!data) return;
+                
+                processJSONdata(data);
+                
+                // Gespeicherte Antworten anwenden
+                auditData.data.germanQuestions.forEach(savedQ => {
+                    const question = germanQuestions.find(q => q.id === savedQ.id);
+                    if (question) {
+                        question.answer = savedQ.answer || "";
+                        question.evidence = savedQ.evidence || "";
+                    }
+                });
+                
+                document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditData.audit_type]?.title || auditData.audit_title}`;
+                document.getElementById('mainSubtitle').textContent = auditData.standard || AUDIT_TYPES[auditData.audit_type]?.standard || '';
+                
+                renderOverview();
+                showPage(PAGES.OVERVIEW);
+                updateProgressDisplays();
+            });
         }
+
+        // === GITHUB STATUS ANZEIGEN ==================
+        function updateGitHubStatus(connected, text) {
+            githubConnected = connected;
+            
+            const dot = document.getElementById('githubStatusDot');
+            const statusText = document.getElementById('githubStatusText');
+            const icon = document.getElementById('githubStatusIcon');
+            const text2 = document.getElementById('githubStatusText2');
+            const bar = document.getElementById('githubStatusBar');
+            
+            if (connected) {
+                dot.className = 'status-dot green';
+                bar.className = 'github-status-bar connected';
+                icon.innerHTML = '🟢';
+                icon.style.color = '#27ae60';
+            } else {
+                dot.className = 'status-dot';
+                bar.className = 'github-status-bar error';
+                icon.innerHTML = '🔴';
+                icon.style.color = '#e74c3c';
+            }
+            
+            statusText.textContent = text;
+            text2.textContent = text;
+        }
+
+        function showSaving(visible) {
+            const indicator = document.getElementById('savingIndicator');
+            indicator.className = 'saving-indicator' + (visible ? ' visible' : '');
+        }
+
+        let toastTimer;
+        function showToast(msg, type = 'success') {
+            const toast = document.getElementById('syncToast');
+            toast.textContent = msg;
+            toast.className = `sync-toast show ${type}`;
+            
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        window.togglePATVisibility = function() {
+            const input = document.getElementById('cfgToken');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        };
 
         // === LOKALE AUDITS LADEN ========================
         function loadLocalAudits() {
@@ -1422,7 +1838,7 @@
             return localAudits;
         }
 
-        // === ALLE AUDITS LADEN (LOKAL + SUPABASE) =======
+        // === ALLE AUDITS LADEN (LOKAL + GITHUB) =======
         async function loadAllCompletedAudits() {
             const container = document.getElementById('completedAuditsContainer');
             const completedCountSpan = document.getElementById('completedCount');
@@ -1430,18 +1846,22 @@
             // Lokale Audits laden
             const localAudits = loadLocalAudits();
             
-            // Supabase Audits laden (falls verbunden)
-            let supabaseAudits = [];
-            if (supabaseClient && supabaseConnected) {
-                supabaseAudits = await loadSupabaseAudits();
+            // GitHub Audits laden (falls verbunden)
+            let githubAudits = [];
+            if (githubConfig.owner && githubConfig.repo && githubConfig.token) {
+                try {
+                    githubAudits = await loadGitHubAudits();
+                } catch (e) {
+                    console.error('Fehler beim Laden von GitHub:', e);
+                }
             }
             
             // Audits kombinieren
             const allAudits = [
                 ...localAudits.map(a => ({ ...a, source: 'local' })),
-                ...supabaseAudits.map(a => ({ 
+                ...githubAudits.map(a => ({ 
                     id: a.id,
-                    source: 'supabase',
+                    source: 'github',
                     type: a.audit_type,
                     title: a.audit_title || AUDIT_TYPES[a.audit_type]?.title || a.audit_type,
                     icon: AUDIT_TYPES[a.audit_type]?.icon || '📋',
@@ -1477,8 +1897,8 @@
                     minute: '2-digit'
                 });
                 
-                const sourceClass = audit.source === 'supabase' ? 'audit-source-supabase' : 'audit-source-local';
-                const sourceText = audit.source === 'supabase' ? '☁️ Supabase' : '💻 Lokal';
+                const sourceClass = audit.source === 'github' ? 'audit-source-github' : 'audit-source-local';
+                const sourceText = audit.source === 'github' ? '☁️ GitHub' : '💻 Lokal';
                 
                 card.innerHTML = `
                     <div class="completed-audit-header">
@@ -1496,8 +1916,8 @@
                     </div>
                     <div class="completed-audit-actions">
                         <button class="audit-action-btn btn-load-audit" onclick="loadCompletedAudit('${audit.source}', ${JSON.stringify(audit).replace(/"/g, '&quot;')})">📂 Laden</button>
-                        ${audit.source === 'supabase' ? 
-                            `<button class="audit-action-btn btn-delete-audit" onclick="deleteSupabaseAudit('${audit.id}')">🗑️ Löschen</button>` : 
+                        ${audit.source === 'github' ? 
+                            `<button class="audit-action-btn btn-delete-audit" onclick="deleteGitHubAudit('${audit.id}', ${JSON.stringify(audit).replace(/"/g, '&quot;')})">🗑️ Löschen</button>` : 
                             `<button class="audit-action-btn btn-delete-audit" onclick="deleteLocalAudit('${audit.type}')">🗑️ Löschen</button>`
                         }
                     </div>
@@ -1523,9 +1943,9 @@
         function loadCompletedAudit(source, auditData) {
             console.log(`📂 Lade ${source} Audit:`, auditData.name);
             
-            if (source === 'supabase') {
-                // Supabase Audit laden
-                loadSupabaseAuditData(auditData.data);
+            if (source === 'github') {
+                // GitHub Audit laden
+                loadGitHubAuditData(auditData.data);
             } else {
                 // Lokales Audit laden
                 currentAuditType = auditData.type;
@@ -1550,7 +1970,6 @@
         let englishQuestions = [];
         let auditSections = [];
         let currentSectionIndex = -1;
-        let jsonCache = {};
 
         // === AUDIT-TYPEN ============================
         const AUDIT_TYPES = {
@@ -1612,25 +2031,21 @@
                 const next = current === 'dark' ? 'light' : 'dark';
                 localStorage.setItem(THEME_STORAGE_KEY, next);
                 document.documentElement.setAttribute('data-theme', next);
-                
-                localStorage.setItem('theme_changed_at', Date.now().toString());
-            });
-            
-            window.addEventListener('storage', function(e) {
-                if (e.key === THEME_STORAGE_KEY) {
-                    const newTheme = e.newValue;
-                    document.documentElement.setAttribute('data-theme', newTheme);
-                }
             });
         }
 
         // === INITIALISIERUNG ========================
         document.addEventListener('DOMContentLoaded', function() {
             initThemeToggle();
-            initSupabase();
+            loadGitHubConfig();
             setupEventListeners();
             loadAllAuditProgress();
             loadAllCompletedAudits();
+            
+            // Automatisch verbinden wenn Konfiguration vorhanden
+            if (githubConfig.owner && githubConfig.repo && githubConfig.token) {
+                setTimeout(() => connectGitHub(), 500);
+            }
         });
 
         // === JSON LADEN (DEUTSCH + ENGLISCH) ========
@@ -1671,7 +2086,6 @@
                 errorMessage += `\nLösungen:\n`;
                 errorMessage += `1. Legen Sie die JSON-Dateien im selben Ordner wie index.html ab\n`;
                 errorMessage += `2. Prüfen Sie die Groß-/Kleinschreibung (ET_DE.json ≠ et_de.json)\n`;
-                errorMessage += `3. Öffnen Sie die Konsole (F12) für Details`;
                 
                 alert(errorMessage);
                 return null;
@@ -2658,18 +3072,18 @@
                 importFromQuestionsBtn.addEventListener('click', showImportModal);
             }
             
-            // Supabase Save Buttons
-            const saveToSupabaseBtn = document.getElementById('saveToSupabaseBtn');
-            if (saveToSupabaseBtn) {
-                saveToSupabaseBtn.addEventListener('click', () => {
-                    document.getElementById('supabaseSaveModal').style.display = 'flex';
+            // GitHub Save Buttons
+            const saveToGitHubBtn = document.getElementById('saveToGitHubBtn');
+            if (saveToGitHubBtn) {
+                saveToGitHubBtn.addEventListener('click', () => {
+                    document.getElementById('githubSaveModal').style.display = 'flex';
                 });
             }
             
-            const saveToSupabaseFromQuestionsBtn = document.getElementById('saveToSupabaseFromQuestionsBtn');
-            if (saveToSupabaseFromQuestionsBtn) {
-                saveToSupabaseFromQuestionsBtn.addEventListener('click', () => {
-                    document.getElementById('supabaseSaveModal').style.display = 'flex';
+            const saveToGitHubFromQuestionsBtn = document.getElementById('saveToGitHubFromQuestionsBtn');
+            if (saveToGitHubFromQuestionsBtn) {
+                saveToGitHubFromQuestionsBtn.addEventListener('click', () => {
+                    document.getElementById('githubSaveModal').style.display = 'flex';
                 });
             }
             
@@ -2679,27 +3093,31 @@
                     modal.style.display = 'none';
                 }
                 
-                const supabaseModal = document.getElementById('supabaseSaveModal');
-                if (e.target === supabaseModal) {
-                    supabaseModal.style.display = 'none';
+                const githubModal = document.getElementById('githubSaveModal');
+                if (e.target === githubModal) {
+                    githubModal.style.display = 'none';
                 }
             });
             
             window.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     document.getElementById('importModal').style.display = 'none';
-                    document.getElementById('supabaseSaveModal').style.display = 'none';
+                    document.getElementById('githubSaveModal').style.display = 'none';
                 }
             });
         }
 
-        // Supabase-Funktionen global verfügbar machen
-        window.testSupabaseConnection = testSupabaseConnection;
+        // GitHub-Funktionen global verfügbar machen
+        window.connectGitHub = connectGitHub;
+        window.saveGitHubConfig = saveGitHubConfig;
+        window.togglePATVisibility = togglePATVisibility;
+        window.testGitHubConnection = testGitHubConnection;
         window.loadAllCompletedAudits = loadAllCompletedAudits;
         window.loadCompletedAudit = loadCompletedAudit;
-        window.deleteSupabaseAudit = deleteSupabaseAudit;
+        window.deleteGitHubAudit = deleteGitHubAudit;
         window.deleteLocalAudit = deleteLocalAudit;
-        window.saveCurrentAuditToSupabase = saveCurrentAuditToSupabase;
+        window.saveCurrentAuditToGitHub = saveCurrentAuditToGitHub;
+        window.handleImportFile = handleImportFile;
     </script>
 </body>
 </html>
