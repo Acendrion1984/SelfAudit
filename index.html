@@ -1268,14 +1268,16 @@
                     </button>
                 </div>
             </div>
-<!-- === NEU: TOGGLE BUTTON FÜR GITHUB PANEL === -->
-<div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
-    <button class="btn-info" id="toggleGitHubBtn" onclick="toggleGitHubConfig()" style="padding: 8px 16px; font-size: 0.9em;">
-        ⚙️ GitHub Konfiguration einblenden
-    </button>
-</div>
-            <!-- === GITHUB KONFIGURATION === -->
-            <div class="github-config-panel" id="githubConfigPanel">
+
+            <!-- === TOGGLE BUTTON FÜR GITHUB PANEL === -->
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+                <button class="btn-info" id="toggleGitHubBtn" onclick="zfpToggleGitHubConfig()" style="padding: 8px 16px; font-size: 0.9em;">
+                    ⚙️ GitHub Konfiguration einblenden
+                </button>
+            </div>
+
+            <!-- === GITHUB KONFIGURATION MIT EINDEUTIGEN IDs === -->
+            <div class="github-config-panel" id="zfpGithubConfigPanel" style="display: none;">
                 <h3><i class="fab fa-github"></i> GitHub JSON Datenbank</h3>
                 <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 0.9em;">
                     Daten werden als JSON-Datei direkt in einem GitHub Repository gespeichert. 
@@ -1289,61 +1291,61 @@
                 <div class="github-form-grid">
                     <div class="github-field">
                         <label>GitHub Username (Owner)</label>
-                        <input id="cfgOwner" placeholder="z.B. maxmustermann">
+                        <input id="zfpCfgOwner" placeholder="z.B. maxmustermann">
                     </div>
                     <div class="github-field">
                         <label>Repository Name</label>
-                        <input id="cfgRepo" placeholder="zfp-audits">
+                        <input id="zfpCfgRepo" placeholder="zfp-audits">
                     </div>
                     <div class="github-field">
                         <label>Branch</label>
-                        <input id="cfgBranch" placeholder="main" value="main">
+                        <input id="zfpCfgBranch" placeholder="main" value="main">
                     </div>
                     <div class="github-field">
                         <label>Dateiname</label>
-                        <input id="cfgFile" placeholder="audits.json" value="audits.json">
+                        <input id="zfpCfgFile" placeholder="audits.json" value="audits.json">
                     </div>
                     <div class="github-field" style="grid-column: 1 / -1;">
                         <label>Personal Access Token (PAT)</label>
                         <div class="pat-row">
-                            <input id="cfgToken" type="password" placeholder="github_pat_...">
-                            <button class="btn-eye" onclick="togglePATVisibility()" title="Token anzeigen/verstecken">👁️</button>
+                            <input id="zfpCfgToken" type="password" placeholder="github_pat_...">
+                            <button class="btn-eye" onclick="zfpTogglePATVisibility()" title="Token anzeigen/verstecken">👁️</button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="github-status-bar" id="githubStatusBar">
-                    <div class="status-dot" id="githubStatusDot"></div>
-                    <span id="githubStatusText">Nicht verbunden</span>
+                <div class="github-status-bar" id="zfpGithubStatusBar">
+                    <div class="status-dot" id="zfpGithubStatusDot"></div>
+                    <span id="zfpGithubStatusText">Nicht verbunden</span>
                 </div>
                 
-                <div class="saving-indicator" id="savingIndicator">
+                <div class="saving-indicator" id="zfpSavingIndicator">
                     <div class="save-spinner"></div>
                     <span>Speichere in GitHub...</span>
                 </div>
                 
                 <div class="github-actions">
-                    <button class="btn btn-info" onclick="connectGitHub()"><i class="fas fa-plug"></i> Verbinden & Laden</button>
-                    <button class="btn btn-success" onclick="saveGitHubConfig()"><i class="fas fa-save"></i> Einstellungen speichern</button>
+                    <button class="btn btn-info" onclick="zfpConnectGitHub()"><i class="fas fa-plug"></i> Verbinden & Laden</button>
+                    <button class="btn btn-success" onclick="zfpSaveGitHubConfig()"><i class="fas fa-save"></i> Einstellungen speichern</button>
                 </div>
             </div>
 
-            <!-- === KACHEL FÜR ABGESCHLOSSENE AUDITS === -->
+            <!-- === KACHEL FÜR ABGESCHLOSSENE AUDITS (NUR GITHUB) === -->
             <div class="completed-audits-section">
                 <div class="completed-audits-header">
                     <div class="completed-audits-title">
                         <span>📋 Abgeschlossene Audits</span>
-                        <span style="font-size: 0.8em; color: var(--text-secondary);" id="completedCount">(0)</span>
+                        <span style="font-size: 0.8em; color: var(--text-secondary);" id="zfpCompletedCount">(0)</span>
                     </div>
                     <div class="github-status">
-                        <span id="githubStatusIcon">⚪</span>
-                        <span id="githubStatusText2">Nicht verbunden</span>
-                        <button class="refresh-btn" onclick="testGitHubConnection()" title="Verbindung testen">⟳</button>
-                        <button class="refresh-btn" onclick="loadAllCompletedAudits()" title="Audit-Liste aktualisieren">↻</button>
+                        <span id="zfpGithubStatusIcon">⚪</span>
+                        <span id="zfpGithubStatusText2">Nicht verbunden</span>
+                        <button class="refresh-btn" onclick="zfpTestGitHubConnection()" title="Verbindung testen">⟳</button>
+                        <button class="refresh-btn" onclick="zfpLoadAllCompletedAudits()" title="Audit-Liste aktualisieren">↻</button>
                     </div>
                 </div>
-                <div id="completedAuditsContainer" class="completed-audits-grid">
-                    <div class="no-completed-audits">Keine abgeschlossenen Audits vorhanden</div>
+                <div id="zfpCompletedAuditsContainer" class="completed-audits-grid">
+                    <div class="no-completed-audits">🔌 Bitte mit GitHub verbinden</div>
                 </div>
             </div>
         </div>
@@ -1355,7 +1357,7 @@
                     <button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button>
                     <button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button>
                     <button class="btn-import" id="importFromOverviewBtn">📂 Import</button>
-                    <button class="btn-github" id="saveToGitHubBtn">☁️ In GitHub speichern</button>
+                    <button class="btn-github" id="saveToGitHubBtn" onclick="document.getElementById('githubSaveModal').style.display='flex'">☁️ In GitHub speichern</button>
                 </div>
             </div>
             
@@ -1377,7 +1379,7 @@
                     <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
                     <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
                     <button class="btn-import" id="importFromQuestionsBtn">📂 Import</button>
-                    <button class="btn-github" id="saveToGitHubFromQuestionsBtn">☁️ In GitHub speichern</button>
+                    <button class="btn-github" id="saveToGitHubFromQuestionsBtn" onclick="document.getElementById('githubSaveModal').style.display='flex'">☁️ In GitHub speichern</button>
                 </div>
             </div>
             
@@ -1420,7 +1422,7 @@
                 <input type="text" id="githubAuditName" placeholder="z.B. Q1-2026 Ultraschall" value="">
                 <div class="modal-buttons">
                     <button class="btn-cancel" onclick="document.getElementById('githubSaveModal').style.display='none'">Abbrechen</button>
-                    <button class="btn-github-save" onclick="saveCurrentAuditToGitHub()">In GitHub speichern</button>
+                    <button class="btn-github-save" onclick="zfpSaveCurrentAuditToGitHub()">In GitHub speichern</button>
                 </div>
             </div>
         </div>
@@ -1436,10 +1438,10 @@
     <button id="themeToggleBtn" class="theme-toggle" title="Hell/Dunkel umschalten">🌓</button>
 
     <script>
-        // === GITHUB KONFIGURATION ===================
-        const GITHUB_CONFIG_KEY = 'zfp_github_config';
+        // === GITHUB KONFIGURATION MIT EINDEUTIGEN NAMEN ===================
+        const ZFP_GITHUB_CONFIG_KEY = 'zfp_github_config';
         
-        let githubConfig = {
+        let zfpGithubConfig = {
             owner: '',
             repo: '',
             branch: 'main',
@@ -1447,527 +1449,8 @@
             token: ''
         };
         
-        let fileSha = null; // GitHub file SHA for updates
-        let githubConnected = false;
-        let configPanelVisible = true;
-
-        // === GITHUB KONFIGURATION LADEN ==============
-        function loadGitHubConfig() {
-            try {
-                const saved = localStorage.getItem(GITHUB_CONFIG_KEY);
-                if (saved) {
-                    githubConfig = JSON.parse(saved);
-                }
-            } catch (e) {
-                console.error('Fehler beim Laden der GitHub-Konfiguration:', e);
-            }
-            
-            document.getElementById('cfgOwner').value = githubConfig.owner || '';
-            document.getElementById('cfgRepo').value = githubConfig.repo || '';
-            document.getElementById('cfgBranch').value = githubConfig.branch || 'main';
-            document.getElementById('cfgFile').value = githubConfig.file || 'audits.json';
-            document.getElementById('cfgToken').value = githubConfig.token || '';
-        }
-
-        // === GITHUB KONFIGURATION SPEICHERN ==========
-        window.saveGitHubConfig = function() {
-            readGitHubConfigFromForm();
-            localStorage.setItem(GITHUB_CONFIG_KEY, JSON.stringify(githubConfig));
-            showToast('✅ Einstellungen gespeichert', 'success');
-        };
-
-        function readGitHubConfigFromForm() {
-            githubConfig.owner = document.getElementById('cfgOwner').value.trim();
-            githubConfig.repo = document.getElementById('cfgRepo').value.trim();
-            githubConfig.branch = document.getElementById('cfgBranch').value.trim() || 'main';
-            githubConfig.file = document.getElementById('cfgFile').value.trim() || 'audits.json';
-            githubConfig.token = document.getElementById('cfgToken').value.trim();
-        }
-
-        // === GITHUB API HEADERS ======================
-        function githubHeaders() {
-            return {
-                'Authorization': `Bearer ${githubConfig.token}`,
-                'Accept': 'application/vnd.github+json',
-                'X-GitHub-Api-Version': '2022-11-28',
-                'Content-Type': 'application/json'
-            };
-        }
-
-        function githubUrl(path = '') {
-            return `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.file}${path}`;
-        }
-
-        // === GITHUB VERBINDUNG TESTEN ================
-        window.testGitHubConnection = async function() {
-            readGitHubConfigFromForm();
-            await connectGitHub();
-        };
-
-        window.connectGitHub = async function() {
-            readGitHubConfigFromForm();
-            
-            if (!githubConfig.owner || !githubConfig.repo || !githubConfig.token) {
-                updateGitHubStatus(false, '❌ Bitte alle Felder ausfüllen');
-                showToast('❌ Bitte alle Felder ausfüllen', 'error');
-                return;
-            }
-            
-            showSaving(true);
-            
-            try {
-                const url = `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.file}?ref=${githubConfig.branch}&t=${Date.now()}`;
-                const response = await fetch(url, { headers: githubHeaders() });
-                
-                if (response.status === 404) {
-                    // Datei existiert noch nicht - wir können sie später anlegen
-                    fileSha = null;
-                    updateGitHubStatus(true, '✅ Verbunden (neue Datei)');
-                    showToast('✅ Mit GitHub verbunden', 'success');
-                    
-                } else if (response.ok) {
-                    const data = await response.json();
-                    fileSha = data.sha;
-                    updateGitHubStatus(true, `✅ Verbunden mit ${githubConfig.owner}/${githubConfig.repo}`);
-                    showToast('✅ Mit GitHub verbunden', 'success');
-                    
-                } else {
-                    const error = await response.json().catch(() => ({}));
-                    throw new Error(error.message || `HTTP ${response.status}`);
-                }
-                
-                // Konfiguration speichern
-                localStorage.setItem(GITHUB_CONFIG_KEY, JSON.stringify(githubConfig));
-                
-                // Audits laden
-                await loadGitHubAudits();
-                
-            } catch (error) {
-                console.error('GitHub Verbindungsfehler:', error);
-                updateGitHubStatus(false, `❌ Fehler: ${error.message}`);
-                showToast(`❌ ${error.message}`, 'error');
-            } finally {
-                showSaving(false);
-            }
-        };
-
-        // === GITHUB AUDITS LADEN =====================
-        async function loadGitHubAudits() {
-            if (!githubConfig.owner || !githubConfig.repo || !githubConfig.token) {
-                return [];
-            }
-            
-            try {
-                const url = `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.file}?ref=${githubConfig.branch}&t=${Date.now()}`;
-                const response = await fetch(url, { headers: githubHeaders() });
-                
-                if (response.status === 404) {
-                    // Datei existiert nicht
-                    return [];
-                }
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-                
-                const data = await response.json();
-                fileSha = data.sha;
-                
-                const content = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
-                return JSON.parse(content);
-                
-            } catch (error) {
-                console.error('Fehler beim Laden von GitHub:', error);
-                return [];
-            }
-        }
-
-        // === AUDIT IN GITHUB SPEICHERN ================
-        window.saveCurrentAuditToGitHub = async function() {
-            if (!currentAuditType || !germanQuestions.length) {
-                alert('❌ Kein Audit geladen!');
-                document.getElementById('githubSaveModal').style.display = 'none';
-                return;
-            }
-            
-            if (!githubConfig.owner || !githubConfig.repo || !githubConfig.token) {
-                alert('❌ GitHub nicht konfiguriert! Bitte zuerst verbinden.');
-                document.getElementById('githubSaveModal').style.display = 'none';
-                return;
-            }
-            
-            const auditName = document.getElementById('githubAuditName').value.trim() || 
-                             `${AUDIT_TYPES[currentAuditType].title} - ${new Date().toLocaleDateString('de-DE')}`;
-            
-            showSaving(true);
-            
-            try {
-                // Bestehende Audits laden
-                let existingAudits = [];
-                try {
-                    existingAudits = await loadGitHubAudits();
-                } catch (e) {
-                    // Wenn Datei nicht existiert, starten wir mit leerem Array
-                    existingAudits = [];
-                }
-                
-                // Neues Audit erstellen
-                const newAudit = {
-                    id: `audit_${Date.now()}`,
-                    name: auditName,
-                    audit_type: currentAuditType,
-                    audit_title: AUDIT_TYPES[currentAuditType].title,
-                    standard: AUDIT_TYPES[currentAuditType].standard,
-                    created_at: new Date().toISOString(),
-                    data: {
-                        germanQuestions: germanQuestions.map(q => ({
-                            id: q.id,
-                            answer: q.answer,
-                            evidence: q.evidence
-                        })),
-                        sections: auditSections
-                    },
-                    summary: {
-                        total: germanQuestions.length,
-                        answered: germanQuestions.filter(q => q.answer && q.answer !== "").length,
-                        yes: germanQuestions.filter(q => q.answer === "YES").length,
-                        no: germanQuestions.filter(q => q.answer === "NO").length,
-                        na: germanQuestions.filter(q => q.answer === "NA").length
-                    }
-                };
-                
-                existingAudits.push(newAudit);
-                
-                // In GitHub speichern
-                await saveToGitHub(existingAudits, `Audit gespeichert: ${auditName}`);
-                
-                alert(`✅ Audit "${auditName}" erfolgreich in GitHub gespeichert!`);
-                document.getElementById('githubSaveModal').style.display = 'none';
-                
-                // Audit-Liste aktualisieren
-                loadAllCompletedAudits();
-                
-            } catch (error) {
-                console.error('❌ Fehler beim Speichern in GitHub:', error);
-                alert(`❌ Fehler beim Speichern: ${error.message}`);
-            } finally {
-                showSaving(false);
-            }
-        };
-
-        // === IN GITHUB SPEICHERN =====================
-        async function saveToGitHub(data, message) {
-            const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
-            
-            const body = {
-                message: message || `ZfP Audit Update ${new Date().toISOString()}`,
-                content: content,
-                branch: githubConfig.branch
-            };
-            
-            if (fileSha) {
-                body.sha = fileSha;
-            }
-            
-            const response = await fetch(githubUrl(), {
-                method: 'PUT',
-                headers: githubHeaders(),
-                body: JSON.stringify(body)
-            });
-            
-            if (!response.ok) {
-                const error = await response.json().catch(() => ({}));
-                throw new Error(error.message || `HTTP ${response.status}`);
-            }
-            
-            const result = await response.json();
-            fileSha = result.content?.sha;
-        }
-
-        // === AUDIT AUS GITHUB LÖSCHEN =================
-        async function deleteGitHubAudit(auditId, auditData) {
-            if (!githubConfig.owner || !githubConfig.repo || !githubConfig.token) {
-                alert('❌ GitHub nicht verbunden!');
-                return;
-            }
-            
-            if (!confirm('⚠️ Dieses Audit wirklich aus GitHub löschen?')) {
-                return;
-            }
-            
-            showSaving(true);
-            
-            try {
-                // Bestehende Audits laden
-                let existingAudits = await loadGitHubAudits();
-                
-                // Audit entfernen
-                existingAudits = existingAudits.filter(a => a.id !== auditId);
-                
-                // In GitHub speichern
-                await saveToGitHub(existingAudits, `Audit gelöscht: ${auditData.name}`);
-                
-                alert('✅ Audit aus GitHub gelöscht');
-                loadAllCompletedAudits();
-                
-            } catch (error) {
-                console.error('❌ Fehler beim Löschen aus GitHub:', error);
-                alert(`❌ Fehler beim Löschen: ${error.message}`);
-            } finally {
-                showSaving(false);
-            }
-        }
-
-        // === AUDIT AUS GITHUB LADEN ===================
-        function loadGitHubAuditData(auditData) {
-            console.log('📂 Lade Audit aus GitHub:', auditData.name);
-            
-            if (!auditData.data) {
-                alert('❌ Audit-Daten sind beschädigt!');
-                return;
-            }
-            
-            currentAuditType = auditData.audit_type;
-            currentSectionIndex = -1;
-            
-            // Fragen aus den gespeicherten Daten wiederherstellen
-            // Dazu müssen wir zuerst die Basis-Fragen aus den JSON-Dateien laden
-            loadAuditJSONs(auditData.audit_type).then(data => {
-                if (!data) return;
-                
-                processJSONdata(data);
-                
-                // Gespeicherte Antworten anwenden
-                auditData.data.germanQuestions.forEach(savedQ => {
-                    const question = germanQuestions.find(q => q.id === savedQ.id);
-                    if (question) {
-                        question.answer = savedQ.answer || "";
-                        question.evidence = savedQ.evidence || "";
-                    }
-                });
-                
-                document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditData.audit_type]?.title || auditData.audit_title}`;
-                document.getElementById('mainSubtitle').textContent = auditData.standard || AUDIT_TYPES[auditData.audit_type]?.standard || '';
-                
-                renderOverview();
-                showPage(PAGES.OVERVIEW);
-                updateProgressDisplays();
-            });
-        }
-
-        // === GITHUB STATUS ANZEIGEN ==================
-        function updateGitHubStatus(connected, text) {
-            githubConnected = connected;
-            
-            const dot = document.getElementById('githubStatusDot');
-            const statusText = document.getElementById('githubStatusText');
-            const icon = document.getElementById('githubStatusIcon');
-            const text2 = document.getElementById('githubStatusText2');
-            const bar = document.getElementById('githubStatusBar');
-            
-            if (connected) {
-                dot.className = 'status-dot green';
-                bar.className = 'github-status-bar connected';
-                icon.innerHTML = '🟢';
-                icon.style.color = '#27ae60';
-            } else {
-                dot.className = 'status-dot';
-                bar.className = 'github-status-bar error';
-                icon.innerHTML = '🔴';
-                icon.style.color = '#e74c3c';
-            }
-            
-            statusText.textContent = text;
-            text2.textContent = text;
-        }
-
-        function showSaving(visible) {
-            const indicator = document.getElementById('savingIndicator');
-            indicator.className = 'saving-indicator' + (visible ? ' visible' : '');
-        }
-
-        let toastTimer;
-        function showToast(msg, type = 'success') {
-            const toast = document.getElementById('syncToast');
-            toast.textContent = msg;
-            toast.className = `sync-toast show ${type}`;
-            
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        window.togglePATVisibility = function() {
-            const input = document.getElementById('cfgToken');
-            input.type = input.type === 'password' ? 'text' : 'password';
-        };
-
-        // === LOKALE AUDITS LADEN ========================
-        function loadLocalAudits() {
-            const localAudits = [];
-            
-            Object.keys(AUDIT_TYPES).forEach(auditType => {
-                const saved = localStorage.getItem(`zfpSelfAudit_${auditType}`);
-                if (saved) {
-                    try {
-                        const data = JSON.parse(saved);
-                        const questions = data.germanQuestions || [];
-                        const answered = questions.filter(q => q.answer && q.answer !== "").length;
-                        const total = questions.length;
-                        
-                        if (answered > 0) {
-                            const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
-                            const lastModified = data.lastModified ? new Date(data.lastModified) : new Date();
-                            
-                            localAudits.push({
-                                id: `local_${auditType}_${lastModified.getTime()}`,
-                                source: 'local',
-                                type: auditType,
-                                title: AUDIT_TYPES[auditType].title,
-                                icon: AUDIT_TYPES[auditType].icon,
-                                name: `${AUDIT_TYPES[auditType].title} - ${lastModified.toLocaleDateString('de-DE')}`,
-                                answered: answered,
-                                total: total,
-                                percent: percent,
-                                date: lastModified,
-                                data: data
-                            });
-                        }
-                    } catch (e) {
-                        console.error('Fehler beim Laden lokaler Audits:', e);
-                    }
-                }
-            });
-            
-            return localAudits;
-        }
-
-        // === ALLE AUDITS LADEN (LOKAL + GITHUB) =======
-        async function loadAllCompletedAudits() {
-            const container = document.getElementById('completedAuditsContainer');
-            const completedCountSpan = document.getElementById('completedCount');
-            
-            // Lokale Audits laden
-            const localAudits = loadLocalAudits();
-            
-            // GitHub Audits laden (falls verbunden)
-            let githubAudits = [];
-            if (githubConfig.owner && githubConfig.repo && githubConfig.token) {
-                try {
-                    githubAudits = await loadGitHubAudits();
-                } catch (e) {
-                    console.error('Fehler beim Laden von GitHub:', e);
-                }
-            }
-            
-            // Audits kombinieren
-            const allAudits = [
-                ...localAudits.map(a => ({ ...a, source: 'local' })),
-                ...githubAudits.map(a => ({ 
-                    id: a.id,
-                    source: 'github',
-                    type: a.audit_type,
-                    title: a.audit_title || AUDIT_TYPES[a.audit_type]?.title || a.audit_type,
-                    icon: AUDIT_TYPES[a.audit_type]?.icon || '📋',
-                    name: a.name,
-                    answered: a.summary?.answered || 0,
-                    total: a.summary?.total || 0,
-                    percent: a.summary?.total ? Math.round((a.summary.answered / a.summary.total) * 100) : 0,
-                    date: new Date(a.created_at),
-                    data: a
-                }))
-            ];
-            
-            // Nach Datum sortieren (neueste zuerst)
-            allAudits.sort((a, b) => b.date - a.date);
-            
-            completedCountSpan.textContent = `(${allAudits.length})`;
-            
-            if (allAudits.length === 0) {
-                container.innerHTML = '<div class="no-completed-audits">Keine abgeschlossenen Audits vorhanden</div>';
-                return;
-            }
-            
-            container.innerHTML = '';
-            allAudits.forEach(audit => {
-                const card = document.createElement('div');
-                card.className = 'completed-audit-card';
-                
-                const dateStr = audit.date.toLocaleDateString('de-DE', { 
-                    day: '2-digit', 
-                    month: '2-digit', 
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
-                
-                const sourceClass = audit.source === 'github' ? 'audit-source-github' : 'audit-source-local';
-                const sourceText = audit.source === 'github' ? '☁️ GitHub' : '💻 Lokal';
-                
-                card.innerHTML = `
-                    <div class="completed-audit-header">
-                        <span class="completed-audit-type">
-                            <span>${audit.icon}</span> ${audit.title}
-                        </span>
-                        <span class="completed-audit-date">${dateStr}</span>
-                    </div>
-                    <div class="completed-audit-meta">
-                        <span class="audit-source-badge ${sourceClass}">${sourceText}</span>
-                        <span>${audit.answered}/${audit.total} (${audit.percent}%)</span>
-                    </div>
-                    <div class="completed-audit-progress">
-                        <div class="completed-audit-progress-fill" style="width: ${audit.percent}%"></div>
-                    </div>
-                    <div class="completed-audit-actions">
-                        <button class="audit-action-btn btn-load-audit" onclick="loadCompletedAudit('${audit.source}', ${JSON.stringify(audit).replace(/"/g, '&quot;')})">📂 Laden</button>
-                        ${audit.source === 'github' ? 
-                            `<button class="audit-action-btn btn-delete-audit" onclick="deleteGitHubAudit('${audit.id}', ${JSON.stringify(audit).replace(/"/g, '&quot;')})">🗑️ Löschen</button>` : 
-                            `<button class="audit-action-btn btn-delete-audit" onclick="deleteLocalAudit('${audit.type}')">🗑️ Löschen</button>`
-                        }
-                    </div>
-                `;
-                
-                container.appendChild(card);
-            });
-        }
-
-        // === LOKALES AUDIT LÖSCHEN ======================
-        function deleteLocalAudit(auditType) {
-            if (!confirm(`⚠️ Lokales Audit für ${AUDIT_TYPES[auditType]?.title || auditType} wirklich löschen?`)) {
-                return;
-            }
-            
-            localStorage.removeItem(`zfpSelfAudit_${auditType}`);
-            alert('✅ Lokales Audit gelöscht');
-            loadAllCompletedAudits();
-            loadAllAuditProgress();
-        }
-
-        // === ABGESCHLOSSENES AUDIT LADEN ================
-        function loadCompletedAudit(source, auditData) {
-            console.log(`📂 Lade ${source} Audit:`, auditData.name);
-            
-            if (source === 'github') {
-                // GitHub Audit laden
-                loadGitHubAuditData(auditData.data);
-            } else {
-                // Lokales Audit laden
-                currentAuditType = auditData.type;
-                currentSectionIndex = -1;
-                
-                germanQuestions = auditData.data.germanQuestions || [];
-                englishQuestions = auditData.data.englishQuestions || [];
-                auditSections = auditData.data.sections || [];
-                
-                document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditData.type]?.title || auditData.title}`;
-                document.getElementById('mainSubtitle').textContent = AUDIT_TYPES[auditData.type]?.standard || '';
-                
-                renderOverview();
-                showPage(PAGES.OVERVIEW);
-                updateProgressDisplays();
-            }
-        }
+        let zfpFileSha = null;
+        let zfpGithubConnected = false;
 
         // === GLOBALE VARIABLEN ======================
         let currentAuditType = null;
@@ -2039,19 +1522,506 @@
             });
         }
 
-        // === INITIALISIERUNG ========================
-        document.addEventListener('DOMContentLoaded', function() {
-            initThemeToggle();
-            loadGitHubConfig();
-            setupEventListeners();
-            loadAllAuditProgress();
-            loadAllCompletedAudits();
-            
-            // Automatisch verbinden wenn Konfiguration vorhanden
-            if (githubConfig.owner && githubConfig.repo && githubConfig.token) {
-                setTimeout(() => connectGitHub(), 500);
+        // === GITHUB KONFIGURATION LADEN ==============
+        function zfpLoadGitHubConfig() {
+            try {
+                const saved = localStorage.getItem(ZFP_GITHUB_CONFIG_KEY);
+                if (saved) {
+                    zfpGithubConfig = JSON.parse(saved);
+                }
+            } catch (e) {
+                console.error('Fehler beim Laden der GitHub-Konfiguration:', e);
             }
-        });
+            
+            document.getElementById('zfpCfgOwner').value = zfpGithubConfig.owner || '';
+            document.getElementById('zfpCfgRepo').value = zfpGithubConfig.repo || '';
+            document.getElementById('zfpCfgBranch').value = zfpGithubConfig.branch || 'main';
+            document.getElementById('zfpCfgFile').value = zfpGithubConfig.file || 'audits.json';
+            document.getElementById('zfpCfgToken').value = zfpGithubConfig.token || '';
+        }
+
+        // === GITHUB KONFIGURATION SPEICHERN ==========
+        window.zfpSaveGitHubConfig = function() {
+            zfpReadGitHubConfigFromForm();
+            localStorage.setItem(ZFP_GITHUB_CONFIG_KEY, JSON.stringify(zfpGithubConfig));
+            zfpShowToast('✅ Einstellungen gespeichert', 'success');
+        };
+
+        function zfpReadGitHubConfigFromForm() {
+            zfpGithubConfig.owner = document.getElementById('zfpCfgOwner').value.trim();
+            zfpGithubConfig.repo = document.getElementById('zfpCfgRepo').value.trim();
+            zfpGithubConfig.branch = document.getElementById('zfpCfgBranch').value.trim() || 'main';
+            zfpGithubConfig.file = document.getElementById('zfpCfgFile').value.trim() || 'audits.json';
+            zfpGithubConfig.token = document.getElementById('zfpCfgToken').value.trim();
+        }
+
+        // === GITHUB API HEADERS ======================
+        function zfpGithubHeaders() {
+            return {
+                'Authorization': `Bearer ${zfpGithubConfig.token}`,
+                'Accept': 'application/vnd.github+json',
+                'X-GitHub-Api-Version': '2022-11-28',
+                'Content-Type': 'application/json'
+            };
+        }
+
+        function zfpGithubUrl(path = '') {
+            return `https://api.github.com/repos/${zfpGithubConfig.owner}/${zfpGithubConfig.repo}/contents/${zfpGithubConfig.file}${path}`;
+        }
+
+        // === GITHUB VERBINDUNG TESTEN ================
+        window.zfpTestGitHubConnection = async function() {
+            zfpReadGitHubConfigFromForm();
+            await zfpConnectGitHub();
+        };
+
+        window.zfpConnectGitHub = async function() {
+            zfpReadGitHubConfigFromForm();
+            
+            if (!zfpGithubConfig.owner || !zfpGithubConfig.repo || !zfpGithubConfig.token) {
+                zfpUpdateGitHubStatus(false, '❌ Bitte alle Felder ausfüllen');
+                zfpShowToast('❌ Bitte alle Felder ausfüllen', 'error');
+                return;
+            }
+            
+            zfpShowSaving(true);
+            
+            try {
+                const url = `https://api.github.com/repos/${zfpGithubConfig.owner}/${zfpGithubConfig.repo}/contents/${zfpGithubConfig.file}?ref=${zfpGithubConfig.branch}&t=${Date.now()}`;
+                const response = await fetch(url, { headers: zfpGithubHeaders() });
+                
+                if (response.status === 404) {
+                    zfpFileSha = null;
+                    zfpUpdateGitHubStatus(true, '✅ Verbunden (neue Datei)');
+                    zfpShowToast('✅ Mit GitHub verbunden', 'success');
+                    
+                } else if (response.ok) {
+                    const data = await response.json();
+                    zfpFileSha = data.sha;
+                    zfpUpdateGitHubStatus(true, `✅ Verbunden mit ${zfpGithubConfig.owner}/${zfpGithubConfig.repo}`);
+                    zfpShowToast('✅ Mit GitHub verbunden', 'success');
+                    
+                } else {
+                    const error = await response.json().catch(() => ({}));
+                    throw new Error(error.message || `HTTP ${response.status}`);
+                }
+                
+                localStorage.setItem(ZFP_GITHUB_CONFIG_KEY, JSON.stringify(zfpGithubConfig));
+                await zfpLoadAllCompletedAudits();
+                
+            } catch (error) {
+                console.error('GitHub Verbindungsfehler:', error);
+                zfpUpdateGitHubStatus(false, `❌ Fehler: ${error.message}`);
+                zfpShowToast(`❌ ${error.message}`, 'error');
+            } finally {
+                zfpShowSaving(false);
+            }
+        };
+
+        // === GITHUB AUDITS LADEN =====================
+        async function zfpLoadGitHubAudits() {
+            if (!zfpGithubConfig.owner || !zfpGithubConfig.repo || !zfpGithubConfig.token) {
+                return [];
+            }
+            
+            try {
+                const url = `https://api.github.com/repos/${zfpGithubConfig.owner}/${zfpGithubConfig.repo}/contents/${zfpGithubConfig.file}?ref=${zfpGithubConfig.branch}&t=${Date.now()}`;
+                const response = await fetch(url, { headers: zfpGithubHeaders() });
+                
+                if (response.status === 404) {
+                    return [];
+                }
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                zfpFileSha = data.sha;
+                
+                const content = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+                return JSON.parse(content);
+                
+            } catch (error) {
+                console.error('Fehler beim Laden von GitHub:', error);
+                return [];
+            }
+        }
+
+        // === IN GITHUB SPEICHERN =====================
+        async function zfpSaveToGitHub(data, message) {
+            const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+            
+            const body = {
+                message: message || `ZfP Audit Update ${new Date().toISOString()}`,
+                content: content,
+                branch: zfpGithubConfig.branch
+            };
+            
+            if (zfpFileSha) {
+                body.sha = zfpFileSha;
+            }
+            
+            const response = await fetch(zfpGithubUrl(), {
+                method: 'PUT',
+                headers: zfpGithubHeaders(),
+                body: JSON.stringify(body)
+            });
+            
+            if (!response.ok) {
+                const error = await response.json().catch(() => ({}));
+                throw new Error(error.message || `HTTP ${response.status}`);
+            }
+            
+            const result = await response.json();
+            zfpFileSha = result.content?.sha;
+        }
+
+        // === GITHUB STATUS ANZEIGEN ==================
+        function zfpUpdateGitHubStatus(connected, text) {
+            zfpGithubConnected = connected;
+            
+            const dot = document.getElementById('zfpGithubStatusDot');
+            const statusText = document.getElementById('zfpGithubStatusText');
+            const icon = document.getElementById('zfpGithubStatusIcon');
+            const text2 = document.getElementById('zfpGithubStatusText2');
+            const bar = document.getElementById('zfpGithubStatusBar');
+            
+            if (connected) {
+                dot.className = 'status-dot green';
+                bar.className = 'github-status-bar connected';
+                icon.innerHTML = '🟢';
+                icon.style.color = '#27ae60';
+            } else {
+                dot.className = 'status-dot';
+                bar.className = 'github-status-bar error';
+                icon.innerHTML = '🔴';
+                icon.style.color = '#e74c3c';
+            }
+            
+            statusText.textContent = text;
+            text2.textContent = text;
+        }
+
+        function zfpShowSaving(visible) {
+            const indicator = document.getElementById('zfpSavingIndicator');
+            indicator.className = 'saving-indicator' + (visible ? ' visible' : '');
+        }
+
+        let zfpToastTimer;
+        function zfpShowToast(msg, type = 'success') {
+            const toast = document.getElementById('syncToast');
+            toast.textContent = msg;
+            toast.className = `sync-toast show ${type}`;
+            
+            clearTimeout(zfpToastTimer);
+            zfpToastTimer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        window.zfpTogglePATVisibility = function() {
+            const input = document.getElementById('zfpCfgToken');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        };
+
+        // === TOGGLE FUNKTION FÜR GITHUB PANEL ===
+        window.zfpToggleGitHubConfig = function() {
+            const panel = document.getElementById('zfpGithubConfigPanel');
+            const btn = document.getElementById('toggleGitHubBtn');
+            
+            if (panel.style.display === 'none' || panel.style.display === '') {
+                panel.style.display = 'block';
+                btn.textContent = '⚙️ GitHub Konfiguration ausblenden';
+            } else {
+                panel.style.display = 'none';
+                btn.textContent = '⚙️ GitHub Konfiguration einblenden';
+            }
+        };
+
+        // === ALLE AUDITS LADEN (NUR GITHUB) ===
+        async function zfpLoadAllCompletedAudits() {
+            const container = document.getElementById('zfpCompletedAuditsContainer');
+            const completedCountSpan = document.getElementById('zfpCompletedCount');
+            
+            let githubAudits = [];
+            if (zfpGithubConfig.owner && zfpGithubConfig.repo && zfpGithubConfig.token) {
+                try {
+                    githubAudits = await zfpLoadGitHubAudits();
+                    if (!Array.isArray(githubAudits)) githubAudits = [];
+                } catch (e) {
+                    console.error('Fehler beim Laden von GitHub:', e);
+                }
+            }
+            
+            githubAudits.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            
+            completedCountSpan.textContent = `(${githubAudits.length})`;
+            
+            if (githubAudits.length === 0) {
+                container.innerHTML = '<div class="no-completed-audits">Keine Audits in GitHub vorhanden</div>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            githubAudits.forEach(audit => {
+                const card = document.createElement('div');
+                card.className = 'completed-audit-card';
+                
+                const dateStr = new Date(audit.created_at).toLocaleDateString('de-DE', { 
+                    day: '2-digit', 
+                    month: '2-digit', 
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                card.innerHTML = `
+                    <div class="completed-audit-header">
+                        <span class="completed-audit-type">
+                            <span>${AUDIT_TYPES[audit.audit_type]?.icon || '📋'}</span> ${audit.audit_title || audit.audit_type}
+                        </span>
+                        <span class="completed-audit-date">${dateStr}</span>
+                    </div>
+                    <div class="completed-audit-meta">
+                        <span class="audit-source-badge audit-source-github">☁️ GitHub</span>
+                        <span>${audit.summary?.answered || 0}/${audit.summary?.total || 0} (${audit.summary?.total ? Math.round((audit.summary.answered / audit.summary.total) * 100) : 0}%)</span>
+                    </div>
+                    <div class="completed-audit-progress">
+                        <div class="completed-audit-progress-fill" style="width: ${audit.summary?.total ? Math.round((audit.summary.answered / audit.summary.total) * 100) : 0}%"></div>
+                    </div>
+                    <div class="completed-audit-actions">
+                        <button class="audit-action-btn btn-load-audit" onclick='zfpLoadGitHubAuditData(${JSON.stringify(audit).replace(/'/g, "\\'")})'>📂 Laden</button>
+                        <button class="audit-action-btn btn-delete-audit" onclick='zfpDeleteGitHubAudit("${audit.id}")'>🗑️ Löschen</button>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // === AUDIT AUS GITHUB LADEN ===
+        function zfpLoadGitHubAuditData(auditData) {
+            console.log('📂 Lade Audit aus GitHub:', auditData.name);
+            
+            if (!auditData.data) {
+                alert('❌ Audit-Daten sind beschädigt!');
+                return;
+            }
+            
+            currentAuditType = auditData.audit_type;
+            currentSectionIndex = -1;
+            
+            const auditInfo = AUDIT_TYPES[auditData.audit_type] || {
+                title: auditData.audit_title || 'Unbekannt',
+                standard: auditData.standard || '',
+                icon: '📋'
+            };
+            
+            document.getElementById('mainTitle').textContent = `Self-Audit: ${auditInfo.title}`;
+            document.getElementById('mainSubtitle').textContent = auditInfo.standard || '';
+            
+            germanQuestions = auditData.data.germanQuestions || [];
+            
+            const sectionMap = new Map();
+            germanQuestions.forEach(q => {
+                const sectionId = q.id.split('.')[0];
+                if (!sectionMap.has(sectionId)) {
+                    sectionMap.set(sectionId, {
+                        id: sectionId,
+                        title: zfpGetSectionTitle(sectionId),
+                        questions: []
+                    });
+                }
+                sectionMap.get(sectionId).questions.push(q);
+            });
+            
+            auditSections = Array.from(sectionMap.values());
+            
+            renderOverview();
+            showPage(PAGES.OVERVIEW);
+            updateProgressDisplays();
+            
+            console.log('✅ Audit aus GitHub geladen');
+        }
+
+        // === AUDIT AUS GITHUB LÖSCHEN =================
+        async function zfpDeleteGitHubAudit(auditId) {
+            if (!zfpGithubConfig.owner || !zfpGithubConfig.repo || !zfpGithubConfig.token) {
+                alert('❌ GitHub nicht verbunden!');
+                return;
+            }
+            
+            if (!confirm('⚠️ Dieses Audit wirklich aus GitHub löschen?')) {
+                return;
+            }
+            
+            zfpShowSaving(true);
+            
+            try {
+                let existingAudits = await zfpLoadGitHubAudits();
+                existingAudits = existingAudits.filter(a => a.id !== auditId);
+                await zfpSaveToGitHub(existingAudits, `Audit gelöscht: ${auditId}`);
+                alert('✅ Audit aus GitHub gelöscht');
+                zfpLoadAllCompletedAudits();
+            } catch (error) {
+                console.error('❌ Fehler beim Löschen aus GitHub:', error);
+                alert(`❌ Fehler beim Löschen: ${error.message}`);
+            } finally {
+                zfpShowSaving(false);
+            }
+        }
+
+        // === HILFSFUNKTION FÜR SECTION-TITEL ===
+        function zfpGetSectionTitle(sectionId) {
+            switch(sectionId) {
+                case '3': return '3. AUSRÜSTUNG UND MATERIALIEN';
+                case '4': return '4. VERFAHRENSANWEISUNGEN UND TECHNIKEN';
+                case '5': return '5. SYSTEMLEISTUNG UND PRÜFUNGEN';
+                case '6': return '6. KALIBRIERUNG UND NORMALE';
+                case '7': return '7. DURCHFÜHRUNG DER PRÜFUNG';
+                case '8': return '8. DOKUMENTATION';
+                default: 
+                    if (sectionId.startsWith('3')) return '3. AUSRÜSTUNG';
+                    if (sectionId.startsWith('4')) return '4. VERFAHREN';
+                    if (sectionId.startsWith('5')) return '5. PRÜFUNGEN';
+                    if (sectionId.startsWith('6')) return '6. KALIBRIERUNG';
+                    if (sectionId.startsWith('7')) return '7. DURCHFÜHRUNG';
+                    if (sectionId.startsWith('8')) return '8. DOKUMENTATION';
+                    return `${sectionId}. BEREICH`;
+            }
+        }
+
+        // === SPEICHERN IN GITHUB (OHNE MODAL) ===
+        async function zfpPerformGitHubSave() {
+            if (!currentAuditType || !germanQuestions.length || !zfpGithubConnected) return;
+            
+            try {
+                let existingAudits = await zfpLoadGitHubAudits();
+                if (!Array.isArray(existingAudits)) existingAudits = [];
+                
+                const auditName = `${AUDIT_TYPES[currentAuditType].title} - ${new Date().toLocaleString('de-DE')}`;
+                
+                const existingIndex = existingAudits.findIndex(a => 
+                    a.audit_type === currentAuditType
+                );
+                
+                const updatedAudit = {
+                    id: `audit_${currentAuditType}_${Date.now()}`,
+                    name: auditName,
+                    audit_type: currentAuditType,
+                    audit_title: AUDIT_TYPES[currentAuditType].title,
+                    standard: AUDIT_TYPES[currentAuditType].standard,
+                    created_at: existingIndex >= 0 ? existingAudits[existingIndex].created_at : new Date().toISOString(),
+                    last_modified: new Date().toISOString(),
+                    data: {
+                        germanQuestions: germanQuestions.map(q => ({
+                            id: q.id,
+                            answer: q.answer || "",
+                            evidence: q.evidence || "",
+                            text: q.text,
+                            guidance: q.guidance
+                        })),
+                        sections: auditSections
+                    },
+                    summary: {
+                        total: germanQuestions.length,
+                        answered: germanQuestions.filter(q => q.answer && q.answer !== "").length,
+                        yes: germanQuestions.filter(q => q.answer === "YES").length,
+                        no: germanQuestions.filter(q => q.answer === "NO").length,
+                        na: germanQuestions.filter(q => q.answer === "NA").length
+                    }
+                };
+                
+                if (existingIndex >= 0) {
+                    existingAudits[existingIndex] = updatedAudit;
+                } else {
+                    existingAudits.push(updatedAudit);
+                }
+                
+                await zfpSaveToGitHub(existingAudits, `Auto-Save: ${auditName}`);
+                zfpLoadAllCompletedAudits();
+                
+            } catch (error) {
+                console.error('❌ Fehler beim Speichern in GitHub:', error);
+            }
+        }
+
+        // === MANUELLES SPEICHERN IN GITHUB ===
+        window.zfpSaveCurrentAuditToGitHub = async function() {
+            if (!currentAuditType || !germanQuestions.length) {
+                alert('❌ Kein Audit geladen!');
+                document.getElementById('githubSaveModal').style.display = 'none';
+                return;
+            }
+            
+            if (!zfpGithubConfig.owner || !zfpGithubConfig.repo || !zfpGithubConfig.token) {
+                alert('❌ GitHub nicht konfiguriert! Bitte zuerst verbinden.');
+                document.getElementById('githubSaveModal').style.display = 'none';
+                return;
+            }
+            
+            const auditName = document.getElementById('githubAuditName').value.trim() || 
+                             `${AUDIT_TYPES[currentAuditType].title} - ${new Date().toLocaleString('de-DE')}`;
+            
+            zfpShowSaving(true);
+            
+            try {
+                let existingAudits = await zfpLoadGitHubAudits();
+                if (!Array.isArray(existingAudits)) existingAudits = [];
+                
+                const existingIndex = existingAudits.findIndex(a => 
+                    a.audit_type === currentAuditType
+                );
+                
+                const updatedAudit = {
+                    id: `audit_${currentAuditType}_${Date.now()}`,
+                    name: auditName,
+                    audit_type: currentAuditType,
+                    audit_title: AUDIT_TYPES[currentAuditType].title,
+                    standard: AUDIT_TYPES[currentAuditType].standard,
+                    created_at: existingIndex >= 0 ? existingAudits[existingIndex].created_at : new Date().toISOString(),
+                    last_modified: new Date().toISOString(),
+                    data: {
+                        germanQuestions: germanQuestions.map(q => ({
+                            id: q.id,
+                            answer: q.answer || "",
+                            evidence: q.evidence || "",
+                            text: q.text,
+                            guidance: q.guidance
+                        })),
+                        sections: auditSections
+                    },
+                    summary: {
+                        total: germanQuestions.length,
+                        answered: germanQuestions.filter(q => q.answer && q.answer !== "").length,
+                        yes: germanQuestions.filter(q => q.answer === "YES").length,
+                        no: germanQuestions.filter(q => q.answer === "NO").length,
+                        na: germanQuestions.filter(q => q.answer === "NA").length
+                    }
+                };
+                
+                if (existingIndex >= 0) {
+                    existingAudits[existingIndex] = updatedAudit;
+                } else {
+                    existingAudits.push(updatedAudit);
+                }
+                
+                await zfpSaveToGitHub(existingAudits, `Manuell gespeichert: ${auditName}`);
+                
+                zfpShowToast(`✅ Audit "${auditName}" in GitHub gespeichert`, 'success');
+                document.getElementById('githubSaveModal').style.display = 'none';
+                document.getElementById('githubAuditName').value = '';
+                
+                zfpLoadAllCompletedAudits();
+                
+            } catch (error) {
+                console.error('❌ Fehler beim Speichern in GitHub:', error);
+                zfpShowToast(`❌ Fehler: ${error.message}`, 'error');
+            } finally {
+                zfpShowSaving(false);
+            }
+        };
 
         // === JSON LADEN (DEUTSCH + ENGLISCH) ========
         async function loadAuditJSONs(auditType) {
@@ -2097,26 +2067,25 @@
             }
         }
 
-// === AUDIT STARTEN (NUR ONLINE) ===
-async function startAudit(auditType) {
-    console.log(`🚀 Starte Audit: ${auditType}`);
-    
-    currentAuditType = auditType;
-    currentSectionIndex = -1;
-    
-    // NIEMALS aus localStorage laden!
-    const data = await loadAuditJSONs(auditType);
-    if (!data) return;
-    
-    processJSONdata(data);
-    
-    document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditType].title}`;
-    document.getElementById('mainSubtitle').textContent = AUDIT_TYPES[auditType].standard;
-    
-    renderOverview();
-    showPage(PAGES.OVERVIEW);
-    updateProgressDisplays();
-}
+        // === AUDIT STARTEN (NUR ONLINE) ===
+        async function startAudit(auditType) {
+            console.log(`🚀 Starte Audit: ${auditType}`);
+            
+            currentAuditType = auditType;
+            currentSectionIndex = -1;
+            
+            const data = await loadAuditJSONs(auditType);
+            if (!data) return;
+            
+            processJSONdata(data);
+            
+            document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditType].title}`;
+            document.getElementById('mainSubtitle').textContent = AUDIT_TYPES[auditType].standard;
+            
+            renderOverview();
+            showPage(PAGES.OVERVIEW);
+            updateProgressDisplays();
+        }
 
         // === JSON DATEN VERARBEITEN ================
         function processJSONdata(data) {
@@ -2176,7 +2145,6 @@ async function startAudit(auditType) {
             console.log(`✅ EN: ${englishQuestions.length} Fragen`);
             
             auditSections = extractSectionsFromQuestions(germanQuestions);
-            saveCurrentAuditData();
         }
 
         // === ANTWORT-OPTIONEN NORMALISIEREN ========
@@ -2427,142 +2395,54 @@ async function startAudit(auditType) {
             return questionElement;
         }
 
-        // === ANTWORTEN ==============================
-// === ANTWORTEN (mit Auto-Save) ===
-function selectAnswer(questionId, answer) {
-    const question = germanQuestions.find(q => q.id === questionId);
-    if (!question) return;
-    
-    question.answer = answer;
-    saveCurrentAuditData();
-    
-    const questionElement = document.querySelector(`[data-question-id="${questionId}"]`);
-    if (questionElement) {
-        questionElement.classList.remove('unanswered', 'yes-answer', 'no-answer', 'na-answer');
-        
-        if (answer === "YES") {
-            questionElement.classList.add('yes-answer');
-        } else if (answer === "NO") {
-            questionElement.classList.add('no-answer');
-        } else if (answer === "NA") {
-            questionElement.classList.add('na-answer');
-        }
-        
-        questionElement.querySelectorAll('.answer-option').forEach(btn => {
-            btn.classList.remove('selected');
-            if (btn.dataset.answer === answer) {
-                btn.classList.add('selected');
+        // === ANTWORTEN (DIREKT IN GITHUB) ===
+        async function selectAnswer(questionId, answer) {
+            const question = germanQuestions.find(q => q.id === questionId);
+            if (!question) return;
+            
+            question.answer = answer;
+            
+            const questionElement = document.querySelector(`[data-question-id="${questionId}"]`);
+            if (questionElement) {
+                questionElement.classList.remove('unanswered', 'yes-answer', 'no-answer', 'na-answer');
+                
+                if (answer === "YES") {
+                    questionElement.classList.add('yes-answer');
+                } else if (answer === "NO") {
+                    questionElement.classList.add('no-answer');
+                } else if (answer === "NA") {
+                    questionElement.classList.add('na-answer');
+                }
+                
+                questionElement.querySelectorAll('.answer-option').forEach(btn => {
+                    btn.classList.remove('selected');
+                    if (btn.dataset.answer === answer) {
+                        btn.classList.add('selected');
+                    }
+                });
             }
-        });
-    }
-    
-    updateCurrentAuditProgress();
-    renderOverview();
-    
-    // Auto-Save in GitHub auslösen
-    autoSaveToGitHub();
-}
-
-function updateEvidence(questionId, evidence) {
-    const question = germanQuestions.find(q => q.id === questionId);
-    if (question) {
-        question.evidence = evidence;
-        saveCurrentAuditData();
-        
-        // Auto-Save in GitHub auslösen
-        autoSaveToGitHub();
-    }
-}
-
-        // === SPEICHERN ==============================
-// === SPEICHERN NUR IN GITHUB ===
-async function saveCurrentAuditToGitHub(showModal = true) {
-    if (!currentAuditType || !germanQuestions.length) {
-        alert('❌ Kein Audit geladen!');
-        return;
-    }
-    
-    if (!githubConfig.owner || !githubConfig.repo || !githubConfig.token) {
-        alert('❌ GitHub nicht konfiguriert! Bitte zuerst verbinden.');
-        return;
-    }
-    
-    if (showModal) {
-        document.getElementById('githubSaveModal').style.display = 'flex';
-    } else {
-        // Auto-Save ohne Modal
-        await performGitHubSave();
-    }
-}
-
-async function performGitHubSave(auditName) {
-    showSaving(true);
-    
-    try {
-        // Bestehende Audits laden
-        let existingAudits = [];
-        try {
-            existingAudits = await loadGitHubAudits();
-            if (!Array.isArray(existingAudits)) existingAudits = [];
-        } catch (e) {
-            existingAudits = [];
-        }
-        
-        const name = auditName || `${AUDIT_TYPES[currentAuditType].title} - ${new Date().toLocaleString('de-DE')}`;
-        
-        // Prüfen ob bereits ein Audit für diesen Typ existiert (überschreiben)
-        const existingIndex = existingAudits.findIndex(a => 
-            a.audit_type === currentAuditType
-        );
-        
-        const updatedAudit = {
-            id: `audit_${currentAuditType}_${Date.now()}`,
-            name: name,
-            audit_type: currentAuditType,
-            audit_title: AUDIT_TYPES[currentAuditType].title,
-            standard: AUDIT_TYPES[currentAuditType].standard,
-            created_at: new Date().toISOString(),
-            last_modified: new Date().toISOString(),
-            data: {
-                germanQuestions: germanQuestions.map(q => ({
-                    id: q.id,
-                    answer: q.answer || "",
-                    evidence: q.evidence || "",
-                    text: q.text,
-                    guidance: q.guidance
-                })),
-                sections: auditSections
-            },
-            summary: {
-                total: germanQuestions.length,
-                answered: germanQuestions.filter(q => q.answer && q.answer !== "").length,
-                yes: germanQuestions.filter(q => q.answer === "YES").length,
-                no: germanQuestions.filter(q => q.answer === "NO").length,
-                na: germanQuestions.filter(q => q.answer === "NA").length
+            
+            updateCurrentAuditProgress();
+            renderOverview();
+            
+            if (zfpGithubConnected) {
+                await zfpPerformGitHubSave();
+            } else {
+                zfpShowToast('⚠️ Nicht mit GitHub verbunden - Antwort nicht gespeichert!', 'error');
             }
-        };
-        
-        // Audit aktualisieren oder hinzufügen
-        if (existingIndex >= 0) {
-            existingAudits[existingIndex] = updatedAudit;
-        } else {
-            existingAudits.push(updatedAudit);
         }
-        
-        await saveToGitHub(existingAudits, `Audit gespeichert: ${name}`);
-        
-        showToast(`✅ Audit "${name}" in GitHub gespeichert`, 'success');
-        
-        // Audit-Liste aktualisieren
-        loadAllCompletedAudits();
-        
-    } catch (error) {
-        console.error('❌ Fehler beim Speichern in GitHub:', error);
-        showToast(`❌ Fehler: ${error.message}`, 'error');
-    } finally {
-        showSaving(false);
-    }
-}
+
+        // === EVIDENCE (DIREKT IN GITHUB) ===
+        async function updateEvidence(questionId, evidence) {
+            const question = germanQuestions.find(q => q.id === questionId);
+            if (question) {
+                question.evidence = evidence;
+                
+                if (zfpGithubConnected) {
+                    await zfpPerformGitHubSave();
+                }
+            }
+        }
 
         // === PROGRESS ==============================
         function updateCurrentAuditProgress() {
@@ -2592,36 +2472,8 @@ async function performGitHubSave(auditName) {
             progressBar.textContent = `${percent}%`;
         }
 
-        function loadAllAuditProgress() {
-            Object.keys(AUDIT_TYPES).forEach(auditType => {
-                const saved = localStorage.getItem(`zfpSelfAudit_${auditType}`);
-                if (saved) {
-                    try {
-                        const data = JSON.parse(saved);
-                        const questions = data.germanQuestions || [];
-                        const answered = questions.filter(q => q.answer && q.answer !== "").length;
-                        const total = questions.length;
-                        const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
-                        
-                        const progressElement = document.getElementById(`${auditType.toLowerCase()}Progress`);
-                        if (progressElement) {
-                            progressElement.textContent = `${percent}%`;
-                        }
-                    } catch (e) {
-                        console.error('Fehler beim Laden des Fortschritts:', e);
-                    }
-                } else {
-                    const progressElement = document.getElementById(`${auditType.toLowerCase()}Progress`);
-                    if (progressElement) {
-                        progressElement.textContent = '0%';
-                    }
-                }
-            });
-        }
-
         function updateProgressDisplays() {
-            loadAllAuditProgress();
-            loadAllCompletedAudits();
+            zfpLoadAllCompletedAudits();
         }
 
         // === EXPORT FUNKTION ========================
@@ -2706,8 +2558,6 @@ async function performGitHubSave(auditName) {
                             }
                         });
                         
-                        saveCurrentAuditData();
-                        
                         if (currentSectionIndex >= 0) {
                             renderCurrentSection();
                             updateCurrentAuditProgress();
@@ -2735,8 +2585,6 @@ async function performGitHubSave(auditName) {
                                 importCount++;
                             }
                         });
-                        
-                        saveCurrentAuditData();
                         
                         if (currentSectionIndex >= 0) {
                             renderCurrentSection();
@@ -3064,8 +2912,6 @@ async function performGitHubSave(auditName) {
                 q.evidence = "";
             });
             
-            saveCurrentAuditData();
-            
             if (currentSectionIndex >= 0) {
                 renderCurrentSection();
                 updateCurrentAuditProgress();
@@ -3077,7 +2923,6 @@ async function performGitHubSave(auditName) {
 
         // === NAVIGATION ============================
         function goBackToSelection() {
-            saveCurrentAuditData();
             currentAuditType = null;
             germanQuestions = [];
             englishQuestions = [];
@@ -3088,12 +2933,10 @@ async function performGitHubSave(auditName) {
             document.getElementById('mainSubtitle').textContent = 'Schaeffler Technologies AG & Co. KG';
             
             showPage(PAGES.SELECTION);
-            updateProgressDisplays();
-            loadAllCompletedAudits();
+            zfpLoadAllCompletedAudits();
         }
 
         function goBackToOverview() {
-            saveCurrentAuditData();
             currentSectionIndex = -1;
             renderOverview();
             showPage(PAGES.OVERVIEW);
@@ -3128,7 +2971,6 @@ async function performGitHubSave(auditName) {
                 resetBtn.addEventListener('click', resetAudit);
             }
             
-            // Import Buttons
             const importFromOverviewBtn = document.getElementById('importFromOverviewBtn');
             if (importFromOverviewBtn) {
                 importFromOverviewBtn.addEventListener('click', showImportModal);
@@ -3137,21 +2979,6 @@ async function performGitHubSave(auditName) {
             const importFromQuestionsBtn = document.getElementById('importFromQuestionsBtn');
             if (importFromQuestionsBtn) {
                 importFromQuestionsBtn.addEventListener('click', showImportModal);
-            }
-            
-            // GitHub Save Buttons
-            const saveToGitHubBtn = document.getElementById('saveToGitHubBtn');
-            if (saveToGitHubBtn) {
-                saveToGitHubBtn.addEventListener('click', () => {
-                    document.getElementById('githubSaveModal').style.display = 'flex';
-                });
-            }
-            
-            const saveToGitHubFromQuestionsBtn = document.getElementById('saveToGitHubFromQuestionsBtn');
-            if (saveToGitHubFromQuestionsBtn) {
-                saveToGitHubFromQuestionsBtn.addEventListener('click', () => {
-                    document.getElementById('githubSaveModal').style.display = 'flex';
-                });
             }
             
             window.addEventListener('click', (e) => {
@@ -3174,271 +3001,29 @@ async function performGitHubSave(auditName) {
             });
         }
 
-        // GitHub-Funktionen global verfügbar machen
-        window.connectGitHub = connectGitHub;
-        window.saveGitHubConfig = saveGitHubConfig;
-        window.togglePATVisibility = togglePATVisibility;
-        window.testGitHubConnection = testGitHubConnection;
-        window.loadAllCompletedAudits = loadAllCompletedAudits;
-        window.loadCompletedAudit = loadCompletedAudit;
-        window.deleteGitHubAudit = deleteGitHubAudit;
-        window.deleteLocalAudit = deleteLocalAudit;
-        window.saveCurrentAuditToGitHub = saveCurrentAuditToGitHub;
+        // === INITIALISIERUNG ===
+        document.addEventListener('DOMContentLoaded', function() {
+            initThemeToggle();
+            zfpLoadGitHubConfig();
+            setupEventListeners();
+            
+            const panel = document.getElementById('zfpGithubConfigPanel');
+            if (panel) {
+                panel.style.display = 'none';
+            }
+            
+            if (zfpGithubConfig.owner && zfpGithubConfig.repo && zfpGithubConfig.token) {
+                setTimeout(() => {
+                    zfpConnectGitHub();
+                }, 500);
+            }
+        });
+
+        // Funktionen global verfügbar machen
+        window.selectAnswer = selectAnswer;
+        window.updateEvidence = updateEvidence;
         window.handleImportFile = handleImportFile;
-// === NEUE FUNKTION: GITHUB KONFIGURATION TOGGLE ===
-window.toggleGitHubConfig = function() {
-    const panel = document.getElementById('githubConfigPanel');
-    const btn = document.getElementById('toggleGitHubBtn');
-    
-    if (panel.style.display === 'none') {
-        panel.style.display = 'block';
-        btn.textContent = '⚙️ GitHub Konfiguration ausblenden';
-    } else {
-        panel.style.display = 'none';
-        btn.textContent = '⚙️ GitHub Konfiguration einblenden';
-    }
-};
-// Wird bei JEDER Änderung aufgerufen
-async function autoSaveToGitHub() {
-    if (!githubConnected || !currentAuditType || !germanQuestions.length) return;
-    
-    showGitHubSyncStatus(true);
-    
-    try {
-        let existingAudits = await loadGitHubAudits() || [];
-        
-        const auditName = `${AUDIT_TYPES[currentAuditType].title} - Auto-Save ${new Date().toLocaleString('de-DE')}`;
-        
-        const updatedAudit = {
-            id: `audit_${currentAuditType}_${Date.now()}`,
-            name: auditName,
-            audit_type: currentAuditType,
-            audit_title: AUDIT_TYPES[currentAuditType].title,
-            standard: AUDIT_TYPES[currentAuditType].standard,
-            created_at: new Date().toISOString(),
-            data: {
-                germanQuestions: germanQuestions.map(q => ({
-                    id: q.id,
-                    answer: q.answer,
-                    evidence: q.evidence
-                })),
-                sections: auditSections
-            },
-            summary: {
-                total: germanQuestions.length,
-                answered: germanQuestions.filter(q => q.answer && q.answer !== "").length,
-                yes: germanQuestions.filter(q => q.answer === "YES").length,
-                no: germanQuestions.filter(q => q.answer === "NO").length,
-                na: germanQuestions.filter(q => q.answer === "NA").length
-            }
-        };
-        
-        // Audit aktualisieren oder hinzufügen
-        const existingIndex = existingAudits.findIndex(a => 
-            a.audit_type === currentAuditType && 
-            a.id.includes(currentAuditType)
-        );
-        
-        if (existingIndex >= 0) {
-            existingAudits[existingIndex] = updatedAudit;
-        } else {
-            existingAudits.push(updatedAudit);
-        }
-        
-        await saveToGitHub(existingAudits, `Auto-Save: ${AUDIT_TYPES[currentAuditType].title}`);
-        showGitHubSyncStatus(false);
-        
-    } catch (error) {
-        console.error('GitHub Auto-Save Fehler:', error);
-        showGitHubSyncStatus(false, true);
-    }
-}
-// === NEUE FUNKTION: GITHUB KONFIGURATION TOGGLE ===
-window.toggleGitHubConfig = function() {
-    const panel = document.getElementById('githubConfigPanel');
-    const btn = document.getElementById('toggleGitHubBtn');
-    
-    if (panel.style.display === 'none' || panel.style.display === '') {
-        panel.style.display = 'block';
-        btn.textContent = '⚙️ GitHub Konfiguration ausblenden';
-    } else {
-        panel.style.display = 'none';
-        btn.textContent = '⚙️ GitHub Konfiguration einblenden';
-    }
-};
-
-// GitHub Panel initial ausblenden
-document.addEventListener('DOMContentLoaded', function() {
-    const panel = document.getElementById('githubConfigPanel');
-    if (panel) {
-        panel.style.display = 'none';
-    }
-});
-
-// === AUTO-SAVE FUNKTION FÜR GITHUB ===
-let autoSaveTimer = null;
-let syncStatusElement = null;
-
-// Status-Anzeige für GitHub Sync erstellen
-function createSyncStatusElement() {
-    if (!syncStatusElement) {
-        syncStatusElement = document.createElement('div');
-        syncStatusElement.id = 'githubSyncStatus';
-        syncStatusElement.style.cssText = `
-            position: fixed;
-            bottom: 70px;
-            right: 20px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 8px 16px;
-            font-size: 0.85em;
-            box-shadow: 0 2px 8px var(--shadow-color);
-            z-index: 999;
-            display: none;
-            align-items: center;
-            gap: 8px;
-        `;
-        document.body.appendChild(syncStatusElement);
-    }
-    return syncStatusElement;
-}
-
-function showGitHubSyncStatus(show, isError = false) {
-    const statusEl = createSyncStatusElement();
-    
-    if (show) {
-        statusEl.innerHTML = `
-            <div class="save-spinner" style="width: 14px; height: 14px; border-width: 2px;"></div>
-            <span>Speichere in GitHub...</span>
-        `;
-        statusEl.style.borderColor = 'var(--btn-info)';
-        statusEl.style.display = 'flex';
-    } else {
-        if (isError) {
-            statusEl.innerHTML = '❌ Fehler beim Speichern';
-            statusEl.style.borderColor = 'var(--btn-danger)';
-            setTimeout(() => {
-                statusEl.style.display = 'none';
-            }, 3000);
-        } else {
-            statusEl.innerHTML = '✅ In GitHub gespeichert';
-            statusEl.style.borderColor = 'var(--btn-success)';
-            setTimeout(() => {
-                statusEl.style.display = 'none';
-            }, 2000);
-        }
-    }
-}
-
-// Auto-Save bei jeder Änderung
-async function autoSaveToGitHub() {
-    if (!githubConnected || !currentAuditType || !germanQuestions.length) return;
-    
-    // Timer zurücksetzen (speichert erst nach 2 Sekunden Inaktivität)
-    if (autoSaveTimer) {
-        clearTimeout(autoSaveTimer);
-    }
-    
-    autoSaveTimer = setTimeout(async () => {
-        showGitHubSyncStatus(true);
-        
-        try {
-            // Bestehende Audits laden
-            let existingAudits = [];
-            try {
-                existingAudits = await loadGitHubAudits();
-                if (!Array.isArray(existingAudits)) existingAudits = [];
-            } catch (e) {
-                existingAudits = [];
-            }
-            
-            // Prüfen ob bereits ein Auto-Save für diesen Audit-Typ existiert
-            const existingIndex = existingAudits.findIndex(a => 
-                a.audit_type === currentAuditType && 
-                a.name && a.name.includes('Auto-Save')
-            );
-            
-            const auditName = `${AUDIT_TYPES[currentAuditType].title} - Auto-Save ${new Date().toLocaleString('de-DE')}`;
-            
-            const updatedAudit = {
-                id: `audit_${currentAuditType}_${Date.now()}`,
-                name: auditName,
-                audit_type: currentAuditType,
-                audit_title: AUDIT_TYPES[currentAuditType].title,
-                standard: AUDIT_TYPES[currentAuditType].standard,
-                created_at: new Date().toISOString(),
-                data: {
-                    germanQuestions: germanQuestions.map(q => ({
-                        id: q.id,
-                        answer: q.answer || "",
-                        evidence: q.evidence || ""
-                    })),
-                    sections: auditSections
-                },
-                summary: {
-                    total: germanQuestions.length,
-                    answered: germanQuestions.filter(q => q.answer && q.answer !== "").length,
-                    yes: germanQuestions.filter(q => q.answer === "YES").length,
-                    no: germanQuestions.filter(q => q.answer === "NO").length,
-                    na: germanQuestions.filter(q => q.answer === "NA").length
-                }
-            };
-            
-            // Audit aktualisieren oder hinzufügen
-            if (existingIndex >= 0) {
-                existingAudits[existingIndex] = updatedAudit;
-            } else {
-                existingAudits.push(updatedAudit);
-            }
-            
-            await saveToGitHub(existingAudits, `Auto-Save: ${AUDIT_TYPES[currentAuditType].title}`);
-            showGitHubSyncStatus(false);
-            
-            // Audit-Liste aktualisieren
-            loadAllCompletedAudits();
-            
-        } catch (error) {
-            console.error('GitHub Auto-Save Fehler:', error);
-            showGitHubSyncStatus(false, true);
-        }
-    }, 2000); // 2 Sekunden warten nach der letzten Änderung
-}
-
-// === BESTEHENDE FUNKTIONEN ANPASSEN ===
-// Originale selectAnswer Funktion erweitern
-const originalSelectAnswer = selectAnswer;
-selectAnswer = function(questionId, answer) {
-    // Original-Funktion aufrufen
-    originalSelectAnswer(questionId, answer);
-    
-    // Auto-Save in GitHub auslösen
-    autoSaveToGitHub();
-};
-
-// Originale updateEvidence Funktion erweitern
-const originalUpdateEvidence = updateEvidence;
-updateEvidence = function(questionId, evidence) {
-    // Original-Funktion aufrufen
-    originalUpdateEvidence(questionId, evidence);
-    
-    // Auto-Save in GitHub auslösen
-    autoSaveToGitHub();
-};
-
-// Beim Verbinden mit GitHub
-const originalConnectGitHub = window.connectGitHub;
-window.connectGitHub = async function() {
-    await originalConnectGitHub();
-    
-    // Status aktualisieren
-    if (githubConnected) {
-        // Beim ersten Verbinden sofort speichern falls ein Audit geladen ist
-        if (currentAuditType && germanQuestions.length) {
-            autoSaveToGitHub();
-        }
-    }
-};
+        window.exportResults = exportResults;
     </script>
 </body>
 </html>
