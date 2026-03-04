@@ -7156,13 +7156,13 @@
     }
   },
   {
-    "id": "audit_UT_1772664744931",
-    "name": "Ultraschallprüfung - 4.3.2026, 23:52:24",
+    "id": "audit_UT_1772664754694",
+    "name": "Ultraschallprüfung - 4.3.2026, 23:52:34",
     "audit_type": "UT",
     "audit_title": "Ultraschallprüfung",
     "standard": "TPG-AC7114/3",
     "created_at": "2026-03-04T22:52:24.931Z",
-    "last_modified": "2026-03-04T22:52:24.931Z",
+    "last_modified": "2026-03-04T22:52:34.694Z",
     "data": {
       "germanQuestions": [
         {
@@ -7419,7 +7419,7 @@
         },
         {
           "id": "4.3.23.2",
-          "answer": "NA",
+          "answer": "YES",
           "evidence": "Wir verwenden es nicht.",
           "text": "Adressiert die Verfahrensanweisung, wie der Abtastindex für jeden einzelnen Tauchschallkopf (Typ II) gehandhabt wird?",
           "guidance": ""
@@ -8998,7 +8998,7 @@
               ],
               "hasNA": false,
               "sectionId": "4",
-              "answer": "NA",
+              "answer": "YES",
               "evidence": "Wir verwenden es nicht."
             },
             {
@@ -11088,9 +11088,9 @@
     "summary": {
       "total": 190,
       "answered": 189,
-      "yes": 118,
+      "yes": 119,
       "no": 1,
-      "na": 70
+      "na": 69
     }
   }
 ]
