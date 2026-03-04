@@ -2097,43 +2097,26 @@
             }
         }
 
-        // === AUDIT STARTEN =========================
-        async function startAudit(auditType) {
-            console.log(`🚀 Starte Audit: ${auditType}`);
-            
-            currentAuditType = auditType;
-            currentSectionIndex = -1;
-            
-            const savedKey = `zfpSelfAudit_${currentAuditType}`;
-            const saved = localStorage.getItem(savedKey);
-            
-            if (saved) {
-                console.log(`📦 Lade gespeicherte Daten`);
-                const parsed = JSON.parse(saved);
-                germanQuestions = parsed.germanQuestions || [];
-                englishQuestions = parsed.englishQuestions || [];
-                auditSections = parsed.sections || [];
-                
-                if (germanQuestions.length === 0 || englishQuestions.length === 0) {
-                    console.log('⚠️ Gespeicherte Daten unvollständig, lade neu');
-                    const data = await loadAuditJSONs(auditType);
-                    if (!data) return;
-                    processJSONdata(data);
-                }
-            } else {
-                console.log(`🔄 Lade neue Daten`);
-                const data = await loadAuditJSONs(auditType);
-                if (!data) return;
-                processJSONdata(data);
-            }
-            
-            document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditType].title}`;
-            document.getElementById('mainSubtitle').textContent = AUDIT_TYPES[auditType].standard;
-            
-            renderOverview();
-            showPage(PAGES.OVERVIEW);
-            updateProgressDisplays();
-        }
+// === AUDIT STARTEN (NUR ONLINE) ===
+async function startAudit(auditType) {
+    console.log(`🚀 Starte Audit: ${auditType}`);
+    
+    currentAuditType = auditType;
+    currentSectionIndex = -1;
+    
+    // NIEMALS aus localStorage laden!
+    const data = await loadAuditJSONs(auditType);
+    if (!data) return;
+    
+    processJSONdata(data);
+    
+    document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditType].title}`;
+    document.getElementById('mainSubtitle').textContent = AUDIT_TYPES[auditType].standard;
+    
+    renderOverview();
+    showPage(PAGES.OVERVIEW);
+    updateProgressDisplays();
+}
 
         // === JSON DATEN VERARBEITEN ================
         function processJSONdata(data) {
@@ -2492,22 +2475,94 @@ function updateEvidence(questionId, evidence) {
 }
 
         // === SPEICHERN ==============================
-        function saveCurrentAuditData() {
-            if (!currentAuditType) return;
-            
-            const key = `zfpSelfAudit_${currentAuditType}`;
-            const dataToSave = {
-                germanQuestions: germanQuestions,
-                englishQuestions: englishQuestions,
-                sections: auditSections,
-                lastModified: new Date().toISOString(),
-                auditType: currentAuditType
-            };
-            
-            localStorage.setItem(key, JSON.stringify(dataToSave));
-            updateProgressDisplays();
-            loadAllCompletedAudits();
+// === SPEICHERN NUR IN GITHUB ===
+async function saveCurrentAuditToGitHub(showModal = true) {
+    if (!currentAuditType || !germanQuestions.length) {
+        alert('❌ Kein Audit geladen!');
+        return;
+    }
+    
+    if (!githubConfig.owner || !githubConfig.repo || !githubConfig.token) {
+        alert('❌ GitHub nicht konfiguriert! Bitte zuerst verbinden.');
+        return;
+    }
+    
+    if (showModal) {
+        document.getElementById('githubSaveModal').style.display = 'flex';
+    } else {
+        // Auto-Save ohne Modal
+        await performGitHubSave();
+    }
+}
+
+async function performGitHubSave(auditName) {
+    showSaving(true);
+    
+    try {
+        // Bestehende Audits laden
+        let existingAudits = [];
+        try {
+            existingAudits = await loadGitHubAudits();
+            if (!Array.isArray(existingAudits)) existingAudits = [];
+        } catch (e) {
+            existingAudits = [];
         }
+        
+        const name = auditName || `${AUDIT_TYPES[currentAuditType].title} - ${new Date().toLocaleString('de-DE')}`;
+        
+        // Prüfen ob bereits ein Audit für diesen Typ existiert (überschreiben)
+        const existingIndex = existingAudits.findIndex(a => 
+            a.audit_type === currentAuditType
+        );
+        
+        const updatedAudit = {
+            id: `audit_${currentAuditType}_${Date.now()}`,
+            name: name,
+            audit_type: currentAuditType,
+            audit_title: AUDIT_TYPES[currentAuditType].title,
+            standard: AUDIT_TYPES[currentAuditType].standard,
+            created_at: new Date().toISOString(),
+            last_modified: new Date().toISOString(),
+            data: {
+                germanQuestions: germanQuestions.map(q => ({
+                    id: q.id,
+                    answer: q.answer || "",
+                    evidence: q.evidence || "",
+                    text: q.text,
+                    guidance: q.guidance
+                })),
+                sections: auditSections
+            },
+            summary: {
+                total: germanQuestions.length,
+                answered: germanQuestions.filter(q => q.answer && q.answer !== "").length,
+                yes: germanQuestions.filter(q => q.answer === "YES").length,
+                no: germanQuestions.filter(q => q.answer === "NO").length,
+                na: germanQuestions.filter(q => q.answer === "NA").length
+            }
+        };
+        
+        // Audit aktualisieren oder hinzufügen
+        if (existingIndex >= 0) {
+            existingAudits[existingIndex] = updatedAudit;
+        } else {
+            existingAudits.push(updatedAudit);
+        }
+        
+        await saveToGitHub(existingAudits, `Audit gespeichert: ${name}`);
+        
+        showToast(`✅ Audit "${name}" in GitHub gespeichert`, 'success');
+        
+        // Audit-Liste aktualisieren
+        loadAllCompletedAudits();
+        
+    } catch (error) {
+        console.error('❌ Fehler beim Speichern in GitHub:', error);
+        showToast(`❌ Fehler: ${error.message}`, 'error');
+    } finally {
+        showSaving(false);
+    }
+}
 
         // === PROGRESS ==============================
         function updateCurrentAuditProgress() {
