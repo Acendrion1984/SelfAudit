@@ -2445,44 +2445,51 @@
         }
 
         // === ANTWORTEN ==============================
-        function selectAnswer(questionId, answer) {
-            const question = germanQuestions.find(q => q.id === questionId);
-            if (!question) return;
-            
-            question.answer = answer;
-            saveCurrentAuditData();
-            
-            const questionElement = document.querySelector(`[data-question-id="${questionId}"]`);
-            if (questionElement) {
-                questionElement.classList.remove('unanswered', 'yes-answer', 'no-answer', 'na-answer');
-                
-                if (answer === "YES") {
-                    questionElement.classList.add('yes-answer');
-                } else if (answer === "NO") {
-                    questionElement.classList.add('no-answer');
-                } else if (answer === "NA") {
-                    questionElement.classList.add('na-answer');
-                }
-                
-                questionElement.querySelectorAll('.answer-option').forEach(btn => {
-                    btn.classList.remove('selected');
-                    if (btn.dataset.answer === answer) {
-                        btn.classList.add('selected');
-                    }
-                });
-            }
-            
-            updateCurrentAuditProgress();
-            renderOverview();
+// === ANTWORTEN (mit Auto-Save) ===
+function selectAnswer(questionId, answer) {
+    const question = germanQuestions.find(q => q.id === questionId);
+    if (!question) return;
+    
+    question.answer = answer;
+    saveCurrentAuditData();
+    
+    const questionElement = document.querySelector(`[data-question-id="${questionId}"]`);
+    if (questionElement) {
+        questionElement.classList.remove('unanswered', 'yes-answer', 'no-answer', 'na-answer');
+        
+        if (answer === "YES") {
+            questionElement.classList.add('yes-answer');
+        } else if (answer === "NO") {
+            questionElement.classList.add('no-answer');
+        } else if (answer === "NA") {
+            questionElement.classList.add('na-answer');
         }
+        
+        questionElement.querySelectorAll('.answer-option').forEach(btn => {
+            btn.classList.remove('selected');
+            if (btn.dataset.answer === answer) {
+                btn.classList.add('selected');
+            }
+        });
+    }
+    
+    updateCurrentAuditProgress();
+    renderOverview();
+    
+    // Auto-Save in GitHub auslösen
+    autoSaveToGitHub();
+}
 
-        function updateEvidence(questionId, evidence) {
-            const question = germanQuestions.find(q => q.id === questionId);
-            if (question) {
-                question.evidence = evidence;
-                saveCurrentAuditData();
-            }
-        }
+function updateEvidence(questionId, evidence) {
+    const question = germanQuestions.find(q => q.id === questionId);
+    if (question) {
+        question.evidence = evidence;
+        saveCurrentAuditData();
+        
+        // Auto-Save in GitHub auslösen
+        autoSaveToGitHub();
+    }
+}
 
         // === SPEICHERN ==============================
         function saveCurrentAuditData() {
@@ -3191,6 +3198,192 @@ async function autoSaveToGitHub() {
         showGitHubSyncStatus(false, true);
     }
 }
+// === NEUE FUNKTION: GITHUB KONFIGURATION TOGGLE ===
+window.toggleGitHubConfig = function() {
+    const panel = document.getElementById('githubConfigPanel');
+    const btn = document.getElementById('toggleGitHubBtn');
+    
+    if (panel.style.display === 'none' || panel.style.display === '') {
+        panel.style.display = 'block';
+        btn.textContent = '⚙️ GitHub Konfiguration ausblenden';
+    } else {
+        panel.style.display = 'none';
+        btn.textContent = '⚙️ GitHub Konfiguration einblenden';
+    }
+};
+
+// GitHub Panel initial ausblenden
+document.addEventListener('DOMContentLoaded', function() {
+    const panel = document.getElementById('githubConfigPanel');
+    if (panel) {
+        panel.style.display = 'none';
+    }
+});
+
+// === AUTO-SAVE FUNKTION FÜR GITHUB ===
+let autoSaveTimer = null;
+let syncStatusElement = null;
+
+// Status-Anzeige für GitHub Sync erstellen
+function createSyncStatusElement() {
+    if (!syncStatusElement) {
+        syncStatusElement = document.createElement('div');
+        syncStatusElement.id = 'githubSyncStatus';
+        syncStatusElement.style.cssText = `
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 0.85em;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            gap: 8px;
+        `;
+        document.body.appendChild(syncStatusElement);
+    }
+    return syncStatusElement;
+}
+
+function showGitHubSyncStatus(show, isError = false) {
+    const statusEl = createSyncStatusElement();
+    
+    if (show) {
+        statusEl.innerHTML = `
+            <div class="save-spinner" style="width: 14px; height: 14px; border-width: 2px;"></div>
+            <span>Speichere in GitHub...</span>
+        `;
+        statusEl.style.borderColor = 'var(--btn-info)';
+        statusEl.style.display = 'flex';
+    } else {
+        if (isError) {
+            statusEl.innerHTML = '❌ Fehler beim Speichern';
+            statusEl.style.borderColor = 'var(--btn-danger)';
+            setTimeout(() => {
+                statusEl.style.display = 'none';
+            }, 3000);
+        } else {
+            statusEl.innerHTML = '✅ In GitHub gespeichert';
+            statusEl.style.borderColor = 'var(--btn-success)';
+            setTimeout(() => {
+                statusEl.style.display = 'none';
+            }, 2000);
+        }
+    }
+}
+
+// Auto-Save bei jeder Änderung
+async function autoSaveToGitHub() {
+    if (!githubConnected || !currentAuditType || !germanQuestions.length) return;
+    
+    // Timer zurücksetzen (speichert erst nach 2 Sekunden Inaktivität)
+    if (autoSaveTimer) {
+        clearTimeout(autoSaveTimer);
+    }
+    
+    autoSaveTimer = setTimeout(async () => {
+        showGitHubSyncStatus(true);
+        
+        try {
+            // Bestehende Audits laden
+            let existingAudits = [];
+            try {
+                existingAudits = await loadGitHubAudits();
+                if (!Array.isArray(existingAudits)) existingAudits = [];
+            } catch (e) {
+                existingAudits = [];
+            }
+            
+            // Prüfen ob bereits ein Auto-Save für diesen Audit-Typ existiert
+            const existingIndex = existingAudits.findIndex(a => 
+                a.audit_type === currentAuditType && 
+                a.name && a.name.includes('Auto-Save')
+            );
+            
+            const auditName = `${AUDIT_TYPES[currentAuditType].title} - Auto-Save ${new Date().toLocaleString('de-DE')}`;
+            
+            const updatedAudit = {
+                id: `audit_${currentAuditType}_${Date.now()}`,
+                name: auditName,
+                audit_type: currentAuditType,
+                audit_title: AUDIT_TYPES[currentAuditType].title,
+                standard: AUDIT_TYPES[currentAuditType].standard,
+                created_at: new Date().toISOString(),
+                data: {
+                    germanQuestions: germanQuestions.map(q => ({
+                        id: q.id,
+                        answer: q.answer || "",
+                        evidence: q.evidence || ""
+                    })),
+                    sections: auditSections
+                },
+                summary: {
+                    total: germanQuestions.length,
+                    answered: germanQuestions.filter(q => q.answer && q.answer !== "").length,
+                    yes: germanQuestions.filter(q => q.answer === "YES").length,
+                    no: germanQuestions.filter(q => q.answer === "NO").length,
+                    na: germanQuestions.filter(q => q.answer === "NA").length
+                }
+            };
+            
+            // Audit aktualisieren oder hinzufügen
+            if (existingIndex >= 0) {
+                existingAudits[existingIndex] = updatedAudit;
+            } else {
+                existingAudits.push(updatedAudit);
+            }
+            
+            await saveToGitHub(existingAudits, `Auto-Save: ${AUDIT_TYPES[currentAuditType].title}`);
+            showGitHubSyncStatus(false);
+            
+            // Audit-Liste aktualisieren
+            loadAllCompletedAudits();
+            
+        } catch (error) {
+            console.error('GitHub Auto-Save Fehler:', error);
+            showGitHubSyncStatus(false, true);
+        }
+    }, 2000); // 2 Sekunden warten nach der letzten Änderung
+}
+
+// === BESTEHENDE FUNKTIONEN ANPASSEN ===
+// Originale selectAnswer Funktion erweitern
+const originalSelectAnswer = selectAnswer;
+selectAnswer = function(questionId, answer) {
+    // Original-Funktion aufrufen
+    originalSelectAnswer(questionId, answer);
+    
+    // Auto-Save in GitHub auslösen
+    autoSaveToGitHub();
+};
+
+// Originale updateEvidence Funktion erweitern
+const originalUpdateEvidence = updateEvidence;
+updateEvidence = function(questionId, evidence) {
+    // Original-Funktion aufrufen
+    originalUpdateEvidence(questionId, evidence);
+    
+    // Auto-Save in GitHub auslösen
+    autoSaveToGitHub();
+};
+
+// Beim Verbinden mit GitHub
+const originalConnectGitHub = window.connectGitHub;
+window.connectGitHub = async function() {
+    await originalConnectGitHub();
+    
+    // Status aktualisieren
+    if (githubConnected) {
+        // Beim ersten Verbinden sofort speichern falls ein Audit geladen ist
+        if (currentAuditType && germanQuestions.length) {
+            autoSaveToGitHub();
+        }
+    }
+};
     </script>
 </body>
 </html>
