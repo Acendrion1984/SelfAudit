@@ -1268,7 +1268,12 @@
                     </button>
                 </div>
             </div>
-
+<!-- === NEU: TOGGLE BUTTON FÜR GITHUB PANEL === -->
+<div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+    <button class="btn-info" id="toggleGitHubBtn" onclick="toggleGitHubConfig()" style="padding: 8px 16px; font-size: 0.9em;">
+        ⚙️ GitHub Konfiguration einblenden
+    </button>
+</div>
             <!-- === GITHUB KONFIGURATION === -->
             <div class="github-config-panel" id="githubConfigPanel">
                 <h3><i class="fab fa-github"></i> GitHub JSON Datenbank</h3>
@@ -3118,6 +3123,74 @@
         window.deleteLocalAudit = deleteLocalAudit;
         window.saveCurrentAuditToGitHub = saveCurrentAuditToGitHub;
         window.handleImportFile = handleImportFile;
+// === NEUE FUNKTION: GITHUB KONFIGURATION TOGGLE ===
+window.toggleGitHubConfig = function() {
+    const panel = document.getElementById('githubConfigPanel');
+    const btn = document.getElementById('toggleGitHubBtn');
+    
+    if (panel.style.display === 'none') {
+        panel.style.display = 'block';
+        btn.textContent = '⚙️ GitHub Konfiguration ausblenden';
+    } else {
+        panel.style.display = 'none';
+        btn.textContent = '⚙️ GitHub Konfiguration einblenden';
+    }
+};
+// Wird bei JEDER Änderung aufgerufen
+async function autoSaveToGitHub() {
+    if (!githubConnected || !currentAuditType || !germanQuestions.length) return;
+    
+    showGitHubSyncStatus(true);
+    
+    try {
+        let existingAudits = await loadGitHubAudits() || [];
+        
+        const auditName = `${AUDIT_TYPES[currentAuditType].title} - Auto-Save ${new Date().toLocaleString('de-DE')}`;
+        
+        const updatedAudit = {
+            id: `audit_${currentAuditType}_${Date.now()}`,
+            name: auditName,
+            audit_type: currentAuditType,
+            audit_title: AUDIT_TYPES[currentAuditType].title,
+            standard: AUDIT_TYPES[currentAuditType].standard,
+            created_at: new Date().toISOString(),
+            data: {
+                germanQuestions: germanQuestions.map(q => ({
+                    id: q.id,
+                    answer: q.answer,
+                    evidence: q.evidence
+                })),
+                sections: auditSections
+            },
+            summary: {
+                total: germanQuestions.length,
+                answered: germanQuestions.filter(q => q.answer && q.answer !== "").length,
+                yes: germanQuestions.filter(q => q.answer === "YES").length,
+                no: germanQuestions.filter(q => q.answer === "NO").length,
+                na: germanQuestions.filter(q => q.answer === "NA").length
+            }
+        };
+        
+        // Audit aktualisieren oder hinzufügen
+        const existingIndex = existingAudits.findIndex(a => 
+            a.audit_type === currentAuditType && 
+            a.id.includes(currentAuditType)
+        );
+        
+        if (existingIndex >= 0) {
+            existingAudits[existingIndex] = updatedAudit;
+        } else {
+            existingAudits.push(updatedAudit);
+        }
+        
+        await saveToGitHub(existingAudits, `Auto-Save: ${AUDIT_TYPES[currentAuditType].title}`);
+        showGitHubSyncStatus(false);
+        
+    } catch (error) {
+        console.error('GitHub Auto-Save Fehler:', error);
+        showGitHubSyncStatus(false, true);
+    }
+}
     </script>
 </body>
 </html>
