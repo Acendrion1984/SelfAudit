@@ -1,0 +1,33 @@
+{
+  "datum": "2026-03-06T20:16",
+  "auftrag": "123123",
+  "pruefgegenstand": "123123",
+  "pruefer": "test",
+  "supervisor": "test",
+  "ergebnis": "keine",
+  "konzentration": "",
+  "ansatz_datum": "2026-01-01",
+  "restmag": "",
+  "feld_kreis": "",
+  "feld_laengs": "",
+  "uv1": "",
+  "uv2": "",
+  "uv1_lx": "",
+  "uv2_lx": "",
+  "weiss_raum": "",
+  "checkliste": {
+    "funktionstest": false,
+    "vk1": false,
+    "entmag": false,
+    "uv_v": false,
+    "rueck": false,
+    "weiss_v": false,
+    "feldhom": false
+  },
+  "level": {
+    "l1": false,
+    "l2": false,
+    "l3": false,
+    "pw": false
+  }
+}
