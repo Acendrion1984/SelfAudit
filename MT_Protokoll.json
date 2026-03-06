@@ -1,10 +1,63 @@
 {
   "protokolle": [
+    {
+      "filename": "123_20260307_0001.json",
+      "datum": "2026-03-07T00:01",
+      "auftrag": "123",
+      "pruefgegenstand": "Test",
+      "pruefer": "test",
+      "supervisor": "test",
+      "ergebnis": "keine",
+      "anlagenEq": "12425560",
+      "konzentration": "0,25",
+      "ansatz_datum": "2026-02-23",
+      "restmag": "2,5",
+      "feld_kreis": "34",
+      "feld_laengs": "36",
+      "weiss_raum": "0,8",
+      "uv1": "3232",
+      "uv1_eq": "12817865",
+      "uv1_lx": "9",
+      "uv2": "2897",
+      "uv2_eq": "12817866",
+      "uv2_lx": "11",
+      "vk1_sn": "KD200812",
+      "vk1_eq": "12817866",
+      "vk1_checked": true,
+      "luxmeter_eq": "12911164",
+      "feldmesser_eq": "91885044",
+      "checkliste": {
+        "funktionstest": true,
+        "entmag": true,
+        "uv_v": true,
+        "rueck": true,
+        "weiss_v": true,
+        "feldhom": true
+      },
+      "level": {
+        "l1": false,
+        "l2": true,
+        "l3": false,
+        "pw": false
+      }
+    }
   ],
   "messungen": [
+    {
+      "datum": "2026-03-07",
+      "anlagenEq": "12425560",
+      "uv1": 3232,
+      "uv1_eq": "12817865",
+      "uv2": 2897,
+      "uv2_eq": "12817866",
+      "konz": 0,
+      "vk1_sn": "KD200812",
+      "vk1_eq": "12817866",
+      "vk1_checked": true
+    }
   ],
   "mitarbeiter": {
     "123": "test"
   },
-  "letztesUpdate": "2026-03-06T20:19:32.245Z"
+  "letztesUpdate": "2026-03-06T23:04:06.160Z"
 }
