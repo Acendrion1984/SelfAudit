@@ -1,12 +1,12 @@
 [
   {
-    "id": "audit_ET_1772830137882",
-    "name": "Wirbelstromprüfung - 6.3.2026, 21:48:57",
+    "id": "audit_ET_1772830143593",
+    "name": "as",
     "audit_type": "ET",
     "audit_title": "Wirbelstromprüfung",
     "standard": "TPG-AC7114/5",
     "created_at": "2026-03-06T20:48:57.882Z",
-    "last_modified": "2026-03-06T20:48:57.882Z",
+    "last_modified": "2026-03-06T20:49:03.593Z",
     "data": {
       "germanQuestions": [
         {
