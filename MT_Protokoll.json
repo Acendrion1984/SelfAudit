@@ -60,40 +60,6 @@
       "restmag": "2,2",
       "feld_kreis": "32",
       "feld_laengs": "32"
-    },
-    {
-      "filename": "123123_20260306_2016.json",
-      "datum": "2026-03-06T20:16",
-      "auftrag": "123123",
-      "pruefgegenstand": "123123",
-      "pruefer": "test",
-      "supervisor": "test",
-      "ergebnis": "keine",
-      "konzentration": "",
-      "ansatz_datum": "2026-01-01",
-      "restmag": "",
-      "feld_kreis": "",
-      "feld_laengs": "",
-      "uv1": "",
-      "uv2": "",
-      "uv1_lx": "",
-      "uv2_lx": "",
-      "weiss_raum": "",
-      "checkliste": {
-        "funktionstest": false,
-        "vk1": false,
-        "entmag": false,
-        "uv_v": false,
-        "rueck": false,
-        "weiss_v": false,
-        "feldhom": false
-      },
-      "level": {
-        "l1": false,
-        "l2": false,
-        "l3": false,
-        "pw": false
-      }
     }
   ],
   "messungen": [
@@ -113,5 +79,5 @@
   "mitarbeiter": {
     "123": "test"
   },
-  "letztesUpdate": "2026-03-06T19:17:44.626Z"
+  "letztesUpdate": "2026-03-06T20:17:38.938Z"
 }
