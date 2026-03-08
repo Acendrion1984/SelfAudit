@@ -20,16 +20,16 @@
   "uv2_lx": "12",
   "vk1_sn": "KD200812",
   "vk1_eq": "12817866",
-  "vk1_checked": false,
+  "vk1_checked": true,
   "luxmeter_eq": "12911164",
   "feldmesser_eq": "91885044",
   "checkliste": {
-    "funktionstest": false,
-    "entmag": false,
-    "uv_v": false,
-    "rueck": false,
-    "weiss_v": false,
-    "feldhom": false
+    "funktionstest": true,
+    "entmag": true,
+    "uv_v": true,
+    "rueck": true,
+    "weiss_v": true,
+    "feldhom": true
   },
   "level": {
     "l1": false,
