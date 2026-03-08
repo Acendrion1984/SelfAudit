@@ -1,10 +1,66 @@
 {
   "protokolle": [
+    {
+      "filename": "12313_20260308_1808.json",
+      "datum": "2026-03-08T18:08",
+      "auftrag": "12313",
+      "pruefgegenstand": "1234",
+      "pruefer": "test",
+      "supervisor": "test",
+      "ergebnis": "keine",
+      "anlagenEq": "",
+      "konzentration": "",
+      "ansatz_datum": "2026-01-01",
+      "restmag": "",
+      "feld_kreis": "",
+      "feld_laengs": "",
+      "weiss_raum": "",
+      "uv1": "",
+      "uv1_eq": "12817867",
+      "uv1_lx": "",
+      "uv2": "",
+      "uv2_eq": "12817868",
+      "uv2_lx": "",
+      "vk1_sn": "",
+      "vk1_eq": "",
+      "vk1_checked": false,
+      "luxmeter_eq": "",
+      "feldmesser_eq": "",
+      "checkliste": {
+        "funktionstest": false,
+        "entmag": false,
+        "uv_v": false,
+        "rueck": false,
+        "weiss_v": false,
+        "feldhom": false
+      },
+      "level": {
+        "l1": false,
+        "l2": true,
+        "l3": false,
+        "pw": false
+      }
+    }
   ],
   "messungen": [
+    {
+      "datum": "2026-03-08",
+      "anlagenEq": "",
+      "uv1": 0,
+      "uv1_eq": "12817867",
+      "uv2": 0,
+      "uv2_eq": "12817868",
+      "konz": 0,
+      "restmag": 0,
+      "feld_kreis": 0,
+      "feld_laengs": 0,
+      "vk1_sn": "",
+      "vk1_eq": "",
+      "vk1_checked": false
+    }
   ],
   "mitarbeiter": {
     "123": "test"
   },
-  "letztesUpdate": "2026-03-08T16:46:40.156Z"
+  "letztesUpdate": "2026-03-08T17:11:21.362Z"
 }
