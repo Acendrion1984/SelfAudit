@@ -131,47 +131,6 @@
       "pruefer": "test",
       "supervisor": "test",
       "ergebnis": "keine",
-      "anlagenEq": "",
-      "konzentration": "0,15",
-      "ansatz_datum": "2026-01-01",
-      "restmag": "2,4",
-      "feld_kreis": "43",
-      "feld_laengs": "34",
-      "weiss_raum": "1,1",
-      "uv1": "2934",
-      "uv1_eq": "12817865",
-      "uv1_lx": "12",
-      "uv2": "2750",
-      "uv2_eq": "12817866",
-      "uv2_lx": "11",
-      "vk1_sn": "",
-      "vk1_eq": "",
-      "vk1_checked": false,
-      "luxmeter_eq": "",
-      "feldmesser_eq": "",
-      "checkliste": {
-        "funktionstest": false,
-        "entmag": false,
-        "uv_v": false,
-        "rueck": false,
-        "weiss_v": false,
-        "feldhom": false
-      },
-      "level": {
-        "l1": false,
-        "l2": false,
-        "l3": false,
-        "pw": false
-      }
-    },
-    {
-      "filename": "34567_20260308_1740.json",
-      "datum": "2026-03-08T17:40",
-      "auftrag": "34567",
-      "pruefgegenstand": "684430",
-      "pruefer": "test",
-      "supervisor": "test",
-      "ergebnis": "keine",
       "anlagenEq": "12425560",
       "konzentration": "0,15",
       "ansatz_datum": "2026-01-01",
@@ -307,5 +266,5 @@
   "mitarbeiter": {
     "123": "test"
   },
-  "letztesUpdate": "2026-03-08T16:46:29.560Z"
+  "letztesUpdate": "2026-03-08T16:46:40.156Z"
 }
