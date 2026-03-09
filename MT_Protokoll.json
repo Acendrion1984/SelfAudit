@@ -485,8 +485,6 @@
       }
     }
   ],
-  "mitarbeiter": {
-    "123": "test"
-  },
-  "letztesUpdate": "2026-03-08T19:00:07.438Z"
+  "mitarbeiter": {},
+  "letztesUpdate": "2026-03-09T07:18:53.205Z"
 }
