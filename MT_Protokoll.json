@@ -97,47 +97,6 @@
       "feld_kreis": "",
       "feld_laengs": "",
       "weiss_raum": "0,9",
-      "uv1": "2800",
-      "uv1_eq": "12817867",
-      "uv1_lx": "12",
-      "uv2": "2890",
-      "uv2_eq": "12817868",
-      "uv2_lx": "12",
-      "vk1_sn": "",
-      "vk1_eq": "",
-      "vk1_checked": false,
-      "luxmeter_eq": "",
-      "feldmesser_eq": "",
-      "checkliste": {
-        "funktionstest": false,
-        "entmag": false,
-        "uv_v": false,
-        "rueck": false,
-        "weiss_v": false,
-        "feldhom": false
-      },
-      "level": {
-        "l1": false,
-        "l2": false,
-        "l3": false,
-        "pw": false
-      }
-    },
-    {
-      "filename": "_13_20260308_1843.json",
-      "datum": "2026-03-08T18:43",
-      "auftrag": "^13",
-      "pruefgegenstand": "1234",
-      "pruefer": "test",
-      "supervisor": "test",
-      "ergebnis": "keine",
-      "anlagenEq": "12425560",
-      "konzentration": "",
-      "ansatz_datum": "2026-01-01",
-      "restmag": "",
-      "feld_kreis": "",
-      "feld_laengs": "",
-      "weiss_raum": "0,9",
       "uv1": "2750",
       "uv1_eq": "12817867",
       "uv1_lx": "11",
@@ -488,5 +447,5 @@
   "mitarbeiter": {
     "04765e0a007280": "Haeusner Daniel, WI/SW2-PQT - MT Level 2"
   },
-  "letztesUpdate": "2026-03-09T07:20:01.021Z"
+  "letztesUpdate": "2026-03-09T07:24:57.989Z"
 }
