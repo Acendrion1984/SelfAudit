@@ -1,66 +1,6 @@
 {
   "protokolle": [
     {
-      "filename": "MT-2026-00001_1234567_202603091546.json",
-      "protokollNr": "MT-2026-00001",
-      "datum": "2026-03-09T15:46",
-      "auftrag": "1234567",
-      "pruefgegenstand": "Testauftrag",
-      "pruefer": "Haeusner Daniel, WI/SW2-PQT - MT Level 2",
-      "supervisor": "Haeusner Daniel, WI/SW2-PQT - MT Level 2",
-      "ergebnis": "keine",
-      "anlagenEq": "12065887",
-      "fluxCharge": "123",
-      "traegerCharge": "123",
-      "dornMode": {
-        "modus": "ringnummern"
-      },
-      "dornBoth": "400x65",
-      "dornKreis": "",
-      "dornLaengs": "",
-      "kreisStufe": "7",
-      "kreisAnzeige": "6",
-      "feldKreis": "35",
-      "laengsStufe": "7",
-      "laengsAnzeige": "6",
-      "feldLaengs": "34",
-      "luxmeterEq": "12911164",
-      "feldmesserEq": "91885044",
-      "uv1_eq": "12817865",
-      "uv1_uw": "3278",
-      "uv1_lx": "11",
-      "uv2_eq": "12817866",
-      "uv2_uw": "3100",
-      "uv2_lx": "10",
-      "weissRaum": "0,8",
-      "konzentration": "0,25",
-      "ansatzDatum": "2026-03-02",
-      "restmag": "2",
-      "checkliste": {
-        "funktionstest": true,
-        "vk1": true,
-        "entmag": true,
-        "uvV": true,
-        "rueck": true,
-        "weissV": true,
-        "feldhom": true
-      },
-      "level": {
-        "l1": false,
-        "l2": true,
-        "l3": false,
-        "pw": false
-      },
-      "tracking": {
-        "modus": "ringnummern",
-        "ringnummern": [
-          "Testring Nr. 1",
-          "Testring Nr. 2",
-          "Testring Nr. 3"
-        ]
-      }
-    },
-    {
       "filename": "MT-2026-00002_1234567_202603091546.json",
       "protokollNr": "MT-2026-00002",
       "datum": "2026-03-09T15:46",
@@ -244,5 +184,5 @@
   "mitarbeiter": {
     "04765e0a007280": "Haeusner Daniel, WI/SW2-PQT - MT Level 2"
   },
-  "letztesUpdate": "2026-03-09T14:54:06.813Z"
+  "letztesUpdate": "2026-03-09T14:54:50.127Z"
 }
