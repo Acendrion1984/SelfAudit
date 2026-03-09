@@ -1,0 +1,42 @@
+{
+  "protokollNr": "MT-2026-00001",
+  "datum": "2026-03-09T11:24",
+  "auftrag": "123",
+  "pruefgegenstand": "123132",
+  "pruefer": "Haeusner Daniel, WI/SW2-PQT - MT Level 2",
+  "supervisor": "Haeusner Daniel, WI/SW2-PQT - MT Level 2",
+  "ergebnis": "keine",
+  "anlagenEq": "12065887",
+  "konzentration": "0,3",
+  "ansatz_datum": "2026-01-01",
+  "restmag": "",
+  "feld_kreis": "34",
+  "feld_laengs": "35",
+  "weiss_raum": "0,9",
+  "uv1": "",
+  "uv1_eq": "",
+  "uv1_lx": "",
+  "uv2": "",
+  "uv2_eq": "",
+  "uv2_lx": "",
+  "luxmeter_eq": "12911164",
+  "feldmesser_eq": "91885044",
+  "tracking": {
+    "modus": "stueckzahl",
+    "stueckzahl": 1
+  },
+  "checkliste": {
+    "funktionstest": true,
+    "entmag": true,
+    "uv_v": true,
+    "rueck": true,
+    "weiss_v": true,
+    "feldhom": true
+  },
+  "level": {
+    "l1": false,
+    "l2": true,
+    "l3": false,
+    "pw": false
+  }
+}
