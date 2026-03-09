@@ -39,5 +39,10 @@
     "2285",
     "T369"
   ],
-  "lampenzuordnung": {}
+  "lampenzuordnung": {
+    "12425560": {
+      "lampe1": "12817865",
+      "lampe2": "12817866"
+    }
+  }
 }
