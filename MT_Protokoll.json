@@ -485,6 +485,8 @@
       }
     }
   ],
-  "mitarbeiter": {},
-  "letztesUpdate": "2026-03-09T07:18:53.205Z"
+  "mitarbeiter": {
+    "04765e0a007280": "Häusner Daniel, WI/SW2-PQT - MT Level 2"
+  },
+  "letztesUpdate": "2026-03-09T07:19:12.632Z"
 }
