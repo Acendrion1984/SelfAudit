@@ -482,11 +482,74 @@
           "5673213/66"
         ]
       }
+    },
+    {
+      "filename": "MT-2026-00002_5673213_202603101914.json",
+      "protokollNr": "MT-2026-00002",
+      "datum": "2026-03-10T19:14",
+      "auftrag": "5673213",
+      "pruefgegenstand": "IR.F-684430-PLR-WPOS",
+      "pruefer": "Haeusner Daniel, WI/SW2-PQT     -    MT Level 2",
+      "supervisor": "Haeusner Daniel, WI/SW2-PQT     -    MT Level 2",
+      "ergebnis": "keine",
+      "anlagenEq": "",
+      "vk1Seriennummer": "",
+      "fluxCharge": "123",
+      "traegerCharge": "123",
+      "dornBoth": "",
+      "dornKreis": "spule",
+      "dornLaengs": "joch",
+      "kreisStufe": "7",
+      "kreisAnzeige": "7.5",
+      "feldKreis": "56",
+      "laengsStufe": "11",
+      "laengsAnzeige": "11.5",
+      "feldLaengs": "58",
+      "luxmeterEq": "",
+      "feldmesserEq": "",
+      "uv1_eq": "12817865",
+      "uv1_uw": "2800",
+      "uv1_lx": "11",
+      "uv2_eq": "12817866",
+      "uv2_uw": "2750",
+      "uv2_lx": "12",
+      "weissRaum": "0,8",
+      "konzentration": "0.20",
+      "ansatzDatum": "2026-03-01",
+      "restmag": "2,2",
+      "checkliste": {
+        "funktionstest": true,
+        "vk1": true,
+        "entmag": true,
+        "uvV": true,
+        "rueck": true,
+        "weissV": true,
+        "feldhom": true
+      },
+      "level": {
+        "l1": false,
+        "l2": true,
+        "l3": false,
+        "pw": false
+      },
+      "tracking": {
+        "modus": "ringnummern",
+        "ringnummern": [
+          "5673213/019",
+          "5673213/21",
+          "5673213/73",
+          "5673213/23",
+          "5673213/12",
+          "5673213/56",
+          "567321334",
+          "5673213/66"
+        ]
+      }
     }
   ],
   "mitarbeiter": {
     "123": "Haeusner Daniel, WI/SW2-PQT     -    MT Level 2",
     "04765e0a007280": "Haeusner Daniel, WI/SW2-PQT - MT Level 2"
   },
-  "letztesUpdate": "2026-03-10T18:18:19.305Z"
+  "letztesUpdate": "2026-03-10T18:21:58.629Z"
 }
