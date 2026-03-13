@@ -1,0 +1,57 @@
+{
+  "protokollNr": "MT-2026-00001",
+  "datum": "2026-03-09T15:52",
+  "auftrag": "1234567",
+  "pruefgegenstand": "Testauftrag",
+  "pruefer": "Haeusner Daniel, WI/SW2-PQT     -    MT Level 2",
+  "supervisor": "Haeusner Daniel, WI/SW2-PQT     -    MT Level 2",
+  "ergebnis": "keine",
+  "anlagenEq": "12065887",
+  "vk1Seriennummer": "",
+  "fluxCharge": "123",
+  "traegerCharge": "123",
+  "dornBoth": "400x65",
+  "dornKreis": "",
+  "dornLaengs": "",
+  "kreisStufe": "7",
+  "kreisAnzeige": "6",
+  "feldKreis": "35",
+  "laengsStufe": "7",
+  "laengsAnzeige": "6",
+  "feldLaengs": "34",
+  "luxmeterEq": "12911164",
+  "feldmesserEq": "91885044",
+  "uv1_eq": "12817865",
+  "uv1_uw": "2900",
+  "uv1_lx": "11",
+  "uv2_eq": "12817866",
+  "uv2_uw": "3050",
+  "uv2_lx": "10",
+  "weissRaum": "0.9",
+  "konzentration": "0.25",
+  "ansatzDatum": "2026-03-09",
+  "restmag": "2.0",
+  "checkliste": {
+    "funktionstest": true,
+    "vk1": true,
+    "entmag": true,
+    "uvV": true,
+    "rueck": true,
+    "weissV": true,
+    "feldhom": true
+  },
+  "level": {
+    "l1": false,
+    "l2": true,
+    "l3": false,
+    "pw": false
+  },
+  "tracking": {
+    "modus": "ringnummern",
+    "ringnummern": [
+      "Test 1",
+      "Test 2",
+      "Test 3"
+    ]
+  }
+}
