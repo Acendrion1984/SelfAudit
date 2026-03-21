@@ -1,12 +1,12 @@
 [
   {
-    "id": "audit_ET_1774053180543",
-    "name": "Wirbelstromprüfung - 21.3.2026, 01:33:00",
+    "id": "audit_ET_1774053181796",
+    "name": "Wirbelstromprüfung - 21.3.2026, 01:33:01",
     "audit_type": "ET",
     "audit_title": "Wirbelstromprüfung",
     "standard": "TPG-AC7114/5",
     "created_at": "2026-03-21T00:33:00.543Z",
-    "last_modified": "2026-03-21T00:33:00.543Z",
+    "last_modified": "2026-03-21T00:33:01.796Z",
     "data": {
       "germanQuestions": [
         {
@@ -18,7 +18,7 @@
         },
         {
           "id": "3.1.2",
-          "answer": "",
+          "answer": "YES",
           "evidence": "",
           "text": "Ist ein Magnetometer/Restfeldanzeigen vorhanden, das zur Verifikation der Entmagnetisierung verwendet wird?",
           "guidance": "Hinweis: Wenn ferromagnetische Materialien/Teile nicht mit Wirbelstrom geprüft werden, N/A antworten."
@@ -816,7 +816,7 @@
               ],
               "hasNA": true,
               "sectionId": "3",
-              "answer": "",
+              "answer": "YES",
               "evidence": ""
             }
           ]
@@ -2269,8 +2269,8 @@
     },
     "summary": {
       "total": 111,
-      "answered": 1,
-      "yes": 1,
+      "answered": 2,
+      "yes": 2,
       "no": 0,
       "na": 0
     }
