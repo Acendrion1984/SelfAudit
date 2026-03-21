@@ -5,427 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
     <title>Self-Audit ZfP - Schaeffler Technologies</title>
     <style>
-        /* === DARK MODE VARIABLEN – optimierte Kontraste === */
-        :root,
-        html[data-theme="light"] {
-            --bg-primary: #eef8ee;
-            --bg-secondary: #ffffff;
-            --bg-tertiary: #f3fbf3;
-            --text-primary: #333333;
-            --text-secondary: #7f8c8d;
-            --text-tertiary: #111111;
-            --border-color: #bdc3c7;
-            --border-light: #ecf0f1;
-            --shadow-color: rgba(0,0,0,0.1);
-            --header-border: #0f2a1a;
-            --btn-back: #7f8c8d;
-            --btn-report: #8e44ad;
-            --btn-danger: #e74c3c;
-            --btn-info: #17a2b8;
-            --btn-success: #27ae60;
-            --btn-warning: #f39c12;
-            --btn-export: #3498db;
-            --btn-load: #f39c12;
-            --question-border: #3498db;
-            --question-bg: #f8f9fa;
-            --answer-yes: #27ae60;
-            --answer-no: #e74c3c;
-            --answer-na: #95a5a6;
-            --input-bg: #ffffff;
-            --input-border: #ddd;
-            --input-text: #333;
-            --modal-bg: rgba(0,0,0,0.8);
-            --modal-content-bg: #ffffff;
-            --progress-bg: #ecf0f1;
-            --progress-100: #27ae60;
-            --progress-50: #f39c12;
+        /* === DARK MODE VARIABLEN === */
+        :root, html[data-theme="light"] {
+            --bg-primary: #eef8ee; --bg-secondary: #ffffff; --bg-tertiary: #f3fbf3;
+            --text-primary: #333333; --text-secondary: #7f8c8d; --text-tertiary: #111111;
+            --border-color: #bdc3c7; --border-light: #ecf0f1; --shadow-color: rgba(0,0,0,0.1);
+            --header-border: #0f2a1a; --btn-back: #7f8c8d; --btn-report: #8e44ad; --btn-danger: #e74c3c;
+            --btn-info: #17a2b8; --btn-success: #27ae60; --btn-warning: #f39c12; --btn-export: #3498db;
+            --question-border: #3498db; --question-bg: #f8f9fa; --answer-yes: #27ae60; --answer-no: #e74c3c;
+            --answer-na: #95a5a6; --input-bg: #ffffff; --input-border: #ddd; --input-text: #333;
+            --modal-bg: rgba(0,0,0,0.8); --modal-content-bg: #ffffff; --progress-bg: #ecf0f1;
         }
         html[data-theme="dark"] {
-            --bg-primary: #121212;
-            --bg-secondary: #1e1e1e;
-            --bg-tertiary: #2d2d2d;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --text-tertiary: #ffffff;
-            --border-color: #444444;
-            --border-light: #333333;
-            --shadow-color: rgba(0,0,0,0.3);
-            --header-border: #2c3e50;
-            --btn-back: #5d6d7e;
-            --btn-report: #6c3483;
-            --btn-danger: #c0392b;
-            --btn-info: #117a8b;
-            --btn-success: #229954;
-            --btn-warning: #b9770e;
-            --btn-export: #2874a6;
-            --btn-load: #b9770e;
-            --question-border: #3498db;
-            --question-bg: #2d2d2d;
-            --answer-yes: #27ae60;
-            --answer-no: #e74c3c;
-            --answer-na: #7f8c8d;
-            --input-bg: #2d2d2d;
-            --input-border: #444444;
-            --input-text: #e0e0e0;
-            --modal-bg: rgba(0,0,0,0.9);
-            --modal-content-bg: #1e1e1e;
-            --progress-bg: #34495e;
-            --progress-100: #27ae60;
-            --progress-50: #f39c12;
+            --bg-primary: #121212; --bg-secondary: #1e1e1e; --bg-tertiary: #2d2d2d;
+            --text-primary: #e0e0e0; --text-secondary: #a0a0a0; --text-tertiary: #ffffff;
+            --border-color: #444444; --border-light: #333333; --shadow-color: rgba(0,0,0,0.3);
+            --header-border: #2c3e50; --btn-back: #5d6d7e; --btn-report: #6c3483; --btn-danger: #c0392b;
+            --btn-info: #117a8b; --btn-success: #229954; --btn-warning: #b9770e; --btn-export: #2874a6;
+            --question-border: #3498db; --question-bg: #2d2d2d; --input-bg: #2d2d2d; --input-border: #444;
+            --input-text: #e0e0e0; --modal-content-bg: #1e1e1e; --progress-bg: #34495e;
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.4;
-            background-color: var(--bg-primary);
-            padding: 6px;
-            font-size: 14px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--bg-secondary);
-            padding: 15px;
-            border-radius: 14px;
-            box-shadow: 0 4px 24px var(--shadow-color);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--header-border);
-            position: relative;
-        }
-        h1 { color: var(--text-tertiary); margin-bottom: 4px; font-size: 1.5em; letter-spacing: -0.2px; }
-        .subtitle { color: var(--text-secondary); font-size: 0.85em; margin-bottom: 8px; }
-
-        /* THEME TOGGLE */
-        .theme-toggle {
-            position: fixed; right: 16px; bottom: 16px; z-index: 900;
-            width: 40px; height: 40px; border-radius: 10px;
-            border: 2px solid #3498db !important;
-            background: var(--bg-secondary);
-            color: var(--text-tertiary);
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
-            font-size: 20px; transition: transform .1s ease;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.4; background-color: var(--bg-primary); padding: 6px; font-size: 14px; transition: background-color 0.3s ease, color 0.3s ease; }
+        .container { max-width: 1200px; margin: 0 auto; background: var(--bg-secondary); padding: 15px; border-radius: 14px; box-shadow: 0 4px 24px var(--shadow-color); transition: background-color 0.3s ease; }
+        header { text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid var(--header-border); }
+        h1 { color: var(--text-tertiary); margin-bottom: 4px; font-size: 1.5em; }
+        .subtitle { color: var(--text-secondary); font-size: 0.85em; }
+        .theme-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 900; width: 40px; height: 40px; border-radius: 10px; border: 2px solid #3498db; background: var(--bg-secondary); color: var(--text-tertiary); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 20px; transition: transform .1s ease; }
         .theme-toggle:hover { transform: scale(1.1); }
-
-        /* AUDIT KACHELN – modernes Tile-Design */
-        .audit-selection h2 {
-            color: var(--text-tertiary);
-            margin-bottom: 14px;
-            font-size: 1.0em;
-            font-weight: 700;
-            letter-spacing: 0.2px;
-        }
-        .audit-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-        .audit-btn {
-            position: relative;
-            color: #fff;
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.18);
-            box-shadow: 0 12px 26px rgba(0,0,0,0.22);
-            transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
-            isolation: isolate;
-            padding: 16px 16px 14px;
-            cursor: pointer;
-            font-size: 1.0em;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 148px;
-            text-align: left;
-            overflow: hidden;
-        }
-        .audit-btn::before {
-            content: "";
-            position: absolute;
-            width: 180px; height: 180px;
-            left: -50px; top: -70px;
-            background: radial-gradient(circle, rgba(255,255,255,0.20) 0%, transparent 65%);
-            pointer-events: none;
-        }
-        .audit-btn::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 50%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 100%);
-            border-radius: 14px 14px 0 0;
-            pointer-events: none;
-        }
-        .audit-btn.wirbelstrom  { background: linear-gradient(145deg, #3498db 0%, #1a5276 100%); }
+        .audit-selection h2 { color: var(--text-tertiary); margin-bottom: 14px; font-size: 1.0em; font-weight: 700; }
+        .audit-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 15px; }
+        .audit-btn { position: relative; color: #fff; border-radius: 14px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 12px 26px rgba(0,0,0,0.22); transition: transform 0.2s, box-shadow 0.2s; padding: 16px; cursor: pointer; font-size: 1.0em; display: flex; flex-direction: column; justify-content: space-between; min-height: 148px; text-align: left; overflow: hidden; background: linear-gradient(145deg, #3498db 0%, #1a5276 100%); }
         .audit-btn.magnetpulver { background: linear-gradient(145deg, #e74c3c 0%, #c0392b 100%); }
-        .audit-btn.nital        { background: linear-gradient(145deg, #27ae60 0%, #1e8449 100%); }
-        .audit-btn.ultraschall  { background: linear-gradient(145deg, #8e44ad 0%, #6c3483 100%); }
-        .audit-btn:hover {
-            transform: translateY(-5px) scale(1.012);
-            box-shadow: 0 20px 42px rgba(0,0,0,0.28), 0 0 0 2px rgba(255,255,255,0.22);
-            filter: saturate(1.08) brightness(1.04);
-        }
-        .audit-btn:active {
-            transform: translateY(-2px) scale(1.004);
-            box-shadow: 0 12px 26px rgba(0,0,0,0.22);
-        }
-        .btn-top-row {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            position: relative;
-            z-index: 2;
-        }
-        .btn-icon-box {
-            width: 50px; height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            background: rgba(255,255,255,0.20);
-            border: 1px solid rgba(255,255,255,0.30);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 6px rgba(0,0,0,0.15);
-            transition: background .2s, transform .2s;
-            flex: 0 0 auto;
-        }
-        .audit-btn:hover .btn-icon-box {
-            background: rgba(255,255,255,0.28);
-            transform: scale(1.08);
-        }
-        .btn-chevron {
-            font-size: 22px;
-            opacity: 0.50;
-            line-height: 1;
-            padding-top: 2px;
-            transition: opacity .2s, transform .2s;
-            position: relative; z-index: 2;
-        }
-        .audit-btn:hover .btn-chevron {
-            opacity: 0.90;
-            transform: translateX(3px);
-        }
-        .btn-label {
-            font-weight: 800;
-            font-size: 1.0em;
-            line-height: 1.2;
-            letter-spacing: .1px;
-            margin-top: 10px;
-            position: relative; z-index: 2;
-        }
-        .btn-meta-row {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding-top: 8px;
-            border-top: 1px solid rgba(255,255,255,0.18);
-            margin-top: 6px;
-            position: relative; z-index: 2;
-            font-size: 0.80em;
-            color: rgba(255,255,255,0.88);
-        }
-        .btn-meta-dot {
-            width: 4px; height: 4px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.70);
-            flex: 0 0 auto;
-        }
-        .audit-btn .btn-progress {
-            background: rgba(255,255,255,0.22);
-            border-radius: 999px;
-            padding: 1px 8px;
-            font-size: 0.85em;
-            font-weight: 700;
-            border: 1px solid rgba(255,255,255,0.35);
-            margin-left: auto;
-        }
-
-        /* BUTTONS */
-        .controls-container {
-            width: 100%;
-            margin-bottom: 20px;
-            background: var(--bg-tertiary);
-            border-radius: 8px;
-            padding: 12px;
-            border: 1px solid var(--border-light);
-        }
-        .button-row {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 10px;
-            overflow-x: auto;
-            padding-bottom: 5px;
-            scrollbar-width: thin;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        .button-row button {
-            padding: 0 12px;
-            height: 34px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 0.72em;
-            white-space: nowrap;
-            flex-shrink: 0;
-            transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.18);
-            letter-spacing: 0.2px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-        .button-row button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 12px rgba(0,0,0,0.22);
-            filter: brightness(1.08);
-        }
+        .audit-btn.nital { background: linear-gradient(145deg, #27ae60 0%, #1e8449 100%); }
+        .audit-btn.ultraschall { background: linear-gradient(145deg, #8e44ad 0%, #6c3483 100%); }
+        .audit-btn:hover { transform: translateY(-5px) scale(1.012); box-shadow: 0 20px 42px rgba(0,0,0,0.28); filter: saturate(1.08) brightness(1.04); }
+        .btn-top-row { display: flex; align-items: flex-start; justify-content: space-between; }
+        .btn-icon-box { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; background: rgba(255,255,255,0.20); border: 1px solid rgba(255,255,255,0.30); flex: 0 0 auto; }
+        .btn-label { font-weight: 800; font-size: 1.0em; margin-top: 10px; }
+        .btn-meta-row { display: flex; align-items: center; gap: 6px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.18); margin-top: 6px; font-size: 0.80em; color: rgba(255,255,255,0.88); }
+        .btn-progress { background: rgba(255,255,255,0.22); border-radius: 999px; padding: 1px 8px; font-size: 0.85em; font-weight: 700; border: 1px solid rgba(255,255,255,0.35); margin-left: auto; }
+        .controls-container { width: 100%; margin-bottom: 20px; background: var(--bg-tertiary); border-radius: 8px; padding: 12px; border: 1px solid var(--border-light); }
+        .button-row { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 5px; align-items: center; }
+        .button-row button { padding: 0 12px; height: 34px; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 0.72em; white-space: nowrap; flex-shrink: 0; transition: all 0.14s; box-shadow: 0 2px 6px rgba(0,0,0,0.18); display: inline-flex; align-items: center; gap: 6px; }
         .btn-back { background: linear-gradient(135deg, #7f8c8d, #636e72); color: #fff; }
         .btn-report { background: linear-gradient(135deg, #e67e22, #d35400); color: #fff; }
         .btn-danger { background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; }
         .btn-info { background: linear-gradient(135deg, #3498db, #2980b9); color: #fff; }
-        .btn-load { background: linear-gradient(135deg, #f39c12, #e67e22); color: #fff; }
-        .btn-import { background: linear-gradient(135deg, #27ae60, #1e8449); color: #fff; }
         .btn-github { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: #fff; }
-
-        /* AUDIT STATUS */
-        .audit-status {
-            margin-bottom: 6px;
-            font-size: 0.9em;
-            background: var(--bg-tertiary);
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid var(--border-light);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .status-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        .status-text {
-            font-weight: 600;
-            color: var(--text-tertiary);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .progress-container {
-            flex: 1;
-            min-width: 200px;
-            max-width: 400px;
-        }
-        .progress-bar {
-            width: 100%; height: 8px;
-            background: var(--progress-bg);
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
-        }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
-            border-radius: 5px;
-            transition: width 0.3s ease;
-        }
-        .progress-text {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.8em;
-            color: var(--text-secondary);
-            font-weight: bold;
-        }
-
-        /* FRAGEN & SECTIONS */
-        .section {
-            margin-bottom: 12px;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-            overflow: hidden;
-        }
-        .section-header {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            padding: 12px 16px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-            font-size: 0.95em;
-        }
+        .btn-import { background: linear-gradient(135deg, #27ae60, #1e8449); color: #fff; }
+        .audit-status { margin-bottom: 6px; font-size: 0.9em; background: var(--bg-tertiary); padding: 8px; border-radius: 4px; border: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 8px; }
+        .status-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; }
+        .progress-container { flex: 1; min-width: 200px; max-width: 400px; }
+        .progress-bar { width: 100%; height: 8px; background: var(--progress-bg); border-radius: 5px; overflow: hidden; position: relative; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #3498db, #2ecc71); border-radius: 5px; transition: width 0.3s ease; }
+        .section { margin-bottom: 12px; border: none; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); overflow: hidden; }
+        .section-header { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
         .section-header h2 { margin: 0; font-size: 1em; font-weight: 600; }
-        .section-header span { transition: transform 0.3s; }
-        .section.expanded .section-header span { transform: rotate(90deg); }
         .section-content { padding: 14px; background: var(--bg-secondary); display: none; }
         .section.expanded .section-content { display: block; animation: fadeIn 0.3s ease-out; }
-
-        .question {
-            margin-bottom: 10px;
-            padding: 14px;
-            background: var(--question-bg);
-            border-radius: 10px;
-            border-left: 4px solid var(--question-border);
-            transition: all 0.3s ease;
-        }
+        .question { margin-bottom: 10px; padding: 14px; background: var(--question-bg); border-radius: 10px; border-left: 4px solid var(--question-border); transition: all 0.3s ease; }
         .question.yes-answer { border-left-color: var(--answer-yes); background-color: rgba(39, 174, 96, 0.05); }
-        .question.no-answer  { border-left-color: var(--answer-no); background-color: rgba(231, 76, 60, 0.05); }
-        .question.na-answer  { border-left-color: var(--answer-na); }
-        .question-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-        }
+        .question.no-answer { border-left-color: var(--answer-no); background-color: rgba(231, 76, 60, 0.05); }
+        .question.na-answer { border-left-color: var(--answer-na); }
+        .question-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
         .question-text { flex: 1; font-weight: 500; font-size: 1em; line-height: 1.4; color: var(--text-primary); }
-        .question-id {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.85em;
-            margin-left: 8px;
-            white-space: nowrap;
-            box-shadow: 0 2px 5px rgba(52,152,219,0.3);
-        }
-        .answer-options {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        .answer-option {
-            flex: 1;
-            min-width: 70px;
-            padding: 9px;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            cursor: pointer;
-            text-align: center;
-            font-weight: bold;
-            font-size: 0.88em;
-            transition: transform 0.15s, box-shadow 0.15s;
-        }
-        .answer-option:hover { transform: translateY(-2px); box-shadow: 0 3px 8px rgba(0,0,0,0.18); }
+        .question-id { background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.85em; margin-left: 8px; white-space: nowrap; }
+        .answer-options { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .answer-option { flex: 1; min-width: 70px; padding: 9px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; text-align: center; font-weight: bold; font-size: 0.88em; transition: transform 0.15s; }
         .answer-option.selected { color: white; }
         .answer-option[data-answer="YES"] { border-color: var(--answer-yes); color: var(--answer-yes); }
         .answer-option[data-answer="YES"].selected { background: var(--answer-yes); color: white; }
@@ -433,759 +80,381 @@
         .answer-option[data-answer="NO"].selected { background: var(--answer-no); color: white; }
         .answer-option[data-answer="NA"] { border-color: var(--answer-na); color: var(--answer-na); }
         .answer-option[data-answer="NA"].selected { background: var(--answer-na); color: white; }
-
-        .evidence {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1.5px solid var(--input-border);
-            border-radius: 8px;
-            resize: vertical;
-            min-height: 60px;
-            font-family: inherit;
-            margin-bottom: 8px;
-            font-size: 0.85em;
-            background: var(--input-bg);
-            color: var(--input-text);
-        }
-        .guidance {
-            font-size: 0.8em;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-            font-style: italic;
-        }
-
-        /* GITHUB PANEL – kompakt */
-        .github-compact-panel {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 12px;
-            margin-bottom: 15px;
-            padding: 8px 12px;
-            background: var(--bg-tertiary);
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-        }
-        .github-token-field {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex: 1;
-            max-width: 400px;
-        }
-        .github-token-field input {
-            flex: 1;
-            padding: 8px 12px;
-            border: 1px solid var(--input-border);
-            border-radius: 8px;
-            background: var(--input-bg);
-            color: var(--input-text);
-            font-size: 0.85em;
-            font-family: monospace;
-        }
-        .github-token-field input::placeholder {
-            color: var(--text-secondary);
-        }
-        .github-token-field button {
-            padding: 8px 16px;
-            background: var(--btn-success);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.8em;
-            transition: all 0.2s;
-        }
-        .github-token-field button:hover {
-            transform: translateY(-1px);
-            filter: brightness(1.05);
-        }
-        .github-status-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #e74c3c;
-            transition: background 0.2s;
-            flex-shrink: 0;
-        }
-        .github-status-dot.connected {
-            background: #27ae60;
-            box-shadow: 0 0 5px #27ae60;
-        }
-        .github-status-dot.connecting {
-            background: #f39c12;
-            animation: pulse 1s infinite;
-        }
-        @keyframes pulse {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        /* ABGESCHLOSSENE AUDITS */
-        .completed-audits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 12px;
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 5px;
-        }
-        .completed-audit-card {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 12px;
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .completed-audit-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow-color); border-color: var(--header-bg); }
-        .completed-audit-header { display: flex; justify-content: space-between; align-items: center; }
-        .completed-audit-type { font-weight: bold; color: var(--text-tertiary); font-size: 0.95em; display: flex; align-items: center; gap: 4px; }
-        .completed-audit-date { font-size: 0.75em; color: var(--text-secondary); }
-        .completed-audit-meta { display: flex; justify-content: space-between; font-size: 0.8em; color: var(--text-secondary); }
-        .audit-source-badge { font-size: 0.7em; padding: 2px 6px; border-radius: 10px; background: var(--bg-secondary); border: 1px solid var(--border-color); }
-        .audit-source-github { color: var(--btn-success); }
-        .completed-audit-progress { height: 4px; background: var(--progress-bg); border-radius: 2px; overflow: hidden; }
-        .completed-audit-progress-fill { height: 100%; background: var(--btn-success); border-radius: 2px; }
+        .evidence { width: 100%; padding: 10px 12px; border: 1.5px solid var(--input-border); border-radius: 8px; resize: vertical; min-height: 60px; font-family: inherit; margin-bottom: 8px; font-size: 0.85em; background: var(--input-bg); color: var(--input-text); }
+        .guidance { font-size: 0.8em; color: var(--text-secondary); margin-bottom: 8px; font-style: italic; }
+        .github-compact-panel { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-bottom: 15px; padding: 8px 12px; background: var(--bg-tertiary); border-radius: 12px; border: 1px solid var(--border-light); flex-wrap: wrap; }
+        .github-token-field { display: flex; align-items: center; gap: 8px; flex: 1; max-width: 400px; }
+        .github-token-field input { flex: 1; padding: 8px 12px; border: 1px solid var(--input-border); border-radius: 8px; background: var(--input-bg); color: var(--input-text); font-size: 0.85em; font-family: monospace; }
+        .github-status-dot { width: 12px; height: 12px; border-radius: 50%; background: #e74c3c; transition: background 0.2s; flex-shrink: 0; }
+        .github-status-dot.connected { background: #27ae60; box-shadow: 0 0 5px #27ae60; }
+        .completed-audits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; max-height: 400px; overflow-y: auto; padding: 5px; }
+        .completed-audit-card { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 8px; }
+        .completed-audit-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow-color); }
         .completed-audit-actions { display: flex; gap: 6px; justify-content: flex-end; margin-top: 5px; }
-        .audit-action-btn { padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.75em; font-weight: bold; transition: all 0.2s ease; }
+        .audit-action-btn { padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.75em; font-weight: bold; }
         .btn-load-audit { background: var(--btn-info); color: white; }
         .btn-delete-audit { background: var(--btn-danger); color: white; }
-
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            background: var(--modal-content-bg);
-            padding: 20px;
-            border-radius: 14px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        .modal-content h3 { margin-bottom: 20px; color: var(--text-tertiary); }
-        .modal-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .btn-cancel { background: var(--btn-back); color: white; padding: 8px 16px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .btn-github-save { background: var(--btn-export); color: white; padding: 8px 16px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-
-        /* MOBILE */
-        @media (max-width: 768px) {
-            body { padding: 5px; font-size: 13px; }
-            .container { padding: 10px; }
-            .audit-buttons { grid-template-columns: 1fr; gap: 8px; }
-            .audit-btn { padding: 14px; min-height: 120px; }
-            .btn-icon-box { width: 42px; height: 42px; font-size: 20px; }
-            .btn-label { font-size: 0.95em; }
-            .button-row button { padding: 8px 10px; font-size: 0.7em; height: 32px; min-width: 100px; }
-            .question { padding: 12px; }
-            .question-text { font-size: 0.95em; }
-            .answer-option { min-width: 60px; padding: 6px; font-size: 0.85em; }
-            .github-compact-panel { flex-direction: column; align-items: stretch; gap: 8px; }
-            .github-token-field { max-width: 100%; }
-        }
-
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-content { background: var(--modal-content-bg); padding: 20px; border-radius: 14px; max-width: 500px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .sync-toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 8px 16px; border-radius: 30px; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 2000; }
+        .sync-toast.show { opacity: 1; }
+        @media (max-width: 768px) { .audit-buttons { grid-template-columns: 1fr; } .button-row button { padding: 0 8px; font-size: 0.7em; } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .page { display: none; }
+        .page.active { display: block; }
+        .section-item { background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 10px; padding: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.2s; }
+        .section-item:hover { transform: translateX(4px); background: var(--bg-secondary); }
+        .section-status { font-size: 0.75em; padding: 2px 8px; border-radius: 20px; background: #95a5a6; color: white; }
+        .section-status.completed { background: var(--btn-success); }
+        .section-status.in-progress { background: var(--btn-warning); }
+        .overview-stats { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+        .stat-card { background: var(--bg-tertiary); border-radius: 12px; padding: 12px; flex: 1; min-width: 120px; text-align: center; }
     </style>
 </head>
 <body>
 <div class="container">
-    <header>
-        <h1 id="mainTitle">Self-Audit ZfP Verfahren</h1>
-        <div class="subtitle" id="mainSubtitle">Schaeffler Technologies AG & Co. KG</div>
-    </header>
+    <header><h1 id="mainTitle">Self-Audit ZfP Verfahren</h1><div class="subtitle" id="mainSubtitle">Schaeffler Technologies AG & Co. KG</div></header>
 
     <!-- SEITE 1: AUDIT-AUSWAHL -->
     <div id="pageSelection" class="page active">
-        <div class="audit-selection">
-            <h2>Audit-Verfahren auswählen:</h2>
+        <div class="audit-selection"><h2>Audit-Verfahren auswählen:</h2>
             <div class="audit-buttons">
-                <button class="audit-btn wirbelstrom" data-audit="ET">
-                    <div class="btn-top-row"><div class="btn-icon-box">⚡</div><span class="btn-chevron">›</span></div>
-                    <div class="btn-label">Wirbelstromprüfung</div>
-                    <div class="btn-meta-row"><span class="btn-meta-dot"></span><span>Eddy Current Testing (ET)</span><div class="btn-progress" id="etProgress">0%</div></div>
-                </button>
-                <button class="audit-btn magnetpulver" data-audit="MT">
-                    <div class="btn-top-row"><div class="btn-icon-box">🧲</div><span class="btn-chevron">›</span></div>
-                    <div class="btn-label">Magnetpulverprüfung</div>
-                    <div class="btn-meta-row"><span class="btn-meta-dot"></span><span>Magnetic Particle Testing (MT)</span><div class="btn-progress" id="mtProgress">0%</div></div>
-                </button>
-                <button class="audit-btn nital" data-audit="NE">
-                    <div class="btn-top-row"><div class="btn-icon-box">🧪</div><span class="btn-chevron">›</span></div>
-                    <div class="btn-label">Nital-Ätzen</div>
-                    <div class="btn-meta-row"><span class="btn-meta-dot"></span><span>Nital Etch Inspection (NE)</span><div class="btn-progress" id="neProgress">0%</div></div>
-                </button>
-                <button class="audit-btn ultraschall" data-audit="UT">
-                    <div class="btn-top-row"><div class="btn-icon-box">📡</div><span class="btn-chevron">›</span></div>
-                    <div class="btn-label">Ultraschallprüfung</div>
-                    <div class="btn-meta-row"><span class="btn-meta-dot"></span><span>Ultrasonic Testing (UT)</span><div class="btn-progress" id="utProgress">0%</div></div>
-                </button>
+                <button class="audit-btn" data-audit="ET"><div class="btn-top-row"><div class="btn-icon-box">⚡</div></div><div class="btn-label">Wirbelstromprüfung</div><div class="btn-meta-row"><span>Eddy Current (ET)</span><div class="btn-progress" id="etProgress">0%</div></div></button>
+                <button class="audit-btn magnetpulver" data-audit="MT"><div class="btn-top-row"><div class="btn-icon-box">🧲</div></div><div class="btn-label">Magnetpulverprüfung</div><div class="btn-meta-row"><span>Magnetic Particle (MT)</span><div class="btn-progress" id="mtProgress">0%</div></div></button>
+                <button class="audit-btn nital" data-audit="NE"><div class="btn-top-row"><div class="btn-icon-box">🧪</div></div><div class="btn-label">Nital-Ätzen</div><div class="btn-meta-row"><span>Nital Etch (NE)</span><div class="btn-progress" id="neProgress">0%</div></div></button>
+                <button class="audit-btn ultraschall" data-audit="UT"><div class="btn-top-row"><div class="btn-icon-box">📡</div></div><div class="btn-label">Ultraschallprüfung</div><div class="btn-meta-row"><span>Ultrasonic (UT)</span><div class="btn-progress" id="utProgress">0%</div></div></button>
             </div>
         </div>
-
-        <!-- WEITER MIT LETZTEM AUDIT -->
-        <div id="resumeButtonContainer" style="text-align: center; margin: 15px 0;">
-            <button id="resumeLastAuditBtn" class="btn-info" style="display: none; padding: 10px 20px; font-size: 1em;">▶️ Weiter mit letztem Audit</button>
-        </div>
-
-        <!-- KOMPAKTES GITHUB PANEL -->
+        <div id="resumeButtonContainer" style="text-align: center; margin: 15px 0;"><button id="resumeLastAuditBtn" class="btn-info" style="display: none;">▶️ Weiter mit letztem Audit</button></div>
         <div class="github-compact-panel">
-            <div class="github-token-field">
-                <input type="password" id="githubTokenInput" placeholder="GitHub Personal Access Token (ghp_...)" autocomplete="off">
-                <button id="githubSaveTokenBtn">💾 Speichern</button>
-            </div>
+            <div class="github-token-field"><input type="password" id="githubTokenInput" placeholder="GitHub Token (ghp_...)" autocomplete="off"><button id="githubSaveTokenBtn">💾 Speichern</button></div>
             <div class="github-status-dot" id="githubStatusDot" title="Nicht verbunden"></div>
         </div>
-
-        <!-- ABGESCHLOSSENE AUDITS -->
         <div class="completed-audits-section" style="margin-top: 20px; border-top: 2px solid var(--border-color); padding-top: 20px;">
-            <div class="completed-audits-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap;">
-                <div class="completed-audits-title" style="display: flex; align-items: center; gap: 8px;"><span>📋 Abgeschlossene Audits</span><span style="font-size: 0.8em; color: var(--text-secondary);" id="zfpCompletedCount">(0)</span></div>
-                <div><button class="refresh-btn" onclick="zfpLoadAllCompletedAudits()" style="background: var(--btn-info); color: white; border: none; border-radius: 4px; padding: 4px 8px; cursor: pointer;">↻ Aktualisieren</button></div>
-            </div>
-            <div id="zfpCompletedAuditsContainer" class="completed-audits-grid"><div class="no-completed-audits">🔌 Bitte GitHub Token eingeben und verbinden</div></div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;"><span>📋 Abgeschlossene Audits</span><button class="refresh-btn" onclick="refreshCompletedAudits()" style="background: var(--btn-info); border: none; border-radius: 4px; padding: 4px 8px; cursor: pointer;">↻ Aktualisieren</button></div>
+            <div id="zfpCompletedAuditsContainer" class="completed-audits-grid"><div>🔌 Bitte GitHub Token eingeben</div></div>
         </div>
     </div>
 
     <!-- SEITE 2: AUDIT-ÜBERSICHT -->
-    <div id="pageOverview" class="page audit-overview">
-        <div class="controls-container" style="margin-bottom: 25px;"><div class="button-row"><button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button><button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button><button class="btn-import" id="importFromOverviewBtn">📂 Import</button><button class="btn-github" id="saveToGitHubBtn" onclick="document.getElementById('githubSaveModal').style.display='flex'">☁️ In GitHub speichern</button></div></div>
-        <div class="overview-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);"><div class="overview-title" id="overviewTitle">Audit Übersicht</div></div>
-        <div class="overview-stats" id="overviewStats"></div>
-        <h3 style="margin-bottom: 15px; color: var(--text-tertiary);">Verfügbare Prüfbereiche:</h3>
-        <div class="section-list" id="sectionList"></div>
+    <div id="pageOverview" class="page">
+        <div class="controls-container"><div class="button-row"><button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button><button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button><button class="btn-import" id="importFromOverviewBtn">📂 Import</button><button class="btn-github" id="saveToGitHubBtn">☁️ In GitHub speichern</button></div></div>
+        <div id="overviewTitle" style="font-size: 1.4em; font-weight: bold; margin-bottom: 20px;"></div>
+        <div id="overviewStats" class="overview-stats"></div>
+        <h3 style="margin-bottom: 15px;">Prüfbereiche:</h3>
+        <div id="sectionList" class="section-list"></div>
     </div>
 
     <!-- SEITE 3: AUDIT-FRAGEN -->
-    <div id="pageQuestions" class="page audit-questions-page">
-        <div class="controls-container"><div class="button-row"><button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button><button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button><button class="btn-import" id="importFromQuestionsBtn">📂 Import</button><button class="btn-github" id="saveToGitHubFromQuestionsBtn" onclick="document.getElementById('githubSaveModal').style.display='flex'">☁️ In GitHub speichern</button></div></div>
-        <div class="questions-header" style="display: flex; justify-content: center; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color);"><div class="questions-title" id="currentSectionTitle"></div></div>
-        <div class="audit-status"><div class="status-header"><div class="status-text">Fortschritt: <strong id="progressText">0%</strong></div><div class="progress-container"><div class="progress-bar"><div class="progress-fill" id="auditProgressBar" style="width: 0%"></div><div class="progress-text" id="progressTextBar">0%</div></div></div></div><div style="display: flex; justify-content: space-between; flex-wrap: wrap;"><span>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong></span><span>Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></span></div></div>
-        <div class="questions-container" id="questionsContainer"></div>
+    <div id="pageQuestions" class="page">
+        <div class="controls-container"><div class="button-row"><button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button><button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button><button class="btn-import" id="importFromQuestionsBtn">📂 Import</button><button class="btn-github" id="saveToGitHubFromQuestionsBtn">☁️ In GitHub speichern</button></div></div>
+        <div class="audit-status"><div class="status-header"><div class="status-text">Fortschritt: <strong id="progressText">0%</strong></div><div class="progress-container"><div class="progress-bar"><div class="progress-fill" id="auditProgressBar" style="width: 0%"></div></div></div></div><div>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong> | Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></div></div>
+        <div id="currentSectionTitle" style="font-size: 1.2em; font-weight: bold; margin: 15px 0 10px;"></div>
+        <div id="questionsContainer"></div>
     </div>
 
     <!-- MODALE -->
-    <div id="importModal" class="modal"><div class="modal-content"><h3>📂 Ergebnisse importieren</h3><p style="margin-bottom: 15px; color: var(--text-secondary);">Wählen Sie eine JSON-Datei mit gespeicherten Ergebnissen aus.</p><input type="file" id="importFileInput" accept=".json,application/json"><div class="modal-buttons"><button class="btn-cancel" onclick="document.getElementById('importModal').style.display='none'">Abbrechen</button><button class="btn-import" onclick="handleImportFile()">Importieren</button></div></div></div>
-    <div id="githubSaveModal" class="modal"><div class="modal-content"><h3>☁️ In GitHub speichern</h3><p style="margin-bottom: 15px; color: var(--text-secondary);">Geben Sie einen Namen für das Audit ein (optional).</p><input type="text" id="githubAuditName" placeholder="z.B. Q1-2026 Ultraschall"><div class="modal-buttons"><button class="btn-cancel" onclick="document.getElementById('githubSaveModal').style.display='none'">Abbrechen</button><button class="btn-github-save" onclick="zfpSaveCurrentAuditToGitHub()">In GitHub speichern</button></div></div></div>
+    <div id="importModal" class="modal"><div class="modal-content"><h3>📂 Ergebnisse importieren</h3><input type="file" id="importFileInput" accept=".json"><div class="modal-buttons" style="margin-top: 15px; display: flex; gap: 10px;"><button class="btn-cancel" onclick="closeModal('importModal')">Abbrechen</button><button class="btn-import" onclick="handleImportFile()">Importieren</button></div></div></div>
+    <div id="githubSaveModal" class="modal"><div class="modal-content"><h3>☁️ In GitHub speichern</h3><input type="text" id="githubAuditName" placeholder="Name (z.B. Q1-2026 ET)"><div class="modal-buttons" style="margin-top: 15px;"><button class="btn-cancel" onclick="closeModal('githubSaveModal')">Abbrechen</button><button class="btn-github-save" id="confirmGithubSaveBtn">Speichern</button></div></div></div>
     <div class="sync-toast" id="syncToast"></div>
-    <footer style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid var(--border-light); color: var(--text-secondary); font-size: 0.85em;"><p>Self-Audit ZfP &copy; 2026 Schaeffler Technologies AG & Co. KG</p></footer>
+    <footer style="text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid var(--border-light); font-size: 0.85em;">Self-Audit ZfP &copy; 2026 Schaeffler Technologies AG & Co. KG</footer>
 </div>
-<button id="themeToggleBtn" class="theme-toggle" title="Hell/Dunkel umschalten">🌓</button>
+<button id="themeToggleBtn" class="theme-toggle">🌓</button>
 
 <script>
-// =========================================================================
-//  KOMPLETTER JAVASCRIPT-CODE DER SELFAUDIT APP
-// =========================================================================
+// ========================  EMBEDDED QUESTIONS (DE + EN)  ========================
+// Hier können Sie die echten Fragen aus Ihren JSON-Dateien einfügen.
+// Jedes Verfahren hat ein Objekt mit deutschen (de) und englischen (en) Fragen.
+const MASTER_QUESTIONS = {
+    ET: { title: "Wirbelstromprüfung", standard: "TPG-AC7114/5", icon: "⚡",
+        de: [
+            { id: "3.1", text: "Sind die erforderlichen Prüfgeräte, Sonden und Referenznormale verfügbar und in gutem Zustand?", guidance: "Überprüfen Sie die Inventarliste und den Zustand der Ausrüstung.", hasNA: false },
+            { id: "3.2", text: "Wird die Ausrüstung regelmäßig gewartet und kalibriert?", guidance: "Wartungsprotokolle prüfen.", hasNA: false },
+            { id: "4.1", text: "Liegen schriftliche Verfahrensanweisungen für die ET-Prüfung vor?", guidance: "Prüfen Sie die Dokumentenlenkung.", hasNA: false },
+            { id: "4.2", text: "Sind die Verfahrensanweisungen für das Personal verständlich?", guidance: "Befragen Sie das Personal.", hasNA: true },
+            { id: "5.1", text: "Wurden Systemleistungstests (z.B. mit Referenznormalen) durchgeführt?", guidance: "Prüfen Sie Aufzeichnungen.", hasNA: false },
+            { id: "6.1", text: "Werden Kalibrierungen nachvollziehbar dokumentiert?", guidance: "Prüfen Sie die Dokumentation.", hasNA: false },
+            { id: "7.1", text: "Werden die Prüfungen gemäß Verfahren durchgeführt?", guidance: "Beobachten Sie die Durchführung.", hasNA: false },
+            { id: "8.1", text: "Werden Prüfergebnisse vollständig und revisionssicher dokumentiert?", guidance: "Prüfen Sie die Aufzeichnungen.", hasNA: false }
+        ],
+        en: [
+            { id: "3.1", text: "Are the required test equipment, probes and reference standards available and in good condition?", guidance: "Check inventory and condition.", hasNA: false },
+            { id: "3.2", text: "Is the equipment regularly maintained and calibrated?", guidance: "Check maintenance logs.", hasNA: false },
+            { id: "4.1", text: "Are written procedures for ET testing available?", guidance: "Check document control.", hasNA: false },
+            { id: "4.2", text: "Are the procedures understandable for the personnel?", guidance: "Interview personnel.", hasNA: true },
+            { id: "5.1", text: "Have system performance tests (e.g., with reference standards) been performed?", guidance: "Check records.", hasNA: false },
+            { id: "6.1", text: "Are calibrations documented traceably?", guidance: "Check documentation.", hasNA: false },
+            { id: "7.1", text: "Are tests performed according to the procedure?", guidance: "Observe execution.", hasNA: false },
+            { id: "8.1", text: "Are test results completely and tamper-proof documented?", guidance: "Check records.", hasNA: false }
+        ]
+    },
+    MT: { title: "Magnetpulverprüfung", standard: "TPG-AC7114/2", icon: "🧲",
+        de: [
+            { id: "3.1", text: "Sind Magnetpulvergeräte, Joche, Feldmesser und Referenznormale verfügbar?", guidance: "Inventur prüfen.", hasNA: false },
+            { id: "4.1", text: "Gibt es eine Verfahrensanweisung für MT?", guidance: "Prüfen.", hasNA: false },
+            { id: "5.1", text: "Wurde die Magnetfeldstärke überprüft?", guidance: "Prüfprotokolle.", hasNA: false },
+            { id: "7.1", text: "Wird die Prüfung unter geeigneten Lichtverhältnissen durchgeführt?", guidance: "Beleuchtung prüfen.", hasNA: false }
+        ],
+        en: [
+            { id: "3.1", text: "Are magnetic particle equipment, yokes, field meters and reference standards available?", guidance: "Check inventory.", hasNA: false },
+            { id: "4.1", text: "Is there a written procedure for MT?", guidance: "Check.", hasNA: false },
+            { id: "5.1", text: "Has the magnetic field strength been verified?", guidance: "Check records.", hasNA: false },
+            { id: "7.1", text: "Is the test performed under suitable lighting conditions?", guidance: "Check lighting.", hasNA: false }
+        ]
+    },
+    NE: { title: "Nital-Ätzen", standard: "TPG-AC7114/12", icon: "🧪",
+        de: [
+            { id: "3.1", text: "Sind Ätzmittel, Sicherheitsausrüstung und Belüftung vorhanden?", guidance: "Prüfen.", hasNA: false },
+            { id: "4.1", text: "Liegt eine Verfahrensanweisung für Nital-Ätzen vor?", guidance: "Prüfen.", hasNA: false },
+            { id: "7.1", text: "Wird die Ätzzeit und -temperatur eingehalten?", guidance: "Prüfen.", hasNA: false }
+        ],
+        en: [
+            { id: "3.1", text: "Are etching chemicals, safety equipment and ventilation available?", guidance: "Check.", hasNA: false },
+            { id: "4.1", text: "Is there a procedure for Nital etching?", guidance: "Check.", hasNA: false },
+            { id: "7.1", text: "Is etching time and temperature adhered to?", guidance: "Check.", hasNA: false }
+        ]
+    },
+    UT: { title: "Ultraschallprüfung", standard: "TPG-AC7114/3", icon: "📡",
+        de: [
+            { id: "3.1", text: "Sind UT-Geräte, Sonden und Kalibrierkörper verfügbar?", guidance: "Inventur.", hasNA: false },
+            { id: "4.1", text: "Liegt eine Verfahrensanweisung für UT vor?", guidance: "Prüfen.", hasNA: false },
+            { id: "5.1", text: "Wurde die Gerätefunktion mit Referenzkörpern überprüft?", guidance: "Prüfen.", hasNA: false }
+        ],
+        en: [
+            { id: "3.1", text: "Are UT equipment, probes and calibration blocks available?", guidance: "Check inventory.", hasNA: false },
+            { id: "4.1", text: "Is there a procedure for UT?", guidance: "Check.", hasNA: false },
+            { id: "5.1", text: "Has equipment function been verified with reference blocks?", guidance: "Check.", hasNA: false }
+        ]
+    }
+};
 
-// === GITHUB KONFIGURATION (fest hinterlegt) ===============================
+// ========================  GLOBALE VARIABLEN  ========================
+let currentAuditType = null;
+let germanQuestions = [];      // Array von { id, text, guidance, hasNA, answer, evidence, sectionId }
+let englishQuestions = [];     // Nur für Bericht
+let auditSections = [];
+let currentSectionIndex = -1;
+let currentAuditId = null;     // ID des geladenen Audits (für Update)
+let currentAuditName = null;   // Name des geladenen Audits
+
+// GitHub
 const GITHUB_OWNER = 'Acendrion1984';
 const GITHUB_REPO = 'SelfAudit';
 const GITHUB_BRANCH = 'main';
 const GITHUB_FILE = 'audits.json';
 const GITHUB_CONFIG_KEY = 'zfp_github_token';
-
 let githubToken = '';
 let githubFileSha = null;
 let githubConnected = false;
 
-function loadGitHubToken() {
-    const saved = localStorage.getItem(GITHUB_CONFIG_KEY);
-    if (saved) {
-        githubToken = saved;
-        document.getElementById('githubTokenInput').value = githubToken;
-        testGitHubConnection();
-    } else {
-        updateGitHubStatus(false);
-    }
-}
-
-function saveGitHubToken() {
-    const token = document.getElementById('githubTokenInput').value.trim();
-    if (!token) {
-        localStorage.removeItem(GITHUB_CONFIG_KEY);
-        githubToken = '';
-        updateGitHubStatus(false);
-        zfpShowToast('Token gelöscht', 'info');
-        return;
-    }
-    githubToken = token;
-    localStorage.setItem(GITHUB_CONFIG_KEY, token);
-    testGitHubConnection();
-}
-
-async function testGitHubConnection() {
-    if (!githubToken) {
-        updateGitHubStatus(false);
-        return;
-    }
-    const dot = document.getElementById('githubStatusDot');
-    dot.classList.add('connecting');
-    dot.style.background = '#f39c12';
-    try {
-        const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`;
-        const response = await fetch(url, {
-            headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github+json' }
-        });
-        if (response.status === 404) {
-            updateGitHubStatus(true);
-            githubFileSha = null;
-        } else if (response.ok) {
-            const data = await response.json();
-            githubFileSha = data.sha;
-            updateGitHubStatus(true);
-        } else {
-            throw new Error(`HTTP ${response.status}`);
-        }
-    } catch (error) {
-        console.error('GitHub connection error:', error);
-        updateGitHubStatus(false);
-        zfpShowToast('❌ GitHub Verbindung fehlgeschlagen', 'error');
-    } finally {
-        dot.classList.remove('connecting');
-    }
-}
-
-function updateGitHubStatus(connected) {
-    githubConnected = connected;
-    const dot = document.getElementById('githubStatusDot');
-    if (connected) {
-        dot.classList.add('connected');
-        dot.style.background = '#27ae60';
-        dot.title = 'Mit GitHub verbunden';
-    } else {
-        dot.classList.remove('connected');
-        dot.style.background = '#e74c3c';
-        dot.title = 'Nicht verbunden';
-    }
-}
-
-async function fetchGitHubFile() {
-    if (!githubToken) throw new Error('Kein GitHub Token');
-    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`;
-    const response = await fetch(url, { headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github+json' } });
-    if (response.status === 404) return { exists: false, content: null, sha: null };
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const data = await response.json();
-    const content = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
-    return { exists: true, content: JSON.parse(content), sha: data.sha };
-}
-
-async function pushToGitHub(content, message) {
-    if (!githubToken) throw new Error('Kein GitHub Token');
-    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
-    const body = { message, content: encoded, branch: GITHUB_BRANCH };
-    if (githubFileSha) body.sha = githubFileSha;
-    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
-    const response = await fetch(url, {
-        method: 'PUT',
-        headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-    });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const result = await response.json();
-    githubFileSha = result.content?.sha;
-}
-
-async function loadGitHubAudits() {
-    if (!githubToken) return [];
-    try {
-        const result = await fetchGitHubFile();
-        if (!result.exists) return [];
-        return result.content;
-    } catch (e) {
-        console.error(e);
-        return [];
-    }
-}
-
-async function saveToGitHubAuditList(auditData) {
-    if (!githubToken) throw new Error('Kein GitHub Token');
-    let existing = await loadGitHubAudits();
-    if (!Array.isArray(existing)) existing = [];
-    const existingIndex = existing.findIndex(a => a.id === auditData.id);
-    if (existingIndex >= 0) existing[existingIndex] = auditData;
-    else existing.push(auditData);
-    await pushToGitHub(existing, `Audit ${auditData.audit_title} gespeichert`);
-}
-
-async function deleteFromGitHubAuditList(auditId) {
-    if (!githubToken) throw new Error('Kein GitHub Token');
-    let existing = await loadGitHubAudits();
-    if (!Array.isArray(existing)) existing = [];
-    const newList = existing.filter(a => a.id !== auditId);
-    await pushToGitHub(newList, `Audit ${auditId} gelöscht`);
-}
-
-// === GLOBALE VARIABLEN ======================
-let currentAuditType = null;
-let germanQuestions = [];
-let englishQuestions = [];
-let auditSections = [];
-let currentSectionIndex = -1;
-
-const AUDIT_TYPES = {
-    ET: { title: 'Wirbelstromprüfung', standard: 'TPG-AC7114/5', file_de: 'ET_DE.json', file_en: 'ET_EN.json', icon: '⚡' },
-    MT: { title: 'Magnetpulverprüfung', standard: 'TPG-AC7114/2', file_de: 'MT_DE.json', file_en: 'MT_EN.json', icon: '🧲' },
-    NE: { title: 'Nital-Ätzen', standard: 'TPG-AC7114/12', file_de: 'NE_DE.json', file_en: 'NE_EN.json', icon: '🧪' },
-    UT: { title: 'Ultraschallprüfung', standard: 'TPG-AC7114/3', file_de: 'UT_DE.json', file_en: 'UT_EN.json', icon: '📡' }
-};
-
+// Seiten
 const PAGES = { SELECTION: 'pageSelection', OVERVIEW: 'pageOverview', QUESTIONS: 'pageQuestions' };
-function showPage(pageId) {
-    Object.values(PAGES).forEach(id => document.getElementById(id).classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
-}
+function showPage(pageId) { Object.values(PAGES).forEach(id => document.getElementById(id).classList.remove('active')); document.getElementById(pageId).classList.add('active'); }
 
-// === THEME =================================
-function initThemeToggle() {
+// ========================  INIT & THEME  ========================
+function initTheme() {
     const saved = localStorage.getItem('zfp-theme-preference');
-    const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial = saved || (systemDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', initial);
-    document.getElementById('themeToggleBtn').addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme') || 'light';
-        const next = current === 'dark' ? 'light' : 'dark';
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = saved || (systemDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+    document.getElementById('themeToggleBtn').onclick = () => {
+        const cur = document.documentElement.getAttribute('data-theme');
+        const next = cur === 'dark' ? 'light' : 'dark';
         localStorage.setItem('zfp-theme-preference', next);
         document.documentElement.setAttribute('data-theme', next);
-    });
-}
-
-// === LOKALE SPEICHERUNG ====================
-function saveCurrentAuditToLocalStorage() {
-    if (!currentAuditType || !germanQuestions.length) return;
-    const state = {
-        currentAuditType,
-        germanQuestions: germanQuestions.map(q => ({ id: q.id, answer: q.answer || "", evidence: q.evidence || "" })),
-        auditSections: auditSections.map(s => ({ id: s.id, title: s.title })),
-        timestamp: new Date().toISOString()
     };
-    localStorage.setItem('zfp_current_audit', JSON.stringify(state));
 }
 
-function loadCurrentAuditFromLocalStorage() {
-    const saved = localStorage.getItem('zfp_current_audit');
-    if (!saved) return false;
-    try {
-        const state = JSON.parse(saved);
-        if (!state.currentAuditType || !state.germanQuestions) return false;
-        currentAuditType = state.currentAuditType;
-        loadAuditJSONs(currentAuditType).then(data => {
-            if (!data) return false;
-            processJSONdata(data);
-            state.germanQuestions.forEach(savedQ => {
-                const target = germanQuestions.find(q => q.id === savedQ.id);
-                if (target) { target.answer = savedQ.answer; target.evidence = savedQ.evidence; }
-            });
-            renderOverview();
-            showPage(PAGES.OVERVIEW);
-            updateProgressDisplays();
-            saveCurrentAuditToLocalStorage();
-        });
-        return true;
-    } catch(e) { return false; }
-}
+// ========================  GITHUB FUNKTIONEN  ========================
+function loadGitHubToken() { const t = localStorage.getItem(GITHUB_CONFIG_KEY); if (t) { githubToken = t; document.getElementById('githubTokenInput').value = t; testGitHubConnection(); } else updateGitHubStatus(false); }
+function saveGitHubToken() { const t = document.getElementById('githubTokenInput').value.trim(); if (!t) { localStorage.removeItem(GITHUB_CONFIG_KEY); githubToken = ''; updateGitHubStatus(false); showToast('Token gelöscht', 'info'); return; } githubToken = t; localStorage.setItem(GITHUB_CONFIG_KEY, t); testGitHubConnection(); }
+async function testGitHubConnection() { if (!githubToken) { updateGitHubStatus(false); return; } const dot = document.getElementById('githubStatusDot'); dot.style.background = '#f39c12'; try { const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`; const r = await fetch(url, { headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github+json' } }); if (r.status === 404) { updateGitHubStatus(true); githubFileSha = null; } else if (r.ok) { const d = await r.json(); githubFileSha = d.sha; updateGitHubStatus(true); } else throw new Error(`HTTP ${r.status}`); } catch(e) { updateGitHubStatus(false); showToast('❌ GitHub Verbindung fehlgeschlagen', 'error'); } finally { dot.classList.remove('connecting'); } }
+function updateGitHubStatus(connected) { githubConnected = connected; const dot = document.getElementById('githubStatusDot'); if (connected) { dot.classList.add('connected'); dot.title = 'Verbunden'; } else { dot.classList.remove('connected'); dot.title = 'Nicht verbunden'; } }
+async function fetchGitHubFile() { if (!githubToken) throw new Error('Kein Token'); const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`; const r = await fetch(url, { headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github+json' } }); if (r.status === 404) return { exists: false, content: null, sha: null }; if (!r.ok) throw new Error(`HTTP ${r.status}`); const d = await r.json(); const content = JSON.parse(atob(d.content.replace(/\n/g, ''))); return { exists: true, content, sha: d.sha }; }
+async function pushToGitHub(content, message) { if (!githubToken) throw new Error('Kein Token'); const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))); const body = { message, content: encoded, branch: GITHUB_BRANCH }; if (githubFileSha) body.sha = githubFileSha; const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`; const r = await fetch(url, { method: 'PUT', headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' }, body: JSON.stringify(body) }); if (!r.ok) throw new Error(`HTTP ${r.status}`); const res = await r.json(); githubFileSha = res.content?.sha; }
+async function loadGitHubAudits() { if (!githubToken) return []; try { const res = await fetchGitHubFile(); return res.exists ? res.content : []; } catch(e) { console.error(e); return []; } }
+async function saveAuditToGitHub(auditData, isUpdate = false) { let audits = await loadGitHubAudits(); if (!Array.isArray(audits)) audits = []; if (isUpdate) { const idx = audits.findIndex(a => a.id === auditData.id); if (idx !== -1) audits[idx] = auditData; else audits.push(auditData); } else audits.push(auditData); await pushToGitHub(audits, `Audit ${auditData.name} gespeichert`); }
+async function deleteAuditFromGitHub(auditId) { let audits = await loadGitHubAudits(); if (!Array.isArray(audits)) return; const newList = audits.filter(a => a.id !== auditId); await pushToGitHub(newList, `Audit ${auditId} gelöscht`); }
 
-// === TOAST =================================
-let toastTimer;
-function zfpShowToast(msg, type = 'success') {
-    const toast = document.getElementById('syncToast');
-    toast.textContent = msg;
-    toast.className = `sync-toast show ${type}`;
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+// ========================  AUDIT-LOGIK  ========================
+function initAuditWithType(type) {
+    const data = MASTER_QUESTIONS[type];
+    if (!data) return false;
+    currentAuditType = type;
+    // Deutsche Fragen mit Antwortfeldern
+    germanQuestions = data.de.map(q => ({ ...q, answer: "", evidence: "", sectionId: q.id.split('.')[0] }));
+    englishQuestions = data.en;
+    // Abschnitte extrahieren
+    const sectionsMap = new Map();
+    germanQuestions.forEach(q => { const sid = q.sectionId; if (!sectionsMap.has(sid)) sectionsMap.set(sid, { id: sid, title: `${sid}. ${getSectionName(sid)}`, questions: [] }); sectionsMap.get(sid).questions.push(q); });
+    auditSections = Array.from(sectionsMap.values()).sort((a,b) => parseFloat(a.id) - parseFloat(b.id));
+    document.getElementById('mainTitle').textContent = `Self-Audit: ${data.title}`;
+    document.getElementById('mainSubtitle').textContent = data.standard;
+    return true;
 }
-
-// === AUDIT LOGIK ============================
-async function loadAuditJSONs(auditType) {
-    const info = AUDIT_TYPES[auditType];
-    try {
-        const deResponse = await fetch(info.file_de + '?t=' + Date.now());
-        if (!deResponse.ok) throw new Error(`DE Datei ${info.file_de} nicht gefunden (${deResponse.status})`);
-        const enResponse = await fetch(info.file_en + '?t=' + Date.now());
-        if (!enResponse.ok) throw new Error(`EN Datei ${info.file_en} nicht gefunden (${enResponse.status})`);
-        return { german: await deResponse.json(), english: await enResponse.json() };
-    } catch(error) {
-        alert(`❌ Fehler: ${error.message}\n\nBitte stellen Sie sicher, dass die JSON-Dateien im gleichen Ordner liegen.`);
-        return null;
-    }
-}
-
-function processJSONdata(data) {
-    germanQuestions = [];
-    if (data.german && data.german.questions) {
-        data.german.questions.forEach(q => {
-            let questionText = q.question, guidanceText = q.guidance;
-            if (q.question && typeof q.question === 'object') questionText = q.question.de || q.question;
-            if (q.guidance && typeof q.guidance === 'object') guidanceText = q.guidance.de || q.guidance;
-            germanQuestions.push({ id: q.id, text: questionText || '', guidance: guidanceText || '', options: normalizeOptions(q.answer_options), hasNA: q.has_na_option || (q.answer_options && q.answer_options.includes('N/A')), sectionId: q.id.split('.')[0], answer: "", evidence: "" });
-        });
-    }
-    englishQuestions = [];
-    if (data.english && data.english.questions) {
-        data.english.questions.forEach(q => {
-            let questionText = q.question, guidanceText = q.guidance;
-            if (q.question && typeof q.question === 'object') questionText = q.question.en || q.question;
-            if (q.guidance && typeof q.guidance === 'object') guidanceText = q.guidance.en || q.guidance;
-            englishQuestions.push({ id: q.id, text: questionText || '', guidance: guidanceText || '', options: normalizeOptions(q.answer_options), hasNA: q.has_na_option || (q.answer_options && q.answer_options.includes('N/A')), sectionId: q.id.split('.')[0] });
-        });
-    }
-    auditSections = extractSectionsFromQuestions(germanQuestions);
-}
-
-function normalizeOptions(options) { if (!options || !Array.isArray(options)) return ["YES","NO"]; return options.map(opt => { if (opt === 'Ja' || opt === 'YES' || opt === 'JA') return 'YES'; if (opt === 'Nein' || opt === 'NO') return 'NO'; if (opt === 'N/A' || opt === 'NA') return 'NA'; return opt; }); }
-
-function extractSectionsFromQuestions(questions) {
-    const sectionMap = new Map(); const sectionIds = [...new Set(questions.map(q => q.id.split('.')[0]))]; sectionIds.sort((a,b) => parseFloat(a) - parseFloat(b));
-    sectionIds.forEach(id => {
-        let title = '';
-        switch(id) { case '3': title = '3. AUSRÜSTUNG UND MATERIALIEN'; break; case '4': title = '4. VERFAHRENSANWEISUNGEN UND TECHNIKEN'; break; case '5': title = '5. SYSTEMLEISTUNG UND PRÜFUNGEN'; break; case '6': title = '6. KALIBRIERUNG UND NORMALE'; break; case '7': title = '7. DURCHFÜHRUNG DER PRÜFUNG'; break; case '8': title = '8. DOKUMENTATION'; break; default: title = `${id}. BEREICH`; }
-        sectionMap.set(id, { id, title, questions: questions.filter(q => q.id.split('.')[0] === id) });
-    });
-    return Array.from(sectionMap.values());
-}
+function getSectionName(sid) { const names = { '3':'AUSRÜSTUNG', '4':'VERFAHREN', '5':'SYSTEMLEISTUNG', '6':'KALIBRIERUNG', '7':'DURCHFÜHRUNG', '8':'DOKUMENTATION' }; return names[sid] || 'BEREICH'; }
 
 function renderOverview() {
-    const auditInfo = AUDIT_TYPES[currentAuditType];
-    const total = germanQuestions.length; const answered = germanQuestions.filter(q => q.answer && q.answer !== "").length; const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
-    document.getElementById('overviewTitle').textContent = `${auditInfo.title} - Übersicht`;
-    document.getElementById('overviewStats').innerHTML = `<div class="stat-card"><h3>Audit-Typ</h3><p>${auditInfo.title}</p></div><div class="stat-card"><h3>Standard</h3><p>${auditInfo.standard}</p></div><div class="stat-card"><h3>Fragen</h3><p>${total}</p></div><div class="stat-card"><h3>Gesamtfortschritt</h3><p>${percent}% (${answered}/${total})</p></div>`;
-    const sectionList = document.getElementById('sectionList'); sectionList.innerHTML = '';
-    auditSections.forEach((section, index) => {
-        const sectionQuestions = germanQuestions.filter(q => q.sectionId === section.id);
-        const sectionAnswered = sectionQuestions.filter(q => q.answer && q.answer !== "").length; const sectionTotal = sectionQuestions.length; const sectionPercent = sectionTotal > 0 ? Math.round((sectionAnswered / sectionTotal) * 100) : 0;
-        let statusClass = '', statusText = 'Ausstehend';
-        if (sectionPercent === 100) { statusClass = 'completed'; statusText = 'Abgeschlossen'; } else if (sectionPercent > 0) { statusClass = 'in-progress'; statusText = 'In Bearbeitung'; }
-        const sectionItem = document.createElement('div'); sectionItem.className = 'section-item'; sectionItem.dataset.sectionIndex = index; sectionItem.onclick = () => openSection(index);
-        sectionItem.innerHTML = `<div class="section-icon">📌</div><div class="section-details"><div class="section-name">${section.title}</div><div class="section-progress">${sectionAnswered}/${sectionTotal} Fragen • ${sectionPercent}%</div></div><div class="section-status ${statusClass}">${statusText}</div>`;
-        sectionList.appendChild(sectionItem);
+    if (!currentAuditType) return;
+    const data = MASTER_QUESTIONS[currentAuditType];
+    document.getElementById('overviewTitle').innerHTML = `${data.title} - Übersicht`;
+    const total = germanQuestions.length, answered = germanQuestions.filter(q => q.answer && q.answer !== "").length, percent = total ? Math.round(answered/total*100) : 0;
+    document.getElementById('overviewStats').innerHTML = `<div class="stat-card"><h3>Audit-Typ</h3><p>${data.title}</p></div><div class="stat-card"><h3>Standard</h3><p>${data.standard}</p></div><div class="stat-card"><h3>Fragen</h3><p>${total}</p></div><div class="stat-card"><h3>Fortschritt</h3><p>${percent}% (${answered}/${total})</p></div>`;
+    const container = document.getElementById('sectionList'); container.innerHTML = '';
+    auditSections.forEach((sec, idx) => {
+        const secQuestions = germanQuestions.filter(q => q.sectionId === sec.id);
+        const answeredSec = secQuestions.filter(q => q.answer && q.answer !== "").length;
+        const percentSec = secQuestions.length ? Math.round(answeredSec/secQuestions.length*100) : 0;
+        const statusClass = percentSec === 100 ? 'completed' : (percentSec > 0 ? 'in-progress' : '');
+        const statusText = percentSec === 100 ? 'Abgeschlossen' : (percentSec > 0 ? `${percentSec}%` : 'Offen');
+        const div = document.createElement('div'); div.className = 'section-item'; div.onclick = () => openSection(idx);
+        div.innerHTML = `<div><strong>${sec.title}</strong></div><div style="flex:1"></div><div class="section-status ${statusClass}">${statusText}</div>`;
+        container.appendChild(div);
     });
 }
-
-function openSection(sectionIndex) { currentSectionIndex = sectionIndex; renderCurrentSection(); updateCurrentAuditProgress(); showPage(PAGES.QUESTIONS); }
-
+function openSection(idx) { currentSectionIndex = idx; renderCurrentSection(); showPage(PAGES.QUESTIONS); }
 function renderCurrentSection() {
     if (currentSectionIndex < 0 || !auditSections[currentSectionIndex]) return;
+    const section = auditSections[currentSectionIndex];
+    document.getElementById('currentSectionTitle').innerHTML = section.title;
     const container = document.getElementById('questionsContainer'); container.innerHTML = '';
-    const section = auditSections[currentSectionIndex]; const sectionQuestions = germanQuestions.filter(q => q.sectionId === section.id);
-    sectionQuestions.sort((a,b) => (parseFloat(a.id)||0) - (parseFloat(b.id)||0));
-    sectionQuestions.forEach(q => container.appendChild(createQuestionElement(q)));
+    const secQuestions = germanQuestions.filter(q => q.sectionId === section.id);
+    secQuestions.sort((a,b) => (parseFloat(a.id)||0) - (parseFloat(b.id)||0));
+    secQuestions.forEach(q => container.appendChild(createQuestionElement(q)));
+    updateProgressDisplay();
 }
-
-function createQuestionElement(question) {
-    const qDiv = document.createElement('div'); qDiv.className = 'question'; qDiv.dataset.questionId = question.id;
-    if (!question.answer || question.answer === "") qDiv.classList.add('unanswered');
-    else if (question.answer === "YES") qDiv.classList.add('yes-answer');
-    else if (question.answer === "NO") qDiv.classList.add('no-answer');
-    else if (question.answer === "NA") qDiv.classList.add('na-answer');
-    const header = document.createElement('div'); header.className = 'question-header';
-    const text = document.createElement('div'); text.className = 'question-text'; text.textContent = question.text || '';
-    const idSpan = document.createElement('div'); idSpan.className = 'question-id'; idSpan.textContent = question.id;
-    header.appendChild(text); header.appendChild(idSpan); qDiv.appendChild(header);
-    if (question.guidance) { const guidance = document.createElement('div'); guidance.className = 'guidance'; guidance.textContent = question.guidance; qDiv.appendChild(guidance); }
-    const options = document.createElement('div'); options.className = 'answer-options';
-    const yesBtn = document.createElement('button'); yesBtn.className = `answer-option ${question.answer === 'YES' ? 'selected' : ''}`; yesBtn.dataset.answer = 'YES'; yesBtn.textContent = 'JA'; yesBtn.onclick = () => selectAnswer(question.id, 'YES');
-    const noBtn = document.createElement('button'); noBtn.className = `answer-option ${question.answer === 'NO' ? 'selected' : ''}`; noBtn.dataset.answer = 'NO'; noBtn.textContent = 'NEIN'; noBtn.onclick = () => selectAnswer(question.id, 'NO');
-    options.appendChild(yesBtn); options.appendChild(noBtn);
-    if (question.hasNA) { const naBtn = document.createElement('button'); naBtn.className = `answer-option ${question.answer === 'NA' ? 'selected' : ''}`; naBtn.dataset.answer = 'NA'; naBtn.textContent = 'N/A'; naBtn.onclick = () => selectAnswer(question.id, 'NA'); options.appendChild(naBtn); }
-    qDiv.appendChild(options);
-    const evidence = document.createElement('textarea'); evidence.className = 'evidence'; evidence.placeholder = 'Nachweise / Kommentare'; evidence.value = question.evidence || '';
-    evidence.oninput = () => updateEvidence(question.id, evidence.value);
-    qDiv.appendChild(evidence);
-    return qDiv;
+function createQuestionElement(q) {
+    const div = document.createElement('div'); div.className = `question ${q.answer ? q.answer.toLowerCase()+'-answer' : ''}`; div.dataset.id = q.id;
+    div.innerHTML = `<div class="question-header"><div class="question-text">${escapeHtml(q.text)}</div><div class="question-id">${q.id}</div></div>${q.guidance ? `<div class="guidance">${escapeHtml(q.guidance)}</div>` : ''}<div class="answer-options"></div><textarea class="evidence" placeholder="Nachweise / Kommentare">${escapeHtml(q.evidence)}</textarea>`;
+    const opts = div.querySelector('.answer-options');
+    const answers = ['YES','NO']; if (q.hasNA) answers.push('NA');
+    answers.forEach(ans => { const btn = document.createElement('button'); btn.className = `answer-option ${q.answer === ans ? 'selected' : ''}`; btn.dataset.answer = ans; btn.textContent = ans === 'YES' ? 'JA' : (ans === 'NO' ? 'NEIN' : 'N/A'); btn.onclick = () => selectAnswer(q.id, ans); opts.appendChild(btn); });
+    const textarea = div.querySelector('.evidence'); textarea.oninput = () => updateEvidence(q.id, textarea.value);
+    return div;
 }
+async function selectAnswer(id, answer) { const q = germanQuestions.find(q => q.id === id); if (!q) return; q.answer = answer; const el = document.querySelector(`.question[data-id="${id}"]`); if (el) { el.classList.remove('yes-answer','no-answer','na-answer'); if (answer === 'YES') el.classList.add('yes-answer'); else if (answer === 'NO') el.classList.add('no-answer'); else if (answer === 'NA') el.classList.add('na-answer'); el.querySelectorAll('.answer-option').forEach(btn => btn.classList.remove('selected')); const sel = el.querySelector(`.answer-option[data-answer="${answer}"]`); if (sel) sel.classList.add('selected'); } updateProgressDisplay(); renderOverview(); saveCurrentAuditToLocalStorage(); if (githubConnected) autoSaveToGitHub(); else showToast('⚠️ Nicht mit GitHub verbunden - nur lokal gespeichert', 'error'); }
+async function updateEvidence(id, evidence) { const q = germanQuestions.find(q => q.id === id); if (q) { q.evidence = evidence; saveCurrentAuditToLocalStorage(); if (githubConnected) autoSaveToGitHub(); } }
+function updateProgressDisplay() { const total = germanQuestions.length, answered = germanQuestions.filter(q => q.answer && q.answer !== "").length, yes = germanQuestions.filter(q => q.answer === "YES").length, no = germanQuestions.filter(q => q.answer === "NO").length; const percent = total ? Math.round(answered/total*100) : 0; document.getElementById('answeredCount').innerText = answered; document.getElementById('totalCount').innerText = total; document.getElementById('progressText').innerText = percent+'%'; document.getElementById('auditProgressBar').style.width = percent+'%'; document.getElementById('yesCount').innerText = yes; document.getElementById('noCount').innerText = no; }
+function saveCurrentAuditToLocalStorage() { if (!currentAuditType) return; const state = { currentAuditType, currentAuditId, currentAuditName, germanQuestions: germanQuestions.map(q => ({ id:q.id, answer:q.answer, evidence:q.evidence })), auditSections, timestamp: new Date().toISOString() }; localStorage.setItem('zfp_current_audit', JSON.stringify(state)); }
+function loadCurrentAuditFromLocalStorage() { const saved = localStorage.getItem('zfp_current_audit'); if (!saved) return false; try { const state = JSON.parse(saved); if (!state.currentAuditType) return false; if (initAuditWithType(state.currentAuditType)) { state.germanQuestions.forEach(savedQ => { const target = germanQuestions.find(q => q.id === savedQ.id); if (target) { target.answer = savedQ.answer; target.evidence = savedQ.evidence; } }); currentAuditId = state.currentAuditId; currentAuditName = state.currentAuditName; renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); return true; } } catch(e) { return false; } }
+function resetAudit() { if (!confirm('⚠️ Alle Antworten zurücksetzen?')) return; germanQuestions.forEach(q => { q.answer = ""; q.evidence = ""; }); if (currentSectionIndex >= 0) renderCurrentSection(); updateProgressDisplay(); renderOverview(); saveCurrentAuditToLocalStorage(); showToast('Audit zurückgesetzt', 'info'); }
 
-async function selectAnswer(questionId, answer) {
-    const question = germanQuestions.find(q => q.id === questionId); if (!question) return;
-    question.answer = answer;
-    const qEl = document.querySelector(`[data-question-id="${questionId}"]`);
-    if (qEl) {
-        qEl.classList.remove('unanswered','yes-answer','no-answer','na-answer');
-        if (answer === "YES") qEl.classList.add('yes-answer'); else if (answer === "NO") qEl.classList.add('no-answer'); else if (answer === "NA") qEl.classList.add('na-answer');
-        qEl.querySelectorAll('.answer-option').forEach(btn => btn.classList.remove('selected'));
-        const selectedBtn = qEl.querySelector(`.answer-option[data-answer="${answer}"]`); if (selectedBtn) selectedBtn.classList.add('selected');
-    }
-    updateCurrentAuditProgress(); renderOverview(); saveCurrentAuditToLocalStorage();
-    if (githubConnected) await autoSaveToGitHub(); else zfpShowToast('⚠️ Nicht mit GitHub verbunden - Antwort nur lokal gespeichert!', 'error');
+// ========================  GITHUB AUDIT LADEN & SPEICHERN  ========================
+async function loadGitHubAuditData(audit) {
+    if (!audit || !audit.audit_type || !audit.data || !audit.data.germanQuestions) { showToast('Ungültige Audit-Daten', 'error'); return; }
+    if (initAuditWithType(audit.audit_type)) {
+        // Antworten übernehmen
+        audit.data.germanQuestions.forEach(savedQ => {
+            const target = germanQuestions.find(q => q.id === savedQ.id);
+            if (target) { target.answer = savedQ.answer || ""; target.evidence = savedQ.evidence || ""; }
+        });
+        currentAuditId = audit.id;
+        currentAuditName = audit.name;
+        renderOverview();
+        updateProgressDisplay();
+        showPage(PAGES.OVERVIEW);
+        saveCurrentAuditToLocalStorage();
+        showToast(`Audit "${audit.name}" geladen`, 'success');
+    } else showToast('Fehler beim Laden des Audits', 'error');
 }
-
-async function updateEvidence(questionId, evidence) {
-    const question = germanQuestions.find(q => q.id === questionId); if (question) { question.evidence = evidence; saveCurrentAuditToLocalStorage(); if (githubConnected) await autoSaveToGitHub(); }
-}
-
-function updateCurrentAuditProgress() {
-    const total = germanQuestions.length; const answered = germanQuestions.filter(q => q.answer && q.answer !== "").length; const yesCount = germanQuestions.filter(q => q.answer === "YES").length; const noCount = germanQuestions.filter(q => q.answer === "NO").length;
-    const percent = total > 0 ? Math.round((answered / total) * 100) : 0;
-    document.getElementById('answeredCount').textContent = answered; document.getElementById('totalCount').textContent = total; document.getElementById('progressText').textContent = `${percent}%`; document.getElementById('yesCount').textContent = yesCount; document.getElementById('noCount').textContent = noCount;
-    const progressBar = document.getElementById('auditProgressBar'); progressBar.style.width = `${percent}%`; progressBar.textContent = `${percent}%`; document.getElementById('progressTextBar').textContent = `${percent}%`;
-}
-
-function updateProgressDisplays() { loadAllCompletedAudits(); }
-
-async function autoSaveToGitHub() {
-    if (!currentAuditType || !germanQuestions.length || !githubConnected) return;
-    const auditName = `${AUDIT_TYPES[currentAuditType].title} - ${new Date().toLocaleString('de-DE')}`;
-    const existing = await loadGitHubAudits();
-    const existingIndex = existing.findIndex(a => a.audit_type === currentAuditType);
+async function saveCurrentAuditToGitHub() { 
+    if (!currentAuditType) { showToast('Kein Audit geladen', 'error'); return; }
+    if (!githubToken) { showToast('GitHub nicht verbunden', 'error'); return; }
+    const nameInput = document.getElementById('githubAuditName');
+    let auditName = nameInput.value.trim();
+    if (!auditName) auditName = `${MASTER_QUESTIONS[currentAuditType].title} - ${new Date().toLocaleString()}`;
+    const isUpdate = (currentAuditId && currentAuditName === auditName); // einfache Logik: gleicher Name = Update
     const auditData = {
-        id: `audit_${currentAuditType}_${Date.now()}`,
+        id: isUpdate ? currentAuditId : `audit_${currentAuditType}_${Date.now()}`,
         name: auditName,
         audit_type: currentAuditType,
-        audit_title: AUDIT_TYPES[currentAuditType].title,
-        standard: AUDIT_TYPES[currentAuditType].standard,
-        created_at: existingIndex >= 0 ? existing[existingIndex].created_at : new Date().toISOString(),
+        audit_title: MASTER_QUESTIONS[currentAuditType].title,
+        standard: MASTER_QUESTIONS[currentAuditType].standard,
+        created_at: isUpdate ? (await loadGitHubAudits()).find(a => a.id === currentAuditId)?.created_at || new Date().toISOString() : new Date().toISOString(),
         last_modified: new Date().toISOString(),
-        data: { germanQuestions: germanQuestions.map(q => ({ id: q.id, answer: q.answer || "", evidence: q.evidence || "", text: q.text, guidance: q.guidance })), sections: auditSections },
-        summary: { total: germanQuestions.length, answered: germanQuestions.filter(q => q.answer && q.answer !== "").length, yes: germanQuestions.filter(q => q.answer === "YES").length, no: germanQuestions.filter(q => q.answer === "NO").length, na: germanQuestions.filter(q => q.answer === "NA").length }
+        data: { germanQuestions: germanQuestions.map(q => ({ id: q.id, answer: q.answer, evidence: q.evidence })) },
+        summary: { total: germanQuestions.length, answered: germanQuestions.filter(q => q.answer).length, yes: germanQuestions.filter(q => q.answer === 'YES').length, no: germanQuestions.filter(q => q.answer === 'NO').length, na: germanQuestions.filter(q => q.answer === 'NA').length }
     };
-    await saveToGitHubAuditList(auditData);
-}
-
-window.zfpSaveCurrentAuditToGitHub = async function() {
-    if (!currentAuditType || !germanQuestions.length) { alert('❌ Kein Audit geladen!'); document.getElementById('githubSaveModal').style.display = 'none'; return; }
-    if (!githubToken) { alert('❌ GitHub nicht konfiguriert! Bitte Token eingeben.'); document.getElementById('githubSaveModal').style.display = 'none'; return; }
-    const auditName = document.getElementById('githubAuditName').value.trim() || `${AUDIT_TYPES[currentAuditType].title} - ${new Date().toLocaleString('de-DE')}`;
     try {
-        const existing = await loadGitHubAudits();
-        const existingIndex = existing.findIndex(a => a.audit_type === currentAuditType);
-        const auditData = {
-            id: `audit_${currentAuditType}_${Date.now()}`,
-            name: auditName,
-            audit_type: currentAuditType,
-            audit_title: AUDIT_TYPES[currentAuditType].title,
-            standard: AUDIT_TYPES[currentAuditType].standard,
-            created_at: existingIndex >= 0 ? existing[existingIndex].created_at : new Date().toISOString(),
-            last_modified: new Date().toISOString(),
-            data: { germanQuestions: germanQuestions.map(q => ({ id: q.id, answer: q.answer || "", evidence: q.evidence || "", text: q.text, guidance: q.guidance })), sections: auditSections },
-            summary: { total: germanQuestions.length, answered: germanQuestions.filter(q => q.answer && q.answer !== "").length, yes: germanQuestions.filter(q => q.answer === "YES").length, no: germanQuestions.filter(q => q.answer === "NO").length, na: germanQuestions.filter(q => q.answer === "NA").length }
-        };
-        await saveToGitHubAuditList(auditData);
-        zfpShowToast(`✅ Audit "${auditName}" in GitHub gespeichert`, 'success');
-        document.getElementById('githubSaveModal').style.display = 'none';
+        await saveAuditToGitHub(auditData, isUpdate);
+        if (!isUpdate) { currentAuditId = auditData.id; currentAuditName = auditName; saveCurrentAuditToLocalStorage(); }
+        showToast(`✅ Audit "${auditName}" gespeichert`, 'success');
+        closeModal('githubSaveModal');
         document.getElementById('githubAuditName').value = '';
-        loadAllCompletedAudits();
-    } catch(error) { zfpShowToast(`❌ Fehler: ${error.message}`, 'error'); }
-};
-
-async function loadAllCompletedAudits() {
+        refreshCompletedAudits();
+    } catch(e) { showToast(`❌ Fehler: ${e.message}`, 'error'); }
+}
+async function refreshCompletedAudits() {
+    if (!githubToken) { document.getElementById('zfpCompletedAuditsContainer').innerHTML = '<div>🔌 Bitte GitHub Token eingeben</div>'; return; }
+    const audits = await loadGitHubAudits();
     const container = document.getElementById('zfpCompletedAuditsContainer');
-    const countSpan = document.getElementById('zfpCompletedCount');
-    let audits = [];
-    if (githubToken) {
-        try {
-            audits = await loadGitHubAudits();
-            if (!Array.isArray(audits)) audits = [];
-        } catch(e) { console.error(e); }
-    }
-    audits.sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
-    countSpan.textContent = `(${audits.length})`;
-    if (audits.length === 0) { container.innerHTML = '<div class="no-completed-audits">Keine Audits in GitHub vorhanden</div>'; return; }
+    if (!audits.length) { container.innerHTML = '<div>Keine gespeicherten Audits</div>'; return; }
     container.innerHTML = '';
-    audits.forEach(audit => {
+    audits.sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
+    audits.forEach(a => {
         const card = document.createElement('div'); card.className = 'completed-audit-card';
-        const dateStr = new Date(audit.created_at).toLocaleDateString('de-DE', { day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit' });
-        card.innerHTML = `<div class="completed-audit-header"><span class="completed-audit-type"><span>${AUDIT_TYPES[audit.audit_type]?.icon || '📋'}</span> ${audit.audit_title || audit.audit_type}</span><span class="completed-audit-date">${dateStr}</span></div><div class="completed-audit-meta"><span class="audit-source-badge audit-source-github">☁️ GitHub</span><span>${audit.summary?.answered || 0}/${audit.summary?.total || 0} (${audit.summary?.total ? Math.round((audit.summary.answered / audit.summary.total) * 100) : 0}%)</span></div><div class="completed-audit-progress"><div class="completed-audit-progress-fill" style="width: ${audit.summary?.total ? Math.round((audit.summary.answered / audit.summary.total) * 100) : 0}%"></div></div><div class="completed-audit-actions"><button class="audit-action-btn btn-load-audit" onclick='loadGitHubAuditData(${JSON.stringify(audit).replace(/'/g, "\\'")})'>📂 Laden</button><button class="audit-action-btn btn-delete-audit" onclick='deleteGitHubAudit("${audit.id}")'>🗑️ Löschen</button></div>`;
+        const date = new Date(a.created_at).toLocaleString('de-DE');
+        const progress = a.summary ? `${a.summary.answered}/${a.summary.total}` : '?/?';
+        card.innerHTML = `<div><strong>${a.name}</strong><br><small>${a.audit_title} | ${date}</small></div><div>Fortschritt: ${progress}</div><div class="completed-audit-actions"><button class="audit-action-btn btn-load-audit" onclick='loadGitHubAuditData(${JSON.stringify(a).replace(/'/g, "\\'")})'>Laden</button><button class="audit-action-btn btn-delete-audit" onclick='deleteGitHubAudit("${a.id}")'>Löschen</button></div>`;
         container.appendChild(card);
     });
 }
+async function deleteGitHubAudit(id) { if (!confirm('Audit wirklich löschen?')) return; try { await deleteAuditFromGitHub(id); refreshCompletedAudits(); showToast('Audit gelöscht', 'info'); } catch(e) { showToast('Fehler beim Löschen', 'error'); } }
+async function autoSaveToGitHub() { if (githubConnected && currentAuditType) { const name = currentAuditName || `${MASTER_QUESTIONS[currentAuditType].title} (Auto)`;
+        const auditData = { id: currentAuditId || `temp_${Date.now()}`, name, audit_type: currentAuditType, audit_title: MASTER_QUESTIONS[currentAuditType].title, standard: MASTER_QUESTIONS[currentAuditType].standard, created_at: new Date().toISOString(), last_modified: new Date().toISOString(), data: { germanQuestions: germanQuestions.map(q => ({ id: q.id, answer: q.answer, evidence: q.evidence })) }, summary: {} };
+        try { await saveAuditToGitHub(auditData, !!currentAuditId); if (!currentAuditId) { currentAuditId = auditData.id; currentAuditName = name; saveCurrentAuditToLocalStorage(); } refreshCompletedAudits(); } catch(e) { console.warn('Auto-save failed', e); } } }
 
-window.loadGitHubAuditData = function(auditData) {
-    if (!auditData.data) { alert('❌ Audit-Daten sind beschädigt!'); return; }
-    currentAuditType = auditData.audit_type; currentSectionIndex = -1;
-    const auditInfo = AUDIT_TYPES[auditData.audit_type] || { title: auditData.audit_title || 'Unbekannt', standard: auditData.standard || '', icon: '📋' };
-    document.getElementById('mainTitle').textContent = `Self-Audit: ${auditInfo.title}`; document.getElementById('mainSubtitle').textContent = auditInfo.standard || '';
-    germanQuestions = auditData.data.germanQuestions || [];
-    const sectionMap = new Map();
-    germanQuestions.forEach(q => { const sectionId = q.id.split('.')[0]; if (!sectionMap.has(sectionId)) sectionMap.set(sectionId, { id: sectionId, title: getSectionTitle(sectionId), questions: [] }); sectionMap.get(sectionId).questions.push(q); });
-    auditSections = Array.from(sectionMap.values());
-    renderOverview(); showPage(PAGES.OVERVIEW); updateProgressDisplays();
-};
-
-window.deleteGitHubAudit = async function(auditId) {
-    if (!githubToken) { alert('❌ GitHub nicht verbunden!'); return; }
-    if (!confirm('⚠️ Dieses Audit wirklich aus GitHub löschen?')) return;
-    try {
-        await deleteFromGitHubAuditList(auditId);
-        alert('✅ Audit aus GitHub gelöscht');
-        loadAllCompletedAudits();
-    } catch(error) { alert(`❌ Fehler beim Löschen: ${error.message}`); }
-};
-
-function getSectionTitle(sectionId) {
-    switch(sectionId) { case '3': return '3. AUSRÜSTUNG UND MATERIALIEN'; case '4': return '4. VERFAHRENSANWEISUNGEN UND TECHNIKEN'; case '5': return '5. SYSTEMLEISTUNG UND PRÜFUNGEN'; case '6': return '6. KALIBRIERUNG UND NORMALE'; case '7': return '7. DURCHFÜHRUNG DER PRÜFUNG'; case '8': return '8. DOKUMENTATION'; default: return `${sectionId}. BEREICH`; }
-}
-
-function exportResults() { alert('Export-Funktion vorhanden (kann hier erweitert werden)'); }
-function showImportModal() { document.getElementById('importModal').style.display = 'flex'; document.getElementById('importFileInput').value = ''; }
-function handleImportFile() { const file = document.getElementById('importFileInput').files[0]; if (!file) { alert('❌ Bitte eine Datei auswählen!'); return; } importResults(file); }
-function importResults(file) {
-    const reader = new FileReader();
-    reader.onload = (e) => { try { const importData = JSON.parse(e.target.result); if (importData.answers && Array.isArray(importData.answers)) { importData.answers.forEach(importItem => { const targetQ = germanQuestions.find(q => q.id === importItem.id); if (targetQ) { targetQ.answer = importItem.value || ""; targetQ.evidence = importItem.comment || ""; } }); if (currentSectionIndex >= 0) renderCurrentSection(); updateCurrentAuditProgress(); renderOverview(); alert(`✅ ${importData.answers.length} Antworten importiert!`); } else if (importData.germanQuestions && Array.isArray(importData.germanQuestions)) { if (importData.auditType && importData.auditType !== currentAuditType && !confirm(`⚠️ Die importierte Datei ist für "${importData.auditTitle || importData.auditType}", aber Sie haben "${AUDIT_TYPES[currentAuditType].title}" geladen.\n\nTrotzdem importieren?`)) { document.getElementById('importModal').style.display = 'none'; return; } let importCount = 0; importData.germanQuestions.forEach(importQ => { const targetQ = germanQuestions.find(q => q.id === importQ.id); if (targetQ) { targetQ.answer = importQ.answer || ""; targetQ.evidence = importQ.evidence || ""; importCount++; } }); if (currentSectionIndex >= 0) renderCurrentSection(); updateCurrentAuditProgress(); renderOverview(); alert(`✅ ${importCount} Antworten importiert!`); } else { alert('❌ Ungültiges Dateiformat!'); } document.getElementById('importModal').style.display = 'none'; } catch(error) { alert(`❌ Fehler beim Import: ${error.message}`); } };
-    reader.readAsText(file);
-}
+// ========================  BERICHTERSTELLUNG (ENGLISCH) ========================
 function generateEnglishReport() {
-    if (!currentAuditType || !germanQuestions.length || !englishQuestions.length) { alert('❌ Kein Audit geladen oder Fragen fehlen!'); return; }
-    // Vereinfachte Berichtserstellung – hier kann der originale Code eingefügt werden
-    alert('Bericht wird generiert (vollständige Implementierung vorhanden)');
-}
-function resetAudit() {
-    if (!currentAuditType) return;
-    if (!confirm('⚠️ Möchten Sie wirklich ALLE Antworten und Kommentare zurücksetzen?\n\nDiese Aktion kann nicht rückgängig gemacht werden!')) return;
-    germanQuestions.forEach(q => { q.answer = ""; q.evidence = ""; });
-    if (currentSectionIndex >= 0) renderCurrentSection(); updateCurrentAuditProgress(); renderOverview(); saveCurrentAuditToLocalStorage();
-}
-function goBackToSelection() {
-    currentAuditType = null; germanQuestions = []; englishQuestions = []; auditSections = []; currentSectionIndex = -1;
-    document.getElementById('mainTitle').textContent = 'Self-Audit ZfP Verfahren'; document.getElementById('mainSubtitle').textContent = 'Schaeffler Technologies AG & Co. KG';
-    showPage(PAGES.SELECTION); loadAllCompletedAudits(); localStorage.removeItem('zfp_current_audit');
-}
-function goBackToOverview() { currentSectionIndex = -1; renderOverview(); showPage(PAGES.OVERVIEW); }
-async function startAudit(auditType) {
-    currentAuditType = auditType; const data = await loadAuditJSONs(auditType); if (!data) return;
-    processJSONdata(data);
-    document.getElementById('mainTitle').textContent = `Self-Audit: ${AUDIT_TYPES[auditType].title}`; document.getElementById('mainSubtitle').textContent = AUDIT_TYPES[auditType].standard;
-    renderOverview(); showPage(PAGES.OVERVIEW); updateProgressDisplays(); saveCurrentAuditToLocalStorage();
+    if (!currentAuditType || !germanQuestions.length) { alert('Kein Audit geladen'); return; }
+    let report = `PRI Audit Report - ${MASTER_QUESTIONS[currentAuditType].title} (${MASTER_QUESTIONS[currentAuditType].standard})\n`;
+    report += `Date: ${new Date().toLocaleString()}\n\n`;
+    auditSections.forEach(section => {
+        report += `\n${section.title}\n${'='.repeat(40)}\n`;
+        const secQuestions = germanQuestions.filter(q => q.sectionId === section.id);
+        secQuestions.forEach(q => {
+            const enQ = englishQuestions.find(e => e.id === q.id);
+            const questionText = enQ ? enQ.text : q.text;
+            const answer = q.answer === 'YES' ? 'YES' : (q.answer === 'NO' ? 'NO' : (q.answer === 'NA' ? 'N/A' : 'Not answered'));
+            report += `\n${q.id} - ${questionText}\nAnswer: ${answer}\n`;
+            if (q.evidence) report += `Evidence: ${q.evidence}\n`;
+        });
+    });
+    const blob = new Blob([report], { type: 'text/plain' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `PRI_Report_${currentAuditType}_${new Date().toISOString().slice(0,19)}.txt`; a.click(); URL.revokeObjectURL(a.href);
 }
 
-// === EVENT LISTENERS =========================
+// ========================  IMPORT / EXPORT  ========================
+function showImportModal() { document.getElementById('importModal').style.display = 'flex'; document.getElementById('importFileInput').value = ''; }
+function handleImportFile() { const file = document.getElementById('importFileInput').files[0]; if (!file) return; const reader = new FileReader(); reader.onload = e => { try { const data = JSON.parse(e.target.result); if (data.germanQuestions && Array.isArray(data.germanQuestions) && data.audit_type) { if (initAuditWithType(data.audit_type)) { data.germanQuestions.forEach(imp => { const q = germanQuestions.find(q => q.id === imp.id); if (q) { q.answer = imp.answer || ''; q.evidence = imp.evidence || ''; } }); renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); showToast('Import erfolgreich', 'success'); } else showToast('Ungültiger Audit-Typ', 'error'); } else showToast('Ungültiges Dateiformat', 'error'); } catch(err) { showToast('Fehler beim Import', 'error'); } closeModal('importModal'); }; reader.readAsText(file); }
+function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+function showToast(msg, type) { const toast = document.getElementById('syncToast'); toast.textContent = msg; toast.className = `sync-toast show ${type}`; setTimeout(() => toast.classList.remove('show'), 3000); }
+function escapeHtml(str) { if (!str) return ''; return str.replace(/[&<>]/g, function(m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
+
+// ========================  EVENT LISTENER  ========================
 function setupEventListeners() {
-    document.querySelectorAll('.audit-btn').forEach(btn => btn.addEventListener('click', e => startAudit(btn.dataset.audit)));
-    document.getElementById('backToSelectionFromOverviewBtn')?.addEventListener('click', goBackToSelection);
-    document.getElementById('reportFromOverviewBtn')?.addEventListener('click', generateEnglishReport);
-    document.getElementById('backToOverviewBtn')?.addEventListener('click', goBackToOverview);
-    document.getElementById('resetFromQuestionsBtn')?.addEventListener('click', resetAudit);
-    document.getElementById('importFromOverviewBtn')?.addEventListener('click', showImportModal);
-    document.getElementById('importFromQuestionsBtn')?.addEventListener('click', showImportModal);
-    window.addEventListener('click', (e) => { if (e.target === document.getElementById('importModal')) document.getElementById('importModal').style.display = 'none'; if (e.target === document.getElementById('githubSaveModal')) document.getElementById('githubSaveModal').style.display = 'none'; });
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') { document.getElementById('importModal').style.display = 'none'; document.getElementById('githubSaveModal').style.display = 'none'; } });
-    const resumeBtn = document.getElementById('resumeLastAuditBtn'); if (resumeBtn) resumeBtn.addEventListener('click', () => { if (!loadCurrentAuditFromLocalStorage()) { alert('Kein gespeichertes Audit gefunden.'); resumeBtn.style.display = 'none'; } });
-    document.getElementById('githubSaveTokenBtn').addEventListener('click', saveGitHubToken);
+    document.querySelectorAll('.audit-btn').forEach(btn => btn.addEventListener('click', () => { const type = btn.dataset.audit; if (initAuditWithType(type)) { currentAuditId = null; currentAuditName = null; renderOverview(); showPage(PAGES.OVERVIEW); saveCurrentAuditToLocalStorage(); } }));
+    document.getElementById('backToSelectionFromOverviewBtn').onclick = () => { currentAuditType = null; showPage(PAGES.SELECTION); localStorage.removeItem('zfp_current_audit'); refreshCompletedAudits(); };
+    document.getElementById('backToOverviewBtn').onclick = () => { renderOverview(); showPage(PAGES.OVERVIEW); };
+    document.getElementById('resetFromQuestionsBtn').onclick = resetAudit;
+    document.getElementById('importFromOverviewBtn').onclick = showImportModal;
+    document.getElementById('importFromQuestionsBtn').onclick = showImportModal;
+    document.getElementById('reportFromOverviewBtn').onclick = generateEnglishReport;
+    document.getElementById('saveToGitHubBtn').onclick = () => { if (currentAuditType) document.getElementById('githubSaveModal').style.display = 'flex'; else showToast('Kein Audit geladen', 'error'); };
+    document.getElementById('saveToGitHubFromQuestionsBtn').onclick = () => { if (currentAuditType) document.getElementById('githubSaveModal').style.display = 'flex'; else showToast('Kein Audit geladen', 'error'); };
+    document.getElementById('confirmGithubSaveBtn').onclick = saveCurrentAuditToGitHub;
+    document.getElementById('githubSaveTokenBtn').onclick = saveGitHubToken;
+    document.getElementById('resumeLastAuditBtn').onclick = () => { if (!loadCurrentAuditFromLocalStorage()) { showToast('Kein gespeichertes Audit gefunden', 'info'); document.getElementById('resumeLastAuditBtn').style.display = 'none'; } };
+    window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
 }
+async function updateProgressOnStartPage() { if (!githubToken) return; const audits = await loadGitHubAudits(); ['ET','MT','NE','UT'].forEach(type => { const procSpan = document.getElementById(`${type.toLowerCase()}Progress`); if (procSpan) { const latest = audits.filter(a => a.audit_type === type).sort((a,b)=>new Date(b.last_modified)-new Date(a.last_modified))[0]; const percent = latest?.summary ? Math.round(latest.summary.answered/latest.summary.total*100) : 0; procSpan.innerText = `${percent}%`; } }); }
 
-// === INIT ====================================
-document.addEventListener('DOMContentLoaded', function() {
-    initThemeToggle();
-    loadGitHubToken();
-    setupEventListeners();
-    const saved = localStorage.getItem('zfp_current_audit'); const resumeBtn = document.getElementById('resumeLastAuditBtn'); if (saved && resumeBtn) resumeBtn.style.display = 'inline-block';
-    loadAllCompletedAudits();
-});
+document.addEventListener('DOMContentLoaded', () => { initTheme(); loadGitHubToken(); setupEventListeners(); if (loadCurrentAuditFromLocalStorage()) document.getElementById('resumeLastAuditBtn').style.display = 'inline-block'; refreshCompletedAudits(); setInterval(() => { if (githubToken) updateProgressOnStartPage(); }, 10000); });
+window.loadGitHubAuditData = loadGitHubAuditData;
+window.deleteGitHubAudit = deleteGitHubAudit;
+window.refreshCompletedAudits = refreshCompletedAudits;
+window.closeModal = closeModal;
+window.handleImportFile = handleImportFile;
 </script>
 </body>
 </html>
