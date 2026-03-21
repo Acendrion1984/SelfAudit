@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -9,264 +8,261 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-```
-<style>
-    /* ── Design-System (identisch pruefprotokoll) ── */
-    :root {
-        /* Dark Mode Default */
-        --bg:          #0d1117;
-        --surface:     #161b22;
-        --surface-2:   #21262d;
-        --border:      rgba(255,255,255,0.08);
-        --text:        #e6edf3;
-        --muted:       #8b949e;
-        --accent:      #58a6ff;
-        --radius-lg:   16px;
-        --shadow:      0 8px 32px rgba(0,0,0,0.4);
-        --shadow-hover:0 16px 48px rgba(0,0,0,0.55);
+    <style>
+        /* ── Design-System (identisch pruefprotokoll) ── */
+        :root {
+            /* Dark Mode Default */
+            --bg:          #0d1117;
+            --surface:     #161b22;
+            --surface-2:   #21262d;
+            --border:      rgba(255,255,255,0.08);
+            --text:        #e6edf3;
+            --muted:       #8b949e;
+            --accent:      #58a6ff;
+            --radius-lg:   16px;
+            --shadow:      0 8px 32px rgba(0,0,0,0.4);
+            --shadow-hover:0 16px 48px rgba(0,0,0,0.55);
 
-        /* Legacy vars für bestehende Komponenten */
-        --bg-primary: var(--bg);
-        --bg-secondary: var(--surface);
-        --bg-tertiary: var(--surface-2);
-        --text-primary: var(--text);
-        --text-secondary: var(--muted);
-        --text-tertiary: #ffffff;
-        --border-color: rgba(255,255,255,0.15);
-        --border-light: rgba(255,255,255,0.08);
-        --shadow-color: rgba(0,0,0,0.35);
-        --header-border: rgba(255,255,255,0.08);
-        --question-border: #3498db;
-        --question-bg: #1e1e1e;
-        --answer-yes: #27ae60; --answer-no: #e74c3c; --answer-na: #95a5a6;
-        --input-bg: #21262d; --input-border: rgba(255,255,255,0.15); --input-text: #e6edf3;
-        --modal-content-bg: #161b22; --progress-bg: #21262d;
-    }
-    body.light-mode {
-        --bg:          #f0f2f5;
-        --surface:     #ffffff;
-        --surface-2:   #f0f2f5;
-        --border:      rgba(0,0,0,0.1);
-        --text:        #1a1e24;
-        --muted:       #6b7280;
-        --accent:      #1d6fbe;
-        --shadow:      0 4px 20px rgba(0,0,0,0.08);
-        --shadow-hover:0 10px 36px rgba(0,0,0,0.16);
+            /* Legacy vars für bestehende Komponenten */
+            --bg-primary: var(--bg);
+            --bg-secondary: var(--surface);
+            --bg-tertiary: var(--surface-2);
+            --text-primary: var(--text);
+            --text-secondary: var(--muted);
+            --text-tertiary: #ffffff;
+            --border-color: rgba(255,255,255,0.15);
+            --border-light: rgba(255,255,255,0.08);
+            --shadow-color: rgba(0,0,0,0.35);
+            --header-border: rgba(255,255,255,0.08);
+            --question-border: #3498db;
+            --question-bg: #1e1e1e;
+            --answer-yes: #27ae60; --answer-no: #e74c3c; --answer-na: #95a5a6;
+            --input-bg: #21262d; --input-border: rgba(255,255,255,0.15); --input-text: #e6edf3;
+            --modal-content-bg: #161b22; --progress-bg: #21262d;
+        }
+        body.light-mode {
+            --bg:          #f0f2f5;
+            --surface:     #ffffff;
+            --surface-2:   #f0f2f5;
+            --border:      rgba(0,0,0,0.1);
+            --text:        #1a1e24;
+            --muted:       #6b7280;
+            --accent:      #1d6fbe;
+            --shadow:      0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover:0 10px 36px rgba(0,0,0,0.16);
 
-        --bg-primary: var(--bg); --bg-secondary: var(--surface); --bg-tertiary: var(--surface-2);
-        --text-primary: var(--text); --text-secondary: var(--muted); --text-tertiary: #1a1e24;
-        --border-color: rgba(0,0,0,0.12); --border-light: rgba(0,0,0,0.08);
-        --shadow-color: rgba(0,0,0,0.08);
-        --header-border: rgba(0,0,0,0.1);
-        --question-bg: #f8f9fa;
-        --input-bg: #ffffff; --input-border: #d1d5db; --input-text: #1a1e24;
-        --modal-content-bg: #ffffff; --progress-bg: #ecf0f1;
-    }
-    /* All elements inherit color from CSS vars (always-dark default) */
-    body, .stat-card, .stat-card h3, .stat-card p,
-    .completed-audit-card, .completed-audit-card strong, .completed-audit-card small,
-    .section-item, .section-item strong, .audit-status, .audit-status strong,
-    .controls-container, h1, h2, h3, #overviewTitle, #currentSectionTitle,
-    .github-token-field input, .question-text, .completed-audits-section {
-        color: var(--text-primary);
-    }
-    .guidance { color: var(--text-secondary); }
-    .evidence { color: var(--input-text); background: var(--input-bg); border-color: var(--input-border); }
-    .modal-content { color: var(--text-primary); background: var(--modal-content-bg); }
-    .modal-content input { color: var(--input-text); background: var(--input-bg); border-color: var(--input-border); }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 0 0 60px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+            --bg-primary: var(--bg); --bg-secondary: var(--surface); --bg-tertiary: var(--surface-2);
+            --text-primary: var(--text); --text-secondary: var(--muted); --text-tertiary: #1a1e24;
+            --border-color: rgba(0,0,0,0.12); --border-light: rgba(0,0,0,0.08);
+            --shadow-color: rgba(0,0,0,0.08);
+            --header-border: rgba(0,0,0,0.1);
+            --question-bg: #f8f9fa;
+            --input-bg: #ffffff; --input-border: #d1d5db; --input-text: #1a1e24;
+            --modal-content-bg: #ffffff; --progress-bg: #ecf0f1;
+        }
+        /* All elements inherit color from CSS vars (always-dark default) */
+        body, .stat-card, .stat-card h3, .stat-card p,
+        .completed-audit-card, .completed-audit-card strong, .completed-audit-card small,
+        .section-item, .section-item strong, .audit-status, .audit-status strong,
+        .controls-container, h1, h2, h3, #overviewTitle, #currentSectionTitle,
+        .github-token-field input, .question-text, .completed-audits-section {
+            color: var(--text-primary);
+        }
+        .guidance { color: var(--text-secondary); }
+        .evidence { color: var(--input-text); background: var(--input-bg); border-color: var(--input-border); }
+        .modal-content { color: var(--text-primary); background: var(--modal-content-bg); }
+        .modal-content input { color: var(--input-text); background: var(--input-bg); border-color: var(--input-border); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+          font-family: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+          background: var(--bg);
+          color: var(--text);
+          min-height: 100vh;
+          padding: 0 0 60px;
+          transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-    /* ── Header (pruefprotokoll-Stil) ── */
-    .site-header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 22px 40px 20px 120px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 20px; flex-wrap: wrap;
-      transition: background-color 0.3s, border-color 0.3s;
-    }
-    .site-header-left { display: flex; flex-direction: column; gap: 4px; }
-    .site-header-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--accent); font-weight: 500;
-    }
-    .site-header-title {
-      font-size: clamp(20px, 2.5vw, 26px); font-weight: 900;
-      color: var(--text); line-height: 1.1; letter-spacing: -0.5px;
-    }
-    .site-header-sub { font-size: 13px; color: var(--muted); }
-    .site-header-right { display: flex; align-items: center; gap: 12px; }
+        /* ── Header (pruefprotokoll-Stil) ── */
+        .site-header {
+          background: var(--surface);
+          border-bottom: 1px solid var(--border);
+          padding: 22px 40px 20px 120px;
+          display: flex; align-items: center; justify-content: space-between;
+          gap: 20px; flex-wrap: wrap;
+          transition: background-color 0.3s, border-color 0.3s;
+        }
+        .site-header-left { display: flex; flex-direction: column; gap: 4px; }
+        .site-header-eyebrow {
+          font-family: 'DM Mono', monospace;
+          font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+          color: var(--accent); font-weight: 500;
+        }
+        .site-header-title {
+          font-size: clamp(20px, 2.5vw, 26px); font-weight: 900;
+          color: var(--text); line-height: 1.1; letter-spacing: -0.5px;
+        }
+        .site-header-sub { font-size: 13px; color: var(--muted); }
+        .site-header-right { display: flex; align-items: center; gap: 12px; }
 
-    .theme-toggle {
-      position: static;
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--surface-2); border: 1px solid var(--border);
-      color: var(--text); font-size: 18px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.3s ease; flex-shrink: 0; z-index: 900;
-    }
-    .theme-toggle:hover { transform: scale(1.08) rotate(15deg); border-color: var(--accent); }
+        .theme-toggle {
+          position: static;
+          width: 44px; height: 44px; border-radius: 50%;
+          background: var(--surface-2); border: 1px solid var(--border);
+          color: var(--text); font-size: 18px; cursor: pointer;
+          display: flex; align-items: center; justify-content: center;
+          transition: all 0.3s ease; flex-shrink: 0; z-index: 900;
+        }
+        .theme-toggle:hover { transform: scale(1.08) rotate(15deg); border-color: var(--accent); }
 
-    /* ── Page container ── */
-    .container {
-      max-width: 1200px; margin: 0 auto;
-      background: transparent;
-      padding: 24px 20px;
-    }
-    header { display: none; } /* ersetzt durch .site-header */
-    .subtitle { display: none; }
-    .audit-selection h2 { color: var(--text-tertiary); margin-bottom: 14px; font-size: 1.0em; font-weight: 700; }
-    .audit-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 15px; }
-    .audit-btn { position: relative; color: #fff; border-radius: 14px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 12px 26px rgba(0,0,0,0.22); transition: transform 0.2s, box-shadow 0.2s; padding: 16px; cursor: pointer; font-size: 1.0em; display: flex; flex-direction: column; justify-content: space-between; min-height: 148px; text-align: left; overflow: hidden; background: linear-gradient(145deg, #3498db 0%, #1a5276 100%); }
-    .audit-btn.magnetpulver { background: linear-gradient(145deg, #e74c3c 0%, #c0392b 100%); }
-    .audit-btn.nital { background: linear-gradient(145deg, #27ae60 0%, #1e8449 100%); }
-    .audit-btn.ultraschall { background: linear-gradient(145deg, #8e44ad 0%, #6c3483 100%); }
-    .audit-btn:hover { transform: translateY(-5px) scale(1.012); box-shadow: 0 20px 42px rgba(0,0,0,0.28); filter: saturate(1.08) brightness(1.04); }
-    .btn-top-row { display: flex; align-items: flex-start; justify-content: space-between; }
-    .btn-icon-box { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; background: rgba(255,255,255,0.20); border: 1px solid rgba(255,255,255,0.30); flex: 0 0 auto; }
-    .btn-label { font-weight: 800; font-size: 1.0em; margin-top: 10px; }
-    .btn-meta-row { display: flex; align-items: center; gap: 6px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.18); margin-top: 6px; font-size: 0.80em; color: rgba(255,255,255,0.88); }
-    .btn-progress { background: rgba(255,255,255,0.22); border-radius: 999px; padding: 1px 8px; font-size: 0.85em; font-weight: 700; border: 1px solid rgba(255,255,255,0.35); margin-left: auto; display: none; }
-    .controls-container { width: 100%; margin-bottom: 20px; background: var(--bg-tertiary); border-radius: 8px; padding: 12px; border: 1px solid var(--border-light); }
-    .button-row { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 5px; align-items: center; }
-    .button-row button { padding: 0 12px; height: 34px; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 0.72em; white-space: nowrap; flex-shrink: 0; transition: all 0.14s; box-shadow: 0 2px 6px rgba(0,0,0,0.18); display: inline-flex; align-items: center; gap: 6px; }
-    .button-row button:hover { transform: translateY(-2px); filter: brightness(1.1); }
-    .btn-back { background: linear-gradient(135deg, #7f8c8d, #636e72); color: #fff; }
-    .btn-report { background: linear-gradient(135deg, #e67e22, #d35400); color: #fff; }
-    .btn-danger { background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; }
-    .btn-info { background: linear-gradient(135deg, #3498db, #2980b9); color: #fff; }
-    .btn-github { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: #fff; }
-    .btn-import { background: linear-gradient(135deg, #27ae60, #1e8449); color: #fff; }
-    .btn-cancel { background: #95a5a6; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
-    .btn-github-save { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
-    .audit-action-btn { padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.75em; font-weight: bold; }
-    .btn-load-audit { background: var(--btn-info); color: white; }
-    .btn-delete-audit { background: var(--btn-danger); color: white; }
-    .audit-status { margin-bottom: 6px; font-size: 0.9em; background: var(--bg-tertiary); padding: 8px; border-radius: 4px; border: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 8px; }
-    .status-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; }
-    .progress-container { flex: 1; min-width: 200px; max-width: 400px; }
-    .progress-bar { width: 100%; height: 8px; background: var(--progress-bg); border-radius: 5px; overflow: hidden; }
-    .progress-fill { height: 100%; background: linear-gradient(90deg, #3498db, #2ecc71); border-radius: 5px; transition: width 0.3s ease; }
-    .section { margin-bottom: 12px; border: none; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); overflow: hidden; }
-    .section-header { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
-    .section-header h2 { margin: 0; font-size: 1em; font-weight: 600; }
-    .section-content { padding: 14px; background: var(--bg-secondary); display: none; }
-    .section.expanded .section-content { display: block; }
-    .question { margin-bottom: 10px; padding: 14px; background: var(--question-bg); border-radius: 10px; border-left: 4px solid var(--question-border); transition: all 0.3s ease; }
-    .question.yes-answer { border-left-color: var(--answer-yes); background-color: rgba(39,174,96,0.05); }
-    .question.no-answer { border-left-color: var(--answer-no); background-color: rgba(231,76,60,0.05); }
-    .question.na-answer { border-left-color: var(--answer-na); }
-    .question-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-    .question-text { flex: 1; font-weight: 500; font-size: 1em; line-height: 1.4; color: var(--text-primary); }
-    .question-id { background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.85em; margin-left: 8px; white-space: nowrap; }
-    .answer-options { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
-    .answer-option { flex: 1; min-width: 70px; padding: 9px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; text-align: center; font-weight: bold; font-size: 0.88em; transition: transform 0.15s; }
-    .answer-option[data-answer="YES"] { border-color: var(--answer-yes); color: var(--answer-yes); }
-    .answer-option[data-answer="YES"].selected { background: var(--answer-yes); color: white; }
-    .answer-option[data-answer="NO"] { border-color: var(--answer-no); color: var(--answer-no); }
-    .answer-option[data-answer="NO"].selected { background: var(--answer-no); color: white; }
-    .answer-option[data-answer="NA"] { border-color: var(--answer-na); color: var(--answer-na); }
-    .answer-option[data-answer="NA"].selected { background: var(--answer-na); color: white; }
-    .evidence { width: 100%; padding: 10px 12px; border: 1.5px solid var(--input-border); border-radius: 8px; resize: vertical; min-height: 60px; font-family: inherit; margin-bottom: 8px; font-size: 0.85em; background: var(--input-bg); color: var(--input-text); }
-    .guidance { font-size: 0.8em; color: var(--text-secondary); margin-bottom: 8px; font-style: italic; }
+        /* ── Page container ── */
+        .container {
+          max-width: 1200px; margin: 0 auto;
+          background: transparent;
+          padding: 24px 20px;
+        }
+        header { display: none; } /* ersetzt durch .site-header */
+        .subtitle { display: none; }
+        .audit-selection h2 { color: var(--text-tertiary); margin-bottom: 14px; font-size: 1.0em; font-weight: 700; }
+        .audit-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 15px; }
+        .audit-btn { position: relative; color: #fff; border-radius: 14px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 12px 26px rgba(0,0,0,0.22); transition: transform 0.2s, box-shadow 0.2s; padding: 16px; cursor: pointer; font-size: 1.0em; display: flex; flex-direction: column; justify-content: space-between; min-height: 148px; text-align: left; overflow: hidden; background: linear-gradient(145deg, #3498db 0%, #1a5276 100%); }
+        .audit-btn.magnetpulver { background: linear-gradient(145deg, #e74c3c 0%, #c0392b 100%); }
+        .audit-btn.nital { background: linear-gradient(145deg, #27ae60 0%, #1e8449 100%); }
+        .audit-btn.ultraschall { background: linear-gradient(145deg, #8e44ad 0%, #6c3483 100%); }
+        .audit-btn:hover { transform: translateY(-5px) scale(1.012); box-shadow: 0 20px 42px rgba(0,0,0,0.28); filter: saturate(1.08) brightness(1.04); }
+        .btn-top-row { display: flex; align-items: flex-start; justify-content: space-between; }
+        .btn-icon-box { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; background: rgba(255,255,255,0.20); border: 1px solid rgba(255,255,255,0.30); flex: 0 0 auto; }
+        .btn-label { font-weight: 800; font-size: 1.0em; margin-top: 10px; }
+        .btn-meta-row { display: flex; align-items: center; gap: 6px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.18); margin-top: 6px; font-size: 0.80em; color: rgba(255,255,255,0.88); }
+        .btn-progress { background: rgba(255,255,255,0.22); border-radius: 999px; padding: 1px 8px; font-size: 0.85em; font-weight: 700; border: 1px solid rgba(255,255,255,0.35); margin-left: auto; display: none; }
+        .controls-container { width: 100%; margin-bottom: 20px; background: var(--bg-tertiary); border-radius: 8px; padding: 12px; border: 1px solid var(--border-light); }
+        .button-row { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 5px; align-items: center; }
+        .button-row button { padding: 0 12px; height: 34px; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 0.72em; white-space: nowrap; flex-shrink: 0; transition: all 0.14s; box-shadow: 0 2px 6px rgba(0,0,0,0.18); display: inline-flex; align-items: center; gap: 6px; }
+        .button-row button:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .btn-back { background: linear-gradient(135deg, #7f8c8d, #636e72); color: #fff; }
+        .btn-report { background: linear-gradient(135deg, #e67e22, #d35400); color: #fff; }
+        .btn-danger { background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; }
+        .btn-info { background: linear-gradient(135deg, #3498db, #2980b9); color: #fff; }
+        .btn-github { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: #fff; }
+        .btn-import { background: linear-gradient(135deg, #27ae60, #1e8449); color: #fff; }
+        .btn-cancel { background: #95a5a6; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+        .btn-github-save { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+        .audit-action-btn { padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.75em; font-weight: bold; }
+        .btn-load-audit { background: var(--btn-info); color: white; }
+        .btn-delete-audit { background: var(--btn-danger); color: white; }
+        .audit-status { margin-bottom: 6px; font-size: 0.9em; background: var(--bg-tertiary); padding: 8px; border-radius: 4px; border: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 8px; }
+        .status-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; }
+        .progress-container { flex: 1; min-width: 200px; max-width: 400px; }
+        .progress-bar { width: 100%; height: 8px; background: var(--progress-bg); border-radius: 5px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #3498db, #2ecc71); border-radius: 5px; transition: width 0.3s ease; }
+        .section { margin-bottom: 12px; border: none; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); overflow: hidden; }
+        .section-header { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .section-header h2 { margin: 0; font-size: 1em; font-weight: 600; }
+        .section-content { padding: 14px; background: var(--bg-secondary); display: none; }
+        .section.expanded .section-content { display: block; }
+        .question { margin-bottom: 10px; padding: 14px; background: var(--question-bg); border-radius: 10px; border-left: 4px solid var(--question-border); transition: all 0.3s ease; }
+        .question.yes-answer { border-left-color: var(--answer-yes); background-color: rgba(39,174,96,0.05); }
+        .question.no-answer { border-left-color: var(--answer-no); background-color: rgba(231,76,60,0.05); }
+        .question.na-answer { border-left-color: var(--answer-na); }
+        .question-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+        .question-text { flex: 1; font-weight: 500; font-size: 1em; line-height: 1.4; color: var(--text-primary); }
+        .question-id { background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.85em; margin-left: 8px; white-space: nowrap; }
+        .answer-options { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .answer-option { flex: 1; min-width: 70px; padding: 9px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; text-align: center; font-weight: bold; font-size: 0.88em; transition: transform 0.15s; }
+        .answer-option[data-answer="YES"] { border-color: var(--answer-yes); color: var(--answer-yes); }
+        .answer-option[data-answer="YES"].selected { background: var(--answer-yes); color: white; }
+        .answer-option[data-answer="NO"] { border-color: var(--answer-no); color: var(--answer-no); }
+        .answer-option[data-answer="NO"].selected { background: var(--answer-no); color: white; }
+        .answer-option[data-answer="NA"] { border-color: var(--answer-na); color: var(--answer-na); }
+        .answer-option[data-answer="NA"].selected { background: var(--answer-na); color: white; }
+        .evidence { width: 100%; padding: 10px 12px; border: 1.5px solid var(--input-border); border-radius: 8px; resize: vertical; min-height: 60px; font-family: inherit; margin-bottom: 8px; font-size: 0.85em; background: var(--input-bg); color: var(--input-text); }
+        .guidance { font-size: 0.8em; color: var(--text-secondary); margin-bottom: 8px; font-style: italic; }
 
-    /* ── GitHub Token Zeile – kompakt, alles in einer Zeile ── */
-    .github-compact-panel {
-        display: flex; align-items: center; gap: 10px;
-        margin-bottom: 15px; padding: 8px 14px;
-        background: var(--bg-tertiary);
-        border: 1px solid var(--border-light);
-        border-radius: 50px;
-        flex-wrap: wrap;
-    }
-    .github-status-dot {
-        width: 10px; height: 10px; border-radius: 50%;
-        background: #bdc3c7; flex-shrink: 0;
-        border: 1.5px solid rgba(0,0,0,0.12);
-        transition: background 0.3s, box-shadow 0.3s;
-    }
-    .github-status-dot.connected {
-        background: #27ae60;
-        box-shadow: 0 0 0 3px rgba(39,174,96,0.25);
-        border-color: #1e8449;
-    }
-    .github-status-dot.error {
-        background: #e74c3c;
-        box-shadow: 0 0 0 3px rgba(231,76,60,0.2);
-    }
-    .github-status-dot.checking {
-        background: #f39c12;
-        box-shadow: 0 0 0 3px rgba(243,156,18,0.25);
-    }
-    .github-token-field {
-        display: flex; align-items: center; gap: 8px; flex: 1; min-width: 200px;
-    }
-    .github-token-field input {
-        flex: 1; padding: 4px 10px;
-        border: none; background: transparent;
-        color: var(--text-primary); font-size: 0.85em;
-        font-family: monospace; outline: none;
-    }
-    .github-token-field input::placeholder { color: var(--text-secondary); }
-    .github-save-btn {
-        background: linear-gradient(135deg, #27ae60, #1e8449);
-        color: #fff; border: none; border-radius: 20px;
-        padding: 6px 14px; font-weight: 700; font-size: 0.8em;
-        cursor: pointer; flex-shrink: 0;
-        transition: transform .14s, box-shadow .14s;
-        box-shadow: 0 2px 6px rgba(39,174,96,0.3);
-    }
-    .github-save-btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
-    .completed-audits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; max-height: 400px; overflow-y: auto; padding: 5px; }
-    .completed-audit-card { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 8px; }
-    .completed-audit-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow-color); }
-    .completed-audit-actions { display: flex; gap: 6px; justify-content: flex-end; margin-top: 5px; }
-    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
-    .modal-content { background: var(--modal-content-bg); padding: 20px; border-radius: 14px; max-width: 500px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-    .modal-content h3 { margin-bottom: 14px; color: var(--text-tertiary); }
-    .modal-content input { width: 100%; padding: 10px 14px; border: 1px solid var(--input-border); border-radius: 8px; background: var(--input-bg); color: var(--input-text); font-size: 0.95em; margin-bottom: 4px; }
-    .modal-buttons { margin-top: 15px; display: flex; gap: 10px; }
-    .sync-toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #2c3e50; color: white; padding: 10px 20px; border-radius: 30px; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 2000; font-size: 0.9em; }
-    .sync-toast.show { opacity: 1; }
-    .sync-toast.success { background: #27ae60; }
-    .sync-toast.error { background: #e74c3c; }
-    .sync-toast.info { background: #3498db; }
-    .page { display: none; }
-    .page.active { display: block; }
-    .section-item { background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 10px; padding: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.2s; }
-    .section-item:hover { transform: translateX(4px); background: var(--bg-secondary); }
-    .section-status { font-size: 0.75em; padding: 2px 8px; border-radius: 20px; background: #95a5a6; color: white; }
-    .section-status.completed { background: #27ae60; }
-    .section-status.in-progress { background: #f39c12; }
-    .overview-stats { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
-    .stat-card { background: var(--bg-tertiary); border-radius: 12px; padding: 12px; flex: 1; min-width: 120px; text-align: center; }
-    @media (max-width: 768px) {
-      .audit-buttons { grid-template-columns: 1fr; }
-      .button-row button { padding: 0 8px; font-size: 0.7em; }
-      .github-compact-panel { border-radius: 12px; }
-      .btn-icon-box { width: 34px !important; height: 34px !important; font-size: 17px !important; border-radius: 8px !important; }
-      .audit-btn { min-height: 110px !important; padding: 12px !important; }
-      .btn-label { font-size: 0.88em !important; margin-top: 6px !important; }
-      .site-header { padding: 16px 20px !important; }
-    }
-    @media (max-width: 480px) {
-      .btn-icon-box { width: 28px !important; height: 28px !important; font-size: 14px !important; }
-      .audit-btn { min-height: 90px !important; padding: 10px !important; }
-      .btn-label { font-size: 0.82em !important; }
-    }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-</style>
-```
-
+        /* ── GitHub Token Zeile – kompakt, alles in einer Zeile ── */
+        .github-compact-panel {
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 15px; padding: 8px 14px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-light);
+            border-radius: 50px;
+            flex-wrap: wrap;
+        }
+        .github-status-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #bdc3c7; flex-shrink: 0;
+            border: 1.5px solid rgba(0,0,0,0.12);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .github-status-dot.connected {
+            background: #27ae60;
+            box-shadow: 0 0 0 3px rgba(39,174,96,0.25);
+            border-color: #1e8449;
+        }
+        .github-status-dot.error {
+            background: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231,76,60,0.2);
+        }
+        .github-status-dot.checking {
+            background: #f39c12;
+            box-shadow: 0 0 0 3px rgba(243,156,18,0.25);
+        }
+        .github-token-field {
+            display: flex; align-items: center; gap: 8px; flex: 1; min-width: 200px;
+        }
+        .github-token-field input {
+            flex: 1; padding: 4px 10px;
+            border: none; background: transparent;
+            color: var(--text-primary); font-size: 0.85em;
+            font-family: monospace; outline: none;
+        }
+        .github-token-field input::placeholder { color: var(--text-secondary); }
+        .github-save-btn {
+            background: linear-gradient(135deg, #27ae60, #1e8449);
+            color: #fff; border: none; border-radius: 20px;
+            padding: 6px 14px; font-weight: 700; font-size: 0.8em;
+            cursor: pointer; flex-shrink: 0;
+            transition: transform .14s, box-shadow .14s;
+            box-shadow: 0 2px 6px rgba(39,174,96,0.3);
+        }
+        .github-save-btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
+        .completed-audits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; max-height: 400px; overflow-y: auto; padding: 5px; }
+        .completed-audit-card { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 8px; }
+        .completed-audit-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow-color); }
+        .completed-audit-actions { display: flex; gap: 6px; justify-content: flex-end; margin-top: 5px; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-content { background: var(--modal-content-bg); padding: 20px; border-radius: 14px; max-width: 500px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .modal-content h3 { margin-bottom: 14px; color: var(--text-tertiary); }
+        .modal-content input { width: 100%; padding: 10px 14px; border: 1px solid var(--input-border); border-radius: 8px; background: var(--input-bg); color: var(--input-text); font-size: 0.95em; margin-bottom: 4px; }
+        .modal-buttons { margin-top: 15px; display: flex; gap: 10px; }
+        .sync-toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #2c3e50; color: white; padding: 10px 20px; border-radius: 30px; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 2000; font-size: 0.9em; }
+        .sync-toast.show { opacity: 1; }
+        .sync-toast.success { background: #27ae60; }
+        .sync-toast.error { background: #e74c3c; }
+        .sync-toast.info { background: #3498db; }
+        .page { display: none; }
+        .page.active { display: block; }
+        .section-item { background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 10px; padding: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.2s; }
+        .section-item:hover { transform: translateX(4px); background: var(--bg-secondary); }
+        .section-status { font-size: 0.75em; padding: 2px 8px; border-radius: 20px; background: #95a5a6; color: white; }
+        .section-status.completed { background: #27ae60; }
+        .section-status.in-progress { background: #f39c12; }
+        .overview-stats { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+        .stat-card { background: var(--bg-tertiary); border-radius: 12px; padding: 12px; flex: 1; min-width: 120px; text-align: center; }
+        @media (max-width: 768px) {
+          .audit-buttons { grid-template-columns: 1fr; }
+          .button-row button { padding: 0 8px; font-size: 0.7em; }
+          .github-compact-panel { border-radius: 12px; }
+          .btn-icon-box { width: 34px !important; height: 34px !important; font-size: 17px !important; border-radius: 8px !important; }
+          .audit-btn { min-height: 110px !important; padding: 12px !important; }
+          .btn-label { font-size: 0.88em !important; margin-top: 6px !important; }
+          .site-header { padding: 16px 20px !important; }
+        }
+        @media (max-width: 480px) {
+          .btn-icon-box { width: 28px !important; height: 28px !important; font-size: 14px !important; }
+          .audit-btn { min-height: 90px !important; padding: 10px !important; }
+          .btn-label { font-size: 0.82em !important; }
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
 </head>
 <body>
 <div class="site-header" id="siteHeader">
@@ -283,95 +279,93 @@
 <div class="container">
     <header><h1 id="mainTitleLegacy">Self-Audit ZfP Verfahren</h1><div class="subtitle" id="mainSubtitleLegacy">Schaeffler Technologies AG &amp; Co. KG</div></header>
 
-```
-<!-- SEITE 1: AUDIT-AUSWAHL -->
-<div id="pageSelection" class="page active">
-    <div class="audit-selection"><h2>Audit-Verfahren auswählen:</h2>
-        <div class="audit-buttons">
-            <button class="audit-btn" data-audit="ET"><div class="btn-top-row"><div class="btn-icon-box">⚡</div></div><div class="btn-label">Wirbelstromprüfung</div><div class="btn-meta-row"><span>Eddy Current (ET)</span><div class="btn-progress" id="etProgress"></div></div></button>
-            <button class="audit-btn magnetpulver" data-audit="MT"><div class="btn-top-row"><div class="btn-icon-box">🧲</div></div><div class="btn-label">Magnetpulverprüfung</div><div class="btn-meta-row"><span>Magnetic Particle (MT)</span><div class="btn-progress" id="mtProgress"></div></div></button>
-            <button class="audit-btn nital" data-audit="NE"><div class="btn-top-row"><div class="btn-icon-box">🧪</div></div><div class="btn-label">Nital-Ätzen</div><div class="btn-meta-row"><span>Nital Etch (NE)</span><div class="btn-progress" id="neProgress"></div></div></button>
-            <button class="audit-btn ultraschall" data-audit="UT"><div class="btn-top-row"><div class="btn-icon-box">📡</div></div><div class="btn-label">Ultraschallprüfung</div><div class="btn-meta-row"><span>Ultrasonic (UT)</span><div class="btn-progress" id="utProgress"></div></div></button>
+    <!-- SEITE 1: AUDIT-AUSWAHL -->
+    <div id="pageSelection" class="page active">
+        <div class="audit-selection"><h2>Audit-Verfahren auswählen:</h2>
+            <div class="audit-buttons">
+                <button class="audit-btn" data-audit="ET"><div class="btn-top-row"><div class="btn-icon-box">⚡</div></div><div class="btn-label">Wirbelstromprüfung</div><div class="btn-meta-row"><span>Eddy Current (ET)</span><div class="btn-progress" id="etProgress"></div></div></button>
+                <button class="audit-btn magnetpulver" data-audit="MT"><div class="btn-top-row"><div class="btn-icon-box">🧲</div></div><div class="btn-label">Magnetpulverprüfung</div><div class="btn-meta-row"><span>Magnetic Particle (MT)</span><div class="btn-progress" id="mtProgress"></div></div></button>
+                <button class="audit-btn nital" data-audit="NE"><div class="btn-top-row"><div class="btn-icon-box">🧪</div></div><div class="btn-label">Nital-Ätzen</div><div class="btn-meta-row"><span>Nital Etch (NE)</span><div class="btn-progress" id="neProgress"></div></div></button>
+                <button class="audit-btn ultraschall" data-audit="UT"><div class="btn-top-row"><div class="btn-icon-box">📡</div></div><div class="btn-label">Ultraschallprüfung</div><div class="btn-meta-row"><span>Ultrasonic (UT)</span><div class="btn-progress" id="utProgress"></div></div></button>
+            </div>
+        </div>
+        <div id="resumeButtonContainer" style="text-align:center;margin:15px 0;">
+            <button id="resumeLastAuditBtn" class="btn-info" style="display:none;">▶️ Weiter mit letztem Audit</button>
+        </div>
+
+        <!-- GitHub Token – eine Zeile -->
+        <div class="github-compact-panel">
+            <div class="github-status-dot" id="githubStatusDot" title="Nicht verbunden"></div>
+            <span style="font-size:1em;flex-shrink:0;">🔑</span>
+            <div class="github-token-field">
+                <input type="password" id="githubTokenInput" placeholder="GitHub Personal Access Token (ghp_...)" autocomplete="off">
+            </div>
+            <button class="github-save-btn" id="githubSaveTokenBtn">Speichern</button>
+        </div>
+
+        <div class="completed-audits-section" style="margin-top:20px;border-top:2px solid var(--border-color);padding-top:20px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
+                <span>📋 Abgeschlossene Audits</span>
+                <button onclick="refreshCompletedAudits()" style="background:var(--btn-info);border:none;border-radius:4px;padding:4px 8px;cursor:pointer;color:white;font-size:0.8em;">↻ Aktualisieren</button>
+            </div>
+            <div id="zfpCompletedAuditsContainer" class="completed-audits-grid"><div style="color:var(--text-secondary);">🔌 Bitte GitHub Token eingeben und speichern</div></div>
         </div>
     </div>
-    <div id="resumeButtonContainer" style="text-align:center;margin:15px 0;">
-        <button id="resumeLastAuditBtn" class="btn-info" style="display:none;">▶️ Weiter mit letztem Audit</button>
+
+    <!-- SEITE 2: AUDIT-ÜBERSICHT -->
+    <div id="pageOverview" class="page">
+        <div class="controls-container"><div class="button-row">
+            <button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button>
+            <button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button>
+            <button class="btn-import" id="importFromOverviewBtn">📂 Import</button>
+            <button class="btn-github" id="saveToGitHubBtn">☁️ In GitHub speichern</button>
+        </div></div>
+        <div id="overviewTitle" style="font-size:1.4em;font-weight:bold;margin-bottom:20px;"></div>
+        <div id="overviewStats" class="overview-stats"></div>
+        <h3 style="margin-bottom:15px;">Prüfbereiche:</h3>
+        <div id="sectionList"></div>
     </div>
 
-    <!-- GitHub Token – eine Zeile -->
-    <div class="github-compact-panel">
-        <div class="github-status-dot" id="githubStatusDot" title="Nicht verbunden"></div>
-        <span style="font-size:1em;flex-shrink:0;">🔑</span>
-        <div class="github-token-field">
-            <input type="password" id="githubTokenInput" placeholder="GitHub Personal Access Token (ghp_...)" autocomplete="off">
+    <!-- SEITE 3: AUDIT-FRAGEN -->
+    <div id="pageQuestions" class="page">
+        <div class="controls-container"><div class="button-row">
+            <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
+            <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
+            <button class="btn-import" id="importFromQuestionsBtn">📂 Import</button>
+            <button class="btn-github" id="saveToGitHubFromQuestionsBtn">☁️ In GitHub speichern</button>
+        </div></div>
+        <div class="audit-status">
+            <div class="status-header">
+                <div>Fortschritt: <strong id="progressText">0%</strong></div>
+                <div class="progress-container"><div class="progress-bar"><div class="progress-fill" id="auditProgressBar" style="width:0%"></div></div></div>
+            </div>
+            <div>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong> | Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></div>
         </div>
-        <button class="github-save-btn" id="githubSaveTokenBtn">Speichern</button>
+        <div id="currentSectionTitle" style="font-size:1.2em;font-weight:bold;margin:15px 0 10px;"></div>
+        <div id="questionsContainer"></div>
     </div>
 
-    <div class="completed-audits-section" style="margin-top:20px;border-top:2px solid var(--border-color);padding-top:20px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
-            <span>📋 Abgeschlossene Audits</span>
-            <button onclick="refreshCompletedAudits()" style="background:var(--btn-info);border:none;border-radius:4px;padding:4px 8px;cursor:pointer;color:white;font-size:0.8em;">↻ Aktualisieren</button>
+    <!-- MODALE -->
+    <div id="importModal" class="modal"><div class="modal-content">
+        <h3>📂 Ergebnisse importieren</h3>
+        <input type="file" id="importFileInput" accept=".json">
+        <div class="modal-buttons">
+            <button class="btn-cancel" onclick="closeModal('importModal')">Abbrechen</button>
+            <button class="btn-import" onclick="handleImportFile()">Importieren</button>
         </div>
-        <div id="zfpCompletedAuditsContainer" class="completed-audits-grid"><div style="color:var(--text-secondary);">🔌 Bitte GitHub Token eingeben und speichern</div></div>
-    </div>
-</div>
-
-<!-- SEITE 2: AUDIT-ÜBERSICHT -->
-<div id="pageOverview" class="page">
-    <div class="controls-container"><div class="button-row">
-        <button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button>
-        <button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button>
-        <button class="btn-import" id="importFromOverviewBtn">📂 Import</button>
-        <button class="btn-github" id="saveToGitHubBtn">☁️ In GitHub speichern</button>
     </div></div>
-    <div id="overviewTitle" style="font-size:1.4em;font-weight:bold;margin-bottom:20px;"></div>
-    <div id="overviewStats" class="overview-stats"></div>
-    <h3 style="margin-bottom:15px;">Prüfbereiche:</h3>
-    <div id="sectionList"></div>
-</div>
-
-<!-- SEITE 3: AUDIT-FRAGEN -->
-<div id="pageQuestions" class="page">
-    <div class="controls-container"><div class="button-row">
-        <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
-        <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
-        <button class="btn-import" id="importFromQuestionsBtn">📂 Import</button>
-        <button class="btn-github" id="saveToGitHubFromQuestionsBtn">☁️ In GitHub speichern</button>
-    </div></div>
-    <div class="audit-status">
-        <div class="status-header">
-            <div>Fortschritt: <strong id="progressText">0%</strong></div>
-            <div class="progress-container"><div class="progress-bar"><div class="progress-fill" id="auditProgressBar" style="width:0%"></div></div></div>
+    <div id="githubSaveModal" class="modal"><div class="modal-content">
+        <h3>☁️ In GitHub speichern</h3>
+        <input type="text" id="githubAuditName" placeholder="Name (z.B. Q1-2026 ET)">
+        <div class="modal-buttons">
+            <button class="btn-cancel" onclick="closeModal('githubSaveModal')">Abbrechen</button>
+            <button class="btn-github-save" id="confirmGithubSaveBtn">Speichern</button>
         </div>
-        <div>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong> | Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></div>
-    </div>
-    <div id="currentSectionTitle" style="font-size:1.2em;font-weight:bold;margin:15px 0 10px;"></div>
-    <div id="questionsContainer"></div>
+    </div></div>
+    <div class="sync-toast" id="syncToast"></div>
+    <footer style="text-align:center;margin-top:15px;padding-top:10px;border-top:1px solid var(--border-light);font-size:0.85em;">Self-Audit ZfP &copy; 2026 Schaeffler Technologies AG &amp; Co. KG</footer>
 </div>
 
-<!-- MODALE -->
-<div id="importModal" class="modal"><div class="modal-content">
-    <h3>📂 Ergebnisse importieren</h3>
-    <input type="file" id="importFileInput" accept=".json">
-    <div class="modal-buttons">
-        <button class="btn-cancel" onclick="closeModal('importModal')">Abbrechen</button>
-        <button class="btn-import" onclick="handleImportFile()">Importieren</button>
-    </div>
-</div></div>
-<div id="githubSaveModal" class="modal"><div class="modal-content">
-    <h3>☁️ In GitHub speichern</h3>
-    <input type="text" id="githubAuditName" placeholder="Name (z.B. Q1-2026 ET)">
-    <div class="modal-buttons">
-        <button class="btn-cancel" onclick="closeModal('githubSaveModal')">Abbrechen</button>
-        <button class="btn-github-save" id="confirmGithubSaveBtn">Speichern</button>
-    </div>
-</div></div>
-<div class="sync-toast" id="syncToast"></div>
-<footer style="text-align:center;margin-top:15px;padding-top:10px;border-top:1px solid var(--border-light);font-size:0.85em;">Self-Audit ZfP &copy; 2026 Schaeffler Technologies AG &amp; Co. KG</footer>
-```
-
-</div>
 
 <script>
 // ========================  FRAGEN  ========================
@@ -681,235 +675,231 @@ function createQuestionElement(q) {
     div.className = `question ${q.answer ? q.answer.toLowerCase()+'-answer' : ''}`;
     div.dataset.id = q.id;
     div.innerHTML = `<div class="question-header"><div class="question-text">${escapeHtml(q.text)}</div><div class="question-id">${q.id}</div></div>${q.guidance ? `<div class="guidance">${escapeHtml(q.guidance)}</div>` : ''}<div class="answer-options"></div><textarea class="evidence" placeholder="Nachweise / Kommentare">${escapeHtml(q.evidence)}</textarea>`;
-
-```
-const opts = div.querySelector('.answer-options');
-const answers = ['YES','NO']; if (q.hasNA) answers.push('NA');
-answers.forEach(ans => {
-    const btn = document.createElement('button');
-    btn.className = `answer-option${q.answer === ans ? ' selected' : ''}`;
-    btn.dataset.answer = ans;
-    btn.textContent = ans === 'YES' ? 'JA' : (ans === 'NO' ? 'NEIN' : 'N/A');
-    btn.onclick = () => selectAnswer(q.id, ans);
-    opts.appendChild(btn);
-});
-div.querySelector('.evidence').oninput = e => updateEvidence(q.id, e.target.value);
-return div;
-```
-
+    const opts = div.querySelector('.answer-options');
+    const answers = ['YES','NO']; if (q.hasNA) answers.push('NA');
+    answers.forEach(ans => {
+        const btn = document.createElement('button');
+        btn.className = `answer-option${q.answer === ans ? ' selected' : ''}`;
+        btn.dataset.answer = ans;
+        btn.textContent = ans === 'YES' ? 'JA' : (ans === 'NO' ? 'NEIN' : 'N/A');
+        btn.onclick = () => selectAnswer(q.id, ans);
+        opts.appendChild(btn);
+    });
+    div.querySelector('.evidence').oninput = e => updateEvidence(q.id, e.target.value);
+    return div;
 }
 
 async function selectAnswer(id, answer) {
-const q = germanQuestions.find(q => q.id === id); if (!q) return;
-q.answer = answer;
-const el = document.querySelector(`.question[data-id="${id}"]`);
-if (el) {
-el.classList.remove(‘yes-answer’,‘no-answer’,‘na-answer’);
-el.classList.add(answer.toLowerCase()+’-answer’);
-el.querySelectorAll(’.answer-option’).forEach(b => b.classList.remove(‘selected’));
-const sel = el.querySelector(`.answer-option[data-answer="${answer}"]`); if (sel) sel.classList.add(‘selected’);
-}
-updateProgressDisplay(); renderOverview(); saveCurrentAuditToLocalStorage();
-if (githubConnected) autoSaveToGitHub();
+    const q = germanQuestions.find(q => q.id === id); if (!q) return;
+    q.answer = answer;
+    const el = document.querySelector(`.question[data-id="${id}"]`);
+    if (el) {
+        el.classList.remove('yes-answer','no-answer','na-answer');
+        el.classList.add(answer.toLowerCase()+'-answer');
+        el.querySelectorAll('.answer-option').forEach(b => b.classList.remove('selected'));
+        const sel = el.querySelector(`.answer-option[data-answer="${answer}"]`); if (sel) sel.classList.add('selected');
+    }
+    updateProgressDisplay(); renderOverview(); saveCurrentAuditToLocalStorage();
+    if (githubConnected) autoSaveToGitHub();
 }
 
 async function updateEvidence(id, evidence) {
-const q = germanQuestions.find(q => q.id === id);
-if (q) { q.evidence = evidence; saveCurrentAuditToLocalStorage(); }
+    const q = germanQuestions.find(q => q.id === id);
+    if (q) { q.evidence = evidence; saveCurrentAuditToLocalStorage(); }
 }
 
 function updateProgressDisplay() {
-const total = germanQuestions.length, answered = germanQuestions.filter(q => q.answer).length;
-const yes = germanQuestions.filter(q => q.answer === ‘YES’).length, no = germanQuestions.filter(q => q.answer === ‘NO’).length;
-const percent = total ? Math.round(answered/total*100) : 0;
-document.getElementById(‘answeredCount’).textContent = answered;
-document.getElementById(‘totalCount’).textContent = total;
-document.getElementById(‘progressText’).textContent = percent+’%’;
-document.getElementById(‘auditProgressBar’).style.width = percent+’%’;
-document.getElementById(‘yesCount’).textContent = yes;
-document.getElementById(‘noCount’).textContent = no;
+    const total = germanQuestions.length, answered = germanQuestions.filter(q => q.answer).length;
+    const yes = germanQuestions.filter(q => q.answer === 'YES').length, no = germanQuestions.filter(q => q.answer === 'NO').length;
+    const percent = total ? Math.round(answered/total*100) : 0;
+    document.getElementById('answeredCount').textContent = answered;
+    document.getElementById('totalCount').textContent = total;
+    document.getElementById('progressText').textContent = percent+'%';
+    document.getElementById('auditProgressBar').style.width = percent+'%';
+    document.getElementById('yesCount').textContent = yes;
+    document.getElementById('noCount').textContent = no;
 }
 
 function saveCurrentAuditToLocalStorage() {
-if (!currentAuditType) return;
-localStorage.setItem(‘zfp_current_audit’, JSON.stringify({ currentAuditType, currentAuditId, currentAuditName, germanQuestions: germanQuestions.map(q => ({ id:q.id, answer:q.answer, evidence:q.evidence })), timestamp: new Date().toISOString() }));
+    if (!currentAuditType) return;
+    localStorage.setItem('zfp_current_audit', JSON.stringify({ currentAuditType, currentAuditId, currentAuditName, germanQuestions: germanQuestions.map(q => ({ id:q.id, answer:q.answer, evidence:q.evidence })), timestamp: new Date().toISOString() }));
 }
 
 function loadCurrentAuditFromLocalStorage() {
-const saved = localStorage.getItem(‘zfp_current_audit’);
-if (!saved) return false;
-try {
-const state = JSON.parse(saved);
-if (!state.currentAuditType) return false;
-if (initAuditWithType(state.currentAuditType)) {
-state.germanQuestions.forEach(sq => { const t = germanQuestions.find(q => q.id === sq.id); if (t) { t.answer = sq.answer; t.evidence = sq.evidence; } });
-currentAuditId = state.currentAuditId; currentAuditName = state.currentAuditName;
-renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); return true;
-}
-} catch(e) {}
-return false;
+    const saved = localStorage.getItem('zfp_current_audit');
+    if (!saved) return false;
+    try {
+        const state = JSON.parse(saved);
+        if (!state.currentAuditType) return false;
+        if (initAuditWithType(state.currentAuditType)) {
+            state.germanQuestions.forEach(sq => { const t = germanQuestions.find(q => q.id === sq.id); if (t) { t.answer = sq.answer; t.evidence = sq.evidence; } });
+            currentAuditId = state.currentAuditId; currentAuditName = state.currentAuditName;
+            renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); return true;
+        }
+    } catch(e) {}
+    return false;
 }
 
 function resetAudit() {
-if (!confirm(‘⚠️ Alle Antworten zurücksetzen?’)) return;
-germanQuestions.forEach(q => { q.answer = “”; q.evidence = “”; });
-if (currentSectionIndex >= 0) renderCurrentSection();
-updateProgressDisplay(); renderOverview(); saveCurrentAuditToLocalStorage();
-showToast(‘Audit zurückgesetzt’, ‘info’);
+    if (!confirm('⚠️ Alle Antworten zurücksetzen?')) return;
+    germanQuestions.forEach(q => { q.answer = ""; q.evidence = ""; });
+    if (currentSectionIndex >= 0) renderCurrentSection();
+    updateProgressDisplay(); renderOverview(); saveCurrentAuditToLocalStorage();
+    showToast('Audit zurückgesetzt', 'info');
 }
 
 // ========================  GITHUB SPEICHERN / LADEN  ========================
 async function loadGitHubAuditData(audit) {
-if (!audit?.audit_type || !audit?.data?.germanQuestions) { showToast(‘Ungültige Audit-Daten’, ‘error’); return; }
-if (initAuditWithType(audit.audit_type)) {
-audit.data.germanQuestions.forEach(sq => { const t = germanQuestions.find(q => q.id === sq.id); if (t) { t.answer = sq.answer || “”; t.evidence = sq.evidence || “”; } });
-currentAuditId = audit.id; currentAuditName = audit.name;
-renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); saveCurrentAuditToLocalStorage();
-showToast(`Audit "${audit.name}" geladen`, ‘success’);
-} else showToast(‘Fehler beim Laden’, ‘error’);
+    if (!audit?.audit_type || !audit?.data?.germanQuestions) { showToast('Ungültige Audit-Daten', 'error'); return; }
+    if (initAuditWithType(audit.audit_type)) {
+        audit.data.germanQuestions.forEach(sq => { const t = germanQuestions.find(q => q.id === sq.id); if (t) { t.answer = sq.answer || ""; t.evidence = sq.evidence || ""; } });
+        currentAuditId = audit.id; currentAuditName = audit.name;
+        renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); saveCurrentAuditToLocalStorage();
+        showToast(`Audit "${audit.name}" geladen`, 'success');
+    } else showToast('Fehler beim Laden', 'error');
 }
 
 async function saveCurrentAuditToGitHub() {
-if (!currentAuditType) { showToast(‘Kein Audit geladen’, ‘error’); return; }
-if (!githubToken) { showToast(‘GitHub nicht verbunden’, ‘error’); return; }
-let auditName = document.getElementById(‘githubAuditName’).value.trim() || `${MASTER_QUESTIONS[currentAuditType].title} - ${new Date().toLocaleString()}`;
-const isUpdate = !!(currentAuditId && currentAuditName === auditName);
-const auditData = {
-id: isUpdate ? currentAuditId : `audit_${currentAuditType}_${Date.now()}`,
-name: auditName, audit_type: currentAuditType,
-audit_title: MASTER_QUESTIONS[currentAuditType].title,
-standard: MASTER_QUESTIONS[currentAuditType].standard,
-created_at: new Date().toISOString(), last_modified: new Date().toISOString(),
-data: { germanQuestions: germanQuestions.map(q => ({ id:q.id, answer:q.answer, evidence:q.evidence })) },
-summary: { total: germanQuestions.length, answered: germanQuestions.filter(q => q.answer).length, yes: germanQuestions.filter(q => q.answer === ‘YES’).length, no: germanQuestions.filter(q => q.answer === ‘NO’).length, na: germanQuestions.filter(q => q.answer === ‘NA’).length }
-};
-try {
-await saveAuditToGitHub(auditData, isUpdate);
-if (!isUpdate) { currentAuditId = auditData.id; currentAuditName = auditName; saveCurrentAuditToLocalStorage(); }
-showToast(`✅ "${auditName}" gespeichert`, ‘success’);
-closeModal(‘githubSaveModal’); document.getElementById(‘githubAuditName’).value = ‘’;
-refreshCompletedAudits();
-} catch(e) { showToast(`❌ Fehler: ${e.message}`, ‘error’); }
+    if (!currentAuditType) { showToast('Kein Audit geladen', 'error'); return; }
+    if (!githubToken) { showToast('GitHub nicht verbunden', 'error'); return; }
+    let auditName = document.getElementById('githubAuditName').value.trim() || `${MASTER_QUESTIONS[currentAuditType].title} - ${new Date().toLocaleString()}`;
+    const isUpdate = !!(currentAuditId && currentAuditName === auditName);
+    const auditData = {
+        id: isUpdate ? currentAuditId : `audit_${currentAuditType}_${Date.now()}`,
+        name: auditName, audit_type: currentAuditType,
+        audit_title: MASTER_QUESTIONS[currentAuditType].title,
+        standard: MASTER_QUESTIONS[currentAuditType].standard,
+        created_at: new Date().toISOString(), last_modified: new Date().toISOString(),
+        data: { germanQuestions: germanQuestions.map(q => ({ id:q.id, answer:q.answer, evidence:q.evidence })) },
+        summary: { total: germanQuestions.length, answered: germanQuestions.filter(q => q.answer).length, yes: germanQuestions.filter(q => q.answer === 'YES').length, no: germanQuestions.filter(q => q.answer === 'NO').length, na: germanQuestions.filter(q => q.answer === 'NA').length }
+    };
+    try {
+        await saveAuditToGitHub(auditData, isUpdate);
+        if (!isUpdate) { currentAuditId = auditData.id; currentAuditName = auditName; saveCurrentAuditToLocalStorage(); }
+        showToast(`✅ "${auditName}" gespeichert`, 'success');
+        closeModal('githubSaveModal'); document.getElementById('githubAuditName').value = '';
+        refreshCompletedAudits();
+    } catch(e) { showToast(`❌ Fehler: ${e.message}`, 'error'); }
 }
 
 async function refreshCompletedAudits() {
-if (!githubToken) {
-document.getElementById(‘zfpCompletedAuditsContainer’).innerHTML = ‘<div style="color:var(--text-secondary);">🔌 Bitte GitHub Token eingeben</div>’;
-return;
-}
-const audits = await loadGitHubAudits();
-const container = document.getElementById(‘zfpCompletedAuditsContainer’);
-if (!audits.length) { container.innerHTML = ‘<div style="color:var(--text-secondary);">Keine gespeicherten Audits</div>’; return; }
-container.innerHTML = ‘’;
-[…audits].sort((a,b) => new Date(b.created_at) - new Date(a.created_at)).forEach(a => {
-const card = document.createElement(‘div’); card.className = ‘completed-audit-card’;
-const date = new Date(a.created_at).toLocaleString(‘de-DE’);
-const progress = a.summary ? `${a.summary.answered}/${a.summary.total}` : ‘?/?’;
-const safeData = JSON.stringify(a).replace(/\/g, ‘\\’).replace(/’/g, “\’”);
-card.innerHTML = `<div><strong>${escapeHtml(a.name)}</strong><br><small>${escapeHtml(a.audit_title)} | ${date}</small></div><div>Fortschritt: ${progress}</div><div class="completed-audit-actions"><button class="audit-action-btn btn-load-audit" onclick='loadGitHubAuditData(${safeData})'>Laden</button><button class="audit-action-btn btn-delete-audit" onclick='deleteGitHubAudit("${a.id}")'>Löschen</button></div>`;
-container.appendChild(card);
-});
+    if (!githubToken) {
+        document.getElementById('zfpCompletedAuditsContainer').innerHTML = '<div style="color:var(--text-secondary);">🔌 Bitte GitHub Token eingeben</div>';
+        return;
+    }
+    const audits = await loadGitHubAudits();
+    const container = document.getElementById('zfpCompletedAuditsContainer');
+    if (!audits.length) { container.innerHTML = '<div style="color:var(--text-secondary);">Keine gespeicherten Audits</div>'; return; }
+    container.innerHTML = '';
+    [...audits].sort((a,b) => new Date(b.created_at) - new Date(a.created_at)).forEach(a => {
+        const card = document.createElement('div'); card.className = 'completed-audit-card';
+        const date = new Date(a.created_at).toLocaleString('de-DE');
+        const progress = a.summary ? `${a.summary.answered}/${a.summary.total}` : '?/?';
+        const safeData = JSON.stringify(a).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        card.innerHTML = `<div><strong>${escapeHtml(a.name)}</strong><br><small>${escapeHtml(a.audit_title)} | ${date}</small></div><div>Fortschritt: ${progress}</div><div class="completed-audit-actions"><button class="audit-action-btn btn-load-audit" onclick='loadGitHubAuditData(${safeData})'>Laden</button><button class="audit-action-btn btn-delete-audit" onclick='deleteGitHubAudit("${a.id}")'>Löschen</button></div>`;
+        container.appendChild(card);
+    });
 }
 
 async function deleteGitHubAudit(id) {
-if (!confirm(‘Audit wirklich löschen?’)) return;
-try { await deleteAuditFromGitHub(id); refreshCompletedAudits(); showToast(‘Audit gelöscht’, ‘info’); }
-catch(e) { showToast(‘Fehler beim Löschen’, ‘error’); }
+    if (!confirm('Audit wirklich löschen?')) return;
+    try { await deleteAuditFromGitHub(id); refreshCompletedAudits(); showToast('Audit gelöscht', 'info'); }
+    catch(e) { showToast('Fehler beim Löschen', 'error'); }
 }
 
 async function autoSaveToGitHub() {
-if (!githubConnected || !currentAuditType) return;
-const name = currentAuditName || `${MASTER_QUESTIONS[currentAuditType].title} (Auto)`;
-const auditData = { id: currentAuditId || `temp_${Date.now()}`, name, audit_type: currentAuditType, audit_title: MASTER_QUESTIONS[currentAuditType].title, standard: MASTER_QUESTIONS[currentAuditType].standard, created_at: new Date().toISOString(), last_modified: new Date().toISOString(), data: { germanQuestions: germanQuestions.map(q => ({ id:q.id, answer:q.answer, evidence:q.evidence })) }, summary: {} };
-try { await saveAuditToGitHub(auditData, !!currentAuditId); if (!currentAuditId) { currentAuditId = auditData.id; currentAuditName = name; saveCurrentAuditToLocalStorage(); } }
-catch(e) { console.warn(‘Auto-save failed’, e); }
+    if (!githubConnected || !currentAuditType) return;
+    const name = currentAuditName || `${MASTER_QUESTIONS[currentAuditType].title} (Auto)`;
+    const auditData = { id: currentAuditId || `temp_${Date.now()}`, name, audit_type: currentAuditType, audit_title: MASTER_QUESTIONS[currentAuditType].title, standard: MASTER_QUESTIONS[currentAuditType].standard, created_at: new Date().toISOString(), last_modified: new Date().toISOString(), data: { germanQuestions: germanQuestions.map(q => ({ id:q.id, answer:q.answer, evidence:q.evidence })) }, summary: {} };
+    try { await saveAuditToGitHub(auditData, !!currentAuditId); if (!currentAuditId) { currentAuditId = auditData.id; currentAuditName = name; saveCurrentAuditToLocalStorage(); } }
+    catch(e) { console.warn('Auto-save failed', e); }
 }
 
 async function updateProgressOnStartPage() {
-if (!githubToken) return;
-try {
-const audits = await loadGitHubAudits();
-[‘ET’,‘MT’,‘NE’,‘UT’].forEach(type => {
-const el = document.getElementById(`${type.toLowerCase()}Progress`);
-if (!el) return;
-const latest = audits.filter(a => a.audit_type === type).sort((a,b) => new Date(b.last_modified) - new Date(a.last_modified))[0];
-if (latest?.summary) {
-const pct = Math.round(latest.summary.answered / latest.summary.total * 100);
-el.textContent = `${pct}%`;
-el.style.display = ‘inline-block’;
-}
-});
-} catch(e) {}
+    if (!githubToken) return;
+    try {
+        const audits = await loadGitHubAudits();
+        ['ET','MT','NE','UT'].forEach(type => {
+            const el = document.getElementById(`${type.toLowerCase()}Progress`);
+            if (!el) return;
+            const latest = audits.filter(a => a.audit_type === type).sort((a,b) => new Date(b.last_modified) - new Date(a.last_modified))[0];
+            if (latest?.summary) {
+                const pct = Math.round(latest.summary.answered / latest.summary.total * 100);
+                el.textContent = `${pct}%`;
+                el.style.display = 'inline-block';
+            }
+        });
+    } catch(e) {}
 }
 
 // ========================  BERICHT  ========================
 function generateEnglishReport() {
-if (!currentAuditType || !germanQuestions.length) { alert(‘Kein Audit geladen’); return; }
-let report = `PRI Audit Report - ${MASTER_QUESTIONS[currentAuditType].title} (${MASTER_QUESTIONS[currentAuditType].standard})\nDate: ${new Date().toLocaleString()}\n\n`;
-auditSections.forEach(sec => {
-report += `\n${sec.title}\n${'='.repeat(40)}\n`;
-germanQuestions.filter(q => q.sectionId === sec.id).forEach(q => {
-const en = englishQuestions.find(e => e.id === q.id);
-const ans = q.answer === ‘YES’ ? ‘YES’ : (q.answer === ‘NO’ ? ‘NO’ : (q.answer === ‘NA’ ? ‘N/A’ : ‘Not answered’));
-report += `\n${q.id} - ${en ? en.text : q.text}\nAnswer: ${ans}\n`;
-if (q.evidence) report += `Evidence: ${q.evidence}\n`;
-});
-});
-const a = document.createElement(‘a’); a.href = URL.createObjectURL(new Blob([report], { type: ‘text/plain’ }));
-a.download = `PRI_Report_${currentAuditType}_${new Date().toISOString().slice(0,19)}.txt`;
-a.click(); URL.revokeObjectURL(a.href);
+    if (!currentAuditType || !germanQuestions.length) { alert('Kein Audit geladen'); return; }
+    let report = `PRI Audit Report - ${MASTER_QUESTIONS[currentAuditType].title} (${MASTER_QUESTIONS[currentAuditType].standard})\nDate: ${new Date().toLocaleString()}\n\n`;
+    auditSections.forEach(sec => {
+        report += `\n${sec.title}\n${'='.repeat(40)}\n`;
+        germanQuestions.filter(q => q.sectionId === sec.id).forEach(q => {
+            const en = englishQuestions.find(e => e.id === q.id);
+            const ans = q.answer === 'YES' ? 'YES' : (q.answer === 'NO' ? 'NO' : (q.answer === 'NA' ? 'N/A' : 'Not answered'));
+            report += `\n${q.id} - ${en ? en.text : q.text}\nAnswer: ${ans}\n`;
+            if (q.evidence) report += `Evidence: ${q.evidence}\n`;
+        });
+    });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([report], { type: 'text/plain' }));
+    a.download = `PRI_Report_${currentAuditType}_${new Date().toISOString().slice(0,19)}.txt`;
+    a.click(); URL.revokeObjectURL(a.href);
 }
 
 // ========================  IMPORT  ========================
-function showImportModal() { document.getElementById(‘importModal’).style.display = ‘flex’; document.getElementById(‘importFileInput’).value = ‘’; }
+function showImportModal() { document.getElementById('importModal').style.display = 'flex'; document.getElementById('importFileInput').value = ''; }
 function handleImportFile() {
-const file = document.getElementById(‘importFileInput’).files[0]; if (!file) return;
-const reader = new FileReader(); reader.onload = e => {
-try {
-const data = JSON.parse(e.target.result);
-if (data.germanQuestions && data.audit_type && initAuditWithType(data.audit_type)) {
-data.germanQuestions.forEach(imp => { const q = germanQuestions.find(q => q.id === imp.id); if (q) { q.answer = imp.answer||’’; q.evidence = imp.evidence||’’; } });
-renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); showToast(‘Import erfolgreich’, ‘success’);
-} else showToast(‘Ungültiges Dateiformat’, ‘error’);
-} catch(e) { showToast(‘Fehler beim Import’, ‘error’); }
-closeModal(‘importModal’);
-}; reader.readAsText(file);
+    const file = document.getElementById('importFileInput').files[0]; if (!file) return;
+    const reader = new FileReader(); reader.onload = e => {
+        try {
+            const data = JSON.parse(e.target.result);
+            if (data.germanQuestions && data.audit_type && initAuditWithType(data.audit_type)) {
+                data.germanQuestions.forEach(imp => { const q = germanQuestions.find(q => q.id === imp.id); if (q) { q.answer = imp.answer||''; q.evidence = imp.evidence||''; } });
+                renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); showToast('Import erfolgreich', 'success');
+            } else showToast('Ungültiges Dateiformat', 'error');
+        } catch(e) { showToast('Fehler beim Import', 'error'); }
+        closeModal('importModal');
+    }; reader.readAsText(file);
 }
 
-function closeModal(id) { document.getElementById(id).style.display = ‘none’; }
-function showToast(msg, type = ‘info’) { const t = document.getElementById(‘syncToast’); t.textContent = msg; t.className = `sync-toast show ${type}`; setTimeout(() => t.classList.remove(‘show’), 3000); }
-function escapeHtml(s) { return s ? s.replace(/[&<>]/g, m => ({’&’:’&’,’<’:’<’,’>’:’>’}[m])) : ‘’; }
+function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+function showToast(msg, type = 'info') { const t = document.getElementById('syncToast'); t.textContent = msg; t.className = `sync-toast show ${type}`; setTimeout(() => t.classList.remove('show'), 3000); }
+function escapeHtml(s) { return s ? s.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])) : ''; }
 
 // ========================  EVENT LISTENER  ========================
 function setupEventListeners() {
-document.querySelectorAll(’.audit-btn’).forEach(btn => btn.addEventListener(‘click’, () => {
-if (initAuditWithType(btn.dataset.audit)) { currentAuditId = null; currentAuditName = null; renderOverview(); showPage(PAGES.OVERVIEW); saveCurrentAuditToLocalStorage(); }
-}));
-document.getElementById(‘backToSelectionFromOverviewBtn’).onclick = () => { currentAuditType = null; showPage(PAGES.SELECTION); localStorage.removeItem(‘zfp_current_audit’); refreshCompletedAudits(); };
-document.getElementById(‘backToOverviewBtn’).onclick = () => { renderOverview(); showPage(PAGES.OVERVIEW); };
-document.getElementById(‘resetFromQuestionsBtn’).onclick = resetAudit;
-document.getElementById(‘importFromOverviewBtn’).onclick = showImportModal;
-document.getElementById(‘importFromQuestionsBtn’).onclick = showImportModal;
-document.getElementById(‘reportFromOverviewBtn’).onclick = generateEnglishReport;
-document.getElementById(‘saveToGitHubBtn’).onclick = () => { if (currentAuditType) document.getElementById(‘githubSaveModal’).style.display = ‘flex’; else showToast(‘Kein Audit geladen’, ‘error’); };
-document.getElementById(‘saveToGitHubFromQuestionsBtn’).onclick = () => { if (currentAuditType) document.getElementById(‘githubSaveModal’).style.display = ‘flex’; else showToast(‘Kein Audit geladen’, ‘error’); };
-document.getElementById(‘confirmGithubSaveBtn’).onclick = saveCurrentAuditToGitHub;
-document.getElementById(‘githubSaveTokenBtn’).onclick = saveGitHubToken;
-document.getElementById(‘githubTokenInput’).addEventListener(‘keydown’, e => { if (e.key === ‘Enter’) saveGitHubToken(); });
-document.getElementById(‘resumeLastAuditBtn’).onclick = () => { if (!loadCurrentAuditFromLocalStorage()) { showToast(‘Kein gespeichertes Audit’, ‘info’); document.getElementById(‘resumeLastAuditBtn’).style.display = ‘none’; } };
-window.onclick = e => { if (e.target.classList.contains(‘modal’)) e.target.style.display = ‘none’; };
+    document.querySelectorAll('.audit-btn').forEach(btn => btn.addEventListener('click', () => {
+        if (initAuditWithType(btn.dataset.audit)) { currentAuditId = null; currentAuditName = null; renderOverview(); showPage(PAGES.OVERVIEW); saveCurrentAuditToLocalStorage(); }
+    }));
+    document.getElementById('backToSelectionFromOverviewBtn').onclick = () => { currentAuditType = null; showPage(PAGES.SELECTION); localStorage.removeItem('zfp_current_audit'); refreshCompletedAudits(); };
+    document.getElementById('backToOverviewBtn').onclick = () => { renderOverview(); showPage(PAGES.OVERVIEW); };
+    document.getElementById('resetFromQuestionsBtn').onclick = resetAudit;
+    document.getElementById('importFromOverviewBtn').onclick = showImportModal;
+    document.getElementById('importFromQuestionsBtn').onclick = showImportModal;
+    document.getElementById('reportFromOverviewBtn').onclick = generateEnglishReport;
+    document.getElementById('saveToGitHubBtn').onclick = () => { if (currentAuditType) document.getElementById('githubSaveModal').style.display = 'flex'; else showToast('Kein Audit geladen', 'error'); };
+    document.getElementById('saveToGitHubFromQuestionsBtn').onclick = () => { if (currentAuditType) document.getElementById('githubSaveModal').style.display = 'flex'; else showToast('Kein Audit geladen', 'error'); };
+    document.getElementById('confirmGithubSaveBtn').onclick = saveCurrentAuditToGitHub;
+    document.getElementById('githubSaveTokenBtn').onclick = saveGitHubToken;
+    document.getElementById('githubTokenInput').addEventListener('keydown', e => { if (e.key === 'Enter') saveGitHubToken(); });
+    document.getElementById('resumeLastAuditBtn').onclick = () => { if (!loadCurrentAuditFromLocalStorage()) { showToast('Kein gespeichertes Audit', 'info'); document.getElementById('resumeLastAuditBtn').style.display = 'none'; } };
+    window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
 }
 
 // ========================  INIT  ========================
-document.addEventListener(‘DOMContentLoaded’, () => {
-initTheme();
-setupEventListeners();
-// Lokales Audit laden (zeigt Resume-Button)
-if (loadCurrentAuditFromLocalStorage()) document.getElementById(‘resumeLastAuditBtn’).style.display = ‘inline-block’;
-// Token laden → testGitHubConnection() → refreshCompletedAudits() (in Kette)
-loadGitHubToken();
-// Alle 30 Sekunden Fortschritt aktualisieren
-setInterval(() => { if (githubToken && githubConnected) updateProgressOnStartPage(); }, 30000);
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    setupEventListeners();
+    // Lokales Audit laden (zeigt Resume-Button)
+    if (loadCurrentAuditFromLocalStorage()) document.getElementById('resumeLastAuditBtn').style.display = 'inline-block';
+    // Token laden → testGitHubConnection() → refreshCompletedAudits() (in Kette)
+    loadGitHubToken();
+    // Alle 30 Sekunden Fortschritt aktualisieren
+    setInterval(() => { if (githubToken && githubConnected) updateProgressOnStartPage(); }, 30000);
 });
 
 window.loadGitHubAuditData  = loadGitHubAuditData;
@@ -918,6 +908,5 @@ window.refreshCompletedAudits = refreshCompletedAudits;
 window.closeModal           = closeModal;
 window.handleImportFile     = handleImportFile;
 </script>
-
 </body>
 </html>
