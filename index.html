@@ -3,107 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>ZfP Review Audit - Schaeffler Technologies</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous"></script>
+    <title>Self-Audit ZfP - Schaeffler Technologies</title>
     <style>
         :root, html[data-theme="light"] {
             --bg-primary: #eef8ee; --bg-secondary: #ffffff; --bg-tertiary: #f3fbf3;
             --text-primary: #333333; --text-secondary: #7f8c8d; --text-tertiary: #111111;
             --border-color: #bdc3c7; --border-light: #ecf0f1; --shadow-color: rgba(0,0,0,0.1);
-            --header-border: #0f2a1a; --header-bg: #1f6f43;
-            --btn-back: #7f8c8d; --btn-report: #8e44ad; --btn-danger: #e74c3c;
-            --btn-info: #17a2b8; --btn-success: #27ae60; --btn-warning: #f39c12;
-            --btn-cloud: #16a085; --btn-pdf: #e74c3c;
-            --audit-et: #3498db; --audit-mt: #e74c3c; --audit-ne: #27ae60; --audit-ut: #9b59b6;
-            --audit-cloud: #d35400; --audit-dev: #c0392b;
-            --question-border: #3498db; --question-bg: #f8f9fa;
-            --points-0: #e74c3c; --points-4: #f39c12; --points-8: #2ecc71; --points-10: #27ae60; --points-na: #95a5a6;
-            --dev-bg: #fff3f3; --dev-border: #e74c3c;
-            --input-bg: #ffffff; --input-border: #ddd; --input-text: #333;
-            --modal-bg: rgba(0,0,0,0.8); --modal-content-bg: #ffffff;
-            --progress-bg: #ecf0f1;
+            --header-border: #0f2a1a; --btn-back: #7f8c8d; --btn-report: #8e44ad; --btn-danger: #e74c3c;
+            --btn-info: #17a2b8; --btn-success: #27ae60; --btn-warning: #f39c12; --btn-export: #3498db;
+            --question-border: #3498db; --question-bg: #f8f9fa; --answer-yes: #27ae60; --answer-no: #e74c3c;
+            --answer-na: #95a5a6; --input-bg: #ffffff; --input-border: #ddd; --input-text: #333;
+            --modal-bg: rgba(0,0,0,0.8); --modal-content-bg: #ffffff; --progress-bg: #ecf0f1;
         }
         html[data-theme="dark"] {
             --bg-primary: #121212; --bg-secondary: #1e1e1e; --bg-tertiary: #2d2d2d;
             --text-primary: #e0e0e0; --text-secondary: #a0a0a0; --text-tertiary: #ffffff;
             --border-color: #555555; --border-light: #3a3a3a; --shadow-color: rgba(0,0,0,0.3);
-            --header-border: #2c3e50; --header-bg: #2c3e50;
-            --btn-back: #5d6d7e; --btn-report: #6c3483; --btn-danger: #c0392b;
-            --btn-info: #117a8b; --btn-success: #229954; --btn-warning: #b9770e;
-            --btn-cloud: #16a085; --btn-pdf: #c0392b;
-            --audit-et: #2874a6; --audit-mt: #c0392b; --audit-ne: #239b56; --audit-ut: #7d3c98;
-            --audit-cloud: #e67e22; --audit-dev: #c0392b;
-            --question-border: #3498db; --question-bg: #2d2d2d;
-            --points-0: #e74c3c; --points-4: #f39c12; --points-8: #2ecc71; --points-10: #27ae60; --points-na: #7f8c8d;
-            --dev-bg: #3a1f1f; --dev-border: #c0392b;
-            --input-bg: #2d2d2d; --input-border: #555; --input-text: #e0e0e0;
-            --modal-content-bg: #1e1e1e;
-            --progress-bg: #34495e;
+            --header-border: #2c3e50; --btn-back: #5d6d7e; --btn-report: #6c3483; --btn-danger: #c0392b;
+            --btn-info: #117a8b; --btn-success: #229954; --btn-warning: #b9770e; --btn-export: #2874a6;
+            --question-border: #3498db; --question-bg: #2d2d2d; --input-bg: #2d2d2d; --input-border: #555;
+            --input-text: #e0e0e0; --modal-content-bg: #1e1e1e; --progress-bg: #34495e;
         }
-
+        /* Dark mode: alle Text-Elemente explizit hell */
         html[data-theme="dark"] body { color: var(--text-primary); }
-        html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] h3 { color: var(--text-tertiary); }
-        html[data-theme="dark"] .question-text { color: var(--text-primary); }
-        html[data-theme="dark"] .evidence,.html[data-theme="dark"] .deviation-field,html[data-theme="dark"] .responsible-field { color: var(--input-text); background: var(--input-bg); border-color: var(--input-border); }
-        html[data-theme="dark"] .audit-status,html[data-theme="dark"] .audit-status strong { color: var(--text-primary); }
-        html[data-theme="dark"] .section-item,html[data-theme="dark"] .section-item strong { color: var(--text-primary); }
-        html[data-theme="dark"] .stat-card,html[data-theme="dark"] .stat-card h3,html[data-theme="dark"] .stat-card p { color: var(--text-primary); }
-        html[data-theme="dark"] .modal-content h3,html[data-theme="dark"] .modal-content label { color: var(--text-primary); }
-        html[data-theme="dark"] .modal-content input,html[data-theme="dark"] .modal-content textarea { color: var(--input-text); background: var(--input-bg); border-color: var(--input-border); }
+        html[data-theme="dark"] .stat-card,
+        html[data-theme="dark"] .stat-card h3,
+        html[data-theme="dark"] .stat-card p { color: var(--text-primary); }
+        html[data-theme="dark"] .completed-audit-card,
+        html[data-theme="dark"] .completed-audit-card strong,
+        html[data-theme="dark"] .completed-audit-card small,
+        html[data-theme="dark"] .completed-audit-card div { color: var(--text-primary); }
+        html[data-theme="dark"] .section-item,
+        html[data-theme="dark"] .section-item strong { color: var(--text-primary); }
+        html[data-theme="dark"] .section-item:hover { color: var(--text-primary); }
+        html[data-theme="dark"] .audit-status,
+        html[data-theme="dark"] .audit-status strong { color: var(--text-primary); }
+        html[data-theme="dark"] .controls-container { color: var(--text-primary); }
+        html[data-theme="dark"] .modal-content,
+        html[data-theme="dark"] .modal-content h3,
+        html[data-theme="dark"] .modal-content label { color: var(--text-primary); }
+        html[data-theme="dark"] .modal-content input { color: var(--input-text); background: var(--input-bg); border-color: var(--input-border); }
         html[data-theme="dark"] footer { color: var(--text-secondary); }
+        html[data-theme="dark"] h1,
+        html[data-theme="dark"] h2,
+        html[data-theme="dark"] h3 { color: var(--text-tertiary); }
+        html[data-theme="dark"] #overviewTitle { color: var(--text-tertiary); }
+        html[data-theme="dark"] #currentSectionTitle { color: var(--text-tertiary); }
         html[data-theme="dark"] .github-token-field input { color: var(--text-primary); }
-        html[data-theme="dark"] .completed-audit-card,html[data-theme="dark"] .completed-audit-card strong,html[data-theme="dark"] .completed-audit-card small { color: var(--text-primary); }
-        html[data-theme="dark"] .filter-btn { color: var(--text-primary); }
-        html[data-theme="dark"] .deviations-table td { color: var(--text-primary); }
-        html[data-theme="dark"] .overview-stats-bar { color: var(--text-primary); }
-
+        html[data-theme="dark"] .evidence { color: var(--input-text); background: var(--input-bg); border-color: var(--input-border); }
+        html[data-theme="dark"] .guidance { color: var(--text-secondary); }
+        html[data-theme="dark"] .question-text { color: var(--text-primary); }
+        html[data-theme="dark"] .completed-audits-section { color: var(--text-primary); }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.4; background-color: var(--bg-primary); padding: 6px; font-size: 14px; transition: background-color 0.3s ease, color 0.3s ease; }
-
         .container { max-width: 1200px; margin: 0 auto; background: var(--bg-secondary); padding: 15px; border-radius: 14px; box-shadow: 0 4px 24px var(--shadow-color); }
-
         header { text-align: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid var(--header-border); }
         h1 { color: var(--text-tertiary); margin-bottom: 4px; font-size: 1.5em; }
         .subtitle { color: var(--text-secondary); font-size: 0.85em; }
-
-        /* ── THEME TOGGLE ── */
         .theme-toggle { position: fixed; right: 16px; bottom: 16px; z-index: 900; width: 40px; height: 40px; border-radius: 10px; border: 2px solid #3498db; background: var(--bg-secondary); color: var(--text-tertiary); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 20px; transition: transform .1s ease; }
         .theme-toggle:hover { transform: scale(1.1); }
-
-        /* ── AUDIT KACHELN ── */
         .audit-selection h2 { color: var(--text-tertiary); margin-bottom: 14px; font-size: 1.0em; font-weight: 700; }
         .audit-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 15px; }
-
-        .audit-btn {
-            position: relative; color: #fff; border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.18);
-            box-shadow: 0 12px 26px rgba(0,0,0,0.22);
-            transition: transform 0.2s, box-shadow 0.2s;
-            padding: 16px; cursor: pointer; font-size: 1.0em;
-            display: flex; flex-direction: column; justify-content: space-between;
-            min-height: 148px; text-align: left; overflow: hidden;
-            background: linear-gradient(145deg, #3498db 0%, #1a5276 100%);
-        }
+        .audit-btn { position: relative; color: #fff; border-radius: 14px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 12px 26px rgba(0,0,0,0.22); transition: transform 0.2s, box-shadow 0.2s; padding: 16px; cursor: pointer; font-size: 1.0em; display: flex; flex-direction: column; justify-content: space-between; min-height: 148px; text-align: left; overflow: hidden; background: linear-gradient(145deg, #3498db 0%, #1a5276 100%); }
         .audit-btn.magnetpulver { background: linear-gradient(145deg, #e74c3c 0%, #c0392b 100%); }
         .audit-btn.nital { background: linear-gradient(145deg, #27ae60 0%, #1e8449 100%); }
         .audit-btn.ultraschall { background: linear-gradient(145deg, #8e44ad 0%, #6c3483 100%); }
-        .audit-btn.cloud-btn { background: linear-gradient(145deg, #d35400 0%, #a04000 100%); width: 100%; max-width: 500px; margin: 0 auto; min-height: 100px; }
-        .audit-btn.dev-btn { background: linear-gradient(145deg, #c0392b 0%, #922b21 100%); width: 100%; max-width: 500px; margin: 0 auto; min-height: 100px; }
         .audit-btn:hover { transform: translateY(-5px) scale(1.012); box-shadow: 0 20px 42px rgba(0,0,0,0.28); filter: saturate(1.08) brightness(1.04); }
-
         .btn-top-row { display: flex; align-items: flex-start; justify-content: space-between; }
         .btn-icon-box { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; background: rgba(255,255,255,0.20); border: 1px solid rgba(255,255,255,0.30); flex: 0 0 auto; }
         .btn-label { font-weight: 800; font-size: 1.0em; margin-top: 10px; }
         .btn-meta-row { display: flex; align-items: center; gap: 6px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.18); margin-top: 6px; font-size: 0.80em; color: rgba(255,255,255,0.88); }
-        .btn-progress { background: rgba(255,255,255,0.22); border-radius: 999px; padding: 1px 8px; font-size: 0.85em; font-weight: 700; border: 1px solid rgba(255,255,255,0.35); margin-left: auto; }
+        .btn-progress { background: rgba(255,255,255,0.22); border-radius: 999px; padding: 1px 8px; font-size: 0.85em; font-weight: 700; border: 1px solid rgba(255,255,255,0.35); margin-left: auto; display: none; }
+        .controls-container { width: 100%; margin-bottom: 20px; background: var(--bg-tertiary); border-radius: 8px; padding: 12px; border: 1px solid var(--border-light); }
+        .button-row { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 5px; align-items: center; }
+        .button-row button { padding: 0 12px; height: 34px; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 0.72em; white-space: nowrap; flex-shrink: 0; transition: all 0.14s; box-shadow: 0 2px 6px rgba(0,0,0,0.18); display: inline-flex; align-items: center; gap: 6px; }
+        .button-row button:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        .btn-back { background: linear-gradient(135deg, #7f8c8d, #636e72); color: #fff; }
+        .btn-report { background: linear-gradient(135deg, #e67e22, #d35400); color: #fff; }
+        .btn-danger { background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; }
+        .btn-info { background: linear-gradient(135deg, #3498db, #2980b9); color: #fff; }
+        .btn-github { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: #fff; }
+        .btn-import { background: linear-gradient(135deg, #27ae60, #1e8449); color: #fff; }
+        .btn-cancel { background: #95a5a6; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+        .btn-github-save { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+        .audit-action-btn { padding: 4px 8px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.75em; font-weight: bold; }
+        .btn-load-audit { background: var(--btn-info); color: white; }
+        .btn-delete-audit { background: var(--btn-danger); color: white; }
+        .audit-status { margin-bottom: 6px; font-size: 0.9em; background: var(--bg-tertiary); padding: 8px; border-radius: 4px; border: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 8px; }
+        .status-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; }
+        .progress-container { flex: 1; min-width: 200px; max-width: 400px; }
+        .progress-bar { width: 100%; height: 8px; background: var(--progress-bg); border-radius: 5px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #3498db, #2ecc71); border-radius: 5px; transition: width 0.3s ease; }
+        .section { margin-bottom: 12px; border: none; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); overflow: hidden; }
+        .section-header { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .section-header h2 { margin: 0; font-size: 1em; font-weight: 600; }
+        .section-content { padding: 14px; background: var(--bg-secondary); display: none; }
+        .section.expanded .section-content { display: block; }
+        .question { margin-bottom: 10px; padding: 14px; background: var(--question-bg); border-radius: 10px; border-left: 4px solid var(--question-border); transition: all 0.3s ease; }
+        .question.yes-answer { border-left-color: var(--answer-yes); background-color: rgba(39,174,96,0.05); }
+        .question.no-answer { border-left-color: var(--answer-no); background-color: rgba(231,76,60,0.05); }
+        .question.na-answer { border-left-color: var(--answer-na); }
+        .question-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+        .question-text { flex: 1; font-weight: 500; font-size: 1em; line-height: 1.4; color: var(--text-primary); }
+        .question-id { background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.85em; margin-left: 8px; white-space: nowrap; }
+        .answer-options { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .answer-option { flex: 1; min-width: 70px; padding: 9px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; text-align: center; font-weight: bold; font-size: 0.88em; transition: transform 0.15s; }
+        .answer-option[data-answer="YES"] { border-color: var(--answer-yes); color: var(--answer-yes); }
+        .answer-option[data-answer="YES"].selected { background: var(--answer-yes); color: white; }
+        .answer-option[data-answer="NO"] { border-color: var(--answer-no); color: var(--answer-no); }
+        .answer-option[data-answer="NO"].selected { background: var(--answer-no); color: white; }
+        .answer-option[data-answer="NA"] { border-color: var(--answer-na); color: var(--answer-na); }
+        .answer-option[data-answer="NA"].selected { background: var(--answer-na); color: white; }
+        .evidence { width: 100%; padding: 10px 12px; border: 1.5px solid var(--input-border); border-radius: 8px; resize: vertical; min-height: 60px; font-family: inherit; margin-bottom: 8px; font-size: 0.85em; background: var(--input-bg); color: var(--input-text); }
+        .guidance { font-size: 0.8em; color: var(--text-secondary); margin-bottom: 8px; font-style: italic; }
 
-        /* ── GITHUB TOKEN BAR ── */
+        /* ── GitHub Token Zeile – kompakt, alles in einer Zeile ── */
         .github-compact-panel {
             display: flex; align-items: center; gap: 10px;
             margin-bottom: 15px; padding: 8px 14px;
             background: var(--bg-tertiary);
             border: 1px solid var(--border-light);
-            border-radius: 50px; flex-wrap: wrap;
+            border-radius: 50px;
+            flex-wrap: wrap;
         }
         .github-status-dot {
             width: 10px; height: 10px; border-radius: 50%;
@@ -111,11 +132,28 @@
             border: 1.5px solid rgba(0,0,0,0.12);
             transition: background 0.3s, box-shadow 0.3s;
         }
-        .github-status-dot.connected { background: #27ae60; box-shadow: 0 0 0 3px rgba(39,174,96,0.25); border-color: #1e8449; }
-        .github-status-dot.error { background: #e74c3c; box-shadow: 0 0 0 3px rgba(231,76,60,0.2); }
-        .github-status-dot.checking { background: #f39c12; box-shadow: 0 0 0 3px rgba(243,156,18,0.25); }
-        .github-token-field { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 200px; }
-        .github-token-field input { flex: 1; padding: 4px 10px; border: none; background: transparent; color: var(--text-primary); font-size: 0.85em; font-family: monospace; outline: none; }
+        .github-status-dot.connected {
+            background: #27ae60;
+            box-shadow: 0 0 0 3px rgba(39,174,96,0.25);
+            border-color: #1e8449;
+        }
+        .github-status-dot.error {
+            background: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231,76,60,0.2);
+        }
+        .github-status-dot.checking {
+            background: #f39c12;
+            box-shadow: 0 0 0 3px rgba(243,156,18,0.25);
+        }
+        .github-token-field {
+            display: flex; align-items: center; gap: 8px; flex: 1; min-width: 200px;
+        }
+        .github-token-field input {
+            flex: 1; padding: 4px 10px;
+            border: none; background: transparent;
+            color: var(--text-primary); font-size: 0.85em;
+            font-family: monospace; outline: none;
+        }
         .github-token-field input::placeholder { color: var(--text-secondary); }
         .github-save-btn {
             background: linear-gradient(135deg, #27ae60, #1e8449);
@@ -126,199 +164,53 @@
             box-shadow: 0 2px 6px rgba(39,174,96,0.3);
         }
         .github-save-btn:hover { transform: translateY(-1px); filter: brightness(1.08); }
-
-        /* ── KONTROLLELEMENTE ── */
-        .controls-container { width: 100%; margin-bottom: 20px; background: var(--bg-tertiary); border-radius: 8px; padding: 12px; border: 1px solid var(--border-light); }
-        .button-row { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 5px; align-items: center; }
-        .button-row button { padding: 0 12px; height: 34px; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 0.72em; white-space: nowrap; flex-shrink: 0; transition: all 0.14s; box-shadow: 0 2px 6px rgba(0,0,0,0.18); display: inline-flex; align-items: center; gap: 6px; }
-        .button-row button:hover { transform: translateY(-2px); filter: brightness(1.1); }
-        .btn-back { background: linear-gradient(135deg, #7f8c8d, #636e72); color: #fff; }
-        .btn-report { background: linear-gradient(135deg, #e67e22, #d35400); color: #fff; }
-        .btn-danger { background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; }
-        .btn-info { background: linear-gradient(135deg, #3498db, #2980b9); color: #fff; }
-        .btn-cloud-save { background: linear-gradient(135deg, #16a085, #0e6655); color: #fff; }
-        .btn-pdf { background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; }
-
-        /* ── STATUS ── */
-        .audit-status { margin-bottom: 6px; font-size: 0.9em; background: var(--bg-tertiary); padding: 8px; border-radius: 4px; border: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 8px; }
-        .status-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px; }
-        .progress-container { flex: 1; min-width: 200px; max-width: 400px; }
-        .progress-bar { width: 100%; height: 8px; background: var(--progress-bg); border-radius: 5px; overflow: hidden; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, #3498db, #2ecc71); border-radius: 5px; transition: width 0.3s ease; }
-
-        /* ── SECTIONS ── */
-        .section { margin-bottom: 12px; border: none; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.07); overflow: hidden; }
-        .section-header { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
-        .section-header h2 { margin: 0; font-size: 1em; font-weight: 600; }
-        .section-content { padding: 14px; background: var(--bg-secondary); display: none; }
-        .section.expanded .section-content { display: block; }
-
-        /* ── FRAGEN ── */
-        .question { margin-bottom: 10px; padding: 14px; background: var(--question-bg); border-radius: 10px; border-left: 4px solid var(--question-border); transition: all 0.2s; }
-        .question-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-        .question-text { flex: 1; font-weight: 500; font-size: 1em; line-height: 1.4; }
-        .question-id { background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.85em; margin-left: 8px; white-space: nowrap; }
-
-        /* ── PUNKTE ── */
-        .points-options { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
-        .points-option {
-            flex: 1; min-width: 60px; padding: 9px 6px;
-            border: 2px solid var(--border-color); border-radius: 8px;
-            background: var(--bg-secondary); color: var(--text-primary);
-            cursor: pointer; text-align: center; font-weight: bold; font-size: 0.88em;
-            transition: transform 0.15s, background 0.15s;
-        }
-        .points-option[data-points="0"] { border-color: var(--points-0); color: var(--points-0); }
-        .points-option[data-points="0"].selected { background: var(--points-0); color: white; }
-        .points-option[data-points="4"] { border-color: var(--points-4); color: var(--points-4); }
-        .points-option[data-points="4"].selected { background: var(--points-4); color: #333; }
-        .points-option[data-points="8"] { border-color: var(--points-8); color: var(--points-8); }
-        .points-option[data-points="8"].selected { background: var(--points-8); color: white; }
-        .points-option[data-points="10"] { border-color: var(--points-10); color: var(--points-10); }
-        .points-option[data-points="10"].selected { background: var(--points-10); color: white; }
-        .points-option:hover { transform: translateY(-2px); }
-
-        .points-display { font-size: 0.85em; font-weight: bold; margin-bottom: 8px; text-align: center; padding: 6px; border-radius: 6px; background: var(--bg-tertiary); border: 1px solid var(--border-light); }
-
-        .evidence { width: 100%; padding: 10px 12px; border: 1.5px solid var(--input-border); border-radius: 8px; resize: vertical; min-height: 50px; font-family: inherit; margin-bottom: 8px; font-size: 0.85em; background: var(--input-bg); color: var(--input-text); }
-
-        .deviation-section { display: none; margin-top: 10px; padding: 12px; background: var(--dev-bg); border-radius: 8px; border-left: 4px solid var(--dev-border); }
-        .deviation-section h4 { color: var(--dev-border); margin-bottom: 8px; font-size: 0.9em; }
-        .deviation-field, .responsible-field { width: 100%; padding: 8px 10px; border: 1.5px solid var(--dev-border); border-radius: 8px; resize: vertical; min-height: 45px; font-family: inherit; margin-bottom: 8px; font-size: 0.85em; background: var(--input-bg); color: var(--input-text); }
-        .responsible-field { border-color: var(--input-border); min-height: auto; }
-        .file-input-label { display: inline-block; padding: 5px 10px; background: linear-gradient(135deg, #3498db, #2980b9); color: white; border-radius: 6px; cursor: pointer; font-size: 0.8em; }
-        .image-preview { max-width: 100%; max-height: 150px; margin-top: 8px; border: 1px solid var(--border-color); border-radius: 6px; display: none; }
-        .remove-image { background: var(--btn-danger); color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; margin-top: 5px; font-size: 0.75em; }
-
-        /* ── OVERVIEW ── */
-        .overview-stats { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
-        .stat-card { background: var(--bg-tertiary); border-radius: 12px; padding: 12px; flex: 1; min-width: 120px; text-align: center; }
-        .stat-card h3 { font-size: 0.8em; color: var(--text-secondary); margin-bottom: 4px; }
-        .stat-card p { font-size: 1.1em; font-weight: bold; }
-        .section-item { background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 10px; padding: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.2s; }
-        .section-item:hover { transform: translateX(4px); background: var(--bg-secondary); }
-        .section-status { font-size: 0.75em; padding: 2px 8px; border-radius: 20px; background: #95a5a6; color: white; }
-        .section-status.completed { background: #27ae60; }
-        .section-status.in-progress { background: #f39c12; }
-
-        /* ── ABGESCHLOSSENE AUDITS ── */
         .completed-audits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; max-height: 400px; overflow-y: auto; padding: 5px; }
-        .completed-audit-card { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s; display: flex; flex-direction: column; gap: 8px; }
+        .completed-audit-card { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 8px; }
         .completed-audit-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow-color); }
         .completed-audit-actions { display: flex; gap: 6px; justify-content: flex-end; margin-top: 5px; }
-        .audit-action-btn { padding: 4px 10px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.75em; font-weight: bold; transition: filter .15s; }
-        .audit-action-btn:hover { filter: brightness(1.1); }
-        .btn-load-audit { background: #17a2b8; color: white; }
-        .btn-delete-audit { background: #e74c3c; color: white; }
-        .btn-report-audit { background: #8e44ad; color: white; }
-
-        /* ── ABWEICHUNGEN TABLE ── */
-        .deviations-wrap { overflow-x: auto; margin-top: 15px; }
-        .deviations-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
-        .deviations-table thead { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; }
-        .deviations-table th { padding: 10px 8px; text-align: left; font-size: 0.85em; white-space: nowrap; }
-        .deviations-table td { padding: 9px 8px; border-bottom: 1px solid var(--border-light); vertical-align: middle; }
-        .deviations-table tr:hover td { background: var(--bg-tertiary); }
-        .status-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.8em; font-weight: 700; }
-        .status-open { background: #e74c3c; color: white; }
-        .status-closed { background: #27ae60; color: white; }
-        .filter-controls { display: flex; gap: 8px; margin-bottom: 15px; flex-wrap: wrap; }
-        .filter-btn { padding: 5px 14px; border: 1.5px solid var(--border-color); border-radius: 20px; cursor: pointer; font-size: 0.82em; font-weight: 600; background: var(--bg-secondary); color: var(--text-primary); transition: .15s; }
-        .filter-btn.active, .filter-btn:hover { background: #17a2b8; color: white; border-color: #17a2b8; }
-
-        /* ── MODALS ── */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--modal-bg); z-index: 1000; align-items: center; justify-content: center; }
-        .modal-content { background: var(--modal-content-bg); padding: 24px; border-radius: 14px; max-width: 500px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-content { background: var(--modal-content-bg); padding: 20px; border-radius: 14px; max-width: 500px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
         .modal-content h3 { margin-bottom: 14px; color: var(--text-tertiary); }
-        .modal-content input, .modal-content textarea { width: 100%; padding: 10px 14px; border: 1px solid var(--input-border); border-radius: 8px; background: var(--input-bg); color: var(--input-text); font-size: 0.95em; margin-bottom: 8px; font-family: inherit; }
+        .modal-content input { width: 100%; padding: 10px 14px; border: 1px solid var(--input-border); border-radius: 8px; background: var(--input-bg); color: var(--input-text); font-size: 0.95em; margin-bottom: 4px; }
         .modal-buttons { margin-top: 15px; display: flex; gap: 10px; }
-        .btn-cancel { background: #95a5a6; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
-        .btn-modal-save { background: linear-gradient(135deg, #27ae60, #1e8449); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 700; }
-
-        /* ── TOAST ── */
         .sync-toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #2c3e50; color: white; padding: 10px 20px; border-radius: 30px; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 2000; font-size: 0.9em; }
         .sync-toast.show { opacity: 1; }
         .sync-toast.success { background: #27ae60; }
         .sync-toast.error { background: #e74c3c; }
         .sync-toast.info { background: #3498db; }
-
-        /* ── SEITEN ── */
         .page { display: none; }
         .page.active { display: block; }
-
-        footer { text-align: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid var(--border-light); font-size: 0.85em; }
-
-        /* ── WRAPPER für Cloud/Dev-Buttons ── */
-        .wide-btn-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 5px; }
-
-        @media (max-width: 768px) {
-            .audit-buttons { grid-template-columns: 1fr; }
-            .button-row button { padding: 0 8px; font-size: 0.7em; }
-            .github-compact-panel { border-radius: 12px; }
-            .points-options { gap: 4px; }
-            .points-option { min-width: 45px; font-size: 0.8em; padding: 7px 2px; }
-        }
+        .section-item { background: var(--bg-tertiary); border: 1px solid var(--border-light); border-radius: 8px; margin-bottom: 10px; padding: 12px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.2s; }
+        .section-item:hover { transform: translateX(4px); background: var(--bg-secondary); }
+        .section-status { font-size: 0.75em; padding: 2px 8px; border-radius: 20px; background: #95a5a6; color: white; }
+        .section-status.completed { background: #27ae60; }
+        .section-status.in-progress { background: #f39c12; }
+        .overview-stats { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+        .stat-card { background: var(--bg-tertiary); border-radius: 12px; padding: 12px; flex: 1; min-width: 120px; text-align: center; }
+        @media (max-width: 768px) { .audit-buttons { grid-template-columns: 1fr; } .button-row button { padding: 0 8px; font-size: 0.7em; } .github-compact-panel { border-radius: 12px; } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 <div class="container">
-    <header>
-        <h1 id="mainTitle">ZfP Review Audit</h1>
-        <div class="subtitle" id="mainSubtitle">Schaeffler Technologies AG &amp; Co. KG · IN_QP_29005</div>
-    </header>
+    <header><h1 id="mainTitle">Self-Audit ZfP Verfahren</h1><div class="subtitle" id="mainSubtitle">Schaeffler Technologies AG &amp; Co. KG</div></header>
 
-    <!-- ══ SEITE 1: AUSWAHL ══ -->
+    <!-- SEITE 1: AUDIT-AUSWAHL -->
     <div id="pageSelection" class="page active">
-        <div class="audit-selection">
-            <h2>Audit-Verfahren auswählen:</h2>
+        <div class="audit-selection"><h2>Audit-Verfahren auswählen:</h2>
             <div class="audit-buttons">
-                <button class="audit-btn" data-audit="wirbelstrom">
-                    <div class="btn-top-row"><div class="btn-icon-box">⚡</div></div>
-                    <div class="btn-label">Wirbelstromprüfung</div>
-                    <div class="btn-meta-row"><span>Eddy Current (ET)</span><div class="btn-progress" id="etProgress"></div></div>
-                </button>
-                <button class="audit-btn magnetpulver" data-audit="magnetpulver">
-                    <div class="btn-top-row"><div class="btn-icon-box">🧲</div></div>
-                    <div class="btn-label">Magnetpulverprüfung</div>
-                    <div class="btn-meta-row"><span>Magnetic Particle (MT)</span><div class="btn-progress" id="mtProgress"></div></div>
-                </button>
-                <button class="audit-btn nital" data-audit="nital">
-                    <div class="btn-top-row"><div class="btn-icon-box">🧪</div></div>
-                    <div class="btn-label">Nital-Ätzen</div>
-                    <div class="btn-meta-row"><span>Nital Etch (NE)</span><div class="btn-progress" id="neProgress"></div></div>
-                </button>
-                <button class="audit-btn ultraschall" data-audit="ultraschall">
-                    <div class="btn-top-row"><div class="btn-icon-box">📡</div></div>
-                    <div class="btn-label">Ultraschallprüfung</div>
-                    <div class="btn-meta-row"><span>Ultrasonic (UT)</span><div class="btn-progress" id="utProgress"></div></div>
-                </button>
-            </div>
-            <div class="wide-btn-wrap">
-                <button class="audit-btn cloud-btn" onclick="showPage('pageCloud')">
-                    <div style="display:flex;align-items:center;gap:14px;">
-                        <div class="btn-icon-box" style="width:42px;height:42px;">☁️</div>
-                        <div>
-                            <div class="btn-label" style="margin-top:0">Abgeschlossene Audits</div>
-                            <div style="font-size:.82em;opacity:.85;margin-top:2px;">GitHub Archiv</div>
-                        </div>
-                        <div class="btn-progress" id="cloudProgress" style="margin-left:auto">0 Audits</div>
-                    </div>
-                </button>
-                <button class="audit-btn dev-btn" onclick="showPage('pageDeviations')">
-                    <div style="display:flex;align-items:center;gap:14px;">
-                        <div class="btn-icon-box" style="width:42px;height:42px;">⚠️</div>
-                        <div>
-                            <div class="btn-label" style="margin-top:0">Abweichungen</div>
-                            <div style="font-size:.82em;opacity:.85;margin-top:2px;">Maßnahmen-Tracking</div>
-                        </div>
-                        <div class="btn-progress" id="devProgress" style="margin-left:auto">0</div>
-                    </div>
-                </button>
+                <button class="audit-btn" data-audit="ET"><div class="btn-top-row"><div class="btn-icon-box">⚡</div></div><div class="btn-label">Wirbelstromprüfung</div><div class="btn-meta-row"><span>Eddy Current (ET)</span><div class="btn-progress" id="etProgress"></div></div></button>
+                <button class="audit-btn magnetpulver" data-audit="MT"><div class="btn-top-row"><div class="btn-icon-box">🧲</div></div><div class="btn-label">Magnetpulverprüfung</div><div class="btn-meta-row"><span>Magnetic Particle (MT)</span><div class="btn-progress" id="mtProgress"></div></div></button>
+                <button class="audit-btn nital" data-audit="NE"><div class="btn-top-row"><div class="btn-icon-box">🧪</div></div><div class="btn-label">Nital-Ätzen</div><div class="btn-meta-row"><span>Nital Etch (NE)</span><div class="btn-progress" id="neProgress"></div></div></button>
+                <button class="audit-btn ultraschall" data-audit="UT"><div class="btn-top-row"><div class="btn-icon-box">📡</div></div><div class="btn-label">Ultraschallprüfung</div><div class="btn-meta-row"><span>Ultrasonic (UT)</span><div class="btn-progress" id="utProgress"></div></div></button>
             </div>
         </div>
+        <div id="resumeButtonContainer" style="text-align:center;margin:15px 0;">
+            <button id="resumeLastAuditBtn" class="btn-info" style="display:none;">▶️ Weiter mit letztem Audit</button>
+        </div>
 
-        <!-- GitHub Token -->
-        <div class="github-compact-panel" style="margin-top:18px;">
+        <!-- GitHub Token – eine Zeile -->
+        <div class="github-compact-panel">
             <div class="github-status-dot" id="githubStatusDot" title="Nicht verbunden"></div>
             <span style="font-size:1em;flex-shrink:0;">🔑</span>
             <div class="github-token-field">
@@ -326,1004 +218,595 @@
             </div>
             <button class="github-save-btn" id="githubSaveTokenBtn">Speichern</button>
         </div>
+
+        <div class="completed-audits-section" style="margin-top:20px;border-top:2px solid var(--border-color);padding-top:20px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
+                <span>📋 Abgeschlossene Audits</span>
+                <button onclick="refreshCompletedAudits()" style="background:var(--btn-info);border:none;border-radius:4px;padding:4px 8px;cursor:pointer;color:white;font-size:0.8em;">↻ Aktualisieren</button>
+            </div>
+            <div id="zfpCompletedAuditsContainer" class="completed-audits-grid"><div style="color:var(--text-secondary);">🔌 Bitte GitHub Token eingeben und speichern</div></div>
+        </div>
     </div>
 
-    <!-- ══ SEITE 2: ÜBERSICHT ══ -->
+    <!-- SEITE 2: AUDIT-ÜBERSICHT -->
     <div id="pageOverview" class="page">
         <div class="controls-container"><div class="button-row">
-            <button class="btn-back" onclick="showPage('pageSelection');resetAuditState()">← Verfahrenswahl</button>
-            <button class="btn-report" onclick="generateReport()">📋 Bericht drucken</button>
-            <button class="btn-danger" id="resetBtn" onclick="resetAudit()">🗑️ Reset</button>
-            <button class="btn-cloud-save" onclick="openSaveModal()">☁️ In GitHub speichern</button>
+            <button class="btn-back" id="backToSelectionFromOverviewBtn">← Verfahrenswahl</button>
+            <button class="btn-report" id="reportFromOverviewBtn">📋 PRI Bericht (eng.)</button>
+            <button class="btn-import" id="importFromOverviewBtn">📂 Import</button>
+            <button class="btn-github" id="saveToGitHubBtn">☁️ In GitHub speichern</button>
         </div></div>
         <div id="overviewTitle" style="font-size:1.4em;font-weight:bold;margin-bottom:20px;"></div>
         <div id="overviewStats" class="overview-stats"></div>
-        <h3 style="margin-bottom:15px;color:var(--text-tertiary)">Prüfbereiche:</h3>
+        <h3 style="margin-bottom:15px;">Prüfbereiche:</h3>
         <div id="sectionList"></div>
     </div>
 
-    <!-- ══ SEITE 3: FRAGEN ══ -->
+    <!-- SEITE 3: AUDIT-FRAGEN -->
     <div id="pageQuestions" class="page">
         <div class="controls-container"><div class="button-row">
-            <button class="btn-back" onclick="showPage('pageOverview');renderOverview()">← Übersicht</button>
-            <button class="btn-report" onclick="generateReport()">📋 Bericht</button>
-            <button class="btn-danger" onclick="resetAudit()">🗑️ Reset</button>
-            <button class="btn-cloud-save" onclick="openSaveModal()">☁️ Speichern</button>
+            <button class="btn-info" id="backToOverviewBtn">← Alle Bereiche</button>
+            <button class="btn-danger" id="resetFromQuestionsBtn">🗑️ Reset</button>
+            <button class="btn-import" id="importFromQuestionsBtn">📂 Import</button>
+            <button class="btn-github" id="saveToGitHubFromQuestionsBtn">☁️ In GitHub speichern</button>
         </div></div>
         <div class="audit-status">
             <div class="status-header">
                 <div>Fortschritt: <strong id="progressText">0%</strong></div>
                 <div class="progress-container"><div class="progress-bar"><div class="progress-fill" id="auditProgressBar" style="width:0%"></div></div></div>
             </div>
-            <div>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong> &nbsp;|&nbsp; Punkte: <strong id="pointsTotal">0</strong>/<strong id="pointsMax">0</strong></div>
+            <div>Fragen: <strong id="answeredCount">0</strong>/<strong id="totalCount">0</strong> | Ja: <strong id="yesCount">0</strong> | Nein: <strong id="noCount">0</strong></div>
         </div>
-        <div id="currentSectionTitle" style="font-size:1.2em;font-weight:bold;margin:15px 0 10px;color:var(--text-tertiary)"></div>
+        <div id="currentSectionTitle" style="font-size:1.2em;font-weight:bold;margin:15px 0 10px;"></div>
         <div id="questionsContainer"></div>
     </div>
 
-    <!-- ══ SEITE 4: CLOUD-ARCHIV ══ -->
-    <div id="pageCloud" class="page">
-        <div class="controls-container"><div class="button-row">
-            <button class="btn-back" onclick="showPage('pageSelection')">← Startseite</button>
-            <button class="btn-info" onclick="loadCloudAudits()">↻ Aktualisieren</button>
-        </div></div>
-        <h2 style="margin-bottom:15px;color:var(--text-tertiary)">☁️ Abgeschlossene Audits</h2>
-        <div id="cloudAuditsList" class="completed-audits-grid"><div style="color:var(--text-secondary)">Lädt…</div></div>
-    </div>
-
-    <!-- ══ SEITE 5: ABWEICHUNGEN ══ -->
-    <div id="pageDeviations" class="page">
-        <div class="controls-container"><div class="button-row">
-            <button class="btn-back" onclick="showPage('pageSelection')">← Startseite</button>
-            <button class="btn-info" onclick="loadDeviations()">↻ Aktualisieren</button>
-        </div></div>
-        <h2 style="margin-bottom:12px;color:var(--text-tertiary)">⚠️ Abweichungen</h2>
-        <div class="filter-controls">
-            <button class="filter-btn active" data-filter="all" onclick="filterDeviations('all')">Alle</button>
-            <button class="filter-btn" data-filter="open" onclick="filterDeviations('open')">Offen</button>
-            <button class="filter-btn" data-filter="closed" onclick="filterDeviations('closed')">Abgeschlossen</button>
-        </div>
-        <div id="deviationsContainer"></div>
-    </div>
-
-    <!-- ══ MODALS ══ -->
-    <div id="saveModal" class="modal"><div class="modal-content">
-        <h3>☁️ In GitHub speichern</h3>
-        <input type="text" id="saveAuditName" placeholder="Name (z.B. ET-Audit Q1-2026)">
+    <!-- MODALE -->
+    <div id="importModal" class="modal"><div class="modal-content">
+        <h3>📂 Ergebnisse importieren</h3>
+        <input type="file" id="importFileInput" accept=".json">
         <div class="modal-buttons">
-            <button class="btn-cancel" onclick="closeModal('saveModal')">Abbrechen</button>
-            <button class="btn-modal-save" onclick="saveAuditToGitHub()">Speichern</button>
+            <button class="btn-cancel" onclick="closeModal('importModal')">Abbrechen</button>
+            <button class="btn-import" onclick="handleImportFile()">Importieren</button>
         </div>
     </div></div>
-
-    <div id="imageModal" class="modal"><div class="modal-content" style="max-width:90%;width:auto;">
-        <h3>Bildansicht</h3>
-        <img id="modalImage" src="" style="max-width:100%;max-height:70vh;border-radius:8px;margin-top:10px;">
-        <div class="modal-buttons"><button class="btn-cancel" onclick="closeModal('imageModal')">Schließen</button></div>
+    <div id="githubSaveModal" class="modal"><div class="modal-content">
+        <h3>☁️ In GitHub speichern</h3>
+        <input type="text" id="githubAuditName" placeholder="Name (z.B. Q1-2026 ET)">
+        <div class="modal-buttons">
+            <button class="btn-cancel" onclick="closeModal('githubSaveModal')">Abbrechen</button>
+            <button class="btn-github-save" id="confirmGithubSaveBtn">Speichern</button>
+        </div>
     </div></div>
-
     <div class="sync-toast" id="syncToast"></div>
-
-    <footer>ZfP Review Audit &copy; 2026 Schaeffler Technologies AG &amp; Co. KG<br>
-    <span style="font-size:.85em">Version 01, 2026 · Daniel Häusner, WI/SW2-PQT</span></footer>
+    <footer style="text-align:center;margin-top:15px;padding-top:10px;border-top:1px solid var(--border-light);font-size:0.85em;">Self-Audit ZfP &copy; 2026 Schaeffler Technologies AG &amp; Co. KG</footer>
 </div>
 <button id="themeToggleBtn" class="theme-toggle">🌓</button>
 
 <script>
-// ═══════════════════════════════════════════════════
-// GITHUB CONFIG – fest eingebaut
-// ═══════════════════════════════════════════════════
-const GH_OWNER  = 'Acendrion1984';
-const GH_REPO   = 'ZfP_Review';
-const GH_BRANCH = 'main';
-const GH_TOKEN_KEY = 'zfp_review_github_token';
-const AUDITS_FILE     = 'audits.json';
-const DEVIATIONS_FILE = 'deviations.json';
-
-let ghToken = '';
-let ghConnected = false;
-let ghShas = {};
-
-// ═══════════════════════════════════════════════════
-// AUDIT DATEN
-// ═══════════════════════════════════════════════════
-const AUDIT_TYPES = {
-    wirbelstrom: { title:'Wirbelstromprüfung', short:'ET', icon:'⚡', standards:'S245006-1 / S245008-1 / S245007-1 / S245012' },
-    magnetpulver:{ title:'Magnetpulverprüfung',short:'MT', icon:'🧲', standards:'S245008-2 / S245012' },
-    nital:       { title:'Nital-Ätzen',        short:'NE', icon:'🧪', standards:'S245013-1 / S245012-1' },
-    ultraschall: { title:'Ultraschallprüfung', short:'UT', icon:'📡', standards:'S245009-3 / S245012' }
+// ========================  FRAGEN  ========================
+const MASTER_QUESTIONS = {
+    ET: { title: "Wirbelstromprüfung", standard: "TPG-AC7114/5", icon: "⚡",
+        de: [
+            { id: "3.1", text: "Sind die erforderlichen Prüfgeräte, Sonden und Referenznormale verfügbar und in gutem Zustand?", guidance: "Überprüfen Sie die Inventarliste und den Zustand der Ausrüstung.", hasNA: false },
+            { id: "3.2", text: "Wird die Ausrüstung regelmäßig gewartet und kalibriert?", guidance: "Wartungsprotokolle prüfen.", hasNA: false },
+            { id: "4.1", text: "Liegen schriftliche Verfahrensanweisungen für die ET-Prüfung vor?", guidance: "Prüfen Sie die Dokumentenlenkung.", hasNA: false },
+            { id: "4.2", text: "Sind die Verfahrensanweisungen für das Personal verständlich?", guidance: "Befragen Sie das Personal.", hasNA: true },
+            { id: "5.1", text: "Wurden Systemleistungstests (z.B. mit Referenznormalen) durchgeführt?", guidance: "Prüfen Sie Aufzeichnungen.", hasNA: false },
+            { id: "6.1", text: "Werden Kalibrierungen nachvollziehbar dokumentiert?", guidance: "Prüfen Sie die Dokumentation.", hasNA: false },
+            { id: "7.1", text: "Werden die Prüfungen gemäß Verfahren durchgeführt?", guidance: "Beobachten Sie die Durchführung.", hasNA: false },
+            { id: "8.1", text: "Werden Prüfergebnisse vollständig und revisionssicher dokumentiert?", guidance: "Prüfen Sie die Aufzeichnungen.", hasNA: false }
+        ],
+        en: [
+            { id: "3.1", text: "Are the required test equipment, probes and reference standards available and in good condition?", guidance: "Check inventory and condition.", hasNA: false },
+            { id: "3.2", text: "Is the equipment regularly maintained and calibrated?", guidance: "Check maintenance logs.", hasNA: false },
+            { id: "4.1", text: "Are written procedures for ET testing available?", guidance: "Check document control.", hasNA: false },
+            { id: "4.2", text: "Are the procedures understandable for the personnel?", guidance: "Interview personnel.", hasNA: true },
+            { id: "5.1", text: "Have system performance tests (e.g., with reference standards) been performed?", guidance: "Check records.", hasNA: false },
+            { id: "6.1", text: "Are calibrations documented traceably?", guidance: "Check documentation.", hasNA: false },
+            { id: "7.1", text: "Are tests performed according to the procedure?", guidance: "Observe execution.", hasNA: false },
+            { id: "8.1", text: "Are test results completely and tamper-proof documented?", guidance: "Check records.", hasNA: false }
+        ]
+    },
+    MT: { title: "Magnetpulverprüfung", standard: "TPG-AC7114/2", icon: "🧲",
+        de: [
+            { id: "3.1", text: "Sind Magnetpulvergeräte, Joche, Feldmesser und Referenznormale verfügbar?", guidance: "Inventur prüfen.", hasNA: false },
+            { id: "4.1", text: "Gibt es eine Verfahrensanweisung für MT?", guidance: "Prüfen.", hasNA: false },
+            { id: "5.1", text: "Wurde die Magnetfeldstärke überprüft?", guidance: "Prüfprotokolle.", hasNA: false },
+            { id: "7.1", text: "Wird die Prüfung unter geeigneten Lichtverhältnissen durchgeführt?", guidance: "Beleuchtung prüfen.", hasNA: false }
+        ],
+        en: [
+            { id: "3.1", text: "Are magnetic particle equipment, yokes, field meters and reference standards available?", guidance: "Check inventory.", hasNA: false },
+            { id: "4.1", text: "Is there a written procedure for MT?", guidance: "Check.", hasNA: false },
+            { id: "5.1", text: "Has the magnetic field strength been verified?", guidance: "Check records.", hasNA: false },
+            { id: "7.1", text: "Is the test performed under suitable lighting conditions?", guidance: "Check lighting.", hasNA: false }
+        ]
+    },
+    NE: { title: "Nital-Ätzen", standard: "TPG-AC7114/12", icon: "🧪",
+        de: [
+            { id: "3.1", text: "Sind Ätzmittel, Sicherheitsausrüstung und Belüftung vorhanden?", guidance: "Prüfen.", hasNA: false },
+            { id: "4.1", text: "Liegt eine Verfahrensanweisung für Nital-Ätzen vor?", guidance: "Prüfen.", hasNA: false },
+            { id: "7.1", text: "Wird die Ätzzeit und -temperatur eingehalten?", guidance: "Prüfen.", hasNA: false }
+        ],
+        en: [
+            { id: "3.1", text: "Are etching chemicals, safety equipment and ventilation available?", guidance: "Check.", hasNA: false },
+            { id: "4.1", text: "Is there a procedure for Nital etching?", guidance: "Check.", hasNA: false },
+            { id: "7.1", text: "Is etching time and temperature adhered to?", guidance: "Check.", hasNA: false }
+        ]
+    },
+    UT: { title: "Ultraschallprüfung", standard: "TPG-AC7114/3", icon: "📡",
+        de: [
+            { id: "3.1", text: "Sind UT-Geräte, Sonden und Kalibrierkörper verfügbar?", guidance: "Inventur.", hasNA: false },
+            { id: "4.1", text: "Liegt eine Verfahrensanweisung für UT vor?", guidance: "Prüfen.", hasNA: false },
+            { id: "5.1", text: "Wurde die Gerätefunktion mit Referenzkörpern überprüft?", guidance: "Prüfen.", hasNA: false }
+        ],
+        en: [
+            { id: "3.1", text: "Are UT equipment, probes and calibration blocks available?", guidance: "Check inventory.", hasNA: false },
+            { id: "4.1", text: "Is there a procedure for UT?", guidance: "Check.", hasNA: false },
+            { id: "5.1", text: "Has equipment function been verified with reference blocks?", guidance: "Check.", hasNA: false }
+        ]
+    }
 };
 
-const AUDIT_DATA = {
-    wirbelstrom: [
-        { title:"1.1 Personal und Qualifikation", questions:[
-            {id:"1.1.1",text:"Ist der Level-2-Experte für die Wirbelstromprüfung qualifiziert? (Zertifikat, gültiger Sehtestnachweis)"},
-            {id:"1.1.2",text:"Sind alle Bediener für die Wirbelstromprüfung geschult? (Schulungsplan, Zertifikat, gültiger Sehtestnachweis)"},
-            {id:"1.1.3",text:"Ist ein Verantwortlicher (Supervisor) für die Methode definiert, und erfüllt dieser die Anforderungen gemäß S245012?"},
-            {id:"1.1.4",text:"Ist der Bediener mit der Basisanweisung vertraut?"}
-        ]},
-        { title:"1.2 Ausrüstung und Plausibilitätsprüfung", questions:[
-            {id:"1.2.1",text:"Wird die tägliche Plausibilitätsprüfung durchgeführt und dokumentiert?"},
-            {id:"1.2.2",text:"Wird die jährliche Überprüfung durchgeführt und dokumentiert?"},
-            {id:"1.2.3",text:"Wird die Maschine einschließlich relevanter Messgeräte in SAP überwacht? (Maschine, Restmagnetfeldmessgerät, Magnetfeldstärkemessgerät)"},
-            {id:"1.2.4",text:"Befindet sich die Maschine in einem guten technischen Zustand? (Software gemäß IATF, Hardware)"}
-        ]},
-        { title:"1.3 Prüfanweisungen", questions:[
-            {id:"1.3.1",text:"Ist die Prüfanweisung vollständig? (Parameter, Gerät, Sonde, Grenzwerte, Maßnahmen, Unterschrift eines Level-2-Prüfers)"},
-            {id:"1.3.2",text:"Ist der Prüfprozess im Control- oder Prüfplan beschrieben?"},
-            {id:"1.3.3",text:"Existiert eine Prüfdokumentation, die Informationen über Prüfergebnisse und Prozessentscheidungen enthält?"},
-            {id:"1.3.4",text:"Liegen die erforderlichen Anweisungen am Arbeitsplatz in der aktuellsten Version vor?"},
-            {id:"1.3.5",text:"Sind die Messungen des Restmagnetismus im Prüfplan enthalten (falls erforderlich)?"}
-        ]},
-        { title:"1.4 Referenzteile S285066", questions:[
-            {id:"1.4.1",text:"Existieren Referenzteile zur Maschinenüberprüfung gemäß S285066 (Merkmale der Fehler)?"},
-            {id:"1.4.2",text:"Sind diese Referenzteile gekennzeichnet und korrekt gelagert?"},
-            {id:"1.4.3",text:"Sind die Referenzteile in SAP angelegt?"},
-            {id:"1.4.4",text:"Werden die Referenzteile überwacht?"}
-        ]},
-        { title:"1.5 Prozess", questions:[
-            {id:"1.5.1",text:"Entsprechen die Parameter und die Sonde der Prüfanweisung, und ist die Anlage funktionsfähig?"},
-            {id:"1.5.2",text:"Gibt es einen wirksamen Prozess zur Aussortierung fehlerhafter Teile?"},
-            {id:"1.5.3",text:"Wird das Zwischenbehälter-Prinzip angewendet?"},
-            {id:"1.5.4",text:"Werden fehlerhafte Teile analysiert und kommuniziert?"},
-            {id:"1.5.5",text:"Ist der Produktionsstatus der Teile bekannt, und besteht keine Vermischungsgefahr am Arbeitsplatz?"},
-            {id:"1.5.6",text:"Sind die Randbedingungen für die Anlage gegeben (Sauberkeit, Wartung)?"},
-            {id:"1.5.7",text:"Ist die Schutzausrüstung funktionsfähig und wird sie verwendet? (PSA / Maschinenschutz)"}
-        ]}
-    ],
-    magnetpulver: [
-        { title:"2.1 Qualifikation", questions:[
-            {id:"2.1.1",text:"Ist der Level-2-Experte für Magnetpulverprüfung (MPI) qualifiziert? (Zertifikat, gültiger Sehtestnachweis)"},
-            {id:"2.1.2",text:"Sind alle Bediener für die Magnetpulverprüfung geschult? (Schulungsplan, Zertifikat, gültiger Sehtestnachweis)"},
-            {id:"2.1.3",text:"Ist ein Verantwortlicher für die Methode definiert, und erfüllt dieser die Anforderungen gemäß S245012?"},
-            {id:"2.1.4",text:"Ist der Bediener mit der Basisanweisung vertraut?"}
-        ]},
-        { title:"2.2 Ausrüstung und Plausibilitätsprüfung", questions:[
-            {id:"2.2.1",text:"Wird die tägliche Plausibilitätsprüfung durchgeführt und dokumentiert? (ASTM-Röhre, MTU Nr. 3)"},
-            {id:"2.2.2",text:"Wird die monatliche Überprüfung der UV-Lampe durchgeführt und dokumentiert?"},
-            {id:"2.2.3",text:"Wird die jährliche Überprüfung durchgeführt und dokumentiert?"},
-            {id:"2.2.4",text:"Wird die Maschine in SAP überwacht (Software gemäß IATF)?"},
-            {id:"2.2.5",text:"Sind die Magnetisierungswerte stabil?"},
-            {id:"2.2.6",text:"Werden die Messgeräte überwacht und in SAP geführt? (UV-Meter, Lux-Meter, Magnetfeldstärkemessgerät inkl. Referenzmagnet)"},
-            {id:"2.2.7",text:"Wird ein Restmagnetfeldmessgerät (Gaussmeter) verwendet? (Handhabung, Überwachung, SAP, Referenzblock)"},
-            {id:"2.2.8",text:"Befindet sich die Maschine in gutem technischen Zustand? (Software gemäß IATF, Hardware)"}
-        ]},
-        { title:"2.3 Prüfanweisungen", questions:[
-            {id:"2.3.1",text:"Ist die Prüfanweisung vollständig? (Parameter, Gerät, Grenzwerte, Maßnahmen, Unterschrift Level 2)"},
-            {id:"2.3.2",text:"Ist der Prüfprozess im Control- oder Prüfplan enthalten?"},
-            {id:"2.3.3",text:"Existiert eine Prüfdokumentation mit Ergebnissen und Prozessentscheidungen?"},
-            {id:"2.3.4",text:"Liegen die erforderlichen Anweisungen am Arbeitsplatz in der neuesten Version vor?"},
-            {id:"2.3.5",text:"Sind Restmagnetismus-Messungen im Prüfplan enthalten (falls erforderlich)?"}
-        ]},
-        { title:"2.4 Referenzteile S285066", questions:[
-            {id:"2.4.1",text:"Existieren Referenzteile zur Maschinenüberprüfung gemäß S285066?"},
-            {id:"2.4.2",text:"Sind diese Referenzteile gekennzeichnet und korrekt gelagert?"},
-            {id:"2.4.3",text:"Sind die Referenzteile in SAP angelegt?"},
-            {id:"2.4.4",text:"Werden die Referenzteile überwacht?"}
-        ]},
-        { title:"2.5 Prozess", questions:[
-            {id:"2.5.1",text:"Entsprechen die Parameter und die Sonde der Prüfanweisung, und ist die Anlage funktionsfähig?"},
-            {id:"2.5.2",text:"Gibt es einen wirksamen Prozess zur Aussortierung fehlerhafter Teile?"},
-            {id:"2.5.3",text:"Wird das Zwischenbehälter-Prinzip angewendet?"},
-            {id:"2.5.4",text:"Werden fehlerhafte Teile analysiert und kommuniziert?"},
-            {id:"2.5.5",text:"Ist der Produktionsstatus der Teile bekannt, und besteht keine Vermischungsgefahr am Arbeitsplatz?"},
-            {id:"2.5.6",text:"Sind die Randbedingungen für die Anlage gegeben (Sauberkeit, Wartung)?"},
-            {id:"2.5.7",text:"Ist die Schutzausrüstung funktionsfähig und wird sie verwendet?"}
-        ]}
-    ],
-    nital: [
-        { title:"3.1 Qualifikation", questions:[
-            {id:"3.1.1",text:"Ist der Level-2-Experte für Nital-Ätzprüfung qualifiziert? (Zertifikat, gültiger Sehtestnachweis)"},
-            {id:"3.1.2",text:"Sind alle Bediener für die Nital-Ätzprüfung geschult? (Schulungsplan, Zertifikat, gültiger Sehtestnachweis)"},
-            {id:"3.1.3",text:"Ist ein Verantwortlicher für die Methode definiert, und erfüllt dieser die Anforderungen gemäß S245012?"},
-            {id:"3.1.4",text:"Ist der Bediener mit der Basisanweisung vertraut?"}
-        ]},
-        { title:"3.2 Ausrüstung und Plausibilitätsprüfung", questions:[
-            {id:"3.2.1",text:"Wird die tägliche Plausibilitätsprüfung durchgeführt und dokumentiert?"},
-            {id:"3.2.2",text:"Entspricht der Reinigungsprozess der Norm? (Parameter, Ultraschall)"},
-            {id:"3.2.3",text:"Entspricht der Ätzprozess der Norm? (Material, chemische Analyse, Überwachung)"},
-            {id:"3.2.4",text:"Befindet sich die Maschine in gutem technischen Zustand?"}
-        ]},
-        { title:"3.3 Prüfanweisungen", questions:[
-            {id:"3.3.1",text:"Ist die Prüfanweisung vollständig? (Parameter, Gerät, Grenzwerte, Maßnahmen, Unterschrift Level 2)"},
-            {id:"3.3.2",text:"Ist der Prüfprozess im Control- oder Prüfplan beschrieben?"},
-            {id:"3.3.3",text:"Existiert eine Prüfdokumentation mit Ergebnissen und Prozessentscheidungen?"},
-            {id:"3.3.4",text:"Liegen die erforderlichen Anweisungen am Arbeitsplatz in der aktuellsten Version vor?"},
-            {id:"3.3.5",text:"Sind die Messungen des Restmagnetismus im Prüfplan enthalten (falls erforderlich)?"}
-        ]},
-        { title:"3.4 Referenzteile S285066", questions:[
-            {id:"3.4.1",text:"Existieren Referenzteile zur Maschinenüberprüfung gemäß S285066?"},
-            {id:"3.4.2",text:"Sind diese Referenzteile gekennzeichnet und korrekt gelagert?"},
-            {id:"3.4.3",text:"Sind die Referenzteile in SAP angelegt?"},
-            {id:"3.4.4",text:"Werden die Referenzteile überwacht?"}
-        ]},
-        { title:"3.5 Prozess", questions:[
-            {id:"3.5.1",text:"Entsprechen die Parameter und die Sonde der Prüfanweisung, und ist die Anlage funktionsfähig?"},
-            {id:"3.5.2",text:"Gibt es einen wirksamen Prozess zur Aussortierung fehlerhafter Teile?"},
-            {id:"3.5.3",text:"Wird das Zwischenbehälter-Prinzip angewendet?"},
-            {id:"3.5.4",text:"Werden fehlerhafte Teile analysiert und kommuniziert?"},
-            {id:"3.5.5",text:"Ist der Produktionsstatus der Teile bekannt, und besteht keine Vermischungsgefahr am Arbeitsplatz?"},
-            {id:"3.5.6",text:"Sind die Randbedingungen für die Anlage gegeben (Sauberkeit, Wartung)?"},
-            {id:"3.5.7",text:"Ist die Schutzausrüstung funktionsfähig und wird sie verwendet?"}
-        ]}
-    ],
-    ultraschall: [
-        { title:"4.1 Qualifikation", questions:[
-            {id:"4.1.1",text:"Ist der Level-2-Experte für Ultraschallprüfung (UT) qualifiziert? (Zertifikat, gültiger Sehtestnachweis)"},
-            {id:"4.1.2",text:"Sind alle Bediener für die Ultraschallprüfung geschult? (Schulungsplan, Zertifikat, gültiger Sehtestnachweis)"},
-            {id:"4.1.3",text:"Ist ein Verantwortlicher für die Methode definiert, und erfüllt dieser die Anforderungen gemäß S245012?"},
-            {id:"4.1.4",text:"Ist der Bediener mit der Basisanweisung vertraut?"}
-        ]},
-        { title:"4.2 Ausrüstung und Plausibilitätsprüfung", questions:[
-            {id:"4.2.1",text:"Wird die tägliche Plausibilitätsprüfung durchgeführt und dokumentiert?"},
-            {id:"4.2.2",text:"Wird die jährliche Überprüfung durchgeführt und dokumentiert?"},
-            {id:"4.2.3",text:"Wird die Maschine einschließlich relevanter Messgeräte in SAP überwacht?"},
-            {id:"4.2.4",text:"Befindet sich die Maschine in gutem technischen Zustand?"}
-        ]},
-        { title:"4.3 Prüfanweisungen", questions:[
-            {id:"4.3.1",text:"Ist die Prüfanweisung vollständig? (Parameter, Gerät, Grenzwerte, Maßnahmen, Unterschrift Level 2)"},
-            {id:"4.3.2",text:"Ist der Prüfprozess im Control- oder Prüfplan beschrieben?"},
-            {id:"4.3.3",text:"Existiert eine Prüfdokumentation mit Ergebnissen und Prozessentscheidungen?"},
-            {id:"4.3.4",text:"Liegen die erforderlichen Anweisungen am Arbeitsplatz in der aktuellsten Version vor?"},
-            {id:"4.3.5",text:"Sind die Messungen des Restmagnetismus im Prüfplan enthalten (falls erforderlich)?"}
-        ]},
-        { title:"4.4 Referenzteile S285066", questions:[
-            {id:"4.4.1",text:"Existieren Referenzteile zur Maschinenüberprüfung gemäß S285066?"},
-            {id:"4.4.2",text:"Sind diese Referenzteile gekennzeichnet und korrekt gelagert?"},
-            {id:"4.4.3",text:"Sind die Referenzteile in SAP angelegt?"},
-            {id:"4.4.4",text:"Werden die Referenzteile überwacht?"}
-        ]},
-        { title:"4.5 Prozess", questions:[
-            {id:"4.5.1",text:"Entsprechen die Parameter und die Sonde der Prüfanweisung, und ist die Anlage funktionsfähig?"},
-            {id:"4.5.2",text:"Gibt es einen wirksamen Prozess zur Aussortierung fehlerhafter Teile?"},
-            {id:"4.5.3",text:"Wird das Zwischenbehälter-Prinzip angewendet?"},
-            {id:"4.5.4",text:"Werden fehlerhafte Teile analysiert und kommuniziert?"},
-            {id:"4.5.5",text:"Ist der Produktionsstatus der Teile bekannt, und besteht keine Vermischungsgefahr am Arbeitsplatz?"},
-            {id:"4.5.6",text:"Sind die Randbedingungen für die Anlage gegeben (Sauberkeit, Wartung)?"},
-            {id:"4.5.7",text:"Ist die Schutzausrüstung funktionsfähig und wird sie verwendet?"}
-        ]}
-    ]
-};
-
-// ═══════════════════════════════════════════════════
-// APP STATE
-// ═══════════════════════════════════════════════════
+// ========================  GLOBALS  ========================
 let currentAuditType = null;
-let allQuestions = [];
-let imageStorage = {};
-let participants = { auditors:[], auditees:[] };
-let currentSectionIdx = -1;
+let germanQuestions = [];
+let englishQuestions = [];
+let auditSections = [];
+let currentSectionIndex = -1;
 let currentAuditId = null;
-let deviations = [];
-let devFilter = 'all';
+let currentAuditName = null;
 
-// ═══════════════════════════════════════════════════
-// THEME
-// ═══════════════════════════════════════════════════
+const GITHUB_OWNER  = 'Acendrion1984';
+const GITHUB_REPO   = 'SelfAudit';
+const GITHUB_BRANCH = 'main';
+const GITHUB_FILE   = 'audits.json';
+const GITHUB_CONFIG_KEY = 'zfp_github_token';
+
+let githubToken = '';
+let githubFileSha = null;
+let githubConnected = false;
+
+const PAGES = { SELECTION: 'pageSelection', OVERVIEW: 'pageOverview', QUESTIONS: 'pageQuestions' };
+function showPage(id) { Object.values(PAGES).forEach(p => document.getElementById(p).classList.remove('active')); document.getElementById(id).classList.add('active'); }
+
+// ========================  THEME  ========================
 function initTheme() {
-    const saved = localStorage.getItem('zfp-review-theme');
-    const theme = saved || (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+    const saved = localStorage.getItem('zfp-theme-preference');
+    const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
     document.getElementById('themeToggleBtn').onclick = () => {
         const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('zfp-review-theme', next);
+        localStorage.setItem('zfp-theme-preference', next);
         document.documentElement.setAttribute('data-theme', next);
     };
 }
 
-// ═══════════════════════════════════════════════════
-// PAGES
-// ═══════════════════════════════════════════════════
-function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    if (id === 'pageCloud') loadCloudAudits();
-    if (id === 'pageDeviations') renderDeviations();
-}
-
-// ═══════════════════════════════════════════════════
-// GITHUB API
-// ═══════════════════════════════════════════════════
-function ghHeaders() {
-    return { 'Authorization':'token '+ghToken, 'Accept':'application/vnd.github+json', 'Content-Type':'application/json' };
-}
-
+// ========================  GITHUB – VERBINDUNG  ========================
 function setDot(state, title) {
-    const d = document.getElementById('githubStatusDot');
-    d.className = 'github-status-dot' + (state ? ' '+state : '');
-    d.title = title || '';
+    const dot = document.getElementById('githubStatusDot');
+    dot.className = 'github-status-dot' + (state ? ' ' + state : '');
+    dot.title = title || state || 'Nicht verbunden';
 }
 
-async function connectGitHub() {
-    const t = document.getElementById('githubTokenInput').value.trim();
-    if (!t) { setDot('','Kein Token'); return; }
-    ghToken = t;
-    localStorage.setItem(GH_TOKEN_KEY, t);
-    setDot('checking','Verbinde…');
+async function testGitHubConnection() {
+    if (!githubToken) { setDot('', 'Kein Token'); updateGitHubStatus(false); return; }
+    setDot('checking', 'Verbindung wird geprüft…');
     try {
-        const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}`, { headers: ghHeaders() });
-        if (!r.ok) throw new Error('HTTP '+r.status);
-        ghConnected = true;
-        setDot('connected','Verbunden: '+GH_OWNER+'/'+GH_REPO);
-        showToast('✅ GitHub verbunden', 'success');
-        await updateStartPageBadges();
+        const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`;
+        const r = await fetch(url, {
+            headers: {
+                'Authorization': `token ${githubToken}`,
+                'Accept': 'application/vnd.github+json'
+            }
+        });
+        if (r.status === 404) {
+            // Repo erreichbar, Datei existiert noch nicht
+            githubFileSha = null;
+            updateGitHubStatus(true);
+            setDot('connected', 'Verbunden (Datei wird beim ersten Speichern erstellt)');
+            showToast('✅ GitHub verbunden', 'success');
+        } else if (r.ok) {
+            const d = await r.json();
+            githubFileSha = d.sha;
+            updateGitHubStatus(true);
+            setDot('connected', 'Verbunden');
+            showToast('✅ GitHub verbunden', 'success');
+        } else if (r.status === 401) {
+            updateGitHubStatus(false);
+            setDot('error', 'Token ungültig oder kein Zugriff');
+            showToast('❌ Token ungültig oder kein Zugriff', 'error');
+            return;
+        } else if (r.status === 403) {
+            updateGitHubStatus(false);
+            setDot('error', 'Zugriff verweigert (Rate Limit oder Berechtigungen)');
+            showToast('❌ Zugriff verweigert', 'error');
+            return;
+        } else {
+            throw new Error(`HTTP ${r.status}`);
+        }
+        // Nach Verbindung: Audits laden + Fortschritt aktualisieren
+        await refreshCompletedAudits();
+        await updateProgressOnStartPage();
     } catch(e) {
-        ghConnected = false;
-        setDot('error','Fehler: '+e.message);
-        showToast('❌ '+e.message, 'error');
+        updateGitHubStatus(false);
+        setDot('error', 'Verbindungsfehler: ' + e.message);
+        showToast('❌ Verbindungsfehler: ' + e.message, 'error');
     }
 }
 
-async function ghLoadFile(filename) {
-    const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${filename}?ref=${GH_BRANCH}&t=${Date.now()}`;
-    const r = await fetch(url, { headers: ghHeaders() });
-    if (r.status === 404) { ghShas[filename] = null; return null; }
-    if (!r.ok) throw new Error('HTTP '+r.status);
-    const json = await r.json();
-    ghShas[filename] = json.sha;
-    return JSON.parse(decodeURIComponent(escape(atob(json.content.replace(/\n/g,'')))));
+function updateGitHubStatus(connected) {
+    githubConnected = connected;
 }
 
-async function ghSaveFile(filename, data, message) {
-    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
-    const body = { message: message || 'ZfP Update '+new Date().toISOString(), content: encoded, branch: GH_BRANCH };
-    if (ghShas[filename]) body.sha = ghShas[filename];
-    const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${filename}`, {
-        method:'PUT', headers: ghHeaders(), body: JSON.stringify(body)
-    });
-    if (r.status === 409 || r.status === 422) {
-        // SHA conflict – reload and retry
-        const r2 = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${filename}?ref=${GH_BRANCH}&t=${Date.now()}`, { headers: ghHeaders() });
-        if (r2.ok) ghShas[filename] = (await r2.json()).sha;
-        body.sha = ghShas[filename];
-        const r3 = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${filename}`, {
-            method:'PUT', headers: ghHeaders(), body: JSON.stringify(body)
-        });
-        if (!r3.ok) throw new Error('HTTP '+r3.status);
-        ghShas[filename] = (await r3.json()).content?.sha;
+function loadGitHubToken() {
+    const t = localStorage.getItem(GITHUB_CONFIG_KEY);
+    if (t) {
+        githubToken = t;
+        document.getElementById('githubTokenInput').value = t;
+        testGitHubConnection(); // async – ruft nach Erfolg refreshCompletedAudits auf
+    } else {
+        setDot('', 'Kein Token gesetzt');
+        document.getElementById('zfpCompletedAuditsContainer').innerHTML =
+            '<div style="color:var(--text-secondary);">🔌 Bitte GitHub Token eingeben und Speichern klicken</div>';
+    }
+}
+
+async function saveGitHubToken() {
+    const t = document.getElementById('githubTokenInput').value.trim();
+    if (!t) {
+        localStorage.removeItem(GITHUB_CONFIG_KEY);
+        githubToken = '';
+        updateGitHubStatus(false);
+        setDot('', 'Token gelöscht');
+        showToast('Token gelöscht', 'info');
         return;
     }
-    if (!r.ok) throw new Error('HTTP '+r.status);
-    ghShas[filename] = (await r.json()).content?.sha;
+    githubToken = t;
+    localStorage.setItem(GITHUB_CONFIG_KEY, t);
+    await testGitHubConnection();
 }
 
-// ═══════════════════════════════════════════════════
-// AUDIT START
-// ═══════════════════════════════════════════════════
-function startAudit(type) {
+// ========================  GITHUB – DATEN  ========================
+async function fetchGitHubFile() {
+    if (!githubToken) throw new Error('Kein Token');
+    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`;
+    const r = await fetch(url, { headers: { 'Authorization': `token ${githubToken}`, 'Accept': 'application/vnd.github+json' } });
+    if (r.status === 404) return { exists: false, content: null, sha: null };
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const d = await r.json();
+    const content = JSON.parse(atob(d.content.replace(/\n/g, '')));
+    return { exists: true, content, sha: d.sha };
+}
+
+async function pushToGitHub(content, message) {
+    if (!githubToken) throw new Error('Kein Token');
+    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2))));
+    const body = { message, content: encoded, branch: GITHUB_BRANCH };
+    if (githubFileSha) body.sha = githubFileSha;
+    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+    const r = await fetch(url, { method: 'PUT', headers: { 'Authorization': `token ${githubToken}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const res = await r.json();
+    githubFileSha = res.content?.sha;
+}
+
+async function loadGitHubAudits() {
+    if (!githubToken) return [];
+    try { const res = await fetchGitHubFile(); return res.exists ? res.content : []; } catch(e) { console.error(e); return []; }
+}
+
+async function saveAuditToGitHub(auditData, isUpdate = false) {
+    let audits = await loadGitHubAudits();
+    if (!Array.isArray(audits)) audits = [];
+    if (isUpdate) { const idx = audits.findIndex(a => a.id === auditData.id); if (idx !== -1) audits[idx] = auditData; else audits.push(auditData); }
+    else audits.push(auditData);
+    await pushToGitHub(audits, `Audit ${auditData.name} gespeichert`);
+}
+
+async function deleteAuditFromGitHub(auditId) {
+    let audits = await loadGitHubAudits();
+    if (!Array.isArray(audits)) return;
+    await pushToGitHub(audits.filter(a => a.id !== auditId), `Audit ${auditId} gelöscht`);
+}
+
+// ========================  AUDIT-LOGIK  ========================
+function initAuditWithType(type) {
+    const data = MASTER_QUESTIONS[type];
+    if (!data) return false;
     currentAuditType = type;
-    currentAuditId = 'audit_'+type+'_'+Date.now();
-    const info = AUDIT_TYPES[type];
-    document.getElementById('mainTitle').textContent = 'ZfP Review Audit – '+info.title;
-    document.getElementById('mainSubtitle').textContent = info.standards;
-
-    // Init questions
-    allQuestions = AUDIT_DATA[type].flatMap(sec =>
-        sec.questions.map(q => ({
-            ...q,
-            sectionTitle: sec.title,
-            points: null,
-            evidence: '',
-            deviation: { text:'', responsible:'', hasImage:false }
-        }))
-    );
-    imageStorage = {};
-    participants = { auditors:[], auditees:[] };
-
-    renderOverview();
-    showPage('pageOverview');
-    updateProgress();
+    germanQuestions = data.de.map(q => ({ ...q, answer: "", evidence: "", sectionId: q.id.split('.')[0] }));
+    englishQuestions = data.en;
+    const sectionsMap = new Map();
+    germanQuestions.forEach(q => {
+        const sid = q.sectionId;
+        if (!sectionsMap.has(sid)) sectionsMap.set(sid, { id: sid, title: `${sid}. ${getSectionName(sid)}`, questions: [] });
+        sectionsMap.get(sid).questions.push(q);
+    });
+    auditSections = Array.from(sectionsMap.values()).sort((a,b) => parseFloat(a.id) - parseFloat(b.id));
+    document.getElementById('mainTitle').textContent = `Self-Audit: ${data.title}`;
+    document.getElementById('mainSubtitle').textContent = data.standard;
+    return true;
 }
 
-function resetAuditState() {
-    currentAuditType = null; allQuestions = []; imageStorage = {}; participants = { auditors:[], auditees:[] }; currentAuditId = null;
-    document.getElementById('mainTitle').textContent = 'ZfP Review Audit';
-    document.getElementById('mainSubtitle').textContent = 'Schaeffler Technologies AG & Co. KG · IN_QP_29005';
+function getSectionName(sid) {
+    return { '3':'AUSRÜSTUNG','4':'VERFAHREN','5':'SYSTEMLEISTUNG','6':'KALIBRIERUNG','7':'DURCHFÜHRUNG','8':'DOKUMENTATION' }[sid] || 'BEREICH';
 }
 
-function resetAudit() {
-    if (!confirm('Alle Bewertungen, Nachweise und Bilder zurücksetzen?')) return;
-    allQuestions.forEach(q => { q.points=null; q.evidence=''; q.deviation={text:'',responsible:'',hasImage:false}; });
-    imageStorage = {};
-    if (currentSectionIdx >= 0) renderSection(currentSectionIdx);
-    renderOverview(); updateProgress();
-    showToast('Audit zurückgesetzt', 'info');
-}
-
-// ═══════════════════════════════════════════════════
-// OVERVIEW
-// ═══════════════════════════════════════════════════
 function renderOverview() {
     if (!currentAuditType) return;
-    const info = AUDIT_TYPES[currentAuditType];
-    document.getElementById('overviewTitle').innerHTML = `${info.icon} ${info.title} – Übersicht`;
-
-    const total = allQuestions.length;
-    const answered = allQuestions.filter(q => q.points !== null).length;
-    const pts = allQuestions.reduce((s,q) => s+(q.points||0), 0);
-    const pct = total ? Math.round(answered/total*100) : 0;
-
+    const data = MASTER_QUESTIONS[currentAuditType];
+    document.getElementById('overviewTitle').innerHTML = `${data.icon} ${data.title} – Übersicht`;
+    const total = germanQuestions.length, answered = germanQuestions.filter(q => q.answer).length;
+    const percent = total ? Math.round(answered/total*100) : 0;
     document.getElementById('overviewStats').innerHTML = `
-        <div class="stat-card"><h3>Verfahren</h3><p>${info.title}</p></div>
-        <div class="stat-card"><h3>Standard</h3><p>${info.standards.split('/')[0].trim()}</p></div>
-        <div class="stat-card"><h3>Fragen</h3><p>${answered}/${total}</p></div>
-        <div class="stat-card"><h3>Fortschritt</h3><p>${pct}%</p></div>
-        <div class="stat-card"><h3>Punkte</h3><p>${pts}/${total*10}</p></div>`;
-
+        <div class="stat-card"><h3>Verfahren</h3><p>${data.title}</p></div>
+        <div class="stat-card"><h3>Standard</h3><p>${data.standard}</p></div>
+        <div class="stat-card"><h3>Fragen</h3><p>${total}</p></div>
+        <div class="stat-card"><h3>Fortschritt</h3><p>${percent}% (${answered}/${total})</p></div>`;
     const container = document.getElementById('sectionList'); container.innerHTML = '';
-    AUDIT_DATA[currentAuditType].forEach((sec, idx) => {
-        const qs = allQuestions.filter(q => q.sectionTitle === sec.title);
-        const ans = qs.filter(q => q.points !== null).length;
-        const p = qs.length ? Math.round(ans/qs.length*100) : 0;
-        const sc = p === 100 ? 'completed' : (p > 0 ? 'in-progress' : '');
-        const st = p === 100 ? 'Abgeschlossen' : (p > 0 ? p+'%' : 'Offen');
-        const div = document.createElement('div'); div.className = 'section-item';
-        div.onclick = () => { currentSectionIdx = idx; renderSection(idx); document.getElementById('currentSectionTitle').textContent = sec.title; showPage('pageQuestions'); };
+    auditSections.forEach((sec, idx) => {
+        const qs = germanQuestions.filter(q => q.sectionId === sec.id);
+        const ans = qs.filter(q => q.answer).length;
+        const pct = qs.length ? Math.round(ans/qs.length*100) : 0;
+        const sc = pct === 100 ? 'completed' : (pct > 0 ? 'in-progress' : '');
+        const st = pct === 100 ? 'Abgeschlossen' : (pct > 0 ? `${pct}%` : 'Offen');
+        const div = document.createElement('div'); div.className = 'section-item'; div.onclick = () => openSection(idx);
         div.innerHTML = `<div><strong>${sec.title}</strong></div><div style="flex:1"></div><div class="section-status ${sc}">${st}</div>`;
         container.appendChild(div);
     });
 }
 
-// ═══════════════════════════════════════════════════
-// FRAGEN RENDERN
-// ═══════════════════════════════════════════════════
-function renderSection(idx) {
-    const sec = AUDIT_DATA[currentAuditType][idx];
-    if (!sec) return;
+function openSection(idx) { currentSectionIndex = idx; renderCurrentSection(); showPage(PAGES.QUESTIONS); }
+
+function renderCurrentSection() {
+    if (currentSectionIndex < 0 || !auditSections[currentSectionIndex]) return;
+    const section = auditSections[currentSectionIndex];
+    document.getElementById('currentSectionTitle').innerHTML = section.title;
     const container = document.getElementById('questionsContainer'); container.innerHTML = '';
-    allQuestions.filter(q => q.sectionTitle === sec.title).forEach(q => {
-        container.appendChild(buildQuestion(q));
-    });
-    updateProgress();
+    germanQuestions.filter(q => q.sectionId === section.id)
+        .sort((a,b) => parseFloat(a.id) - parseFloat(b.id))
+        .forEach(q => container.appendChild(createQuestionElement(q)));
+    updateProgressDisplay();
 }
 
-function buildQuestion(q) {
-    const div = document.createElement('div'); div.className = 'question'; div.dataset.id = q.id;
-    const col = getPointsColor(q.points);
-
-    div.innerHTML = `
-        <div class="question-header">
-            <div class="question-text">${esc(q.text)}</div>
-            <div class="question-id" style="background:${col}">${q.id}</div>
-        </div>
-        <div class="points-display" style="display:${q.points!==null?'block':'none'};border-color:${col};background:${col}22">
-            <span style="color:${col};font-weight:bold">${q.points!==null?q.points+' Punkte vergeben':''}</span>
-        </div>
-        <div class="points-options">
-            ${[0,4,8,10].map(p => `<button class="points-option${q.points===p?' selected':''}" data-points="${p}" onclick="selectPoints('${q.id}',${p})">${p} Punkte</button>`).join('')}
-        </div>
-        <textarea class="evidence" placeholder="Nachweise / Bemerkungen" rows="2">${esc(q.evidence)}</textarea>
-        <div class="deviation-section" style="display:${q.points!==null&&q.points<=8?'block':'none'}">
-            <h4>⚠️ Abweichung erfassen</h4>
-            <textarea class="deviation-field" placeholder="Abweichungsbeschreibung" rows="3">${esc(q.deviation.text)}</textarea>
-            <input type="text" class="responsible-field" placeholder="Verantwortlicher" value="${esc(q.deviation.responsible)}">
-            <div>
-                <label class="file-input-label">📷 Bild hochladen<input type="file" accept="image/*" style="display:none" onchange="handleImg(event,'${q.id}')"></label>
-                ${q.deviation.hasImage&&imageStorage[q.id]?`<br><img src="${imageStorage[q.id]}" class="image-preview" style="display:block" onclick="openImg('${q.id}')"><button class="remove-image" onclick="removeImg('${q.id}')">Bild entfernen</button>`:''}
-            </div>
-        </div>`;
-
-    div.querySelector('.evidence').oninput = e => { q.evidence = e.target.value; };
-    div.querySelector('.deviation-field').oninput = e => { q.deviation.text = e.target.value; };
-    div.querySelector('.responsible-field').oninput = e => { q.deviation.responsible = e.target.value; };
+function createQuestionElement(q) {
+    const div = document.createElement('div');
+    div.className = `question ${q.answer ? q.answer.toLowerCase()+'-answer' : ''}`;
+    div.dataset.id = q.id;
+    div.innerHTML = `<div class="question-header"><div class="question-text">${escapeHtml(q.text)}</div><div class="question-id">${q.id}</div></div>${q.guidance ? `<div class="guidance">${escapeHtml(q.guidance)}</div>` : ''}<div class="answer-options"></div><textarea class="evidence" placeholder="Nachweise / Kommentare">${escapeHtml(q.evidence)}</textarea>`;
+    const opts = div.querySelector('.answer-options');
+    const answers = ['YES','NO']; if (q.hasNA) answers.push('NA');
+    answers.forEach(ans => {
+        const btn = document.createElement('button');
+        btn.className = `answer-option${q.answer === ans ? ' selected' : ''}`;
+        btn.dataset.answer = ans;
+        btn.textContent = ans === 'YES' ? 'JA' : (ans === 'NO' ? 'NEIN' : 'N/A');
+        btn.onclick = () => selectAnswer(q.id, ans);
+        opts.appendChild(btn);
+    });
+    div.querySelector('.evidence').oninput = e => updateEvidence(q.id, e.target.value);
     return div;
 }
 
-function getPointsColor(p) {
-    if (p === null) return '#95a5a6';
-    if (p === 0) return '#e74c3c';
-    if (p === 4) return '#f39c12';
-    if (p === 8) return '#2ecc71';
-    if (p === 10) return '#27ae60';
-    return '#95a5a6';
+async function selectAnswer(id, answer) {
+    const q = germanQuestions.find(q => q.id === id); if (!q) return;
+    q.answer = answer;
+    const el = document.querySelector(`.question[data-id="${id}"]`);
+    if (el) {
+        el.classList.remove('yes-answer','no-answer','na-answer');
+        el.classList.add(answer.toLowerCase()+'-answer');
+        el.querySelectorAll('.answer-option').forEach(b => b.classList.remove('selected'));
+        const sel = el.querySelector(`.answer-option[data-answer="${answer}"]`); if (sel) sel.classList.add('selected');
+    }
+    updateProgressDisplay(); renderOverview(); saveCurrentAuditToLocalStorage();
+    if (githubConnected) autoSaveToGitHub();
 }
 
-function selectPoints(id, pts) {
-    const q = allQuestions.find(x => x.id === id); if (!q) return;
-    q.points = pts;
-    const el = document.querySelector(`.question[data-id="${id}"]`); if (!el) return;
-    const col = getPointsColor(pts);
-    el.querySelector('.question-id').style.background = col;
-    const pd = el.querySelector('.points-display'); pd.style.display='block'; pd.style.borderColor=col; pd.style.background=col+'22';
-    pd.querySelector('span').textContent = pts+' Punkte vergeben'; pd.querySelector('span').style.color = col;
-    el.querySelectorAll('.points-option').forEach(b => { b.classList.toggle('selected', parseInt(b.dataset.points)===pts); });
-    const ds = el.querySelector('.deviation-section'); ds.style.display = (pts<=8)?'block':'none';
-    updateProgress(); renderOverview();
+async function updateEvidence(id, evidence) {
+    const q = germanQuestions.find(q => q.id === id);
+    if (q) { q.evidence = evidence; saveCurrentAuditToLocalStorage(); }
 }
 
-function updateProgress() {
-    const total = allQuestions.length;
-    const answered = allQuestions.filter(q => q.points!==null).length;
-    const pts = allQuestions.reduce((s,q) => s+(q.points||0),0);
-    const pct = total ? Math.round(answered/total*100) : 0;
-    const set = (id,v) => { const e=document.getElementById(id); if(e) e.textContent=v; };
-    set('answeredCount', answered); set('totalCount', total);
-    set('progressText', pct+'%'); set('pointsTotal', pts); set('pointsMax', total*10);
-    const bar = document.getElementById('auditProgressBar'); if(bar) bar.style.width=pct+'%';
+function updateProgressDisplay() {
+    const total = germanQuestions.length, answered = germanQuestions.filter(q => q.answer).length;
+    const yes = germanQuestions.filter(q => q.answer === 'YES').length, no = germanQuestions.filter(q => q.answer === 'NO').length;
+    const percent = total ? Math.round(answered/total*100) : 0;
+    document.getElementById('answeredCount').textContent = answered;
+    document.getElementById('totalCount').textContent = total;
+    document.getElementById('progressText').textContent = percent+'%';
+    document.getElementById('auditProgressBar').style.width = percent+'%';
+    document.getElementById('yesCount').textContent = yes;
+    document.getElementById('noCount').textContent = no;
 }
 
-// ═══════════════════════════════════════════════════
-// BILDER
-// ═══════════════════════════════════════════════════
-async function handleImg(event, qId) {
-    const file = event.target.files[0]; if (!file) return;
-    if (file.size > 5*1024*1024) { showToast('Bild max. 5 MB', 'error'); return; }
-    const reader = new FileReader();
-    reader.onload = e => {
-        const img = new Image(); img.onload = () => {
-            const canvas = document.createElement('canvas');
-            let w=img.width, h=img.height, max=1200;
-            if (w>max||h>max) { if(w>h){h=h*max/w;w=max;}else{w=w*max/h;h=max;} }
-            canvas.width=w; canvas.height=h;
-            canvas.getContext('2d').drawImage(img,0,0,w,h);
-            imageStorage[qId] = canvas.toDataURL('image/jpeg',0.8);
-            const q = allQuestions.find(x=>x.id===qId); if(q) q.deviation.hasImage=true;
-            renderSection(currentSectionIdx);
-            showToast('✅ Bild gespeichert','success');
-        };
-        img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-    event.target.value = '';
+function saveCurrentAuditToLocalStorage() {
+    if (!currentAuditType) return;
+    localStorage.setItem('zfp_current_audit', JSON.stringify({ currentAuditType, currentAuditId, currentAuditName, germanQuestions: germanQuestions.map(q => ({ id:q.id, answer:q.answer, evidence:q.evidence })), timestamp: new Date().toISOString() }));
 }
 
-function openImg(qId) {
-    document.getElementById('modalImage').src = imageStorage[qId]||'';
-    document.getElementById('imageModal').style.display='flex';
+function loadCurrentAuditFromLocalStorage() {
+    const saved = localStorage.getItem('zfp_current_audit');
+    if (!saved) return false;
+    try {
+        const state = JSON.parse(saved);
+        if (!state.currentAuditType) return false;
+        if (initAuditWithType(state.currentAuditType)) {
+            state.germanQuestions.forEach(sq => { const t = germanQuestions.find(q => q.id === sq.id); if (t) { t.answer = sq.answer; t.evidence = sq.evidence; } });
+            currentAuditId = state.currentAuditId; currentAuditName = state.currentAuditName;
+            renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); return true;
+        }
+    } catch(e) {}
+    return false;
 }
 
-function removeImg(qId) {
-    if (!confirm('Bild entfernen?')) return;
-    delete imageStorage[qId];
-    const q = allQuestions.find(x=>x.id===qId); if(q) q.deviation.hasImage=false;
-    renderSection(currentSectionIdx);
+function resetAudit() {
+    if (!confirm('⚠️ Alle Antworten zurücksetzen?')) return;
+    germanQuestions.forEach(q => { q.answer = ""; q.evidence = ""; });
+    if (currentSectionIndex >= 0) renderCurrentSection();
+    updateProgressDisplay(); renderOverview(); saveCurrentAuditToLocalStorage();
+    showToast('Audit zurückgesetzt', 'info');
 }
 
-// ═══════════════════════════════════════════════════
-// GITHUB SPEICHERN
-// ═══════════════════════════════════════════════════
-function openSaveModal() {
-    if (!ghConnected) { showToast('GitHub nicht verbunden','error'); return; }
-    if (!currentAuditType) { showToast('Kein Audit geladen','error'); return; }
-    document.getElementById('saveAuditName').value = '';
-    document.getElementById('saveModal').style.display='flex';
+// ========================  GITHUB SPEICHERN / LADEN  ========================
+async function loadGitHubAuditData(audit) {
+    if (!audit?.audit_type || !audit?.data?.germanQuestions) { showToast('Ungültige Audit-Daten', 'error'); return; }
+    if (initAuditWithType(audit.audit_type)) {
+        audit.data.germanQuestions.forEach(sq => { const t = germanQuestions.find(q => q.id === sq.id); if (t) { t.answer = sq.answer || ""; t.evidence = sq.evidence || ""; } });
+        currentAuditId = audit.id; currentAuditName = audit.name;
+        renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); saveCurrentAuditToLocalStorage();
+        showToast(`Audit "${audit.name}" geladen`, 'success');
+    } else showToast('Fehler beim Laden', 'error');
 }
 
-async function saveAuditToGitHub() {
-    const name = document.getElementById('saveAuditName').value.trim() ||
-        AUDIT_TYPES[currentAuditType].title + ' – ' + new Date().toLocaleDateString('de-DE');
-
-    const devsFromAudit = extractDeviations(name);
+async function saveCurrentAuditToGitHub() {
+    if (!currentAuditType) { showToast('Kein Audit geladen', 'error'); return; }
+    if (!githubToken) { showToast('GitHub nicht verbunden', 'error'); return; }
+    let auditName = document.getElementById('githubAuditName').value.trim() || `${MASTER_QUESTIONS[currentAuditType].title} - ${new Date().toLocaleString()}`;
+    const isUpdate = !!(currentAuditId && currentAuditName === auditName);
     const auditData = {
-        id: currentAuditId,
-        name,
-        audit_type: currentAuditType,
-        audit_title: AUDIT_TYPES[currentAuditType].title,
-        standards: AUDIT_TYPES[currentAuditType].standards,
-        saved_at: new Date().toISOString(),
-        participants,
-        questions: allQuestions.map(q => ({
-            id:q.id, sectionTitle:q.sectionTitle,
-            points:q.points, evidence:q.evidence,
-            deviation:{text:q.deviation.text,responsible:q.deviation.responsible,hasImage:q.deviation.hasImage}
-        })),
-        images: imageStorage,
-        summary: {
-            total: allQuestions.length,
-            answered: allQuestions.filter(q=>q.points!==null).length,
-            points: allQuestions.reduce((s,q)=>s+(q.points||0),0),
-            maxPoints: allQuestions.length*10,
-            deviations: devsFromAudit.length
-        }
+        id: isUpdate ? currentAuditId : `audit_${currentAuditType}_${Date.now()}`,
+        name: auditName, audit_type: currentAuditType,
+        audit_title: MASTER_QUESTIONS[currentAuditType].title,
+        standard: MASTER_QUESTIONS[currentAuditType].standard,
+        created_at: new Date().toISOString(), last_modified: new Date().toISOString(),
+        data: { germanQuestions: germanQuestions.map(q => ({ id:q.id, answer:q.answer, evidence:q.evidence })) },
+        summary: { total: germanQuestions.length, answered: germanQuestions.filter(q => q.answer).length, yes: germanQuestions.filter(q => q.answer === 'YES').length, no: germanQuestions.filter(q => q.answer === 'NO').length, na: germanQuestions.filter(q => q.answer === 'NA').length }
     };
-
     try {
-        let audits = await ghLoadFile(AUDITS_FILE) || [];
-        if (!Array.isArray(audits)) audits = [];
-        const ei = audits.findIndex(a=>a.id===currentAuditId);
-        if (ei>=0) audits[ei]=auditData; else audits.push(auditData);
-        await ghSaveFile(AUDITS_FILE, audits, 'Audit: '+name);
+        await saveAuditToGitHub(auditData, isUpdate);
+        if (!isUpdate) { currentAuditId = auditData.id; currentAuditName = auditName; saveCurrentAuditToLocalStorage(); }
+        showToast(`✅ "${auditName}" gespeichert`, 'success');
+        closeModal('githubSaveModal'); document.getElementById('githubAuditName').value = '';
+        refreshCompletedAudits();
+    } catch(e) { showToast(`❌ Fehler: ${e.message}`, 'error'); }
+}
 
-        // Abweichungen zusammenführen und speichern
-        if (devsFromAudit.length) {
-            let existing = await ghLoadFile(DEVIATIONS_FILE) || [];
-            if (!Array.isArray(existing)) existing = [];
-            devsFromAudit.forEach(d => {
-                const ei2 = existing.findIndex(x=>x.id===d.id);
-                if (ei2>=0) existing[ei2]={...existing[ei2],...d}; else existing.push(d);
-            });
-            await ghSaveFile(DEVIATIONS_FILE, existing, 'Abweichungen: '+name);
-            deviations = existing;
-            updateDevBadge();
-        }
-
-        closeModal('saveModal');
-        showToast('✅ "'+name+'" gespeichert','success');
-        updateStartPageBadges();
-    } catch(e) {
-        showToast('❌ '+e.message,'error');
+async function refreshCompletedAudits() {
+    if (!githubToken) {
+        document.getElementById('zfpCompletedAuditsContainer').innerHTML = '<div style="color:var(--text-secondary);">🔌 Bitte GitHub Token eingeben</div>';
+        return;
     }
+    const audits = await loadGitHubAudits();
+    const container = document.getElementById('zfpCompletedAuditsContainer');
+    if (!audits.length) { container.innerHTML = '<div style="color:var(--text-secondary);">Keine gespeicherten Audits</div>'; return; }
+    container.innerHTML = '';
+    [...audits].sort((a,b) => new Date(b.created_at) - new Date(a.created_at)).forEach(a => {
+        const card = document.createElement('div'); card.className = 'completed-audit-card';
+        const date = new Date(a.created_at).toLocaleString('de-DE');
+        const progress = a.summary ? `${a.summary.answered}/${a.summary.total}` : '?/?';
+        const safeData = JSON.stringify(a).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+        card.innerHTML = `<div><strong>${escapeHtml(a.name)}</strong><br><small>${escapeHtml(a.audit_title)} | ${date}</small></div><div>Fortschritt: ${progress}</div><div class="completed-audit-actions"><button class="audit-action-btn btn-load-audit" onclick='loadGitHubAuditData(${safeData})'>Laden</button><button class="audit-action-btn btn-delete-audit" onclick='deleteGitHubAudit("${a.id}")'>Löschen</button></div>`;
+        container.appendChild(card);
+    });
 }
 
-function extractDeviations(auditName) {
-    return allQuestions
-        .filter(q => q.points!==null && q.points<=8 && q.deviation.text.trim())
-        .map(q => ({
-            id: currentAuditId+'__'+q.id,
-            auditId: currentAuditId,
-            auditName: auditName,
-            auditType: currentAuditType,
-            questionId: q.id,
-            questionText: q.text,
-            deviationText: q.deviation.text,
-            responsible: q.deviation.responsible,
-            points: q.points,
-            hasImage: q.deviation.hasImage,
-            imageData: q.deviation.hasImage ? imageStorage[q.id] : null,
-            status: 'offen',
-            date: new Date().toISOString()
-        }));
+async function deleteGitHubAudit(id) {
+    if (!confirm('Audit wirklich löschen?')) return;
+    try { await deleteAuditFromGitHub(id); refreshCompletedAudits(); showToast('Audit gelöscht', 'info'); }
+    catch(e) { showToast('Fehler beim Löschen', 'error'); }
 }
 
-// ═══════════════════════════════════════════════════
-// CLOUD ARCHIV
-// ═══════════════════════════════════════════════════
-async function loadCloudAudits() {
-    if (!ghConnected) { document.getElementById('cloudAuditsList').innerHTML='<div style="color:var(--text-secondary)">🔌 GitHub nicht verbunden</div>'; return; }
-    const container = document.getElementById('cloudAuditsList');
-    container.innerHTML='<div style="color:var(--text-secondary)">Lädt…</div>';
+async function autoSaveToGitHub() {
+    if (!githubConnected || !currentAuditType) return;
+    const name = currentAuditName || `${MASTER_QUESTIONS[currentAuditType].title} (Auto)`;
+    const auditData = { id: currentAuditId || `temp_${Date.now()}`, name, audit_type: currentAuditType, audit_title: MASTER_QUESTIONS[currentAuditType].title, standard: MASTER_QUESTIONS[currentAuditType].standard, created_at: new Date().toISOString(), last_modified: new Date().toISOString(), data: { germanQuestions: germanQuestions.map(q => ({ id:q.id, answer:q.answer, evidence:q.evidence })) }, summary: {} };
+    try { await saveAuditToGitHub(auditData, !!currentAuditId); if (!currentAuditId) { currentAuditId = auditData.id; currentAuditName = name; saveCurrentAuditToLocalStorage(); } }
+    catch(e) { console.warn('Auto-save failed', e); }
+}
+
+async function updateProgressOnStartPage() {
+    if (!githubToken) return;
     try {
-        const audits = await ghLoadFile(AUDITS_FILE) || [];
-        if (!audits.length) { container.innerHTML='<div style="color:var(--text-secondary)">Keine Audits gespeichert</div>'; return; }
-        container.innerHTML='';
-        [...audits].sort((a,b)=>new Date(b.saved_at)-new Date(a.saved_at)).forEach(a => {
-            const card = document.createElement('div'); card.className='completed-audit-card';
-            const date = new Date(a.saved_at).toLocaleString('de-DE');
-            const pct = a.summary ? Math.round((a.summary.answered||0)/(a.summary.total||1)*100) : 0;
-            const ptsPct = a.summary?.maxPoints ? Math.round((a.summary.points||0)/a.summary.maxPoints*100) : 0;
-            card.innerHTML = `
-                <div><strong>${esc(a.name)}</strong><br><small>${esc(a.audit_title)} · ${date}</small></div>
-                <div style="font-size:.85em">Fortschritt: ${pct}% · Punkte: ${a.summary?.points||0}/${a.summary?.maxPoints||0} (${ptsPct}%) · Abw: ${a.summary?.deviations||0}</div>
-                <div class="completed-audit-actions">
-                    <button class="audit-action-btn btn-load-audit" onclick="loadAuditFromCloud('${a.id}')">Laden</button>
-                    <button class="audit-action-btn btn-report-audit" onclick="generateReportForAudit('${a.id}')">Bericht</button>
-                    <button class="audit-action-btn btn-delete-audit" onclick="deleteCloudAudit('${a.id}')">Löschen</button>
-                </div>`;
-            container.appendChild(card);
-        });
-        // update badge
-        const el = document.getElementById('cloudProgress'); if(el) el.textContent=audits.length+' Audits';
-    } catch(e) {
-        container.innerHTML='<div style="color:#e74c3c">Fehler: '+esc(e.message)+'</div>';
-    }
-}
-
-async function loadAuditFromCloud(auditId) {
-    try {
-        const audits = await ghLoadFile(AUDITS_FILE) || [];
-        const a = audits.find(x=>x.id===auditId); if(!a){showToast('Nicht gefunden','error');return;}
-        currentAuditType = a.audit_type; currentAuditId = a.id;
-        const info = AUDIT_TYPES[a.audit_type];
-        document.getElementById('mainTitle').textContent='ZfP Review Audit – '+info.title;
-        document.getElementById('mainSubtitle').textContent=info.standards;
-
-        // Rebuild allQuestions from stored data
-        allQuestions = AUDIT_DATA[a.audit_type].flatMap(sec =>
-            sec.questions.map(q => {
-                const saved = (a.questions||[]).find(x=>x.id===q.id);
-                return { ...q, sectionTitle:sec.title,
-                    points: saved?.points ?? null,
-                    evidence: saved?.evidence||'',
-                    deviation: saved?.deviation||{text:'',responsible:'',hasImage:false} };
-            })
-        );
-        imageStorage = a.images||{};
-        participants = a.participants||{auditors:[],auditees:[]};
-        renderOverview(); updateProgress();
-        showPage('pageOverview');
-        showToast('✅ Audit "'+a.name+'" geladen','success');
-    } catch(e) { showToast('❌ '+e.message,'error'); }
-}
-
-async function deleteCloudAudit(auditId) {
-    if (!confirm('Audit wirklich aus GitHub löschen?')) return;
-    const pw = prompt('Passwort:');
-    if (pw !== 'ZfP-Review') { alert('❌ Falsches Passwort'); return; }
-    try {
-        let audits = await ghLoadFile(AUDITS_FILE) || [];
-        audits = audits.filter(a=>a.id!==auditId);
-        await ghSaveFile(AUDITS_FILE, audits, 'Audit gelöscht: '+auditId);
-        showToast('Audit gelöscht','info');
-        loadCloudAudits();
-        updateStartPageBadges();
-    } catch(e) { showToast('❌ '+e.message,'error'); }
-}
-
-// ═══════════════════════════════════════════════════
-// ABWEICHUNGEN
-// ═══════════════════════════════════════════════════
-async function loadDeviations() {
-    if (!ghConnected) { deviations=[]; renderDeviations(); return; }
-    try {
-        deviations = await ghLoadFile(DEVIATIONS_FILE) || [];
-        if (!Array.isArray(deviations)) deviations=[];
-    } catch(e) { deviations=[]; }
-    renderDeviations();
-    updateDevBadge();
-}
-
-function updateDevBadge() {
-    const open = deviations.filter(d=>d.status==='offen').length;
-    const el = document.getElementById('devProgress'); if(el) el.textContent=open+'/'+deviations.length;
-}
-
-function filterDeviations(f) {
-    devFilter = f;
-    document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter===f));
-    renderDeviations();
-}
-
-function renderDeviations() {
-    const c = document.getElementById('deviationsContainer'); if(!c) return;
-    const filtered = devFilter==='all' ? deviations : deviations.filter(d=>d.status===(devFilter==='open'?'offen':'abgeschlossen'));
-    if (!filtered.length) {
-        c.innerHTML='<div style="text-align:center;padding:40px;color:var(--text-secondary)">📭 Keine Abweichungen vorhanden</div>'; return;
-    }
-    const icons = {wirbelstrom:'⚡',magnetpulver:'🧲',nital:'🧪',ultraschall:'📡'};
-    c.innerHTML = `<div class="deviations-wrap"><table class="deviations-table">
-        <thead><tr><th>Typ</th><th>Audit</th><th>Frage</th><th>Abweichung</th><th>Verantwortlicher</th><th>Datum</th><th>Status</th><th>Aktionen</th></tr></thead>
-        <tbody>${filtered.map(d => {
-            const date = d.date ? new Date(d.date).toLocaleDateString('de-DE') : '—';
-            return `<tr>
-                <td>${icons[d.auditType]||'📋'}</td>
-                <td><strong>${esc(d.auditName||'—')}</strong><br><small>${d.questionId}</small></td>
-                <td style="max-width:150px;word-break:break-word">${esc(d.questionText||'').substring(0,60)}…</td>
-                <td style="max-width:200px;word-break:break-word">${esc(d.deviationText||'—')}</td>
-                <td>${esc(d.responsible||'—')}</td>
-                <td>${date}</td>
-                <td><span class="status-badge ${d.status==='offen'?'status-open':'status-closed'}">${d.status}</span></td>
-                <td style="white-space:nowrap">
-                    ${d.hasImage?`<button class="audit-action-btn btn-load-audit" onclick="viewDevImg('${d.id}')">📷</button>`:''}
-                    ${d.status==='offen'
-                        ?`<button class="audit-action-btn btn-report-audit" onclick="closeDeviation('${d.id}')">✅</button>`
-                        :`<button class="audit-action-btn btn-load-audit" onclick="reopenDeviation('${d.id}')">🔄</button>`}
-                    <button class="audit-action-btn btn-delete-audit" onclick="deleteDeviation('${d.id}')">🗑</button>
-                </td>
-            </tr>`;
-        }).join('')}</tbody>
-    </table></div>
-    <div style="text-align:center;margin-top:12px;font-size:.85em;color:var(--text-secondary)">
-        ${filtered.length} Abweichung${filtered.length!==1?'en':''} · ${deviations.filter(d=>d.status==='offen').length} offen
-    </div>`;
-}
-
-function viewDevImg(id) {
-    const d = deviations.find(x=>x.id===id);
-    if (d?.imageData) { document.getElementById('modalImage').src=d.imageData; document.getElementById('imageModal').style.display='flex'; }
-}
-
-async function closeDeviation(id) {
-    const d = deviations.find(x=>x.id===id); if(!d) return;
-    d.status='abgeschlossen'; d.closedAt=new Date().toISOString();
-    await saveDeviationsToGH(); renderDeviations(); updateDevBadge();
-    showToast('✅ Abweichung abgeschlossen','success');
-}
-
-async function reopenDeviation(id) {
-    const d = deviations.find(x=>x.id===id); if(!d) return;
-    d.status='offen'; d.closedAt=null;
-    await saveDeviationsToGH(); renderDeviations(); updateDevBadge();
-    showToast('Abweichung wieder geöffnet','info');
-}
-
-async function deleteDeviation(id) {
-    if (!confirm('Abweichung wirklich löschen?')) return;
-    const pw = prompt('Passwort:');
-    if (pw !== 'ZfP-Review') { alert('❌ Falsches Passwort'); return; }
-    deviations = deviations.filter(x=>x.id!==id);
-    await saveDeviationsToGH(); renderDeviations(); updateDevBadge();
-    showToast('Abweichung gelöscht','info');
-}
-
-async function saveDeviationsToGH() {
-    try { await ghSaveFile(DEVIATIONS_FILE, deviations, 'Abweichungen Update'); }
-    catch(e) { showToast('❌ GH-Fehler: '+e.message,'error'); }
-}
-
-// ═══════════════════════════════════════════════════
-// START PAGE BADGES
-// ═══════════════════════════════════════════════════
-async function updateStartPageBadges() {
-    try {
-        const audits = await ghLoadFile(AUDITS_FILE) || [];
-        const el = document.getElementById('cloudProgress'); if(el) el.textContent=audits.length+' Audits';
-        // Per-type progress
-        const map = {wirbelstrom:'etProgress',magnetpulver:'mtProgress',nital:'neProgress',ultraschall:'utProgress'};
-        Object.entries(map).forEach(([type, elId]) => {
-            const latest = [...audits].filter(a=>a.audit_type===type).sort((a,b)=>new Date(b.saved_at)-new Date(a.saved_at))[0];
-            const el2 = document.getElementById(elId); if(!el2) return;
+        const audits = await loadGitHubAudits();
+        ['ET','MT','NE','UT'].forEach(type => {
+            const el = document.getElementById(`${type.toLowerCase()}Progress`);
+            if (!el) return;
+            const latest = audits.filter(a => a.audit_type === type).sort((a,b) => new Date(b.last_modified) - new Date(a.last_modified))[0];
             if (latest?.summary) {
-                const p = Math.round((latest.summary.answered||0)/(latest.summary.total||1)*100);
-                el2.textContent=p+'%'; el2.style.display='inline-block';
+                const pct = Math.round(latest.summary.answered / latest.summary.total * 100);
+                el.textContent = `${pct}%`;
+                el.style.display = 'inline-block';
             }
         });
     } catch(e) {}
-    try {
-        deviations = await ghLoadFile(DEVIATIONS_FILE) || [];
-        updateDevBadge();
-    } catch(e) {}
 }
 
-// ═══════════════════════════════════════════════════
-// BERICHT
-// ═══════════════════════════════════════════════════
-function generateReport() {
-    if (!currentAuditType) { showToast('Kein Audit geladen','error'); return; }
-    generateReportForData(currentAuditType, allQuestions, imageStorage, participants, currentAuditId);
+// ========================  BERICHT  ========================
+function generateEnglishReport() {
+    if (!currentAuditType || !germanQuestions.length) { alert('Kein Audit geladen'); return; }
+    let report = `PRI Audit Report - ${MASTER_QUESTIONS[currentAuditType].title} (${MASTER_QUESTIONS[currentAuditType].standard})\nDate: ${new Date().toLocaleString()}\n\n`;
+    auditSections.forEach(sec => {
+        report += `\n${sec.title}\n${'='.repeat(40)}\n`;
+        germanQuestions.filter(q => q.sectionId === sec.id).forEach(q => {
+            const en = englishQuestions.find(e => e.id === q.id);
+            const ans = q.answer === 'YES' ? 'YES' : (q.answer === 'NO' ? 'NO' : (q.answer === 'NA' ? 'N/A' : 'Not answered'));
+            report += `\n${q.id} - ${en ? en.text : q.text}\nAnswer: ${ans}\n`;
+            if (q.evidence) report += `Evidence: ${q.evidence}\n`;
+        });
+    });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([report], { type: 'text/plain' }));
+    a.download = `PRI_Report_${currentAuditType}_${new Date().toISOString().slice(0,19)}.txt`;
+    a.click(); URL.revokeObjectURL(a.href);
 }
 
-async function generateReportForAudit(auditId) {
-    try {
-        const audits = await ghLoadFile(AUDITS_FILE)||[];
-        const a = audits.find(x=>x.id===auditId); if(!a) return;
-        const questions = AUDIT_DATA[a.audit_type].flatMap(sec=>sec.questions.map(q=>{
-            const s=(a.questions||[]).find(x=>x.id===q.id);
-            return{...q,sectionTitle:sec.title,points:s?.points??null,evidence:s?.evidence||'',deviation:s?.deviation||{text:'',responsible:'',hasImage:false}};
-        }));
-        generateReportForData(a.audit_type, questions, a.images||{}, a.participants||{}, a.id, a.name, a.saved_at);
-    } catch(e) { showToast('❌ '+e.message,'error'); }
+// ========================  IMPORT  ========================
+function showImportModal() { document.getElementById('importModal').style.display = 'flex'; document.getElementById('importFileInput').value = ''; }
+function handleImportFile() {
+    const file = document.getElementById('importFileInput').files[0]; if (!file) return;
+    const reader = new FileReader(); reader.onload = e => {
+        try {
+            const data = JSON.parse(e.target.result);
+            if (data.germanQuestions && data.audit_type && initAuditWithType(data.audit_type)) {
+                data.germanQuestions.forEach(imp => { const q = germanQuestions.find(q => q.id === imp.id); if (q) { q.answer = imp.answer||''; q.evidence = imp.evidence||''; } });
+                renderOverview(); updateProgressDisplay(); showPage(PAGES.OVERVIEW); showToast('Import erfolgreich', 'success');
+            } else showToast('Ungültiges Dateiformat', 'error');
+        } catch(e) { showToast('Fehler beim Import', 'error'); }
+        closeModal('importModal');
+    }; reader.readAsText(file);
 }
 
-function generateReportForData(type, questions, images, parts, auditId, name, date) {
-    const info = AUDIT_TYPES[type];
-    const total = questions.length;
-    const answered = questions.filter(q=>q.points!==null).length;
-    const pts = questions.reduce((s,q)=>s+(q.points||0),0);
-    const maxPts = total*10;
-    const pct = maxPts ? Math.round(pts/maxPts*100) : 0;
-    const p10=questions.filter(q=>q.points===10).length;
-    const p8=questions.filter(q=>q.points===8).length;
-    const p4=questions.filter(q=>q.points===4).length;
-    const p0=questions.filter(q=>q.points===0).length;
-    const devs=questions.filter(q=>q.points!==null&&q.points<=8&&q.deviation?.text?.trim());
-    const dateStr = date ? new Date(date).toLocaleDateString('de-DE') : new Date().toLocaleDateString('de-DE');
+function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+function showToast(msg, type = 'info') { const t = document.getElementById('syncToast'); t.textContent = msg; t.className = `sync-toast show ${type}`; setTimeout(() => t.classList.remove('show'), 3000); }
+function escapeHtml(s) { return s ? s.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[m])) : ''; }
 
-    const w = window.open('','_blank'); if(!w) return;
-    w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Auditbericht ${info.title}</title>
-    <style>
-    body{font-family:'Calibri',Arial,sans-serif;font-size:10pt;margin:0;padding:0}
-    .main{width:180mm;margin:0 auto;padding:10mm}
-    h1{font-size:16pt;color:#003865;margin-bottom:2mm}
-    h2{font-size:11pt;color:#003865;margin:6mm 0 3mm}
-    .header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2pt solid #003865;padding-bottom:4mm;margin-bottom:6mm}
-    .logo{color:#003865;font-size:14pt;font-weight:bold}
-    .meta{background:#f8f9fa;border:1pt solid #ddd;border-radius:4px;padding:4mm;margin-bottom:6mm;font-size:9pt}
-    .meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:2mm 8mm}
-    .meta-row{display:flex;justify-content:space-between;border-bottom:.5pt dotted #ccc;padding-bottom:1mm}
-    .meta-label{font-weight:bold;color:#003865}
-    .summary{background:linear-gradient(135deg,#f0f7ff,#e6f0ff);border:1.5pt solid #003865;border-radius:4px;padding:4mm;margin-bottom:6mm}
-    .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;margin:3mm 0}
-    .stat{background:white;border:1pt solid #003865;border-radius:3px;padding:3mm;text-align:center}
-    .stat .val{font-size:14pt;font-weight:bold;color:#003865}
-    .stat .lbl{font-size:8pt;color:#666}
-    table{width:100%;border-collapse:collapse;font-size:9pt;margin-bottom:4mm}
-    thead{background:#003865;color:white}
-    th{padding:2.5mm 2mm;text-align:left;font-size:8pt}
-    td{padding:2mm;border-bottom:.5pt solid #eee;vertical-align:top}
-    .sec-hdr{background:#003865;color:white;padding:2.5mm 4mm;font-weight:bold;margin:5mm 0 2mm;font-size:10pt;border-radius:2px}
-    .dot{display:inline-block;width:7pt;height:7pt;border-radius:50%;margin-right:2mm;vertical-align:middle}
-    .dot-ok{background:#27ae60}.dot-nok{background:#e74c3c}.dot-na{background:#95a5a6}
-    .img-wrap{max-width:150mm;margin:3mm auto;text-align:center}
-    .img-wrap img{max-width:100%;max-height:80mm;border:1pt solid #ddd;border-radius:3px}
-    .sig{display:flex;justify-content:space-between;margin-top:10mm;padding-top:6mm;border-top:1.5pt solid #003865}
-    .sig-item{text-align:center;width:80mm}
-    .sig-line{border-top:1pt solid black;margin-top:12mm;padding-top:2mm;font-size:8pt;color:#666}
-    .no-print{text-align:center;margin:10mm 0;padding:5mm;background:#f8f9fa;border:1pt solid #ddd;border-radius:4px}
-    .print-btn{padding:6mm 12mm;background:#003865;color:white;border:none;border-radius:4px;font-size:11pt;cursor:pointer}
-    @media print{.no-print{display:none}}
-    </style></head><body><div class="main">
-    <div class="header">
-        <div>
-            <h1>Auditbericht: ${info.title}</h1>
-            <div style="font-size:10pt;color:#555">${info.standards}</div>
-        </div>
-        <div class="logo">Schaeffler</div>
-    </div>
-    <div class="meta"><div class="meta-grid">
-        <div><div class="meta-row"><span class="meta-label">Verfahren:</span><span>${info.title}</span></div>
-        <div class="meta-row"><span class="meta-label">Datum:</span><span>${dateStr}</span></div>
-        <div class="meta-row"><span class="meta-label">Auditoren:</span><span>${(parts?.auditors||[]).join(', ')||'—'}</span></div></div>
-        <div><div class="meta-row"><span class="meta-label">Standard:</span><span>${info.standards}</span></div>
-        <div class="meta-row"><span class="meta-label">Auditiert:</span><span>${(parts?.auditees||[]).join(', ')||'—'}</span></div>
-        <div class="meta-row"><span class="meta-label">ID:</span><span>${auditId||'—'}</span></div></div>
-    </div></div>
-    <div class="summary">
-        <h2 style="margin:0 0 3mm;text-align:center">Zusammenfassung</h2>
-        <div class="stat-row">
-            <div class="stat"><div class="val">${pts}/${maxPts}</div><div class="lbl">Punkte</div></div>
-            <div class="stat"><div class="val">${pct}%</div><div class="lbl">Erfüllung</div></div>
-            <div class="stat"><div class="val">${p10}</div><div class="lbl">I.O. (10 Pkt)</div></div>
-            <div class="stat"><div class="val" style="color:#e74c3c">${p8+p4+p0}</div><div class="lbl">N.I.O. (&lt;10)</div></div>
-        </div>
-        <div style="font-size:8pt;color:#555;text-align:center;margin-top:2mm">10 Pkt: ${p10} · 8 Pkt: ${p8} · 4 Pkt: ${p4} · 0 Pkt: ${p0} · Nicht bewertet: ${total-answered} · Abweichungen: ${devs.length}</div>
-    </div>
-    ${AUDIT_DATA[type].map(sec=>`
-        <div class="sec-hdr">${sec.title}</div>
-        <table><thead><tr><th style="width:10mm">ID</th><th style="width:55mm">Frage</th><th style="width:28mm">Nachweis</th><th style="width:30mm">Abweichung</th><th style="width:23mm">Verantwortl.</th><th style="width:8mm">Pkt</th></tr></thead><tbody>
-        ${sec.questions.map(q=>{
-            const qd=questions.find(x=>x.id===q.id)||{};
-            const p=qd.points??null;
-            const cls=p===10?'dot-ok':p!==null?'dot-nok':'dot-na';
-            const imgs=qd.deviation?.hasImage&&images[q.id]?`<tr><td colspan="6"><div class="img-wrap"><img src="${images[q.id]}"></div></td></tr>`:'';
-            return `<tr><td><span class="dot ${cls}"></span>${q.id}</td><td>${q.text}</td><td>${qd.evidence||''}</td><td>${qd.deviation?.text||''}</td><td>${qd.deviation?.responsible||''}</td><td style="text-align:center;font-weight:bold">${p!==null?p:''}</td></tr>${imgs}`;
-        }).join('')}
-        </tbody></table>`).join('')}
-    <div class="sig">
-        <div class="sig-item">Auditor<div class="sig-line">Name, Datum, Unterschrift</div></div>
-        <div class="sig-item">Bereichsverantwortlicher<div class="sig-line">Name, Datum, Unterschrift</div></div>
-    </div>
-    <div class="no-print"><button class="print-btn" onclick="window.print()">🖨️ Bericht drucken</button></div>
-    </div></body></html>`);
-    w.document.close();
+// ========================  EVENT LISTENER  ========================
+function setupEventListeners() {
+    document.querySelectorAll('.audit-btn').forEach(btn => btn.addEventListener('click', () => {
+        if (initAuditWithType(btn.dataset.audit)) { currentAuditId = null; currentAuditName = null; renderOverview(); showPage(PAGES.OVERVIEW); saveCurrentAuditToLocalStorage(); }
+    }));
+    document.getElementById('backToSelectionFromOverviewBtn').onclick = () => { currentAuditType = null; showPage(PAGES.SELECTION); localStorage.removeItem('zfp_current_audit'); refreshCompletedAudits(); };
+    document.getElementById('backToOverviewBtn').onclick = () => { renderOverview(); showPage(PAGES.OVERVIEW); };
+    document.getElementById('resetFromQuestionsBtn').onclick = resetAudit;
+    document.getElementById('importFromOverviewBtn').onclick = showImportModal;
+    document.getElementById('importFromQuestionsBtn').onclick = showImportModal;
+    document.getElementById('reportFromOverviewBtn').onclick = generateEnglishReport;
+    document.getElementById('saveToGitHubBtn').onclick = () => { if (currentAuditType) document.getElementById('githubSaveModal').style.display = 'flex'; else showToast('Kein Audit geladen', 'error'); };
+    document.getElementById('saveToGitHubFromQuestionsBtn').onclick = () => { if (currentAuditType) document.getElementById('githubSaveModal').style.display = 'flex'; else showToast('Kein Audit geladen', 'error'); };
+    document.getElementById('confirmGithubSaveBtn').onclick = saveCurrentAuditToGitHub;
+    document.getElementById('githubSaveTokenBtn').onclick = saveGitHubToken;
+    document.getElementById('githubTokenInput').addEventListener('keydown', e => { if (e.key === 'Enter') saveGitHubToken(); });
+    document.getElementById('resumeLastAuditBtn').onclick = () => { if (!loadCurrentAuditFromLocalStorage()) { showToast('Kein gespeichertes Audit', 'info'); document.getElementById('resumeLastAuditBtn').style.display = 'none'; } };
+    window.onclick = e => { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; };
 }
 
-// ═══════════════════════════════════════════════════
-// UTILS
-// ═══════════════════════════════════════════════════
-function closeModal(id) { document.getElementById(id).style.display='none'; }
-function showToast(msg,type='info') {
-    const t=document.getElementById('syncToast'); t.textContent=msg; t.className='sync-toast show '+type;
-    setTimeout(()=>t.classList.remove('show'),3000);
-}
-function esc(s) { return s?String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])):''; }
-
-// ═══════════════════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════════════════
+// ========================  INIT  ========================
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
-
-    // Kacheln
-    document.querySelectorAll('.audit-btn[data-audit]').forEach(btn => {
-        btn.addEventListener('click', () => startAudit(btn.dataset.audit));
-    });
-
-    // Token
-    document.getElementById('githubSaveTokenBtn').onclick = connectGitHub;
-    document.getElementById('githubTokenInput').addEventListener('keydown', e => { if(e.key==='Enter') connectGitHub(); });
-
-    // Gespeichertes Token laden
-    const saved = localStorage.getItem(GH_TOKEN_KEY);
-    if (saved) {
-        document.getElementById('githubTokenInput').value = saved;
-        ghToken = saved;
-        connectGitHub();
-    }
-
-    // Modal backdrop
-    window.onclick = e => {
-        if (e.target.classList.contains('modal')) e.target.style.display='none';
-    };
-
-    // Expose globals
-    window.showPage = showPage;
-    window.loadCloudAudits = loadCloudAudits;
-    window.loadAuditFromCloud = loadAuditFromCloud;
-    window.deleteCloudAudit = deleteCloudAudit;
-    window.generateReportForAudit = generateReportForAudit;
-    window.filterDeviations = filterDeviations;
-    window.loadDeviations = loadDeviations;
-    window.closeDeviation = closeDeviation;
-    window.reopenDeviation = reopenDeviation;
-    window.deleteDeviation = deleteDeviation;
-    window.viewDevImg = viewDevImg;
-    window.saveAuditToGitHub = saveAuditToGitHub;
-    window.closeModal = closeModal;
-    window.selectPoints = selectPoints;
-    window.handleImg = handleImg;
-    window.openImg = openImg;
-    window.removeImg = removeImg;
+    setupEventListeners();
+    // Lokales Audit laden (zeigt Resume-Button)
+    if (loadCurrentAuditFromLocalStorage()) document.getElementById('resumeLastAuditBtn').style.display = 'inline-block';
+    // Token laden → testGitHubConnection() → refreshCompletedAudits() (in Kette)
+    loadGitHubToken();
+    // Alle 30 Sekunden Fortschritt aktualisieren
+    setInterval(() => { if (githubToken && githubConnected) updateProgressOnStartPage(); }, 30000);
 });
+
+window.loadGitHubAuditData  = loadGitHubAuditData;
+window.deleteGitHubAudit    = deleteGitHubAudit;
+window.refreshCompletedAudits = refreshCompletedAudits;
+window.closeModal           = closeModal;
+window.handleImportFile     = handleImportFile;
 </script>
 </body>
 </html>
