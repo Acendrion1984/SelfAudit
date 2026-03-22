@@ -1,0 +1,611 @@
+{
+  "meta": {
+    "audit_type": "GENERAL",
+    "standard": "TPG-AC7114 Rev D",
+    "language": "en",
+    "title": "General NDT Audit Criteria",
+    "description": "Transportation and Power Generation - Audit Criteria for Nondestructive Testing",
+    "total_questions": 84
+  },
+  "sections": [
+    { "id": "1",  "title": "1. SCOPE" },
+    { "id": "2",  "title": "2. GENERAL INFORMATION" },
+    { "id": "3",  "title": "3. CORRECTIVE ACTIONS" },
+    { "id": "4",  "title": "4. NDT QUALITY SYSTEM REQUIREMENTS" },
+    { "id": "8",  "title": "8. NDT QUALIFICATION / CERTIFICATION – ISO 9712" },
+    { "id": "9",  "title": "9. PERSONNEL ATTACHMENT" },
+    { "id": "10", "title": "10. INSPECTION / RECORDS / PROCEDURES" },
+    { "id": "11", "title": "11. CALIBRATION" },
+    { "id": "12", "title": "12. PROCESS CONTROL FAILURE" }
+  ],
+  "questions": [
+    {
+      "id": "1.1",
+      "question": "Are these Audit Criteria being used to survey a facility seeking approval for the NDT process?",
+      "guidance": "These Audit Criteria are intended for use to survey a facility seeking approval for the NDT process.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "2.1",
+      "question": "Are the applicable procedures, exams and other technical data available in English?",
+      "guidance": "Unless an alternative language is agreed upon by the assigned Auditor, the following items shall be translated in writing prior to the audit: NDT process procedure(s) and NDT written practice. All NDT qualification examinations, or examination question database used, which are not administered by ASNT, ISO9712 or an NANDTB.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "2.2",
+      "question": "Is there evidence of a current approval related to quality system registered to ISO9001, AS9100 / EN9100, AC7004, or ISO17025 (NDT Test Houses only)?",
+      "guidance": "Information only question. NA is acceptable if the above Quality System accreditations are not in place.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "3.1",
+      "question": "For re-accreditation audits, were corrective actions from the previous audit implemented?",
+      "guidance": "Verification of corrective actions taken as a result of nonconformances identified during the previous audit will be conducted by the auditor.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "3.2",
+      "question": "Does the Auditee's corrective action system, as it applies to the NDT area, ensure that the required changes in procedures resulting from corrective action are implemented and effective?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "3.3",
+      "question": "Did the Auditee make a copy of their completed self-audit available to the auditor at least 30 days prior to the audit, utilizing the version of the criteria(s) applicable to this audit?",
+      "guidance": "The NDT Task Group recommends the self-audit be performed 90–120 days prior to the scheduled audit.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "3.4",
+      "question": "For each question in the Audit Criteria, has the Auditee identified where the means of compliance or evidence of compliance may be found?",
+      "guidance": "Compliance or evidence of compliance can be the procedure, Audit Criteria, physical location of evidence, etc.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "3.5",
+      "question": "Does the self-audit include one compliance job per method?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "4.1",
+      "question": "Has a Level 3 been given responsibility for identifying and assuring implementation of customer NDT requirements: Review of NDT requirements?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "4.2",
+      "question": "Has a Level 3 been given responsibility for identifying and assuring implementation of customer NDT requirements: Sequence of NDT operations?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "4.3",
+      "question": "Has a Level 3 been given responsibility for identifying and assuring implementation of customer NDT requirements: NDT procedure development and approval?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "4.4",
+      "question": "Has a Level 3 been given responsibility for identifying and assuring implementation of customer NDT requirements: NDT technique development/review and approval?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "4.5",
+      "question": "Has a Level 3 been given responsibility for identifying and assuring implementation of customer NDT requirements: Training of NDT personnel?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "4.6",
+      "question": "Has a Level 3 been given responsibility for identifying and assuring implementation of customer NDT requirements: Examination of NDT personnel?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "4.7",
+      "question": "Is there a procedure in place to ensure that all required customer approvals are obtained prior to performing NDT on customer hardware?",
+      "guidance": "Compliance may be in a high level contract review or other quality procedure and not necessarily in an NDT procedure.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "4.8",
+      "question": "Is there evidence that all required customer approvals are current for all of the NDT methods being audited?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "4.9",
+      "question": "Is there a procurement procedure to ensure that Prime contractor requirements are adequately imposed on the sub-tier Auditee that includes but is not limited to calibration services, cleaning/etching facilities, process control tests, materials and equipment and inspection facilities as related to NDT?",
+      "guidance": "The procedure shall address flow-down of the specification(s), or standard(s), to which services or materials are procured, certification requirements, accuracy, range and any other data pertinent to justify acceptance.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "4.10",
+      "question": "Is there evidence of compliance to the procurement procedure?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.1.1",
+      "question": "Does the company quality system address all that concerns the authorization to operate, i.e. providing job-specific training?",
+      "guidance": "Ref.: IN FSW 17008",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.1.2",
+      "question": "Does the company quality system address the issuing of the written authorization to operate?",
+      "guidance": "Ref.: IN FSW 17008",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.1.3",
+      "question": "Does the company quality system address the results of NDT operations?",
+      "guidance": "Ref.: S231202-4, -5, S245008-1, -2",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.1.4",
+      "question": "Does the company quality system address ensuring that the annual visual acuity requirements of ISO 9712 are met?",
+      "guidance": "Ref.: S290008 (visual testing)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.1.5",
+      "question": "Does the company quality system address verifying the continuity in the application of the NDT method without significant interruption?",
+      "guidance": "Tracked in Teams Channel",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.1.6",
+      "question": "Does the company quality system address ensuring that personnel hold valid certification relevant to their tasks within the organization?",
+      "guidance": "Lists available with overview of all certifications.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.1.7",
+      "question": "Does the company quality system address maintaining appropriate records?",
+      "guidance": "Certificates of employees available.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.2.1",
+      "question": "Are all required records of training, qualification and certification of NDT personnel maintained and made available for review?",
+      "guidance": "Personnel records shall be maintained on file by the employer for the duration specified in the employer's quality procedures.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.2.2",
+      "question": "Do the records indicate the name of the certified individual?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.2.3",
+      "question": "Do the records indicate the level, and NDT method for which the individual is certified?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.2.4.1",
+      "question": "Do records indicate the work experience obtained to meet the requirements for a certified individual?",
+      "guidance": "For levels 1–3, work experience is part of Teams Channel.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.2.4.2",
+      "question": "Were any reductions in the minimum work experience passed to the certification body for acceptance?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.2.5.1",
+      "question": "Do the records provide a statement indicating satisfactory completion of training?",
+      "guidance": "Tracked in Teams Channel.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.2.5.2",
+      "question": "Were any reductions in the minimum training requirements confirmed by the employer and passed to the certification body for acceptance?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.2.6",
+      "question": "Are the results of vision examinations for the current certification period on file?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.2.7.1",
+      "question": "Is there evidence of successful completion of examinations?",
+      "guidance": "The certificate shall include: family name and forename, date of issue, date of expiry, reference to ISO 9712, level of certification, name of certification body, NDT method, applicable sector, any limitations, unique personal identification number, signature of individual, photograph, falsification prevention device, and signature of a designated representative of the certification body.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.2.7.2",
+      "question": "Was the certification invalidated if any of the following occurred: discretion of certification body, physical incapability, significant interruption, or failure of recertification?",
+      "guidance": "The certificate can be rendered invalid for the following reasons: At the discretion of the certification body; if the individual becomes physically incapable based upon failure of the visual acuity examination; if a significant interruption takes place; if the individual fails recertification.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.3.1",
+      "question": "Is there evidence that the employer introduced the candidate to the certification body or the authorized qualification body and documented the validity of the personal information provided?",
+      "guidance": "This information shall include the declaration of education, training and experience and visual acuity needed to determine the eligibility of the candidate. DGZIP only accepts applications if such data is provided by applicant and signed by employer.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.3.2",
+      "question": "Is there proof that neither the employer nor his staff were directly involved in the qualification examination?",
+      "guidance": "External training; DGZIP is an independent certification body.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.3.3",
+      "question": "Are the Level 1 and Level 2 personnel re-certified at a frequency not to exceed five years?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.3.3.1",
+      "question": "Did the Level 1 and Level 2 personnel re-certification include a practical examination?",
+      "guidance": "For Level 2 personnel the practical examination will also include the production of a written instruction suitable for use by Level 1 personnel. NA is to be used when the candidate uses documented experience for re-certification. External training at DGZIP requires practical examination.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.3.4.1",
+      "question": "Are the Level 1 and Level 2 personnel re-certified if the individual has documented evidence of continued satisfactory work activity without significant interruption in the method and sector and satisfactory visual acuity?",
+      "guidance": "It is the responsibility of the certificate holder to initiate the procedure for renewal. Tracked in Teams Channel.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.3.4.2",
+      "question": "If documented experience was used, did the Level 1 and Level 2 personnel re-certify by a practical examination at the next certification cycle?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.3.5",
+      "question": "Are Level 3 personnel re-certified at a frequency not to exceed five years?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.3.5.1",
+      "question": "Is the Level 3 re-certified by evidence of meeting the requirements of a structured credit system given in appendix C of ISO 9712 or by re-examination in those portions deemed necessary by ISO 9712?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.3.6",
+      "question": "If unethical behavior was noted during the examination, was the candidate excluded from further qualification examinations for at least 12 months?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.4.1",
+      "question": "Are visual and color perception examination results current for all certified inspection personnel?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.4.2",
+      "question": "Are records of vision exams maintained and available for review?",
+      "guidance": "Documentation via EHS system & Teams Channel.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.4.3",
+      "question": "Do the records provide evidence that natural or corrected near-distance acuity in one or both eyes is such that the applicant is capable of reading a minimum of Jaeger Number 1 or Times Roman N4.5 or equivalent letters at not less than 12 inches (30 cm)?",
+      "guidance": "Acc. S290008",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.4.4",
+      "question": "Do the color contrast differentiation examinations demonstrate the capability of distinguishing and differentiating contrast among colors or shades of gray used in the method as determined by the employer?",
+      "guidance": "The method used to evaluate the technician's ability to distinguish and differentiate color shall be defined in the procedure (e.g., Ishihara).",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.4.5",
+      "question": "Are near vision examinations administered annually, and contrast differentiation examinations conducted upon initial certification and at five (5) year intervals thereafter?",
+      "guidance": "Certification expires at end of the anniversary month in which it was conducted. Acc. to S245012.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.5.1",
+      "question": "Does the Auditee have an internal Level 3 in all methods being audited?",
+      "guidance": "The Auditee may choose to utilize an onsite Level 3 for any or all NDT methods performed. All methods performed at the facility shall be covered by a Level 3, either internal or external. Answer 'yes' if a combination is used but with an explanation. If the Auditee uses an external Level 3 then answer NA.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.5.2",
+      "question": "Are external Level 3's not stationed at this facility used to provide Level 3 services?",
+      "guidance": "When permitted by the Auditee's customer, an external Level 3 (including Corporate Level 3's not stationed at this facility) may be employed to perform any and all Level 3 functions.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.5.3",
+      "question": "Does the facility have documentation on file to verify the adequacy of the qualification / certification for the external Level 3?",
+      "guidance": "If an Auditee uses external Level 3 services to approve techniques and/or procedures; to inspect hardware; or as the NDT Level 3, then that Level 3 shall be qualified and certified per the standard. The Auditee shall have proof of certification (ISO 9712) on file. External sources providing only training services must show proof of adequate background experience.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.5.4",
+      "question": "Is an examination center used to provide Level 1, 2 & 3 examinations, and is it under the control of a certification body or authorized qualification body?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.6.1",
+      "question": "Was a training course attended that met the minimum requirements given in table 2 of the ISO 9712 standard?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "8.6.2",
+      "question": "Were the training courses approved by the examination center or authorized qualification body?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "9.1",
+      "question": "The Auditee shall complete, and the auditor shall review, the employer's provided list of NDT personnel for adequacy, content and correctness. This list shall include trainees and suspended personnel.",
+      "guidance": "Attachments are for information only but shall be completed fully. NCR's shall not be written against attachments. Auditee may use Attachment TPG-AC7114 or a similar format which contains the same information.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.1.1",
+      "question": "Is there a procedure that addresses how changes are to be made and who is authorized to make changes?",
+      "guidance": "Ref.: S245012",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.1.2",
+      "question": "Were all record and/or procedure changes properly authorized?",
+      "guidance": "The auditor is expected to review substantial documentation to make this determination.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.1.3",
+      "question": "Does the Auditee maintain a list of authorized personnel?",
+      "guidance": "Authorized personnel may be expressed generically in the terms of job title, e.g., Quality Engineer.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.2.1",
+      "question": "Is an inspection record maintained of all parts submitted for NDT inspection and evaluation?",
+      "guidance": "Ref.: IN FSW 17612, 17613, IN FSW 17008",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.2.2",
+      "question": "Do inspection records contain or provide traceability to the date of inspection?",
+      "guidance": "See above (10.2.1)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.2.3",
+      "question": "Do inspection records contain or provide traceability to the name of the Auditee or facility that carried out the inspection?",
+      "guidance": "See above (10.2.1)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.2.4",
+      "question": "Do inspection records contain or provide traceability to the part number or material?",
+      "guidance": "See above (10.2.1)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.2.5",
+      "question": "Do inspection records contain or provide traceability to the serial number, if applicable?",
+      "guidance": "See above (10.2.1)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.2.6",
+      "question": "Do inspection records contain or provide traceability to the number of parts in the lot, the number inspected, and the number accepted or rejected?",
+      "guidance": "See above (10.2.1)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.2.7",
+      "question": "Do inspection records contain or provide traceability to the applicable process specification and acceptance criteria specification and revision?",
+      "guidance": "See above (10.2.1)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.2.8",
+      "question": "Do inspection records contain or provide traceability to the identification of the inspector performing the inspection?",
+      "guidance": "See above (10.2.1)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.2.9",
+      "question": "Do inspection records contain or provide traceability to the nature of the discrepancy and, if applicable, the rejection tag number?",
+      "guidance": "See above (10.2.1)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.3.1",
+      "question": "Is a work order or shop traveler in use that contains, or provides traceability to, the product identification traceable to the applicable purchase order number, part number, or product specification?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.3.2",
+      "question": "Is a work order or shop traveler in use that contains or provides traceability to the applicable process specification and/or procedure?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.3.3",
+      "question": "Is a work order or shop traveler in use that contains or provides traceability to the inspection method?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.3.4",
+      "question": "Is a work order or shop traveler in use that contains, or provides traceability to, the inspector performing the operation?",
+      "guidance": "Via test protocol linked to the order.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.3.5",
+      "question": "Is a work order or shop traveler in use that contains or provides traceability to the quantity inspected, accepted / rejected?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "10.3.6",
+      "question": "Is a work order or shop traveler in use that contains or provides traceability to the correct sequence of the inspection operation(s) within the manufacturing process?",
+      "guidance": "For independent inspection facilities, only the sequence within the inspection process is applicable.",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "11.1.1",
+      "question": "Is there a procedure that flows down calibration requirements for NDT related equipment?",
+      "guidance": "The calibration for any device / gauge used for NDT begins on the date the device / gauge was calibrated. Deferring calibration dates to commence when a device / gauge is removed from bonding stores or similar is not allowed. Ref.: P172006",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "11.1.2",
+      "question": "Does the procedure specify the number of points to be checked for each instrument and reference to the accuracy required and the range to be checked?",
+      "guidance": "Ref.: P172006 (In SAP acc. to the test plan for each equipment number)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "11.1.3",
+      "question": "Do purchase orders or procedures for calibration services identify or provide traceability to requirements for the standard to be used, accuracy, range of use and number of points to be checked encompassing that range?",
+      "guidance": "Ref.: P172006 (In SAP acc. to the test plan for each equipment number)",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "11.2.1",
+      "question": "Do calibration certificates contain or provide traceability to the unit under test, identify the accuracy, nomenclature and/or serial number of the unit, the range, the points in the range of use that were checked and results?",
+      "guidance": "",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "11.2.2",
+      "question": "Is there evidence that calibration certificates are reviewed to verify equipment was within tolerance?",
+      "guidance": "Calibration certificates shall be reviewed upon receipt to assure accuracy of data and verify all equipment was within tolerance when checked by the calibration source. Ref.: P172006",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "11.3.1",
+      "question": "Does the calibration procedure address criteria to extend the calibration intervals, if allowed by the governing specification?",
+      "guidance": "The procedure must define what is considered as acceptable justification, i.e., number of acceptable calibrations required before extension is possible. Ref.: P172006-1",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "11.3.2",
+      "question": "Does the calibration procedure address requirements and actions for 'out of tolerance' conditions?",
+      "guidance": "As a minimum, it is expected that a review of the impact on results captured whilst the equipment was 'out of tolerance' will be documented, an assessment of suitability for further use shall be made and their impact on the process determined. Ref.: P172006",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "11.3.3",
+      "question": "If calibration frequencies have been extended, is adequate documentation on file to substantiate the extension?",
+      "guidance": "Adequate documentation at a minimum would be considered as 4 acceptable calibrations in a row. Acceptable would be considered a calibration or verification where no adjustments or changes were required. Ref.: P172006",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "12.1.1",
+      "question": "Is there a procedure that addresses the actions to be taken if unacceptable results are obtained for process control tests?",
+      "guidance": "Ref.: P172009",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    },
+    {
+      "id": "12.1.2",
+      "question": "Does the procedure address the requirements for customer notification when product impact is suspected?",
+      "guidance": "Ref.: P172009",
+      "answer_options": ["YES", "NO", "N/A"],
+      "has_na_option": true
+    }
+  ]
+}
