@@ -131,8 +131,8 @@
         }
         .theme-toggle:hover { transform: scale(1.08) rotate(15deg); border-color: var(--accent); }
 
-        .main-content { max-width: 1280px; margin: 0 auto; padding: 40px 24px; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 40px 24px; }
+        .main-content { max-width: 1600px; margin: 0 auto; padding: 40px 24px; }
+        .container { max-width: 1600px; margin: 0 auto; padding: 40px 24px; }
 
         /* === PAGES === */
         .page { display: none; }
@@ -504,13 +504,10 @@
         footer { text-align: center; margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--border-color); color: var(--muted); font-size: 0.82em; }
     
 /* ===== DESKTOP MAX-WIDTH 1600px ===== */
-/* site-header + token-bar span full width; inner content is capped at 1600px */
-.site-header, .sa-token-bar { width: 100%; box-sizing: border-box; }
 .main, .main-content, .container, .app-inner, footer, .site-main {
   max-width: 1600px !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  box-sizing: border-box;
 }
 
 /* ===== RESPONSIVE / MOBILE ===== */
@@ -555,6 +552,33 @@
   white-space: nowrap; pointer-events: none;
 }
 .construction-badge::before { content: '🚧'; font-size: 11px; margin-right: 2px; }
+
+/* ===== DESKTOP MAX-WIDTH 1600px ===== */
+.site-header, .sa-token-bar { width: 100%; box-sizing: border-box; }
+.main, .main-content, .container, .app-inner, footer, .site-main,
+.audit-view, .audit-panel, .overview-panel, .question-panel, .completed-audits-section,
+.audit-progress-container, .questions-container, .controls-container {
+  max-width: 1600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box;
+}
+/* ===== RESPONSIVE / MOBILE ===== */
+@media (max-width: 768px) {
+  body { font-size: 14px; overflow-x: hidden; }
+  .site-header { padding: 12px 14px !important; }
+  .site-header-title { font-size: clamp(15px,5vw,22px) !important; }
+  .site-header-sub { display: none; }
+  .main, .main-content, .container { padding: 10px 10px 20px !important; }
+  .audit-buttons { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+  .audit-btn { min-height: 100px !important; padding: 12px 10px !important; }
+  .sa-token-bar { flex-wrap: wrap !important; gap: 5px !important; padding: 8px !important; }
+  .sa-token-input-wrap { flex: 1 1 100% !important; }
+  .sa-token-connect-btn { width: 100% !important; }
+}
+@media (max-width: 480px) {
+  .audit-buttons { grid-template-columns: 1fr !important; }
+}
 </style>
 </head>
 <body>
@@ -630,17 +654,28 @@
                         <div class="tile-arrow-btn"><i class="fas fa-arrow-right"></i></div>
                     </button>
 
-                    <button class="audit-btn general" data-audit="GENERAL">
-                        <div class="tile-icon-wrap"><i class="fas fa-clipboard-list"></i></div>
+                    <button class="audit-btn" style="background:linear-gradient(145deg,#5d6d7e,#2c3e50);opacity:0.7;cursor:not-allowed;position:relative;" disabled>
+                        <span class="construction-badge">In Entwicklung</span>
+                        <div class="tile-icon-wrap"><i class="fas fa-broadcast-tower"></i></div>
                         <div class="tile-body-wrap">
-                            <div class="tile-cat">TPG-AC7114 Rev D · General</div>
-                            <div class="tile-nm">Allgemeine&shy;kriterien</div>
-                            <div class="tile-progress" id="generalProgress">–</div>
+                            <div class="tile-cat">Magnetic Noise · BN</div>
+                            <div class="tile-nm">Barkhausen&shy;rauschen</div>
+                        </div>
+                        <div class="tile-arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                    </button>
+                    <button class="audit-btn" style="background:linear-gradient(145deg,#7f8c8d,#4a5568);opacity:0.7;cursor:not-allowed;position:relative;" disabled>
+                        <span class="construction-badge">In Entwicklung</span>
+                        <div class="tile-icon-wrap"><i class="fas fa-tint"></i></div>
+                        <div class="tile-body-wrap">
+                            <div class="tile-cat">Penetrant Testing · PT</div>
+                            <div class="tile-nm">Eindring&shy;prüfung</div>
                         </div>
                         <div class="tile-arrow-btn"><i class="fas fa-arrow-right"></i></div>
                     </button>
                 </div>
             </div>
+
+            <!-- Hidden config fields -->
             <div class="github-config-hidden">
                 <input id="sa_cfg_owner" value="Acendrion1984">
                 <input id="sa_cfg_repo" value="SelfAudit">
@@ -818,9 +853,9 @@
                 const saved = localStorage.getItem(ZFP_GITHUB_CONFIG_KEY);
                 if (saved) {
                     const parsed = JSON.parse(saved);
-                    zfpGithubConfig.token = parsed.token || '';
+                    if (parsed.token) zfpGithubConfig.token = parsed.token;
                 }
-                // owner/repo/branch/file immer fest überschreiben
+                // Immer fest überschreiben – nie aus gespeicherter Config
                 zfpGithubConfig.owner  = 'Acendrion1984';
                 zfpGithubConfig.repo   = 'SelfAudit';
                 zfpGithubConfig.branch = 'main';
@@ -840,12 +875,15 @@
         };
 
         function zfpReadGitHubConfigFromForm() {
-            // owner/repo/branch/file sind fest vorgegeben – nur Token vom Nutzer
+            // owner/repo/branch/file sind immer fest – nie aus dem Formular lesen
             zfpGithubConfig.owner  = 'Acendrion1984';
             zfpGithubConfig.repo   = 'SelfAudit';
             zfpGithubConfig.branch = 'main';
             zfpGithubConfig.file   = 'audits.json';
-            zfpGithubConfig.token  = document.getElementById('sa_cfg_token').value.trim();
+            // Token nur übernehmen wenn das Feld NICHT leer ist
+            // (verhindert Überschreiben nachdem saValidateToken das Feld geleert hat)
+            const tokenVal = document.getElementById('sa_cfg_token').value.trim();
+            if (tokenVal) zfpGithubConfig.token = tokenVal;
         }
 
         function zfpGithubHeaders() {
@@ -862,12 +900,21 @@
         }
 
         window.zfpTestGitHubConnection = async function() {
-            zfpReadGitHubConfigFromForm();
+            // Token nur aus Feld übernehmen wenn nicht leer
+            const tokenVal = document.getElementById('sa_cfg_token') ? document.getElementById('sa_cfg_token').value.trim() : '';
+            if (tokenVal) zfpGithubConfig.token = tokenVal;
             await zfpConnectGitHub();
         };
 
         window.zfpConnectGitHub = async function() {
-            zfpReadGitHubConfigFromForm();
+            // Immer owner/repo/branch/file fest setzen
+            zfpGithubConfig.owner  = 'Acendrion1984';
+            zfpGithubConfig.repo   = 'SelfAudit';
+            zfpGithubConfig.branch = 'main';
+            zfpGithubConfig.file   = 'audits.json';
+            // Token nur aus dem Feld lesen wenn das Feld NICHT leer ist
+            const tokenVal = document.getElementById('sa_cfg_token') ? document.getElementById('sa_cfg_token').value.trim() : '';
+            if (tokenVal) zfpGithubConfig.token = tokenVal;
             if (!zfpGithubConfig.owner || !zfpGithubConfig.repo || !zfpGithubConfig.token) {
                 zfpUpdateGitHubStatus(false, '❌ Bitte alle Felder ausfüllen');
                 zfpShowToast('❌ Bitte alle Felder ausfüllen', 'error'); return;
@@ -1042,8 +1089,8 @@
                 '9':'9. Personalanhang','10':'10. Prüfung / Aufzeichnungen / Verfahren',
                 '11':'11. Kalibrierung','12':'12. Prozesskontrollversagen'
             };
-            const methodMap = { '3':'3. AUSRÜSTUNG UND MATERIALIEN','4':'4. VERFAHRENSANWEISUNGEN UND TECHNIKEN','5':'5. SYSTEMLEISTUNG UND PRÜFUNGEN','6':'6. KALIBRIERUNG UND NORMALE','7':'7. DURCHFÜHRUNG DER PRÜFUNG','8':'8. DOKUMENTATION' };
             if (currentAuditType === 'GENERAL' && generalMap[sectionId]) return generalMap[sectionId];
+            const methodMap = { '3':'3. AUSRÜSTUNG UND MATERIALIEN','4':'4. VERFAHRENSANWEISUNGEN UND TECHNIKEN','5':'5. SYSTEMLEISTUNG UND PRÜFUNGEN','6':'6. KALIBRIERUNG UND NORMALE','7':'7. DURCHFÜHRUNG DER PRÜFUNG','8':'8. DOKUMENTATION' };
             if (methodMap[sectionId]) return methodMap[sectionId];
             if (generalMap[sectionId]) return generalMap[sectionId];
             if (sectionId.startsWith('10')) return '10. PRÜFUNG / AUFZEICHNUNGEN';
