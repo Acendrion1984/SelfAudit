@@ -250,6 +250,53 @@
         .login-btn-main:active { transform: translateY(0); }
         .login-err { margin-top: 12px; min-height: 18px; font-size: 12.5px; color: #f85149; text-align: center; font-family: 'DM Mono', monospace; }
         .login-footer-note { margin-top: 20px; text-align: center; font-size: 11.5px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 16px; }
+
+        /* ── TOKEN-BAR im Header (kein Overlay) ── */
+        .sa-token-bar {
+            background: var(--surface-2, #21262d);
+            border-bottom: 1px solid var(--border, rgba(255,255,255,0.08));
+            padding: 7px 32px;
+            display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .sa-token-bar.connected { background: rgba(39,174,96,0.06); border-color: rgba(39,174,96,0.18); }
+        .sa-token-bar-label {
+            font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--muted, #8b949e); white-space: nowrap;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .sa-gh-dot {
+            width: 9px; height: 9px; border-radius: 50%;
+            background: var(--muted, #8b949e); flex-shrink: 0;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .sa-gh-dot.connected { background: #27ae60; box-shadow: 0 0 0 3px rgba(39,174,96,0.22); }
+        .sa-gh-dot.error     { background: #e74c3c; box-shadow: 0 0 0 3px rgba(231,76,60,0.18); }
+        .sa-gh-dot.checking  { background: #f39c12; box-shadow: 0 0 0 3px rgba(243,156,18,0.22); }
+        .sa-token-input-wrap {
+            flex: 1; min-width: 160px; max-width: 320px;
+            display: flex; align-items: center;
+            background: var(--surface, #161b22); border: 1px solid var(--border, rgba(255,255,255,0.08));
+            border-radius: 8px; overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .sa-token-input-wrap:focus-within { border-color: var(--accent, #58a6ff); box-shadow: 0 0 0 3px rgba(88,166,255,0.12); }
+        .sa-token-input-wrap input {
+            flex: 1; background: transparent; border: none; outline: none;
+            padding: 6px 10px; font-family: 'DM Mono', monospace; font-size: 12px;
+            color: var(--text, #e6edf3);
+        }
+        .sa-token-input-wrap input::placeholder { color: var(--muted, #8b949e); }
+        .sa-token-connect-btn {
+            padding: 5px 13px; border-radius: 7px; border: none;
+            background: var(--accent, #58a6ff); color: #fff;
+            font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700;
+            cursor: pointer; white-space: nowrap; transition: opacity 0.2s;
+        }
+        .sa-token-connect-btn:hover { opacity: 0.85; }
+        .sa-token-status { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted, #8b949e); }
+        .sa-token-status.ok  { color: #27ae60; font-weight: 600; }
+        .sa-token-status.err { color: #e74c3c; }
         /* status dot in completed-audits header */
         .github-status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--muted); flex-shrink: 0; border: 1.5px solid rgba(0,0,0,0.12); transition: background 0.3s, box-shadow 0.3s; display: inline-block; }
         .github-status-dot.connected { background: #27ae60; box-shadow: 0 0 0 3px rgba(39,174,96,0.22); }
@@ -459,20 +506,9 @@
 <body>
 
     <!-- LOGIN OVERLAY -->
-    <div class="login-overlay hidden" id="saLoginOverlay">
-        <div class="login-modal">
-            <div class="login-eyebrow">GitHub · API-Zugang</div>
-            <div class="login-title">Token erforderlich</div>
-            <div class="login-sub">Bitte GitHub Personal Access Token eingeben, um fortzufahren.</div>
-            <label class="field-label-overlay" for="sa_cfg_token">Personal Access Token</label>
-            <input class="field-input-overlay" id="sa_cfg_token" type="password"
-                   placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off" spellcheck="false">
-            <button class="login-btn-main" id="saLoginBtn">
-                <i class="fas fa-key" style="margin-right:8px;"></i>Zugang freischalten
-            </button>
-            <div class="login-err" id="saLoginErr"></div>
-            <div class="login-footer-note">Schaeffler Technologies AG &amp; Co. KG · ZfP Schweinfurt<br>Nur für autorisierte Benutzer</div>
-        </div>
+    <!-- login-overlay removed: token bar now in header -->
+    <!-- compat hidden refs -->
+    <div style="display:none"><div id="saLoginErr"></div></div>
     </div>
 
     <!-- HEADER -->
@@ -485,6 +521,15 @@
         <div class="site-header-right">
             <button id="themeToggleBtn" class="theme-toggle" title="Dark/Light Mode">🌓</button>
         </div>
+    <!-- TOKEN BAR – direkt im Header, kein Popup -->
+    <div class="sa-token-bar" id="sa_token_bar">
+        <div class="sa-token-bar-label"><i class="fab fa-github"></i> GitHub Token</div>
+        <div class="sa-gh-dot" id="sa_gh_dot" title="Nicht verbunden"></div>
+        <div class="sa-token-input-wrap">
+            <input type="password" id="sa_cfg_token" placeholder="github_pat_… (Enter zum Verbinden)" autocomplete="off" spellcheck="false">
+        </div>
+        <button class="sa-token-connect-btn" id="saLoginBtn"><i class="fas fa-plug"></i> Verbinden</button>
+        <span class="sa-token-status" id="sa_token_status">Bitte Token eingeben</span>
     </div>
 
     <div class="container">
@@ -692,8 +737,7 @@
         }
         function initThemeToggle() {
             const saved = localStorage.getItem(THEME_STORAGE_KEY);
-            const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initial = saved || (systemDark ? 'dark' : 'light');
+            const initial = saved || 'dark';
             applyTheme(initial);
             document.getElementById('themeToggleBtn').addEventListener('click', () => {
                 const next = document.body.classList.contains('light-mode') ? 'dark' : 'light';
@@ -1292,48 +1336,58 @@
         }
 
         // === LOGIN OVERLAY LOGIC ===
+        function saSetDot(state) {
+            const dot = document.getElementById('sa_gh_dot');
+            const bar = document.getElementById('sa_token_bar');
+            const st  = document.getElementById('sa_token_status');
+            if (dot) dot.className = 'sa-gh-dot' + (state ? ' '+state : '');
+            if (bar) bar.className = 'sa-token-bar' + (state === 'connected' ? ' connected' : '');
+            if (st) {
+                st.className = 'sa-token-status' + (state === 'connected' ? ' ok' : state === 'error' ? ' err' : '');
+                st.textContent = state === 'connected' ? '✅ Verbunden'
+                    : state === 'error'    ? '❌ Fehler'
+                    : state === 'checking' ? 'Wird geprüft …'
+                    : 'Bitte Token eingeben';
+            }
+        }
         function saShowOverlay() {
-            document.getElementById('saLoginOverlay').classList.remove('hidden');
-            setTimeout(() => { const i = document.getElementById('sa_cfg_token'); if(i){i.value='';i.focus();} }, 150);
+            const i = document.getElementById('sa_cfg_token');
+            if (i) i.focus();
         }
-        function saHideOverlay() {
-            document.getElementById('saLoginOverlay').classList.add('hidden');
-        }
+        function saHideOverlay() { /* no-op */ }
         async function saValidateToken() {
             const inp = document.getElementById('sa_cfg_token');
-            const err = document.getElementById('saLoginErr');
+            const err = document.getElementById('saLoginErr') || { textContent: '' };
             const btn = document.getElementById('saLoginBtn');
             const token = inp ? inp.value.trim() : '';
-            if (!token) { err.textContent = '⚠ Bitte Token eingeben.'; return; }
-            err.textContent = '';
-            btn.disabled = true; btn.textContent = 'Wird geprüft …';
+            if (!token) { saSetDot('error'); return; }
+            saSetDot('checking');
+            if (btn) btn.disabled = true;
             try {
                 const r = await fetch(
                     `https://api.github.com/repos/Acendrion1984/SelfAudit`,
                     { headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' } }
                 );
                 if (r.status === 200 || r.status === 301 || r.status === 404) {
-                    // 404 = token valid but repo might differ; 200 = perfect
-                    saHideOverlay();
-                    // store in config and connect
+                    saSetDot('connected');
+                    if (inp) { inp.value = ''; inp.placeholder = 'Token gespeichert ✓'; }
                     zfpGithubConfig.token = token;
                     localStorage.setItem(ZFP_GITHUB_CONFIG_KEY, JSON.stringify(zfpGithubConfig));
-                    document.getElementById('sa_cfg_owner').value  = zfpGithubConfig.owner  || 'Acendrion1984';
-                    document.getElementById('sa_cfg_repo').value   = zfpGithubConfig.repo   || 'SelfAudit';
-                    document.getElementById('sa_cfg_branch').value = zfpGithubConfig.branch || 'main';
-                    document.getElementById('sa_cfg_file').value   = zfpGithubConfig.file   || 'audits.json';
+                    const o = document.getElementById('sa_cfg_owner');   if (o) o.value = zfpGithubConfig.owner  || 'Acendrion1984';
+                    const rp= document.getElementById('sa_cfg_repo');    if (rp) rp.value= zfpGithubConfig.repo   || 'SelfAudit';
+                    const br= document.getElementById('sa_cfg_branch');  if (br) br.value= zfpGithubConfig.branch || 'main';
+                    const fi= document.getElementById('sa_cfg_file');    if (fi) fi.value= zfpGithubConfig.file   || 'audits.json';
                     await zfpConnectGitHub();
                 } else if (r.status === 401) {
-                    err.textContent = '❌ Ungültiger Token. Bitte erneut versuchen.';
+                    saSetDot('error');
                     if (inp) { inp.value = ''; inp.focus(); }
                 } else {
-                    err.textContent = `❌ Fehler ${r.status}. Bitte Netzwerk prüfen.`;
+                    saSetDot('error');
                 }
             } catch(e) {
-                err.textContent = '❌ Netzwerkfehler. Verbindung prüfen.';
+                saSetDot('error');
             } finally {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-key" style="margin-right:8px;"></i>Zugang freischalten';
+                if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-plug"></i> Verbinden'; }
             }
         }
 
@@ -1350,12 +1404,12 @@
             const tokenInp = document.getElementById('sa_cfg_token');
             if (tokenInp) tokenInp.addEventListener('keydown', e => { if(e.key==='Enter') saValidateToken(); });
 
-            // Show overlay if no token saved
+            // Auto-connect if token saved, else show placeholder in token bar
             const cfg = JSON.parse(localStorage.getItem(ZFP_GITHUB_CONFIG_KEY) || '{}');
-            if (!cfg.token) {
-                saShowOverlay();
-            } else {
-                // Auto-connect silently
+            if (cfg.token) {
+                saSetDot('connected');
+                const inp = document.getElementById('sa_cfg_token');
+                if (inp) inp.placeholder = 'Token gespeichert ✓';
                 setTimeout(() => zfpConnectGitHub(), 400);
             }
         });
