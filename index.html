@@ -183,6 +183,7 @@
         .audit-btn.magnetpulver { background: linear-gradient(145deg, #c0392b, color-mix(in srgb, #c0392b 65%, #000)); }
         .audit-btn.nital        { background: linear-gradient(145deg, #1a936f, color-mix(in srgb, #1a936f 65%, #000)); }
         .audit-btn.ultraschall  { background: linear-gradient(145deg, #7d3c98, color-mix(in srgb, #7d3c98 65%, #000)); }
+        .audit-btn.general     { background: linear-gradient(145deg, #d35400, color-mix(in srgb, #d35400 65%, #000)); }
 
         /* Gloss */
         .audit-btn::before {
@@ -625,6 +626,15 @@
                         </div>
                         <div class="tile-arrow-btn"><i class="fas fa-arrow-right"></i></div>
                     </button>
+                    <button class="audit-btn general" data-audit="GENERAL">
+                        <div class="tile-icon-wrap"><i class="fas fa-clipboard-list"></i></div>
+                        <div class="tile-body-wrap">
+                            <div class="tile-cat">TPG-AC7114 Rev D · General</div>
+                            <div class="tile-nm">Allgemeine&shy;kriterien</div>
+                            <div class="tile-progress" id="generalProgress">–</div>
+                        </div>
+                        <div class="tile-arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                    </button>
 
                 </div>
             </div>
@@ -762,10 +772,11 @@
         let currentSectionIndex = -1;
 
         const AUDIT_TYPES = {
-            ET: { title: 'Wirbelstromprüfung', standard: 'TPG-AC7114/5', file_de: 'ET_DE.json', file_en: 'ET_EN.json', icon: '⚡' },
-            MT: { title: 'Magnetpulverprüfung', standard: 'TPG-AC7114/2', file_de: 'MT_DE.json', file_en: 'MT_EN.json', icon: '🧲' },
-            NE: { title: 'Nital-Ätzen', standard: 'TPG-AC7114/12', file_de: 'NE_DE.json', file_en: 'NE_EN.json', icon: '🧪' },
-            UT: { title: 'Ultraschallprüfung', standard: 'TPG-AC7114/3', file_de: 'UT_DE.json', file_en: 'UT_EN.json', icon: '📡' }
+            ET:      { title: 'Wirbelstromprüfung', standard: 'TPG-AC7114/5',      file_de: 'ET_DE.json',      file_en: 'ET_EN.json',      icon: '⚡' },
+            MT:      { title: 'Magnetpulverprüfung', standard: 'TPG-AC7114/2',      file_de: 'MT_DE.json',      file_en: 'MT_EN.json',      icon: '🧲' },
+            NE:      { title: 'Nital-Ätzen',         standard: 'TPG-AC7114/12',     file_de: 'NE_DE.json',      file_en: 'NE_EN.json',      icon: '🧪' },
+            UT:      { title: 'Ultraschallprüfung',  standard: 'TPG-AC7114/3',      file_de: 'UT_DE.json',      file_en: 'UT_EN.json',      icon: '📡' },
+            GENERAL: { title: 'Allgemeine Kriterien', standard: 'TPG-AC7114 Rev D', file_de: 'General_DE.json', file_en: 'General_EN.json', icon: '📋' }
         };
 
         const PAGES = { SELECTION: 'pageSelection', OVERVIEW: 'pageOverview', QUESTIONS: 'pageQuestions' };
@@ -970,7 +981,7 @@
                 container.appendChild(card);
             });
             // Fortschritts-Badges auf Kacheln aktualisieren
-            ['ET','MT','NE','UT'].forEach(type => {
+            ['ET','MT','NE','UT','GENERAL'].forEach(type => {
                 const el = document.getElementById(`${type.toLowerCase()}Progress`);
                 if (!el) return;
                 const latest = githubAudits.filter(a => a.audit_type === type).sort((a,b) => new Date(b.last_modified||b.created_at) - new Date(a.last_modified||a.created_at))[0];
@@ -1014,14 +1025,32 @@
         }
 
         function zfpGetSectionTitle(sectionId) {
-            const map = { '3':'3. AUSRÜSTUNG UND MATERIALIEN', '4':'4. VERFAHRENSANWEISUNGEN UND TECHNIKEN', '5':'5. SYSTEMLEISTUNG UND PRÜFUNGEN', '6':'6. KALIBRIERUNG UND NORMALE', '7':'7. DURCHFÜHRUNG DER PRÜFUNG', '8':'8. DOKUMENTATION' };
-            if (map[sectionId]) return map[sectionId];
+            // TPG-AC7114 General section titles
+            const generalMap = {
+                '1': '1. Geltungsbereich',
+                '2': '2. Allgemeine Informationen',
+                '3': '3. Korrekturmaßnahmen',
+                '4': '4. ZfP-Qualitätssystemanforderungen',
+                '8': '8. ZfP-Qualifikation / Zertifizierung – ISO 9712',
+                '9': '9. Personalanhang',
+                '10': '10. Prüfung / Aufzeichnungen / Verfahren',
+                '11': '11. Kalibrierung',
+                '12': '12. Prozesskontrollversagen'
+            };
+            // Method-specific section titles (ET/MT/NE/UT)
+            const methodMap = { '3':'3. AUSRÜSTUNG UND MATERIALIEN', '4':'4. VERFAHRENSANWEISUNGEN UND TECHNIKEN', '5':'5. SYSTEMLEISTUNG UND PRÜFUNGEN', '6':'6. KALIBRIERUNG UND NORMALE', '7':'7. DURCHFÜHRUNG DER PRÜFUNG', '8':'8. DOKUMENTATION' };
+            if (generalMap[sectionId]) return generalMap[sectionId];
+            if (methodMap[sectionId]) return methodMap[sectionId];
             if (sectionId.startsWith('3')) return '3. AUSRÜSTUNG';
             if (sectionId.startsWith('4')) return '4. VERFAHREN';
             if (sectionId.startsWith('5')) return '5. PRÜFUNGEN';
             if (sectionId.startsWith('6')) return '6. KALIBRIERUNG';
             if (sectionId.startsWith('7')) return '7. DURCHFÜHRUNG';
-            if (sectionId.startsWith('8')) return '8. DOKUMENTATION';
+            if (sectionId.startsWith('8')) return '8. DOKUMENTATION / ZERTIFIZIERUNG';
+            if (sectionId.startsWith('9')) return '9. PERSONALANHANG';
+            if (sectionId.startsWith('10')) return '10. PRÜFUNG / AUFZEICHNUNGEN';
+            if (sectionId.startsWith('11')) return '11. KALIBRIERUNG';
+            if (sectionId.startsWith('12')) return '12. PROZESSKONTROLLE';
             return `${sectionId}. BEREICH`;
         }
 
