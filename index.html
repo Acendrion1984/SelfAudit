@@ -504,10 +504,13 @@
         footer { text-align: center; margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--border-color); color: var(--muted); font-size: 0.82em; }
     
 /* ===== DESKTOP MAX-WIDTH 1600px ===== */
+/* site-header + token-bar span full width; inner content is capped at 1600px */
+.site-header, .sa-token-bar { width: 100%; box-sizing: border-box; }
 .main, .main-content, .container, .app-inner, footer, .site-main {
   max-width: 1600px !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  box-sizing: border-box;
 }
 
 /* ===== RESPONSIVE / MOBILE ===== */
@@ -626,6 +629,7 @@
                         </div>
                         <div class="tile-arrow-btn"><i class="fas fa-arrow-right"></i></div>
                     </button>
+
                     <button class="audit-btn general" data-audit="GENERAL">
                         <div class="tile-icon-wrap"><i class="fas fa-clipboard-list"></i></div>
                         <div class="tile-body-wrap">
@@ -635,11 +639,8 @@
                         </div>
                         <div class="tile-arrow-btn"><i class="fas fa-arrow-right"></i></div>
                     </button>
-
                 </div>
             </div>
-
-            <!-- Hidden config fields -->
             <div class="github-config-hidden">
                 <input id="sa_cfg_owner" value="Acendrion1984">
                 <input id="sa_cfg_repo" value="SelfAudit">
@@ -772,7 +773,7 @@
         let currentSectionIndex = -1;
 
         const AUDIT_TYPES = {
-            ET:      { title: 'Wirbelstromprüfung', standard: 'TPG-AC7114/5',      file_de: 'ET_DE.json',      file_en: 'ET_EN.json',      icon: '⚡' },
+            ET:      { title: 'Wirbelstromprüfung',  standard: 'TPG-AC7114/5',      file_de: 'ET_DE.json',      file_en: 'ET_EN.json',      icon: '⚡' },
             MT:      { title: 'Magnetpulverprüfung', standard: 'TPG-AC7114/2',      file_de: 'MT_DE.json',      file_en: 'MT_EN.json',      icon: '🧲' },
             NE:      { title: 'Nital-Ätzen',         standard: 'TPG-AC7114/12',     file_de: 'NE_DE.json',      file_en: 'NE_EN.json',      icon: '🧪' },
             UT:      { title: 'Ultraschallprüfung',  standard: 'TPG-AC7114/3',      file_de: 'UT_DE.json',      file_en: 'UT_EN.json',      icon: '📡' },
@@ -815,7 +816,15 @@
         function zfpLoadGitHubConfig() {
             try {
                 const saved = localStorage.getItem(ZFP_GITHUB_CONFIG_KEY);
-                if (saved) zfpGithubConfig = { ...zfpGithubConfig, ...JSON.parse(saved) };
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    zfpGithubConfig.token = parsed.token || '';
+                }
+                // owner/repo/branch/file immer fest überschreiben
+                zfpGithubConfig.owner  = 'Acendrion1984';
+                zfpGithubConfig.repo   = 'SelfAudit';
+                zfpGithubConfig.branch = 'main';
+                zfpGithubConfig.file   = 'audits.json';
             } catch (e) { console.error('Fehler beim Laden der GitHub-Konfiguration:', e); }
             document.getElementById('sa_cfg_owner').value  = zfpGithubConfig.owner  || 'Acendrion1984';
             document.getElementById('sa_cfg_repo').value   = zfpGithubConfig.repo   || 'SelfAudit';
@@ -831,10 +840,11 @@
         };
 
         function zfpReadGitHubConfigFromForm() {
-            zfpGithubConfig.owner  = document.getElementById('sa_cfg_owner').value.trim();
-            zfpGithubConfig.repo   = document.getElementById('sa_cfg_repo').value.trim();
-            zfpGithubConfig.branch = document.getElementById('sa_cfg_branch').value.trim() || 'main';
-            zfpGithubConfig.file   = document.getElementById('sa_cfg_file').value.trim() || 'audits.json';
+            // owner/repo/branch/file sind fest vorgegeben – nur Token vom Nutzer
+            zfpGithubConfig.owner  = 'Acendrion1984';
+            zfpGithubConfig.repo   = 'SelfAudit';
+            zfpGithubConfig.branch = 'main';
+            zfpGithubConfig.file   = 'audits.json';
             zfpGithubConfig.token  = document.getElementById('sa_cfg_token').value.trim();
         }
 
@@ -1025,29 +1035,17 @@
         }
 
         function zfpGetSectionTitle(sectionId) {
-            // TPG-AC7114 General section titles
             const generalMap = {
-                '1': '1. Geltungsbereich',
-                '2': '2. Allgemeine Informationen',
-                '3': '3. Korrekturmaßnahmen',
-                '4': '4. ZfP-Qualitätssystemanforderungen',
-                '8': '8. ZfP-Qualifikation / Zertifizierung – ISO 9712',
-                '9': '9. Personalanhang',
-                '10': '10. Prüfung / Aufzeichnungen / Verfahren',
-                '11': '11. Kalibrierung',
-                '12': '12. Prozesskontrollversagen'
+                '1':'1. Geltungsbereich','2':'2. Allgemeine Informationen',
+                '3':'3. Korrekturmaßnahmen','4':'4. ZfP-Qualitätssystemanforderungen',
+                '8':'8. ZfP-Qualifikation / Zertifizierung – ISO 9712',
+                '9':'9. Personalanhang','10':'10. Prüfung / Aufzeichnungen / Verfahren',
+                '11':'11. Kalibrierung','12':'12. Prozesskontrollversagen'
             };
-            // Method-specific section titles (ET/MT/NE/UT)
-            const methodMap = { '3':'3. AUSRÜSTUNG UND MATERIALIEN', '4':'4. VERFAHRENSANWEISUNGEN UND TECHNIKEN', '5':'5. SYSTEMLEISTUNG UND PRÜFUNGEN', '6':'6. KALIBRIERUNG UND NORMALE', '7':'7. DURCHFÜHRUNG DER PRÜFUNG', '8':'8. DOKUMENTATION' };
-            if (generalMap[sectionId]) return generalMap[sectionId];
+            const methodMap = { '3':'3. AUSRÜSTUNG UND MATERIALIEN','4':'4. VERFAHRENSANWEISUNGEN UND TECHNIKEN','5':'5. SYSTEMLEISTUNG UND PRÜFUNGEN','6':'6. KALIBRIERUNG UND NORMALE','7':'7. DURCHFÜHRUNG DER PRÜFUNG','8':'8. DOKUMENTATION' };
+            if (currentAuditType === 'GENERAL' && generalMap[sectionId]) return generalMap[sectionId];
             if (methodMap[sectionId]) return methodMap[sectionId];
-            if (sectionId.startsWith('3')) return '3. AUSRÜSTUNG';
-            if (sectionId.startsWith('4')) return '4. VERFAHREN';
-            if (sectionId.startsWith('5')) return '5. PRÜFUNGEN';
-            if (sectionId.startsWith('6')) return '6. KALIBRIERUNG';
-            if (sectionId.startsWith('7')) return '7. DURCHFÜHRUNG';
-            if (sectionId.startsWith('8')) return '8. DOKUMENTATION / ZERTIFIZIERUNG';
-            if (sectionId.startsWith('9')) return '9. PERSONALANHANG';
+            if (generalMap[sectionId]) return generalMap[sectionId];
             if (sectionId.startsWith('10')) return '10. PRÜFUNG / AUFZEICHNUNGEN';
             if (sectionId.startsWith('11')) return '11. KALIBRIERUNG';
             if (sectionId.startsWith('12')) return '12. PROZESSKONTROLLE';
