@@ -11,6 +11,9 @@
         /* === CSS VARIABLEN – pruefprotokoll-style (dark default) === */
         :root {
             --bg:          #1a1a1a;
+            --bg-tertiary: #2d2d2d;
+            --bg-secondary: #242424;
+            --border-color: rgba(255,255,255,0.08);
             --surface:     #242424;
             --surface-2:   #2d2d2d;
             --border:      rgba(255,255,255,0.08);
@@ -55,6 +58,9 @@
         }
         body.light-mode {
             --bg:          #f0f2f5;
+            --bg-tertiary: #e8eaed;
+            --bg-secondary: #ffffff;
+            --border-color: rgba(0,0,0,0.1);
             --surface:     #ffffff;
             --surface-2:   #f0f2f5;
             --border:      rgba(0,0,0,0.1);
@@ -95,7 +101,7 @@
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            padding: 0 0 60px;
+            padding: 6px 6px 60px;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
@@ -131,8 +137,8 @@
         }
         .theme-toggle:hover { transform: scale(1.08) rotate(15deg); border-color: var(--accent); }
 
-        .main-content { max-width: 1600px; margin: 0 auto; padding: 40px 24px; }
-        .container { max-width: 1600px; margin: 0 auto; padding: 40px 24px; }
+        .main-content { max-width: 1600px; margin: 0 auto; padding: 24px 24px; }
+        .container { max-width: 1600px; margin: 0 auto; padding: 24px 24px; }
 
         /* === PAGES === */
         .page { display: none; }
@@ -254,8 +260,8 @@
 
         /* ── TOKEN-BAR im Header (kein Overlay) ── */
         .sa-token-bar {
-            background: var(--surface-2, #2d2d2d);
-            border-bottom: 1px solid var(--border, rgba(255,255,255,0.08));
+            background: var(--bg-tertiary, #2d2d2d);
+            border-bottom: 1px solid var(--border-color, rgba(255,255,255,0.08));
             padding: 7px 32px;
             display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
             transition: background 0.3s, border-color 0.3s;
@@ -552,6 +558,13 @@
   white-space: nowrap; pointer-events: none;
 }
 .construction-badge::before { content: '🚧'; font-size: 11px; margin-right: 2px; }
+
+/* All pages fill the full container width */
+.page { width: 100%; box-sizing: border-box; }
+.section-list, .questions-container, .overview-stats, .completed-audits-grid, .controls-container {
+  width: 100%;
+  box-sizing: border-box;
+}
 </style>
 </head>
 <body>
@@ -572,7 +585,9 @@
         <div class="site-header-right">
             <button id="themeToggleBtn" class="theme-toggle" title="Dark/Light Mode">🌓</button>
         </div>
-    <!-- TOKEN BAR – direkt im Header, kein Popup -->
+    </div>
+
+    <!-- TOKEN BAR – unterhalb des Headers wie in der Review App -->
     <div class="sa-token-bar" id="sa_token_bar">
         <div class="sa-token-bar-label"><i class="fab fa-github"></i> GitHub Token</div>
         <div class="sa-gh-dot" id="sa_gh_dot" title="Nicht verbunden"></div>
