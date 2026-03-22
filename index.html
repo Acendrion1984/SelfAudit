@@ -565,6 +565,11 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+/* ── Hide token input+button after connect ── */
+.sa-token-bar.connected .sa-token-input-wrap { display: none !important; }
+.sa-token-bar.connected .sa-token-connect-btn  { display: none !important; }
+.sa-token-bar.connected .sa-token-status { display: none !important; }
 </style>
 </head>
 <body>
@@ -675,8 +680,9 @@
                         <span style="font-size:0.8em;color:var(--muted);" id="zfpCompletedCount">(0)</span>
                     </div>
                     <div class="github-status">
-                        <span id="zfpGithubStatusIcon">⚪</span>
-                        <span id="zfpGithubStatusText2">Nicht verbunden</span>
+                        <span class="github-status-dot" id="zfpGithubStatusDot2" title="GitHub Status"></span>
+                        <span id="zfpGithubStatusIcon" style="display:none"></span>
+                        <span id="zfpGithubStatusText2" style="display:none"></span>
                         <button class="refresh-btn" onclick="zfpTestGitHubConnection()" title="Verbindung testen">⟳</button>
                         <button class="refresh-btn" onclick="zfpLoadAllCompletedAudits()" title="Aktualisieren">↻</button>
                     </div>
@@ -936,14 +942,11 @@
         function zfpUpdateGitHubStatus(connected, text) {
             zfpGithubConnected = connected;
             const dot  = document.getElementById('zfpGithubStatusDot');
-            const icon = document.getElementById('zfpGithubStatusIcon');
-            const txt2 = document.getElementById('zfpGithubStatusText2');
-            if (dot) {
-                dot.className = 'github-status-dot ' + (connected ? 'connected' : 'error');
-                dot.title = text || (connected ? 'Verbunden' : 'Nicht verbunden');
-            }
-            if (icon) { icon.innerHTML = connected ? '🟢' : '🔴'; }
-            if (txt2) txt2.textContent = text || '';
+            const dot2 = document.getElementById('zfpGithubStatusDot2');
+            const cls = 'github-status-dot ' + (connected ? 'connected' : 'error');
+            const title = text || (connected ? 'Verbunden' : 'Nicht verbunden');
+            if (dot)  { dot.className  = cls; dot.title  = title; }
+            if (dot2) { dot2.className = cls; dot2.title = title; }
         }
 
         function zfpShowSaving(visible) {
