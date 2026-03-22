@@ -10,9 +10,9 @@
     <style>
         /* === CSS VARIABLEN – pruefprotokoll-style (dark default) === */
         :root {
-            --bg:          #0d1117;
-            --surface:     #161b22;
-            --surface-2:   #21262d;
+            --bg:          #1a1a1a;
+            --surface:     #242424;
+            --surface-2:   #2d2d2d;
             --border:      rgba(255,255,255,0.08);
             --text:        #e6edf3;
             --muted:       #8b949e;
@@ -39,7 +39,7 @@
             --btn-warning:  #b9770e;
             --btn-export:   #2874a6;
             --btn-load:     #b9770e;
-            --progress-bg:  #21262d;
+            --progress-bg:  #2d2d2d;
             --progress-100: #27ae60;
             --progress-50:  #f39c12;
             --question-border: #3a8fd1;
@@ -244,7 +244,7 @@
         .field-label-overlay { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; display: block; }
         .field-input-overlay { width: 100%; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); font-family: 'DM Mono', monospace; font-size: 13px; transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
         .field-input-overlay:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(88,166,255,0.15); }
-        .login-btn-main { width: 100%; padding: 13px; border-radius: 10px; border: none; background: var(--accent); color: #0d1117; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: opacity 0.2s, transform 0.15s; margin-top: 6px; }
+        .login-btn-main { width: 100%; padding: 13px; border-radius: 10px; border: none; background: var(--accent); color: #1a1a1a; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; transition: opacity 0.2s, transform 0.15s; margin-top: 6px; }
         body.light-mode .login-btn-main { color: #ffffff; }
         .login-btn-main:hover { opacity: 0.88; transform: translateY(-1px); }
         .login-btn-main:active { transform: translateY(0); }
@@ -253,7 +253,7 @@
 
         /* ── TOKEN-BAR im Header (kein Overlay) ── */
         .sa-token-bar {
-            background: var(--surface-2, #21262d);
+            background: var(--surface-2, #2d2d2d);
             border-bottom: 1px solid var(--border, rgba(255,255,255,0.08));
             padding: 7px 32px;
             display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
@@ -276,7 +276,7 @@
         .sa-token-input-wrap {
             flex: 1; min-width: 160px; max-width: 320px;
             display: flex; align-items: center;
-            background: var(--surface, #161b22); border: 1px solid var(--border, rgba(255,255,255,0.08));
+            background: var(--surface, #242424); border: 1px solid var(--border, rgba(255,255,255,0.08));
             border-radius: 8px; overflow: hidden;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
@@ -501,7 +501,57 @@
 
 
         footer { text-align: center; margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--border-color); color: var(--muted); font-size: 0.82em; }
-    </style>
+    
+/* ===== DESKTOP MAX-WIDTH 1600px ===== */
+.main, .main-content, .container, .app-inner, footer, .site-main {
+  max-width: 1600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ===== RESPONSIVE / MOBILE ===== */
+@media (max-width: 768px) {
+  body { font-size: 14px; overflow-x: hidden; }
+  .site-header, header { padding: 12px 14px !important; }
+  .site-header-title { font-size: clamp(15px, 5vw, 22px) !important; }
+  .site-header-sub { display: none; }
+  .main, .main-content, .container, .app-inner { padding: 10px 10px 20px !important; }
+  .grid, .tiles-grid, .audit-buttons { grid-template-columns: 1fr 1fr !important; gap: 8px !important; }
+  .tile, .audit-btn { min-height: 100px !important; padding: 12px 10px !important; }
+  .header-row, .controls-row, .controls-row-audit { flex-wrap: wrap !important; gap: 5px !important; }
+  .token-input-wrap, .token-input-row, .rev-token-input-wrap, .op-token-input-wrap {
+    max-width: 100% !important; min-width: 0 !important; width: 100% !important; flex: 1 1 100% !important;
+  }
+  .rev-token-bar, .op-token-bar { flex-wrap: wrap !important; gap: 5px !important; padding: 8px !important; }
+  .rev-token-connect-btn, .op-token-connect-btn { width: 100% !important; }
+  .filters { flex-wrap: wrap !important; gap: 6px !important; }
+  .filters select, .filters input { width: 100% !important; min-width: 0 !important; }
+  table { font-size: 11px !important; }
+  th, td { padding: 5px 6px !important; }
+  .login-modal, .login-modal-pp { padding: 22px 14px 18px !important; width: 95% !important; }
+  .btn-back, .btn-export, .btn-report, .btn-danger, .btn-success, .btn-secondary {
+    padding: 6px 8px !important; font-size: 11px !important;
+  }
+}
+@media (max-width: 480px) {
+  .grid, .tiles-grid, .audit-buttons { grid-template-columns: 1fr !important; }
+  .site-header-eyebrow { display: none; }
+}
+
+/* In-Entwicklung Badge für Platzhalter-Kacheln */
+.construction-badge {
+  position: absolute; top: 12px; right: 12px; z-index: 10;
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(0,0,0,0.55);
+  border: 1.5px solid rgba(255,193,7,0.85);
+  border-radius: 20px; padding: 3px 9px 3px 6px;
+  font-family: 'DM Mono', monospace; font-size: 9.5px;
+  font-weight: 500; letter-spacing: 0.5px;
+  color: #ffc107; backdrop-filter: blur(4px);
+  white-space: nowrap; pointer-events: none;
+}
+.construction-badge::before { content: '🚧'; font-size: 11px; margin-right: 2px; }
+</style>
 </head>
 <body>
 
@@ -575,6 +625,7 @@
                         </div>
                         <div class="tile-arrow-btn"><i class="fas fa-arrow-right"></i></div>
                     </button>
+
                 </div>
             </div>
 
