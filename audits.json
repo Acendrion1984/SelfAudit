@@ -1,12 +1,12 @@
 [
   {
-    "id": "audit_GENERAL_1774489072601",
-    "name": "Allgemeine Kriterien - 26.3.2026, 02:37:52",
+    "id": "audit_GENERAL_1774489084166",
+    "name": "Allgemeine Kriterien - 26.3.2026, 02:38:04",
     "audit_type": "GENERAL",
     "audit_title": "Allgemeine Kriterien",
     "standard": "TPG-AC7114 Rev D",
     "created_at": "2026-03-26T01:37:00.042Z",
-    "last_modified": "2026-03-26T01:37:52.601Z",
+    "last_modified": "2026-03-26T01:38:04.167Z",
     "data": {
       "germanQuestions": [
         {
@@ -74,7 +74,7 @@
         },
         {
           "id": "4.2",
-          "answer": "",
+          "answer": "YES",
           "evidence": "",
           "text": "Wurde einem Level 3 die Verantwortung übertragen, Kunden-ZfP-Anforderungen zu identifizieren und deren Umsetzung sicherzustellen: Reihenfolge der ZfP-Operationen?",
           "guidance": ""
@@ -758,7 +758,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "",
+              "answer": "YES",
               "evidence": ""
             },
             {
@@ -1833,8 +1833,8 @@
     },
     "summary": {
       "total": 84,
-      "answered": 9,
-      "yes": 9,
+      "answered": 10,
+      "yes": 10,
       "no": 0,
       "na": 0
     }
