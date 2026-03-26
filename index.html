@@ -153,7 +153,7 @@
         /* === PRUEFPROTOKOLL-STYLE TILES === */
         .audit-buttons {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 16px;
             margin-bottom: 24px;
         }
@@ -2049,6 +2049,42 @@ body.light-mode .rev-token-input-wrap input {
 }
 .schaeffler-logo-wrap img, .schaeffler-logo img {
   height:34px; width:auto; display:block;
+}
+/* Fix für Dark Mode Text in "Keine Audits" Meldung */
+.no-completed-audits {
+    color: var(--text-primary, var(--text, #e6edf3)) !important;
+}
+
+/* Sicherstellen, dass alle Texte in den abgeschlossenen Audits die richtige Farbe haben */
+.completed-audit-card,
+.completed-audit-type,
+.completed-audit-date,
+.completed-audit-meta,
+.audit-source-badge,
+.completed-audits-title,
+.completed-audits-header span {
+    color: var(--text-primary, var(--text, #e6edf3));
+}
+
+/* Light Mode spezifische Anpassungen */
+body.light-mode .no-completed-audits {
+    color: var(--text-primary, var(--text, #1a1e24)) !important;
+}
+
+body.light-mode .completed-audit-card,
+body.light-mode .completed-audit-type,
+body.light-mode .completed-audit-date,
+body.light-mode .completed-audit-meta,
+body.light-mode .completed-audits-title {
+    color: var(--text-primary, var(--text, #1a1e24));
+}
+/* Footer Dark Mode Fix */
+footer {
+    color: var(--text, #e6edf3) !important;
+}
+
+body.light-mode footer {
+    color: var(--text, #1a1e24) !important;
 }
 </style>
 </body>
