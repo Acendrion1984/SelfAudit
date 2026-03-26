@@ -1,171 +1,171 @@
 [
   {
-    "id": "audit_GENERAL_1774489152947",
+    "id": "audit_GENERAL_1774489180141",
     "name": "Allgemein",
     "audit_type": "GENERAL",
     "audit_title": "Allgemeine Kriterien",
     "standard": "TPG-AC7114 Rev D",
     "created_at": "2026-03-26T01:37:00.042Z",
-    "last_modified": "2026-03-26T01:39:12.947Z",
+    "last_modified": "2026-03-26T01:39:40.141Z",
     "data": {
       "germanQuestions": [
         {
           "id": "1.1",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Werden diese Auditkriterien verwendet, um eine Einrichtung zu überprüfen, die eine Genehmigung für das ZfP-Verfahren anstrebt?",
           "guidance": "Diese Auditkriterien sind für die Überprüfung von Einrichtungen vorgesehen, die eine Genehmigung für das ZfP-Verfahren anstreben."
         },
         {
           "id": "2.1",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Sind die anwendbaren Verfahren, Prüfungen und andere technische Unterlagen auf Englisch verfügbar?",
           "guidance": "Sofern keine alternative Sprache mit dem zuständigen Auditor vereinbart wurde, sind folgende Dokumente vor dem Audit schriftlich zu übersetzen: ZfP-Verfahrensanweisungen und schriftliche ZfP-Praxis. Alle ZfP-Qualifikationsprüfungen oder verwendete Prüfungsdatenbanken, die nicht von ASNT, ISO9712 oder einem NANDTB durchgeführt werden."
         },
         {
           "id": "2.2",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Gibt es Nachweise über eine aktuelle Genehmigung für ein Qualitätsmanagementsystem nach ISO9001, AS9100 / EN9100, AC7004 oder ISO17025 (nur ZfP-Prüfhäuser)?",
           "guidance": "Reine Informationsfrage. N/A ist akzeptabel, wenn die oben genannten Qualitätsmanagementsystem-Akkreditierungen nicht vorhanden sind."
         },
         {
           "id": "3.1",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Wurden bei Wiederholungsakkreditierungsaudits die Korrekturmaßnahmen aus dem vorherigen Audit umgesetzt?",
           "guidance": "Die Überprüfung der Korrekturmaßnahmen, die aufgrund von Abweichungen im vorherigen Audit festgestellt wurden, wird durch den Auditor durchgeführt."
         },
         {
           "id": "3.2",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Stellt das Korrekturmaßnahmensystem des Auditierten, soweit es den ZfP-Bereich betrifft, sicher, dass die erforderlichen Verfahrensänderungen infolge von Korrekturmaßnahmen umgesetzt und wirksam sind?",
           "guidance": ""
         },
         {
           "id": "3.3",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Hat der Auditierte dem Auditor mindestens 30 Tage vor dem Audit eine Kopie seines abgeschlossenen Selbstaudits zur Verfügung gestellt, unter Verwendung der für dieses Audit geltenden Version der Kriterien?",
           "guidance": "Die NDT-Arbeitsgruppe empfiehlt, das Selbstaudit 90–120 Tage vor dem geplanten Audit durchzuführen."
         },
         {
           "id": "3.4",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Hat der Auditierte für jede Frage der Auditkriterien angegeben, wo der Nachweis der Konformität oder die Mittel zur Konformitätsnachweisführung zu finden sind?",
           "guidance": "Konformität oder Konformitätsnachweise können das Verfahren, die Auditkriterien, der physische Standort von Nachweisen usw. sein."
         },
         {
           "id": "3.5",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Umfasst das Selbstaudit einen Konformitätsauftrag je Prüfmethode?",
           "guidance": ""
         },
         {
           "id": "4.1",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Wurde einem Level 3 die Verantwortung übertragen, Kunden-ZfP-Anforderungen zu identifizieren und deren Umsetzung sicherzustellen: Überprüfung der ZfP-Anforderungen?",
           "guidance": ""
         },
         {
           "id": "4.2",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Wurde einem Level 3 die Verantwortung übertragen, Kunden-ZfP-Anforderungen zu identifizieren und deren Umsetzung sicherzustellen: Reihenfolge der ZfP-Operationen?",
           "guidance": ""
         },
         {
           "id": "4.3",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Wurde einem Level 3 die Verantwortung übertragen, Kunden-ZfP-Anforderungen zu identifizieren und deren Umsetzung sicherzustellen: Entwicklung und Genehmigung von ZfP-Verfahren?",
           "guidance": ""
         },
         {
           "id": "4.4",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Wurde einem Level 3 die Verantwortung übertragen, Kunden-ZfP-Anforderungen zu identifizieren und deren Umsetzung sicherzustellen: Entwicklung/Überprüfung und Genehmigung von ZfP-Techniken?",
           "guidance": ""
         },
         {
           "id": "4.5",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Wurde einem Level 3 die Verantwortung übertragen, Kunden-ZfP-Anforderungen zu identifizieren und deren Umsetzung sicherzustellen: Schulung von ZfP-Personal?",
           "guidance": ""
         },
         {
           "id": "4.6",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Wurde einem Level 3 die Verantwortung übertragen, Kunden-ZfP-Anforderungen zu identifizieren und deren Umsetzung sicherzustellen: Prüfung von ZfP-Personal?",
           "guidance": ""
         },
         {
           "id": "4.7",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Gibt es ein Verfahren, das sicherstellt, dass alle erforderlichen Kundengenehmigungen eingeholt werden, bevor ZfP an Kundenteilen durchgeführt wird?",
           "guidance": "Die Konformität kann in einer übergeordneten Vertragsüberprüfung oder einem anderen Qualitätsverfahren nachgewiesen werden und muss nicht zwingend in einer ZfP-Verfahrensanweisung enthalten sein."
         },
         {
           "id": "4.8",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Gibt es Nachweise, dass alle erforderlichen Kundengenehmigungen für alle auditierten ZfP-Methoden aktuell sind?",
           "guidance": ""
         },
         {
           "id": "4.9",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Gibt es ein Beschaffungsverfahren, das sicherstellt, dass Anforderungen des Hauptauftragnehmers an den untergeordneten Auditierten weitergegeben werden, einschließlich Kalibrierdienstleistungen, Reinigungs-/Ätzanlagen, Prozesskontrolltests, Materialien, Ausrüstung und Prüfeinrichtungen im ZfP-Bereich?",
           "guidance": "Das Verfahren muss die Weitergabe der Spezifikationen oder Normen, nach denen Dienstleistungen oder Materialien beschafft werden, Zertifizierungsanforderungen, Genauigkeit, Bereich und alle anderen relevanten Daten zur Begründung der Akzeptanz regeln."
         },
         {
           "id": "4.10",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Gibt es Nachweise der Konformität mit dem Beschaffungsverfahren?",
           "guidance": ""
         },
         {
           "id": "8.1.1",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Berücksichtigt das Qualitätsmanagementsystem des Unternehmens alle Aspekte der Betriebsgenehmigung, d. h. die Bereitstellung aufgabenspezifischer Schulungen?",
           "guidance": "Ref.: IN FSW 17008"
         },
         {
           "id": "8.1.2",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Berücksichtigt das Qualitätsmanagementsystem des Unternehmens die Ausstellung der schriftlichen Betriebsgenehmigung?",
           "guidance": "Ref.: IN FSW 17008"
         },
         {
           "id": "8.1.3",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Berücksichtigt das Qualitätsmanagementsystem des Unternehmens die Ergebnisse von ZfP-Prüfungen?",
           "guidance": "Ref.: S231202-4, -5, S245008-1, -2"
         },
         {
           "id": "8.1.4",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Berücksichtigt das Qualitätsmanagementsystem des Unternehmens die Sicherstellung der jährlichen Sehschärfeanforderungen gemäß ISO 9712?",
           "guidance": "Ref.: S290008 (Sichtprüfung)"
         },
         {
           "id": "8.1.5",
-          "answer": "YES",
+          "answer": "",
           "evidence": "",
           "text": "Berücksichtigt das Qualitätsmanagementsystem des Unternehmens die Überprüfung der Kontinuität in der Anwendung der ZfP-Methode ohne wesentliche Unterbrechung?",
           "guidance": "Nachverfolgung im Teams-Kanal."
@@ -614,7 +614,7 @@
               ],
               "hasNA": true,
               "sectionId": "1",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             }
           ]
@@ -634,7 +634,7 @@
               ],
               "hasNA": true,
               "sectionId": "2",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -648,7 +648,7 @@
               ],
               "hasNA": true,
               "sectionId": "2",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             }
           ]
@@ -668,7 +668,7 @@
               ],
               "hasNA": true,
               "sectionId": "3",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -682,7 +682,7 @@
               ],
               "hasNA": true,
               "sectionId": "3",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -696,7 +696,7 @@
               ],
               "hasNA": true,
               "sectionId": "3",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -710,7 +710,7 @@
               ],
               "hasNA": true,
               "sectionId": "3",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -724,7 +724,7 @@
               ],
               "hasNA": true,
               "sectionId": "3",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             }
           ]
@@ -744,7 +744,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -758,7 +758,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -772,7 +772,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -786,7 +786,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -800,7 +800,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -814,7 +814,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -828,7 +828,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -842,7 +842,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -856,7 +856,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -870,7 +870,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             }
           ]
@@ -890,7 +890,7 @@
               ],
               "hasNA": true,
               "sectionId": "8",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -904,7 +904,7 @@
               ],
               "hasNA": true,
               "sectionId": "8",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -918,7 +918,7 @@
               ],
               "hasNA": true,
               "sectionId": "8",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -932,7 +932,7 @@
               ],
               "hasNA": true,
               "sectionId": "8",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -946,7 +946,7 @@
               ],
               "hasNA": true,
               "sectionId": "8",
-              "answer": "YES",
+              "answer": "",
               "evidence": ""
             },
             {
@@ -1833,8 +1833,8 @@
     },
     "summary": {
       "total": 84,
-      "answered": 23,
-      "yes": 23,
+      "answered": 0,
+      "yes": 0,
       "no": 0,
       "na": 0
     }
