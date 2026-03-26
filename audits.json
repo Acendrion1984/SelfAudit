@@ -1,12 +1,12 @@
 [
   {
-    "id": "audit_GENERAL_1774489105053",
-    "name": "Allgemeine Kriterien - 26.3.2026, 02:38:25",
+    "id": "audit_GENERAL_1774489114766",
+    "name": "Allgemeine Kriterien - 26.3.2026, 02:38:34",
     "audit_type": "GENERAL",
     "audit_title": "Allgemeine Kriterien",
     "standard": "TPG-AC7114 Rev D",
     "created_at": "2026-03-26T01:37:00.042Z",
-    "last_modified": "2026-03-26T01:38:25.053Z",
+    "last_modified": "2026-03-26T01:38:34.766Z",
     "data": {
       "germanQuestions": [
         {
@@ -109,7 +109,7 @@
         },
         {
           "id": "4.7",
-          "answer": "",
+          "answer": "YES",
           "evidence": "",
           "text": "Gibt es ein Verfahren, das sicherstellt, dass alle erforderlichen Kundengenehmigungen eingeholt werden, bevor ZfP an Kundenteilen durchgeführt wird?",
           "guidance": "Die Konformität kann in einer übergeordneten Vertragsüberprüfung oder einem anderen Qualitätsverfahren nachgewiesen werden und muss nicht zwingend in einer ZfP-Verfahrensanweisung enthalten sein."
@@ -828,7 +828,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "",
+              "answer": "YES",
               "evidence": ""
             },
             {
@@ -1833,8 +1833,8 @@
     },
     "summary": {
       "total": 84,
-      "answered": 14,
-      "yes": 14,
+      "answered": 15,
+      "yes": 15,
       "no": 0,
       "na": 0
     }
