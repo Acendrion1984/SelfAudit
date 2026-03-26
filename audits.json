@@ -1,12 +1,12 @@
 [
   {
-    "id": "audit_GENERAL_1774489122340",
-    "name": "Allgemeine Kriterien - 26.3.2026, 02:38:42",
+    "id": "audit_GENERAL_1774489125241",
+    "name": "Allgemeine Kriterien - 26.3.2026, 02:38:45",
     "audit_type": "GENERAL",
     "audit_title": "Allgemeine Kriterien",
     "standard": "TPG-AC7114 Rev D",
     "created_at": "2026-03-26T01:37:00.042Z",
-    "last_modified": "2026-03-26T01:38:42.341Z",
+    "last_modified": "2026-03-26T01:38:45.241Z",
     "data": {
       "germanQuestions": [
         {
@@ -123,7 +123,7 @@
         },
         {
           "id": "4.9",
-          "answer": "",
+          "answer": "YES",
           "evidence": "",
           "text": "Gibt es ein Beschaffungsverfahren, das sicherstellt, dass Anforderungen des Hauptauftragnehmers an den untergeordneten Auditierten weitergegeben werden, einschließlich Kalibrierdienstleistungen, Reinigungs-/Ätzanlagen, Prozesskontrolltests, Materialien, Ausrüstung und Prüfeinrichtungen im ZfP-Bereich?",
           "guidance": "Das Verfahren muss die Weitergabe der Spezifikationen oder Normen, nach denen Dienstleistungen oder Materialien beschafft werden, Zertifizierungsanforderungen, Genauigkeit, Bereich und alle anderen relevanten Daten zur Begründung der Akzeptanz regeln."
@@ -856,7 +856,7 @@
               ],
               "hasNA": true,
               "sectionId": "4",
-              "answer": "",
+              "answer": "YES",
               "evidence": ""
             },
             {
@@ -1833,8 +1833,8 @@
     },
     "summary": {
       "total": 84,
-      "answered": 16,
-      "yes": 16,
+      "answered": 17,
+      "yes": 17,
       "no": 0,
       "na": 0
     }
