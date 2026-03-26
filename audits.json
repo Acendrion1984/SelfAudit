@@ -1,12 +1,12 @@
 [
   {
-    "id": "audit_GENERAL_1774489049180",
-    "name": "Allgemeine Kriterien - 26.3.2026, 02:37:29",
+    "id": "audit_GENERAL_1774489051971",
+    "name": "Allgemeine Kriterien - 26.3.2026, 02:37:31",
     "audit_type": "GENERAL",
     "audit_title": "Allgemeine Kriterien",
     "standard": "TPG-AC7114 Rev D",
     "created_at": "2026-03-26T01:37:00.042Z",
-    "last_modified": "2026-03-26T01:37:29.181Z",
+    "last_modified": "2026-03-26T01:37:31.972Z",
     "data": {
       "germanQuestions": [
         {
@@ -46,7 +46,7 @@
         },
         {
           "id": "3.3",
-          "answer": "",
+          "answer": "YES",
           "evidence": "",
           "text": "Hat der Auditierte dem Auditor mindestens 30 Tage vor dem Audit eine Kopie seines abgeschlossenen Selbstaudits zur Verfügung gestellt, unter Verwendung der für dieses Audit geltenden Version der Kriterien?",
           "guidance": "Die NDT-Arbeitsgruppe empfiehlt, das Selbstaudit 90–120 Tage vor dem geplanten Audit durchzuführen."
@@ -696,7 +696,7 @@
               ],
               "hasNA": true,
               "sectionId": "3",
-              "answer": "",
+              "answer": "YES",
               "evidence": ""
             },
             {
@@ -1833,8 +1833,8 @@
     },
     "summary": {
       "total": 84,
-      "answered": 5,
-      "yes": 5,
+      "answered": 6,
+      "yes": 6,
       "no": 0,
       "na": 0
     }
