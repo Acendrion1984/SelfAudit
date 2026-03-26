@@ -1,12 +1,12 @@
 [
   {
-    "id": "audit_GENERAL_1774489058851",
-    "name": "Allgemeine Kriterien - 26.3.2026, 02:37:38",
+    "id": "audit_GENERAL_1774489063442",
+    "name": "Allgemeine Kriterien - 26.3.2026, 02:37:43",
     "audit_type": "GENERAL",
     "audit_title": "Allgemeine Kriterien",
     "standard": "TPG-AC7114 Rev D",
     "created_at": "2026-03-26T01:37:00.042Z",
-    "last_modified": "2026-03-26T01:37:38.852Z",
+    "last_modified": "2026-03-26T01:37:43.443Z",
     "data": {
       "germanQuestions": [
         {
@@ -60,7 +60,7 @@
         },
         {
           "id": "3.5",
-          "answer": "",
+          "answer": "YES",
           "evidence": "",
           "text": "Umfasst das Selbstaudit einen Konformitätsauftrag je Prüfmethode?",
           "guidance": ""
@@ -724,7 +724,7 @@
               ],
               "hasNA": true,
               "sectionId": "3",
-              "answer": "",
+              "answer": "YES",
               "evidence": ""
             }
           ]
@@ -1833,8 +1833,8 @@
     },
     "summary": {
       "total": 84,
-      "answered": 7,
-      "yes": 7,
+      "answered": 8,
+      "yes": 8,
       "no": 0,
       "na": 0
     }
