@@ -1,12 +1,12 @@
 [
   {
-    "id": "audit_GENERAL_1774489020014",
-    "name": "Allgemeine Kriterien - 26.3.2026, 02:37:00",
+    "id": "audit_GENERAL_1774489025491",
+    "name": "Allgemeine Kriterien - 26.3.2026, 02:37:05",
     "audit_type": "GENERAL",
     "audit_title": "Allgemeine Kriterien",
     "standard": "TPG-AC7114 Rev D",
     "created_at": "2026-03-26T01:37:00.042Z",
-    "last_modified": "2026-03-26T01:37:00.042Z",
+    "last_modified": "2026-03-26T01:37:05.491Z",
     "data": {
       "germanQuestions": [
         {
@@ -18,7 +18,7 @@
         },
         {
           "id": "2.1",
-          "answer": "",
+          "answer": "YES",
           "evidence": "",
           "text": "Sind die anwendbaren Verfahren, Prüfungen und andere technische Unterlagen auf Englisch verfügbar?",
           "guidance": "Sofern keine alternative Sprache mit dem zuständigen Auditor vereinbart wurde, sind folgende Dokumente vor dem Audit schriftlich zu übersetzen: ZfP-Verfahrensanweisungen und schriftliche ZfP-Praxis. Alle ZfP-Qualifikationsprüfungen oder verwendete Prüfungsdatenbanken, die nicht von ASNT, ISO9712 oder einem NANDTB durchgeführt werden."
@@ -634,7 +634,7 @@
               ],
               "hasNA": true,
               "sectionId": "2",
-              "answer": "",
+              "answer": "YES",
               "evidence": ""
             },
             {
@@ -1833,8 +1833,8 @@
     },
     "summary": {
       "total": 84,
-      "answered": 1,
-      "yes": 1,
+      "answered": 2,
+      "yes": 2,
       "no": 0,
       "na": 0
     }
