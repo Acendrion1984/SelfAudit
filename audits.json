@@ -1,12 +1,12 @@
 [
   {
-    "id": "audit_GENERAL_1774489043164",
-    "name": "Allgemeine Kriterien - 26.3.2026, 02:37:23",
+    "id": "audit_GENERAL_1774489049180",
+    "name": "Allgemeine Kriterien - 26.3.2026, 02:37:29",
     "audit_type": "GENERAL",
     "audit_title": "Allgemeine Kriterien",
     "standard": "TPG-AC7114 Rev D",
     "created_at": "2026-03-26T01:37:00.042Z",
-    "last_modified": "2026-03-26T01:37:23.165Z",
+    "last_modified": "2026-03-26T01:37:29.181Z",
     "data": {
       "germanQuestions": [
         {
@@ -39,7 +39,7 @@
         },
         {
           "id": "3.2",
-          "answer": "",
+          "answer": "YES",
           "evidence": "",
           "text": "Stellt das Korrekturmaßnahmensystem des Auditierten, soweit es den ZfP-Bereich betrifft, sicher, dass die erforderlichen Verfahrensänderungen infolge von Korrekturmaßnahmen umgesetzt und wirksam sind?",
           "guidance": ""
@@ -682,7 +682,7 @@
               ],
               "hasNA": true,
               "sectionId": "3",
-              "answer": "",
+              "answer": "YES",
               "evidence": ""
             },
             {
@@ -1833,8 +1833,8 @@
     },
     "summary": {
       "total": 84,
-      "answered": 4,
-      "yes": 4,
+      "answered": 5,
+      "yes": 5,
       "no": 0,
       "na": 0
     }
