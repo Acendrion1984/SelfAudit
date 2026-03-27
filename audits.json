@@ -1,12 +1,12 @@
 [
   {
-    "id": "audit_GENERAL_1774632178420",
-    "name": "Allgemeine Kriterien - 27.3.2026, 18:22:58",
+    "id": "audit_GENERAL_1774632186774",
+    "name": "Test",
     "audit_type": "GENERAL",
     "audit_title": "Allgemeine Kriterien",
     "standard": "TPG-AC7114 Rev D",
     "created_at": "2026-03-27T17:22:58.442Z",
-    "last_modified": "2026-03-27T17:22:58.442Z",
+    "last_modified": "2026-03-27T17:23:06.774Z",
     "data": {
       "germanQuestions": [
         {
@@ -25,7 +25,7 @@
         },
         {
           "id": "2.2",
-          "answer": "",
+          "answer": "YES",
           "evidence": "",
           "text": "Gibt es Nachweise über eine aktuelle Genehmigung für ein Qualitätsmanagementsystem nach ISO9001, AS9100 / EN9100, AC7004 oder ISO17025 (nur ZfP-Prüfhäuser)?",
           "guidance": "Reine Informationsfrage. N/A ist akzeptabel, wenn die oben genannten Qualitätsmanagementsystem-Akkreditierungen nicht vorhanden sind."
@@ -648,7 +648,7 @@
               ],
               "hasNA": true,
               "sectionId": "2",
-              "answer": "",
+              "answer": "YES",
               "evidence": ""
             }
           ]
@@ -1833,8 +1833,8 @@
     },
     "summary": {
       "total": 84,
-      "answered": 1,
-      "yes": 1,
+      "answered": 2,
+      "yes": 2,
       "no": 0,
       "na": 0
     }
